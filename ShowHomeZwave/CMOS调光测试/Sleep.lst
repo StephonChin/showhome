@@ -1,0 +1,38 @@
+C51 COMPILER V9.52.0.0   SLEEP                                                             04/05/2018 22:21:31 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SLEEP
+OBJECT MODULE PLACED IN .\Output\Sleep.obj
+COMPILER INVOKED BY: C:\Keil\C51\C51\BIN\C51.EXE UserSrc\Sleep.c BROWSE INCDIR(.\UserInc) DEBUG OBJECTEXTEND PRINT(.\Sle
+                    -ep.lst) TABS(2) OBJECT(.\Output\Sleep.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2            *
+   3            * @FileName     Sleep.c
+   4            * @Date         2018.03.29
+   5            * @Author       DS.Chin
+   6            * @CopyRight    (C) CopyRight  @2016 ~ 2026 Willis Ltd. Co.
+   7            * @Description  This file contains all the function prototyped for the config
+   8            *               fimer library
+   9            *
+  10          *******************************************************************************/
+  11          #include "Sleep.h"
+  12          
+  13          
+  14          xdata _Flag   SleepFlag;
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      1    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

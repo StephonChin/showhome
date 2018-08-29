@@ -1,0 +1,164 @@
+C51 COMPILER V9.52.0.0   MCU_CONFIG                                                        02/02/2018 17:16:04 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MCU_CONFIG
+OBJECT MODULE PLACED IN MCU_Config.obj
+COMPILER INVOKED BY: C:\Keil\C51\C51\BIN\C51.EXE Source\MCU_Config.c BROWSE INCDIR(.\Include) DEBUG OBJECTEXTEND PRINT(.
+                    -\MCU_Config.lst) OBJECT(MCU_Config.obj)
+
+line level    source
+
+   1          /*************************************************************************
+   2                  *
+   3                  * @FileName             MCU_Config.c
+   4                  * @Date                         2017.03.03
+   5                  * @Author                       DS.Chin
+   6                  *
+   7          **************************************************************************/
+   8          #include "MCU_Config.h"
+   9          
+  10          
+  11          /****************************************
+  12                  * 
+  13                  * @FunctionName         MCU_Config
+  14                  * @Output                                       None
+  15                  * @Input                                        None
+  16                  *
+  17                  */
+  18          void MCU_Config(void)
+  19          {
+  20   1              // ¹Ø±Õ×ÜÖÐ¶Ï
+  21   1              IE &= ~BIT7;
+  22   1              CLK_Init();
+  23   1              GPIO_Init();
+  24   1              TIM_Init();
+  25   1              INT_Init();
+  26   1              WKT_Init();
+  27   1              IE |= BIT7;
+  28   1      }
+  29          
+  30          
+  31          
+  32          /********************************************
+  33                  *
+  34                  * @FunctionName         CLK_Init
+  35                  * @Output                                       None
+  36                  * @Input                                        None
+  37                  *
+  38                  */
+  39          static void CLK_Init(void)
+  40          {
+  41   1              CKSWT   = 0x00;
+  42   1              CKDIV   = 0x00;
+  43   1      }
+  44          
+  45          /********************************************
+  46                  *
+  47                  * @FunctionName         GPIO_Init
+  48                  * @Output                                       None
+  49                  * @Input                                        None
+  50                  *
+  51                  */
+  52          static void GPIO_Init(void)
+  53          {
+  54   1              // P00~P07 output push-pull
+C51 COMPILER V9.52.0.0   MCU_CONFIG                                                        02/02/2018 17:16:04 PAGE 2   
+
+  55   1              P0M1 = 0x00;
+  56   1              P0M2 = 0xFF;
+  57   1              P0   = 0xFF;
+  58   1              
+  59   1              // P10 P11 P12 P13 output push-pull
+  60   1              P1M1 &= ~(BIT0 | BIT1 | BIT2 | BIT3);
+  61   1              P1M2 |= (BIT0 | BIT1 | BIT2 | BIT3);
+  62   1              P1   |= (BIT0 | BIT1 | BIT2 | BIT3);
+  63   1              
+  64   1              // P14 P15 P17 input
+  65   1              P1M1 |= (BIT4 | BIT5 | BIT7);
+  66   1              P1M2 |= (BIT4 | BIT5 | BIT7);
+  67   1              
+  68   1              // P16 Output
+  69   1              P1M1 &= ~BIT6;
+  70   1              P1M2 |= BIT6;
+  71   1              P1   &= ~BIT6;
+  72   1              
+  73   1              // P30 Output
+  74   1              P3M1 &= ~BIT0;
+  75   1              P3M2 |= BIT0;
+  76   1              P3   &= ~BIT0;
+  77   1              
+  78   1              //P07input
+  79   1              P0M1 |= BIT7;
+  80   1              P0M2 |= BIT7;
+  81   1              
+  82   1              // Close the BOD
+  83   1              TA = 0xAA;
+  84   1              TA = 0x55;
+  85   1              BODCON0 = 0x0;
+  86   1      }
+  87          
+  88          
+  89          
+  90          /********************************************
+  91                  *
+  92                  * @FunctionName         TIM_Init
+  93                  * @Output                                       None
+  94                  * @Input                                        None
+  95                  *
+  96                  */
+  97          static void TIM_Init(void)
+  98          {
+  99   1              T2CON   = 0x0;
+ 100   1              T2MOD   = 0xA0;
+ 101   1              RCMP2L  = 0xEF;
+ 102   1              RCMP2H  = 0xD8;
+ 103   1              TR2             = 1;
+ 104   1      }
+ 105          
+ 106          
+ 107          /********************************************
+ 108                  *
+ 109                  * @FunctionName         INT_Init
+ 110                  * @Output                                       None
+ 111                  * @Input                                        None
+ 112                  *
+ 113                  */
+ 114          static void INT_Init(void)
+ 115          {
+ 116   1              PICON   |= (BIT6 | BIT7 | BIT0);
+C51 COMPILER V9.52.0.0   MCU_CONFIG                                                        02/02/2018 17:16:04 PAGE 3   
+
+ 117   1              PINEN   |= (BIT4 | BIT5 | BIT7);
+ 118   1              PIPEN   |= (BIT4 | BIT5 | BIT7);
+ 119   1              EIE                     |= BIT1;
+ 120   1      }
+ 121          
+ 122          
+ 123          
+ 124          /********************************************
+ 125                  *
+ 126                  * @FunctionName         WKT_Init
+ 127                  * @Output                                       None
+ 128                  * @Input                                        None
+ 129                  *
+ 130                  */
+ 131          static void WKT_Init(void)
+ 132          {
+ 133   1              WKCON = 0x07;
+ 134   1              RWK             = 207;          //10s
+ 135   1              EIE1    = 0x04;
+ 136   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    123    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

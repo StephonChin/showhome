@@ -1,0 +1,69 @@
+#include "iomacros.h"
+#include "LT32A01.h"
+
+
+void InitialSystem(void)
+{
+	//asm("lrw r1,0x00800000");
+	//asm("mtcr r1, vbr");
+	EIC->IER = 0;
+
+	WDT->WMR = 0x0;
+	WDT->WCR = 0x0;
+
+	EFM->U16CCR.JTAGDIS = 1;
+	EFM->U16CCR.EXTALDIS = 1;//外部晶振功能禁止
+	EFM->U16CCR.RSTOUTDIS = 1;//rstout 引脚功能禁用
+	EFM->U16CCR.CLKOUTDIS = 1; //clkout引脚功能禁用
+	EFM->U16CCR.IOSCSTE = 1;
+	EFM->U32EFMCR.WS = 1;// 等待状态位
+
+	CLOCK->U32SYNCR.SYSDIV = 0;//系统时钟分频为1
+	CLOCK->U32SYNCR.IPSDIV = 0;	//IPS时钟分频为1
+	CLOCK->U32SYNCR.ADCDIV = 0;//ADC时钟分频为1
+	CLOCK->U32SYNCR.CLKOUTSEL = 0;//时钟选择为系统时钟
+	CLOCK->U32SYNCR.ADCEN = 1;
+
+}
+
+void Uart_send_U32(UINT32 val)
+{
+	UINT8 ch;
+	UINT32 i;
+
+	SerialOutString("\nID: 0x");
+	for(i=0;i<8;i++)
+	{
+		ch = (val>>(4*(7-i)))&0xF;
+
+		if(ch<0xA) SerialOutChar(0x30+ch);
+		else       SerialOutChar(0x37+ch);
+	}
+	SerialOutString("\n");
+}
+
+int main(void){
+	
+	volatile int i=0;
+	UINT32 rdVal;
+
+		InitialSystem();
+		Uart_Init();
+
+
+		while(1)
+		{
+			i++;
+			asm("nop");
+			if(i>600000)
+			{
+				i = 0;
+				rdVal = IO_READ32(0x400600+0x1C8);
+				Uart_send_U32(rdVal);
+				SerialOutString("\nLT32A01 test Zyy............\n");
+			}
+		}
+}
+
+
+

@@ -1,0 +1,1 @@
+"Source\MCU_Config.c" BROWSE INCDIR(.\Include) DEBUG OBJECTEXTEND PRINT(.\MCU_Config.lst) TABS (2) OBJECT(MCU_Config.obj)

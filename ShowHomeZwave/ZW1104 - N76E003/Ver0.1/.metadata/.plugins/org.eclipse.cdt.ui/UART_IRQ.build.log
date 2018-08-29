@@ -1,0 +1,6 @@
+14:50:05 **** Incremental Build of configuration Debug for project UART_IRQ ****
+make -j4 all 
+make: Nothing to be done for `all'.
+
+14:50:05 Build Finished (took 154ms)
+

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>3881795757</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\data_send.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\data_rcv.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\key_scan.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\led_display.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dbgstm8smd.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\data_rcv.o</file>
+      <file>$TOOLKIT_DIR$\lib\dlstm8smn.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\timer_control.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlstm8smn.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\data_process.pbi</file>
+      <file>$PROJ_DIR$\APP\Include\ad_scan.h</file>
+      <file>$PROJ_DIR$\APP\Include\data_rcv.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\eeprom.pbi</file>
+      <file>$PROJ_DIR$\APP\Include\data_process.h</file>
+      <file>$PROJ_DIR$\APP\Source\main.c</file>
+      <file>$PROJ_DIR$\APP\Source\eeprom.c</file>
+      <file>$PROJ_DIR$\APP\Source\mcu_config.c</file>
+      <file>$PROJ_DIR$\APP\Include\data_send.h</file>
+      <file>$PROJ_DIR$\APP\Source\timer_control.c</file>
+      <file>$PROJ_DIR$\APP\Include\main.h</file>
+      <file>$PROJ_DIR$\APP\Source\data_rcv.c</file>
+      <file>$PROJ_DIR$\APP\Include\timer_control.h</file>
+      <file>$PROJ_DIR$\APP\Include\Eprom.h</file>
+      <file>$PROJ_DIR$\APP\Include\led_display.h</file>
+      <file>$PROJ_DIR$\APP\Source\data_send.c</file>
+      <file>$PROJ_DIR$\APP\Source\led_display.c</file>
+      <file>$PROJ_DIR$\APP\Source\ad_scan.c</file>
+      <file>$PROJ_DIR$\APP\Include\system.h</file>
+      <file>$PROJ_DIR$\APP\Include\key_scan.h</file>
+      <file>$PROJ_DIR$\APP\Source\data_process.c</file>
+      <file>$PROJ_DIR$\APP\Source\key_scan.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\mcu_config.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\BT1505.pbd</file>
+      <file>$PROJ_DIR$\Debug\Obj\eeprom.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\data_send.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\led_display.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ad_scan.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\data_process.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\mcu_config.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\BT1505.out</file>
+      <file>$PROJ_DIR$\Debug\Obj\key_scan.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\timer_control.o</file>
+      <file>$TOOLKIT_DIR$\config\lnkstm8s003f3.icf</file>
+      <file>$PROJ_DIR$\Debug\Exe\BT1505.s19</file>
+      <file>$PROJ_DIR$\Debug\Obj\ad_scan.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+      <file>$TOOLKIT_DIR$\inc\iostm8s003f3.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 55 12 32 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12 55 32 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\eeprom.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 40</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 27 55 12 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 55 32 12 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\mcu_config.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 36</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 55 12 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12 32 55</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\timer_control.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 50</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 55 12 32 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26 32 12 55</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\data_rcv.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 9</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 55 12 32 54 56 37 1 13 38 47 0 46 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 54 37 56 47 32 16 12 46 55 1 0 13 38</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\data_send.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 41</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 55 12 32 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12 55 32 22</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\led_display.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 55 12 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12 55 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\ad_scan.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 53</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 55 12 32 15</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12 55 32 15</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\data_process.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 44</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 55 12 32 18 27</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12 18 32 27 55</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\APP\Source\key_scan.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 6</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 55 12 32 33 27</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 32 55 33 12</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\BT1505.out</name>
+      <outputs>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 52</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 51 53 44 9 41 40 6 42 5 36 50 10 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

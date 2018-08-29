@@ -1,0 +1,370 @@
+Executable File = E:\guomeng\2015年项目\pir_sensor\pir_sensor\Bin\pir_sensor.out
+
+Timestamp is Fri May 22 11:29:38 2015
+
+
+Start		Length(Word)		Type		Name		Module
+0X000000	0X0008		Code		crt0@code		D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000008	0X0001		Code		_interrupt@_interrupt_isr_isr		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000009	0X0000		Code		.CODE		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000A	0X0004		Code		_SGV_INIT_CODE_BEGIN		D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X00000E	0X0000		Code		_SGV_INIT_CODE		D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X00000E	0X000C		Code		_SGV_INIT_CODE_END		D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X00001A	0X0014		Code		_Function_gpio_init_code		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002E	0X0006		Code		_Function_time_init_code		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000034	0X0081		Code		_Function_main_code		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B5	0X001E		Code		_Function_interrupt_isr_isr_code		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+
+Start		Length(Byte)		Type		Name		Module
+0X000000	0X0005		Data		crt0@data		D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000005	0X0001		Data		_main_c_GlobalBitDataPool0		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000006	0X0005		Data		_InterruptBackupData		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000B	0X0001		Data		_out_delay@segment		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000C	0X0001		Data		_sleep_delay_3@segment		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000D	0X0001		Data		_sleep_delay_2@segment		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000E	0X0001		Data		_sleep_delay_1@segment		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000F	0X0000		Data		_Function_gpio_init_data		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000F	0X0000		Data		_Function_time_init_data		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000F	0X0000		Data		_Function_main_data		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000F	0X0000		Data		_Function_interrupt_isr_isr_data		E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+
+Address		Type		Size(Byte)		Public/Local		Segment			Module
+0X000000	Section		0X010		L:crt0@code		crt0@code			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000008	Section		0X002		L:_interrupt@_interrupt_isr_isr		_interrupt@_interrupt_isr_isr			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000008	No type		0X000		L:_vector_for_interrupt_isr_isr		_interrupt@_interrupt_isr_isr			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000009	Section		0X000		L:.CODE		.CODE			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000009	No type		0X000		L:Ltext0		.CODE			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000A	Section		0X008		L:_SGV_INIT_CODE_BEGIN		_SGV_INIT_CODE_BEGIN			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X00000A	No type		0X000		P:_sgv_init_entry		_SGV_INIT_CODE_BEGIN			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X00000E	Section		0X000		L:_SGV_INIT_CODE		_SGV_INIT_CODE			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X00000E	Section		0X018		L:_SGV_INIT_CODE_END		_SGV_INIT_CODE_END			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000010	No type		0X000		P:__ClearWatchDogTimer		_SGV_INIT_CODE_END			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000013	No type		0X000		P:__ClrRAM		_SGV_INIT_CODE_END			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000015	No type		0X000		L:ClrRAM10		_SGV_INIT_CODE_END			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X00001A	Section		0X028		L:_Function_gpio_init_code		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00001A	No type		0X000		P:_gpio_init		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00001A	No type		0X000		L:L2		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00001A	No type		0X000		L:L3		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00001A	No type		0X000		L:L4		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00001B	No type		0X000		L:L5		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00001C	No type		0X000		L:L6		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00001E	No type		0X000		L:L7		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000020	No type		0X000		L:L8		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000021	No type		0X000		L:L9		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000023	No type		0X000		L:L10		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000025	No type		0X000		L:L11		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000026	No type		0X000		L:L12		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000027	No type		0X000		L:L13		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000029	No type		0X000		L:L14		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002A	No type		0X000		L:L15		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002B	No type		0X000		L:L16		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002D	No type		0X000		L:L17		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002D	No type		0X000		L:L18		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002D	No type		0X000		L:L1		_Function_gpio_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002E	No type		0X000		L:L20		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002E	No type		0X000		L:L21		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002E	No type		0X000		L:L22		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002E	Section		0X00C		L:_Function_time_init_code		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00002E	No type		0X000		P:_time_init		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000030	No type		0X000		L:L23		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000031	No type		0X000		L:L24		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000033	No type		0X000		L:L25		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000033	No type		0X000		L:L26		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000033	No type		0X000		L:L19		_Function_time_init_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000034	Section		0X102		L:_Function_main_code		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000034	No type		0X000		P:_main		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000034	No type		0X000		L:L67		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000034	No type		0X000		L:L68		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000034	No type		0X000		L:L69		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000036	No type		0X000		L:L70		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000037	No type		0X000		L:L71		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000038	No type		0X000		L:L28		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000038	No type		0X000		L:L72		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000038	No type		0X000		L:L73		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000038	No type		0X000		L:L74		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00003A	No type		0X000		L:L75		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00003A	No type		0X000		L:L76		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00003A	No type		0X000		L:L77		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00003B	No type		0X000		L:L78		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00003D	No type		0X000		L:L79		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00003D	No type		0X000		L:L80		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00003D	No type		0X000		L:L81		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000041	No type		0X000		L:L83		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000041	No type		0X000		L:L84		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000041	No type		0X000		L:L82		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000042	No type		0X000		L:L85		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000043	No type		0X000		L:L86		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000044	No type		0X000		L:L87		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000045	No type		0X000		L:L88		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000046	No type		0X000		L:L89		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000047	No type		0X000		L:L90		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000048	No type		0X000		L:L92		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000048	No type		0X000		L:L93		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000048	No type		0X000		L:L94		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000048	No type		0X000		L:L91		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000049	No type		0X000		L:L33		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000049	No type		0X000		L:L95		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000049	No type		0X000		L:L96		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000049	No type		0X000		L:L97		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00004D	No type		0X000		L:L98		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00004D	No type		0X000		L:L99		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00004D	No type		0X000		L:L100		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00004E	No type		0X000		L:L101		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00004F	No type		0X000		L:L102		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000050	No type		0X000		L:L103		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000051	No type		0X000		L:L104		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000052	No type		0X000		L:L105		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000053	No type		0X000		L:L106		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000054	No type		0X000		L:L107		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000055	No type		0X000		L:L108		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000056	No type		0X000		L:L109		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000056	No type		0X000		L:L110		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000057	No type		0X000		L:L37		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000057	No type		0X000		L:L111		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000057	No type		0X000		L:L112		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000057	No type		0X000		L:L113		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000059	No type		0X000		L:L114		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000059	No type		0X000		L:L115		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000059	No type		0X000		L:L116		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005B	No type		0X000		L:L117		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005B	No type		0X000		L:L118		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005B	No type		0X000		L:L119		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L41		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L122		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L123		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L39		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L124		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L125		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L38		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L126		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L127		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L34		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L128		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L120		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005C	No type		0X000		L:L121		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005E	No type		0X000		L:L131		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005E	No type		0X000		L:L129		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00005E	No type		0X000		L:L130		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000060	No type		0X000		L:L132		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000064	No type		0X000		L:L133		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000064	No type		0X000		L:L135		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000064	No type		0X000		L:L134		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000065	No type		0X000		L:L136		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000066	No type		0X000		L:L137		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000067	No type		0X000		L:L138		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000068	No type		0X000		L:L139		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000069	No type		0X000		L:L140		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006A	No type		0X000		L:L141		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006B	No type		0X000		L:L142		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006C	No type		0X000		L:L143		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006C	No type		0X000		L:L144		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006C	No type		0X000		L:L145		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006C	No type		0X000		L:L146		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006D	No type		0X000		L:L43		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006D	No type		0X000		L:L147		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006F	No type		0X000		L:L150		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006F	No type		0X000		L:L149		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00006F	No type		0X000		L:L148		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000071	No type		0X000		L:L151		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000075	No type		0X000		L:L152		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000075	No type		0X000		L:L153		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000075	No type		0X000		L:L154		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000076	No type		0X000		L:L155		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000078	No type		0X000		L:L156		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00007C	No type		0X000		L:L157		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00007C	No type		0X000		L:L158		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00007C	No type		0X000		L:L159		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00007D	No type		0X000		L:L160		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00007E	No type		0X000		L:L161		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000080	No type		0X000		L:L162		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000080	No type		0X000		L:L163		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000080	No type		0X000		L:L51		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000080	No type		0X000		L:L164		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000080	No type		0X000		L:L165		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000080	No type		0X000		L:L49		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000080	No type		0X000		L:L166		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000082	No type		0X000		L:L167		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000086	No type		0X000		L:L168		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000086	No type		0X000		L:L169		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000086	No type		0X000		L:L170		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000088	No type		0X000		L:L171		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000088	No type		0X000		L:L172		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000088	No type		0X000		L:L173		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000089	No type		0X000		L:L174		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00008A	No type		0X000		L:L175		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00008B	No type		0X000		L:L55		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00008B	No type		0X000		L:L178		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00008B	No type		0X000		L:L176		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00008B	No type		0X000		L:L177		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00008E	No type		0X000		L:L181		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00008E	No type		0X000		L:L179		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00008E	No type		0X000		L:L180		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00008F	No type		0X000		L:L182		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000090	No type		0X000		L:L183		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000090	No type		0X000		L:L184		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000090	No type		0X000		L:L57		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000090	No type		0X000		L:L185		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000094	No type		0X000		L:L186		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000094	No type		0X000		L:L187		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000094	No type		0X000		L:L188		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000095	No type		0X000		L:L189		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000096	No type		0X000		L:L190		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000097	No type		0X000		L:L191		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000098	No type		0X000		L:L192		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000099	No type		0X000		L:L193		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009A	No type		0X000		L:L194		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009B	No type		0X000		L:L195		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009C	No type		0X000		L:L196		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009D	No type		0X000		L:L197		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009D	No type		0X000		L:L198		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009D	No type		0X000		L:L199		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009D	No type		0X000		L:L200		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009E	No type		0X000		L:L53		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009E	No type		0X000		L:L201		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009E	No type		0X000		L:L202		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00009E	No type		0X000		L:L203		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000A2	No type		0X000		L:L204		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000A5	No type		0X000		L:L206		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000A5	No type		0X000		L:L207		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000A5	No type		0X000		L:L61		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000A5	No type		0X000		L:L205		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000A9	No type		0X000		L:L210		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000A9	No type		0X000		L:L208		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000A9	No type		0X000		L:L209		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000AA	No type		0X000		L:L211		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000AB	No type		0X000		L:L212		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000AB	No type		0X000		L:L213		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000AC	No type		0X000		L:L63		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000AC	No type		0X000		L:L214		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000AC	No type		0X000		L:L215		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000AC	No type		0X000		L:L216		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B0	No type		0X000		L:L217		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B0	No type		0X000		L:L218		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B0	No type		0X000		L:L219		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B1	No type		0X000		L:L220		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L65		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L223		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L224		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L64		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L225		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L226		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L62		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L227		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L228		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L54		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L229		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L230		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L47		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L44		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L231		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L232		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L31		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L233		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L234		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L29		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L235		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L221		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B2	No type		0X000		L:L222		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B3	No type		0X000		L:L27		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B3	No type		0X000		L:_main_end		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B3	No type		0X000		L:L236		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B3	No type		0X000		L:L237		_Function_main_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B5	Section		0X03C		L:_Function_interrupt_isr_isr_code		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000B5	No type		0X000		P:_interrupt_isr_isr		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C0	No type		0X000		L:L241		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C0	No type		0X000		L:L242		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C0	No type		0X000		L:L243		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C2	No type		0X000		L:L244		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C2	No type		0X000		L:L245		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C2	No type		0X000		L:L246		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C3	No type		0X000		L:L247		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C4	No type		0X000		L:L248		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C5	No type		0X000		L:L249		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C6	No type		0X000		L:L250		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C6	No type		0X000		L:L251		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C6	No type		0X000		L:L239		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C6	No type		0X000		L:L252		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C7	No type		0X000		L:L253		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C7	No type		0X000		L:L254		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000C7	No type		0X000		L:L238		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X0000D3	No type		0X000		L:Letext		_Function_interrupt_isr_isr_code			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+
+
+Address		Type		Size(Byte)		Public/Local		Segment			Module
+0X000000	Section		0X005		L:crt0@data		crt0@data			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000000	Object		0X001		P:H		crt0@data			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000000	BitObject		0X001		P:_out_enable		_main_c_GlobalBitDataPool0			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000001	Object		0X001		P:L		crt0@data			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000001	BitObject		0X000		P:_int_trigger		_main_c_GlobalBitDataPool0			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000002	Object		0X001		P:X		crt0@data			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000002	BitObject		0X000		P:_out_finish		_main_c_GlobalBitDataPool0			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000003	Object		0X001		P:I		crt0@data			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000003	BitObject		0X000		P:_on_trigger		_main_c_GlobalBitDataPool0			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000004	Object		0X001		P:T		crt0@data			D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0X000004	BitObject		0X000		P:_open_trigger		_main_c_GlobalBitDataPool0			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000005	Section		0X001		L:_main_c_GlobalBitDataPool0		_main_c_GlobalBitDataPool0			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000005	BitObject		0X000		P:_int_wave_up		_main_c_GlobalBitDataPool0			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000006	Section		0X005		L:_InterruptBackupData		_InterruptBackupData			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000006	Object		0X001		L:_bufT		_InterruptBackupData			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000007	Object		0X001		L:_bufI		_InterruptBackupData			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000008	Object		0X001		L:_bufY		_InterruptBackupData			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X000009	Object		0X001		L:_bufZ		_InterruptBackupData			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000A	Object		0X001		L:_bufR		_InterruptBackupData			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000B	Section		0X001		L:_out_delay@segment		_out_delay@segment			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000B	Object		0X001		P:_out_delay		_out_delay@segment			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000C	Section		0X001		L:_sleep_delay_3@segment		_sleep_delay_3@segment			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000C	Object		0X001		P:_sleep_delay_3		_sleep_delay_3@segment			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000D	Section		0X001		L:_sleep_delay_2@segment		_sleep_delay_2@segment			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000D	Object		0X001		P:_sleep_delay_2		_sleep_delay_2@segment			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000E	Section		0X001		L:_sleep_delay_1@segment		_sleep_delay_1@segment			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000E	Object		0X001		P:_sleep_delay_1		_sleep_delay_1@segment			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000F	Section		0X000		L:_Function_gpio_init_data		_Function_gpio_init_data			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000F	Section		0X000		L:_Function_time_init_data		_Function_time_init_data			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000F	Section		0X000		L:_Function_main_data		_Function_main_data			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+0X00000F	Section		0X000		L:_Function_interrupt_isr_isr_data		_Function_interrupt_isr_isr_data			E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+
+
+Module Table [Unit:Word]
+
+Code Size	%Code Percent	Data Size	%Code Percent	Module Type	Module(Library)
+--------------------------------------------------------------------------------------------------------
+0x00000030	4.705882		0x00000005	10.416667		crt0 code  	D:\松翰仿~1\C\LIB\crt0_SN8P2511.o
+0x00000174	36.470588		0x0000000A	20.833333		user code  	E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o
+--------------------------------------------------------------------------------------------------------
+
+Total ROM size: 1020[0x3FC]
+Has used: 210[0xD2](20.588235) words		[composed by: all code segments size]
+Remains: 810[0x32A](79.411765) words
+
+Total RAM size: 48[0x30]
+Has used: 15[0xF](31.250000) words		[composed by: all code segments size]
+Remains: 33[0x21](68.750000) words
+
+Overlay Map:
+
+Call Tree:
+In File: "D:\松翰仿~1\C\LIB\crt0_SN8P2511.o"
+
+In File: "E:\guomeng\2015年项目\pir_sensor\pir_sensor\Obj\main.o"
+_main ---> _gpio_init
+_main ---> _time_init
+
+
+Detail CallTree
+
+Stack Level : Function Name
+0:_main
+1:		_gpio_init
+1:		_time_init
+1:_interrupt_isr_isr
+
+
+Optimize result:
+The "_SELECTBANK" instruction total number:0
+After optimize,erased "_SELECTBANK" instruction number:0
+Optimize percent with "_SELECTBANK" instruction:0%
+
+
+
+Entry point = 0x00000034
+

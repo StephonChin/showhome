@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>2080403849</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\PrivateFiles\Sources\BT36.c</file>
+      <file>$TOOLKIT_DIR$\lib\dbgstm8smd.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\Key_Scan.o</file>
+      <file>$PROJ_DIR$\..\PublicFiles\Sources\CSR1010.c</file>
+      <file>$PROJ_DIR$\..\PublicFiles\Sources\Key_Scan.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\BT36.pbd</file>
+      <file>$PROJ_DIR$\..\PublicFiles\Includes\CSR1010.h</file>
+      <file>$TOOLKIT_DIR$\config\lnkstm8.icf</file>
+      <file>$PROJ_DIR$\Debug\Obj\BT36.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\CSR1010.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\BT36.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\CSR1010.o</file>
+      <file>$TOOLKIT_DIR$\inc\iostm8s003f3.h</file>
+      <file>$PROJ_DIR$\PrivateFiles\Includes\Attribute.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Key_Scan.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlstm8smn.a</file>
+      <file>$PROJ_DIR$\..\PublicFiles\Includes\Key_Scan.h</file>
+      <file>$PROJ_DIR$\..\PublicFiles\Includes\TypeDefine.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\BT36.out</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\PrivateFiles\Sources\BT36.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\PublicFiles\Sources\CSR1010.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9</file>
+        </tool>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12 18 15 6 13</file>
+        </tool>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 6 18 12 15 13</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\PublicFiles\Sources\Key_Scan.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\BT36.out</name>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 7 10 11 2 16 1</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

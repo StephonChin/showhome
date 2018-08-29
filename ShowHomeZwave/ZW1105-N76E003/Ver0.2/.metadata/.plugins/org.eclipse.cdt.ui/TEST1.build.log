@@ -1,0 +1,6 @@
+14:27:19 **** Build of configuration Debug for project TEST1 ****
+make -j4 all 
+make: Nothing to be done for `all'.
+
+14:27:24 Build Finished (took 5s.144ms)
+

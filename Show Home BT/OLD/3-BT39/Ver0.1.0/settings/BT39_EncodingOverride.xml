@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<userOverrides>
+  <override>
+    <path>H:\&#x56FA;&#x90A6;\2016\Show Home BT\3-BT39\Ver0.1.0\APP\Include\data_process.h</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>H:\&#x56FA;&#x90A6;\2016\Show Home BT\3-BT39\Ver0.1.0\APP\Include\key_scan.h</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>H:\&#x56FA;&#x90A6;\2016\Show Home BT\3-BT39\Ver0.1.0\APP\Include\system.h</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>H:\&#x56FA;&#x90A6;\2016\Show Home BT\3-BT39\Ver0.1.0\APP\Source\data_process.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>H:\&#x56FA;&#x90A6;\2016\Show Home BT\3-BT39\Ver0.1.0\APP\Source\data_send.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>H:\&#x56FA;&#x90A6;\2016\Show Home BT\3-BT39\Ver0.1.0\APP\Source\key_scan.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>H:\&#x56FA;&#x90A6;\2016\Show Home BT\3-BT39\Ver0.1.0\APP\Source\main.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>H:\&#x56FA;&#x90A6;\2016\Show Home BT\3-BT39\Ver0.1.0\APP\Source\mcu_config.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>H:\&#x56FA;&#x90A6;\2016\Show Home BT\3-BT39\Ver0.1.0\APP\Source\timer_control.c</path>
+    <encoding>System</encoding>
+  </override>
+</userOverrides>
+
+

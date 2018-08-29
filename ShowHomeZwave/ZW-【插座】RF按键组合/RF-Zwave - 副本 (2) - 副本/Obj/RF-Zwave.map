@@ -1,0 +1,332 @@
+Executable File = F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Bin\RF-Zwave.out
+
+Timestamp is Wed Apr 29 20:15:25 2015
+
+
+Start		Length(Word)		Type		Name		Module
+0X000000	0X0008		Code		crt0@code		C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000008	0X0000		Code		.CODE		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000008	0X0000		Code		.CODE		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00000A	0X0004		Code		_SGV_INIT_CODE_BEGIN		C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X00000E	0X0000		Code		_SGV_INIT_CODE		C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X00000E	0X000C		Code		_SGV_INIT_CODE_END		C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X00001A	0X000A		Code		_Function_GpioInit_code		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000024	0X0006		Code		_Function_TimerInit_code		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00002A	0X0011		Code		_Function_main_code		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003B	0X0016		Code		_Function_Delay5s_code		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000051	0X0015		Code		_Function_SingleJudge_code		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000066	0X0010		Code		_Function_rfOnPulse_code		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000076	0X0010		Code		_Function_rfOffPulse_code		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000086	0X0010		Code		_Function_waveOffPulse_code		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+
+Start		Length(Byte)		Type		Name		Module
+0X000000	0X0005		Data		crt0@data		C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000005	0X0000		Data		_Function_GpioInit_data		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000005	0X0000		Data		_Function_TimerInit_data		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000005	0X0002		Data		_Function_Delay5s_data		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	0X0001		Data		_Function_SingleJudge_data		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	0X0001		Data		_Function_rfOnPulse_data		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	0X0001		Data		_Function_rfOffPulse_data		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	0X0001		Data		_Function_waveOffPulse_data		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000007	0X0001		Data		_Function_main_data		F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+
+Address		Type		Size(Byte)		Public/Local		Segment			Module
+0X000000	Section		0X010		L:crt0@code		crt0@code			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000008	Section		0X000		L:.CODE		.CODE			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000008	No type		0X000		L:Ltext0		.CODE			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000008	Section		0X000		L:.CODE		.CODE			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000008	No type		0X000		L:Ltext0		.CODE			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00000A	Section		0X008		L:_SGV_INIT_CODE_BEGIN		_SGV_INIT_CODE_BEGIN			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X00000A	No type		0X000		P:_sgv_init_entry		_SGV_INIT_CODE_BEGIN			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X00000E	Section		0X000		L:_SGV_INIT_CODE		_SGV_INIT_CODE			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X00000E	Section		0X018		L:_SGV_INIT_CODE_END		_SGV_INIT_CODE_END			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000010	No type		0X000		P:__ClearWatchDogTimer		_SGV_INIT_CODE_END			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000013	No type		0X000		P:__ClrRAM		_SGV_INIT_CODE_END			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000015	No type		0X000		L:ClrRAM10		_SGV_INIT_CODE_END			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X00001A	Section		0X014		L:_Function_GpioInit_code		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00001A	No type		0X000		P:_GpioInit		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00001A	No type		0X000		L:L3		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00001A	No type		0X000		L:L4		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00001A	No type		0X000		L:L5		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00001B	No type		0X000		L:L6		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00001C	No type		0X000		L:L7		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00001D	No type		0X000		L:L8		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00001E	No type		0X000		L:L9		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000020	No type		0X000		L:L10		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000021	No type		0X000		L:L11		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000022	No type		0X000		L:L12		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000023	No type		0X000		L:L13		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000023	No type		0X000		L:L14		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000023	No type		0X000		L:L2		_Function_GpioInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000024	No type		0X000		L:L16		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000024	No type		0X000		L:L17		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000024	No type		0X000		L:L18		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000024	No type		0X000		L:Letext		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000024	Section		0X00C		L:_Function_TimerInit_code		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000024	No type		0X000		P:_TimerInit		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000026	No type		0X000		L:L19		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000028	No type		0X000		L:L20		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000029	No type		0X000		L:L22		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000029	No type		0X000		L:L15		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000029	No type		0X000		L:L21		_Function_TimerInit_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X00002A	Section		0X022		L:_Function_main_code		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002A	No type		0X000		P:_main		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002A	No type		0X000		L:L9		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002A	No type		0X000		L:L10		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002A	No type		0X000		L:L11		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002B	No type		0X000		L:L12		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002C	No type		0X000		L:L13		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002D	No type		0X000		L:L14		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002D	No type		0X000		L:L15		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002E	No type		0X000		L:L6		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002E	No type		0X000		L:L16		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002E	No type		0X000		L:L17		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00002E	No type		0X000		L:L18		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000030	No type		0X000		L:L19		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000030	No type		0X000		L:L20		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000030	No type		0X000		L:L7		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000030	No type		0X000		L:L21		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000033	No type		0X000		L:L22		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000034	No type		0X000		L:L23		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000035	No type		0X000		L:L24		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000036	No type		0X000		L:L25		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000037	No type		0X000		L:L26		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000038	No type		0X000		L:L27		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000038	No type		0X000		L:L28		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000038	No type		0X000		L:L4		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000038	No type		0X000		L:L29		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000039	No type		0X000		L:L30		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000039	No type		0X000		L:L31		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000039	No type		0X000		L:L2		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000039	No type		0X000		L:_main_end		_Function_main_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003B	Section		0X02C		L:_Function_Delay5s_code		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003B	No type		0X000		P:_Delay5s		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003B	No type		0X000		L:L40		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003B	No type		0X000		L:L41		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003B	No type		0X000		L:L42		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003C	No type		0X000		L:L43		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003D	No type		0X000		L:L44		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003F	No type		0X000		L:L33		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003F	No type		0X000		L:L45		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003F	No type		0X000		L:L46		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00003F	No type		0X000		L:L47		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000041	No type		0X000		L:L48		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000041	No type		0X000		L:L49		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000041	No type		0X000		L:L50		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000042	No type		0X000		L:L51		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000044	No type		0X000		L:L52		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000048	No type		0X000		L:L53		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000048	No type		0X000		L:L54		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000048	No type		0X000		L:L55		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000049	No type		0X000		L:L56		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L57		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L58		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L38		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L59		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L60		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L36		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L61		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L62		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L34		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004B	No type		0X000		L:L63		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00004F	No type		0X000		L:L64		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000050	No type		0X000		L:L65		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000050	No type		0X000		L:L66		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000050	No type		0X000		L:L32		_Function_Delay5s_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000051	Section		0X02A		L:_Function_SingleJudge_code		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000051	No type		0X000		P:_SingleJudge		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000051	No type		0X000		L:L78		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000051	No type		0X000		L:L79		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000051	No type		0X000		L:L80		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000052	No type		0X000		L:L68		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000052	No type		0X000		L:L81		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000052	No type		0X000		L:L69		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000052	No type		0X000		L:L82		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000054	No type		0X000		L:L83		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000056	No type		0X000		L:L71		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000056	No type		0X000		L:L84		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000056	No type		0X000		L:L85		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000056	No type		0X000		L:L86		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000058	No type		0X000		L:L87		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000058	No type		0X000		L:L88		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000058	No type		0X000		L:L89		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00005A	No type		0X000		L:L90		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00005B	No type		0X000		L:L91		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00005B	No type		0X000		L:L92		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00005B	No type		0X000		L:L74		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00005B	No type		0X000		L:L93		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00005B	No type		0X000		L:L94		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00005B	No type		0X000		L:L72		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00005B	No type		0X000		L:L95		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00005F	No type		0X000		L:L96		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000060	No type		0X000		L:L97		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000062	No type		0X000		L:L98		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000064	No type		0X000		L:L76		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000064	No type		0X000		L:L99		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000065	No type		0X000		L:L100		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000065	No type		0X000		L:L101		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000065	No type		0X000		L:L67		_Function_SingleJudge_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000066	Section		0X020		L:_Function_rfOnPulse_code		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000066	No type		0X000		P:_rfOnPulse		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000066	No type		0X000		L:L108		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000066	No type		0X000		L:L109		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000066	No type		0X000		L:L110		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000067	No type		0X000		L:L111		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000068	No type		0X000		L:L112		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006A	No type		0X000		L:L103		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006A	No type		0X000		L:L113		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006A	No type		0X000		L:L114		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006A	No type		0X000		L:L115		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006C	No type		0X000		L:L116		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006C	No type		0X000		L:L117		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006C	No type		0X000		L:L118		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006E	No type		0X000		L:L119		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006F	No type		0X000		L:L120		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006F	No type		0X000		L:L121		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006F	No type		0X000		L:L106		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006F	No type		0X000		L:L122		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006F	No type		0X000		L:L123		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006F	No type		0X000		L:L104		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00006F	No type		0X000		L:L124		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000073	No type		0X000		L:L125		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000074	No type		0X000		L:L126		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000075	No type		0X000		L:L127		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000075	No type		0X000		L:L128		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000075	No type		0X000		L:L102		_Function_rfOnPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000076	Section		0X020		L:_Function_rfOffPulse_code		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000076	No type		0X000		P:_rfOffPulse		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000076	No type		0X000		L:L135		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000076	No type		0X000		L:L136		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000076	No type		0X000		L:L137		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000077	No type		0X000		L:L138		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000078	No type		0X000		L:L139		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007A	No type		0X000		L:L130		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007A	No type		0X000		L:L140		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007A	No type		0X000		L:L141		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007A	No type		0X000		L:L142		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007C	No type		0X000		L:L143		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007C	No type		0X000		L:L144		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007C	No type		0X000		L:L145		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007E	No type		0X000		L:L146		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007F	No type		0X000		L:L147		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007F	No type		0X000		L:L148		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007F	No type		0X000		L:L133		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007F	No type		0X000		L:L149		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007F	No type		0X000		L:L150		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007F	No type		0X000		L:L131		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00007F	No type		0X000		L:L151		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000083	No type		0X000		L:L152		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000084	No type		0X000		L:L153		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000085	No type		0X000		L:L154		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000085	No type		0X000		L:L155		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000085	No type		0X000		L:L129		_Function_rfOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000086	Section		0X020		L:_Function_waveOffPulse_code		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000086	No type		0X000		P:_waveOffPulse		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000086	No type		0X000		L:L162		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000086	No type		0X000		L:L163		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000086	No type		0X000		L:L164		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000087	No type		0X000		L:L165		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000088	No type		0X000		L:L166		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008A	No type		0X000		L:L157		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008A	No type		0X000		L:L167		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008A	No type		0X000		L:L168		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008A	No type		0X000		L:L169		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008C	No type		0X000		L:L170		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008C	No type		0X000		L:L171		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008C	No type		0X000		L:L172		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008E	No type		0X000		L:L173		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008F	No type		0X000		L:L174		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008F	No type		0X000		L:L175		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008F	No type		0X000		L:L160		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008F	No type		0X000		L:L176		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008F	No type		0X000		L:L177		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008F	No type		0X000		L:L158		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X00008F	No type		0X000		L:L178		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000093	No type		0X000		L:L179		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000094	No type		0X000		L:L180		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000095	No type		0X000		L:L181		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000095	No type		0X000		L:L182		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000095	No type		0X000		L:L156		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000096	No type		0X000		L:Letext		_Function_waveOffPulse_code			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+
+
+Address		Type		Size(Byte)		Public/Local		Segment			Module
+0X000000	Section		0X005		L:crt0@data		crt0@data			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000000	Object		0X001		P:H		crt0@data			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000001	Object		0X001		P:L		crt0@data			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000002	Object		0X001		P:X		crt0@data			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000003	Object		0X001		P:I		crt0@data			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000004	Object		0X001		P:T		crt0@data			C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0X000005	Section		0X000		L:_Function_GpioInit_data		_Function_GpioInit_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000005	Section		0X000		L:_Function_TimerInit_data		_Function_TimerInit_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0X000005	Section		0X002		L:_Function_Delay5s_data		_Function_Delay5s_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	Object		0X001		L:_Delay5s_data@0		_Function_Delay5s_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	Section		0X001		L:_Function_SingleJudge_data		_Function_SingleJudge_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	Object		0X001		L:_SingleJudge_data@0		_Function_SingleJudge_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	Section		0X001		L:_Function_rfOnPulse_data		_Function_rfOnPulse_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	Object		0X001		L:_rfOnPulse_data@0		_Function_rfOnPulse_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	Section		0X001		L:_Function_rfOffPulse_data		_Function_rfOffPulse_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	Object		0X001		L:_rfOffPulse_data@0		_Function_rfOffPulse_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	Section		0X001		L:_Function_waveOffPulse_data		_Function_waveOffPulse_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000005	Object		0X001		L:_waveOffPulse_data@0		_Function_waveOffPulse_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000006	Object		0X001		L:_Delay5s_data@1		_Function_Delay5s_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000007	Section		0X001		L:_Function_main_data		_Function_main_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+0X000007	Object		0X001		L:_main_data@0		_Function_main_data			F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+
+
+Module Table [Unit:Word]
+
+Code Size	%Code Percent	Data Size	%Code Percent	Module Type	Module(Library)
+--------------------------------------------------------------------------------------------------------
+0x00000030	4.705882		0x00000005	7.812500		crt0 code  	C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o
+0x00000020	3.137255		0x00000000	0.000000		user code  	F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o
+0x000000D8	21.176471		0x00000007	10.937500		user code  	F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o
+--------------------------------------------------------------------------------------------------------
+
+Total ROM size: 1020[0x3FC]
+Has used: 148[0x94](14.509804) words		[composed by: all code segments size]
+Remains: 872[0x368](85.490196) words
+
+Total RAM size: 64[0x40]
+Has used: 8[0x8](12.500000) words		[composed by: all code segments size]
+Remains: 56[0x38](87.500000) words
+
+Overlay Map:
+
+Call Tree:
+In File: "C:\Sonix\SN8_C_~1.119\C\LIB\crt0_SN8P2711.o"
+
+In File: "F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\mcu_initialize.o"
+
+In File: "F:\RF按键组合\RF-Zwave - 副本 (2) - 副本\Obj\main.o"
+_main ---> _GpioInit
+_main ---> _TimerInit
+_main ---> _SingleJudge
+_main ---> _rfOnPulse
+_main ---> _Delay5s
+_main ---> _rfOffPulse
+_main ---> _waveOffPulse
+
+
+Detail CallTree
+
+Stack Level : Function Name
+0:_main
+1:		_GpioInit
+1:		_TimerInit
+1:		_SingleJudge
+1:		_rfOnPulse
+1:		_Delay5s
+1:		_rfOffPulse
+1:		_waveOffPulse
+
+
+Optimize result:
+The "_SELECTBANK" instruction total number:0
+After optimize,erased "_SELECTBANK" instruction number:0
+Optimize percent with "_SELECTBANK" instruction:0%
+
+
+
+Entry point = 0x0000002a
+

@@ -1,0 +1,238 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADActivedFlag	app\source\ad_scan.c	17;"	variable
+AD_Init	app\source\mcu_config.c	112;"	function	signature:(void)
+AD_Scan	app\include\main.h	21;"	prototype	signature:(void)
+AD_Scan	app\source\ad_scan.c	24;"	function	signature:(void)
+AppControlFlag	app\source\data_process.c	25;"	variable
+BtInitFlag	app\source\data_process.c	24;"	variable
+CHARACTER_END	app\source\data_rcv.c	18;"	macro	file:
+CHARACTER_START	app\source\data_rcv.c	17;"	macro	file:
+Clk_Init	app\source\mcu_config.c	13;"	function	file:	signature:(void)
+DEF_16BIT_REG_AT	app\include\stm8s103f.h	20;"	macro
+DEF_16BIT_REG_AT	app\include\stm8s103f.h	25;"	macro
+DEF_8BIT_REG_AT	app\include\stm8s103f.h	19;"	macro
+DEF_8BIT_REG_AT	app\include\stm8s103f.h	24;"	macro
+DEVICE_ID	app\include\system.h	27;"	macro
+DEVICE_ID	app\include\system.h	29;"	macro
+DEVICE_ID	app\include\system.h	31;"	macro
+DEVICE_ID	app\include\system.h	33;"	macro
+DEVICE_NUM	app\include\system.h	24;"	macro
+DUTY_MAX	app\source\switch_control.c	22;"	macro	file:
+DUTY_MIN	app\source\switch_control.c	23;"	macro	file:
+Data_Process	app\include\main.h	14;"	prototype	signature:(void)
+Data_Process	app\source\data_process.c	41;"	function	signature:(void)
+EOC	app\source\ad_scan.c	12;"	macro	file:
+ERR_COMMAND	app\source\data_rcv.c	35;"	enumerator	enum:_Enum_ERR	file:
+ERR_DEFAULT	app\source\data_rcv.c	34;"	enumerator	enum:_Enum_ERR	file:
+ERR_SUCCESS	app\source\data_rcv.c	36;"	enumerator	enum:_Enum_ERR	file:
+FALSE	app\include\system.h	18;"	macro
+FALSE	app\include\system.h	6;"	enumerator	enum:__anon1
+FirstCmd	app\include\system.h	13;"	member	struct:RCV_DATA_TYPE
+Gpio_Init	app\source\mcu_config.c	22;"	function	file:	signature:(void)
+GroupClass	app\include\system.h	12;"	member	struct:RCV_DATA_TYPE
+GroupOneOffHour	app\source\switch_control.c	54;"	variable
+GroupOneOffMinute	app\source\switch_control.c	55;"	variable
+GroupOneOnHour	app\source\switch_control.c	47;"	variable
+GroupOneOnMinute	app\source\switch_control.c	48;"	variable
+GroupThreeOffHour	app\source\switch_control.c	58;"	variable
+GroupThreeOffMinute	app\source\switch_control.c	59;"	variable
+GroupThreeOnHour	app\source\switch_control.c	51;"	variable
+GroupThreeOnMinute	app\source\switch_control.c	52;"	variable
+GroupTwoOffHour	app\source\switch_control.c	56;"	variable
+GroupTwoOffMinute	app\source\switch_control.c	57;"	variable
+GroupTwoOnHour	app\source\switch_control.c	49;"	variable
+GroupTwoOnMinute	app\source\switch_control.c	50;"	variable
+Header	app\include\system.h	9;"	member	struct:RCV_DATA_TYPE
+Key_Scan	app\include\main.h	17;"	prototype	signature:(void)
+Key_Scan	app\source\key_scan.c	23;"	function	signature:(void)
+LED_OFF	app\source\switch_control.c	20;"	macro	file:
+LED_ON	app\source\switch_control.c	19;"	macro	file:
+LedDuty	app\source\switch_control.c	32;"	variable
+Led_Display	app\include\main.h	12;"	prototype	signature:(void)
+Led_Display	app\source\switch_control.c	65;"	function	signature:(void)
+Mcu_Config	app\include\main.h	6;"	prototype	signature:(void)
+Mcu_Config	app\source\mcu_config.c	124;"	function	signature:(void)
+NULL	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	8;"	macro
+NonHandledInterrupt	app\source\stm8_interrupt_vector.c	19;"	function	signature:(void)
+NormalReplyCommand	app\source\data_send.c	31;"	variable
+NormalReplyFlag	app\source\data_send.c	28;"	variable
+PACKAGE_HEAD	app\source\data_send.c	19;"	macro	file:
+PACKAGE_TAIL	app\source\data_send.c	20;"	macro	file:
+PA_IDR	app\include\stm8s_bitsdefine.h	18;"	variable
+PA_IDR	app\include\stm8s_bitsdefine.h	19;"	variable
+PA_IDR	app\include\stm8s_bitsdefine.h	20;"	variable
+PA_IDR	app\include\stm8s_bitsdefine.h	21;"	variable
+PA_IDR	app\include\stm8s_bitsdefine.h	22;"	variable
+PA_IDR	app\include\stm8s_bitsdefine.h	23;"	variable
+PA_IDR	app\include\stm8s_bitsdefine.h	24;"	variable
+PA_IDR	app\include\stm8s_bitsdefine.h	25;"	variable
+PA_ODR	app\include\stm8s_bitsdefine.h	10;"	variable
+PA_ODR	app\include\stm8s_bitsdefine.h	11;"	variable
+PA_ODR	app\include\stm8s_bitsdefine.h	12;"	variable
+PA_ODR	app\include\stm8s_bitsdefine.h	13;"	variable
+PA_ODR	app\include\stm8s_bitsdefine.h	14;"	variable
+PA_ODR	app\include\stm8s_bitsdefine.h	15;"	variable
+PA_ODR	app\include\stm8s_bitsdefine.h	8;"	variable
+PA_ODR	app\include\stm8s_bitsdefine.h	9;"	variable
+PB_IDR	app\include\stm8s_bitsdefine.h	38;"	variable
+PB_IDR	app\include\stm8s_bitsdefine.h	39;"	variable
+PB_IDR	app\include\stm8s_bitsdefine.h	40;"	variable
+PB_IDR	app\include\stm8s_bitsdefine.h	41;"	variable
+PB_IDR	app\include\stm8s_bitsdefine.h	42;"	variable
+PB_IDR	app\include\stm8s_bitsdefine.h	43;"	variable
+PB_IDR	app\include\stm8s_bitsdefine.h	44;"	variable
+PB_IDR	app\include\stm8s_bitsdefine.h	45;"	variable
+PB_ODR	app\include\stm8s_bitsdefine.h	28;"	variable
+PB_ODR	app\include\stm8s_bitsdefine.h	29;"	variable
+PB_ODR	app\include\stm8s_bitsdefine.h	30;"	variable
+PB_ODR	app\include\stm8s_bitsdefine.h	31;"	variable
+PB_ODR	app\include\stm8s_bitsdefine.h	32;"	variable
+PB_ODR	app\include\stm8s_bitsdefine.h	33;"	variable
+PB_ODR	app\include\stm8s_bitsdefine.h	34;"	variable
+PB_ODR	app\include\stm8s_bitsdefine.h	35;"	variable
+PC_IDR	app\include\stm8s_bitsdefine.h	58;"	variable
+PC_IDR	app\include\stm8s_bitsdefine.h	59;"	variable
+PC_IDR	app\include\stm8s_bitsdefine.h	60;"	variable
+PC_IDR	app\include\stm8s_bitsdefine.h	61;"	variable
+PC_IDR	app\include\stm8s_bitsdefine.h	62;"	variable
+PC_IDR	app\include\stm8s_bitsdefine.h	63;"	variable
+PC_IDR	app\include\stm8s_bitsdefine.h	64;"	variable
+PC_IDR	app\include\stm8s_bitsdefine.h	65;"	variable
+PC_ODR	app\include\stm8s_bitsdefine.h	48;"	variable
+PC_ODR	app\include\stm8s_bitsdefine.h	49;"	variable
+PC_ODR	app\include\stm8s_bitsdefine.h	50;"	variable
+PC_ODR	app\include\stm8s_bitsdefine.h	51;"	variable
+PC_ODR	app\include\stm8s_bitsdefine.h	52;"	variable
+PC_ODR	app\include\stm8s_bitsdefine.h	53;"	variable
+PC_ODR	app\include\stm8s_bitsdefine.h	54;"	variable
+PC_ODR	app\include\stm8s_bitsdefine.h	55;"	variable
+PD_IDR	app\include\stm8s_bitsdefine.h	78;"	variable
+PD_IDR	app\include\stm8s_bitsdefine.h	79;"	variable
+PD_IDR	app\include\stm8s_bitsdefine.h	80;"	variable
+PD_IDR	app\include\stm8s_bitsdefine.h	81;"	variable
+PD_IDR	app\include\stm8s_bitsdefine.h	82;"	variable
+PD_IDR	app\include\stm8s_bitsdefine.h	83;"	variable
+PD_IDR	app\include\stm8s_bitsdefine.h	84;"	variable
+PD_IDR	app\include\stm8s_bitsdefine.h	85;"	variable
+PD_ODR	app\include\stm8s_bitsdefine.h	68;"	variable
+PD_ODR	app\include\stm8s_bitsdefine.h	69;"	variable
+PD_ODR	app\include\stm8s_bitsdefine.h	70;"	variable
+PD_ODR	app\include\stm8s_bitsdefine.h	71;"	variable
+PD_ODR	app\include\stm8s_bitsdefine.h	72;"	variable
+PD_ODR	app\include\stm8s_bitsdefine.h	73;"	variable
+PD_ODR	app\include\stm8s_bitsdefine.h	74;"	variable
+PD_ODR	app\include\stm8s_bitsdefine.h	75;"	variable
+PORT_KEY	app\source\key_scan.c	12;"	macro	file:
+PORT_LED	app\source\switch_control.c	13;"	macro	file:
+PORT_RELAY_0	app\source\switch_control.c	14;"	macro	file:
+PORT_RELAY_1	app\source\switch_control.c	15;"	macro	file:
+PowerOnFlag	app\source\data_process.c	26;"	variable
+PowerReplyFlag	app\source\data_send.c	26;"	variable
+Power_On_Init	app\include\main.h	15;"	prototype	signature:(void)
+Power_On_Init	app\source\data_process.c	31;"	function	signature:(void)
+RCV_DATA_MAX	app\source\data_rcv.c	19;"	macro	file:
+RCV_DATA_TYPE	app\include\system.h	7;"	struct
+RELAY_OFF	app\source\switch_control.c	26;"	macro	file:
+RELAY_ON	app\source\switch_control.c	25;"	macro	file:
+RcvByteCnt	app\source\data_rcv.c	30;"	variable
+RcvData	app\source\data_rcv.c	25;"	variable
+RcvDataBuf	app\source\data_rcv.c	23;"	variable
+RcvErr	app\source\data_rcv.c	37;"	variable	typeref:enum:_Enum_ERR
+RcvStatus	app\source\data_rcv.c	27;"	variable
+RcvSttFlag	app\source\data_rcv.c	29;"	variable
+Rcv_Data_From_App	app\include\main.h	8;"	prototype	signature:(void)
+Rcv_Data_From_App	app\source\data_rcv.c	95;"	function	signature:(void)
+RealHour	app\source\switch_control.c	45;"	variable
+RealMinute	app\source\switch_control.c	44;"	variable
+RealSecond	app\source\switch_control.c	43;"	variable
+RepeatCnt	app\source\data_send.c	33;"	variable
+RepeatDelayTime	app\source\data_send.c	34;"	variable
+ReplyGroup	app\source\data_send.c	37;"	variable
+ReplyRepeatFlag	app\source\data_send.c	25;"	variable
+ReplyStatus	app\source\data_send.c	36;"	variable
+Reply_Repeat	app\source\data_process.c	17;"	macro	file:
+Respond_App	app\include\main.h	10;"	prototype	signature:(void)
+Respond_App	app\source\data_send.c	41;"	function	signature:(void)
+Respond_Byte	app\include\data_send.h	5;"	prototype	signature:(_Uchar RspdByte)
+Respond_Byte	app\source\data_send.c	178;"	function	signature:(_Uchar RspdByte)
+Respond_Str	app\include\data_send.h	4;"	prototype	signature:(_Uchar *RspdStr)
+Respond_Str	app\source\data_send.c	160;"	function	signature:(_Uchar *RspdStr)
+STM8S003F3P	app\include\stm8s003f3p.h	3;"	macro
+STM8S103F	app\include\stm8s103f.h	12;"	macro
+SecondCmd	app\include\system.h	14;"	member	struct:RCV_DATA_TYPE
+SecondCnt1	app\source\switch_control.c	34;"	variable
+SecondCnt2	app\source\switch_control.c	35;"	variable
+SecondFlag	app\source\switch_control.c	36;"	variable
+ShakeTime	app\source\ad_scan.c	18;"	variable
+StatusChgFlag	app\source\ad_scan.c	19;"	variable
+StatusReplyCommand	app\source\data_send.c	30;"	variable
+StatusReplyFlag	app\source\data_send.c	27;"	variable
+SwitchInit	app\source\switch_control.c	39;"	variable
+SwitchStatus	app\source\switch_control.c	38;"	variable
+Switch_On_Off	app\include\main.h	19;"	prototype	signature:(void)
+Switch_On_Off	app\source\switch_control.c	172;"	function	signature:(void)
+TIM1_Init	app\source\mcu_config.c	72;"	function	file:	signature:(void)
+TIM1_SR1	app\include\main.h	4;"	variable
+TRUE	app\include\system.h	17;"	macro
+TRUE	app\include\system.h	6;"	enumerator	enum:__anon1
+Tim4_Init	app\source\mcu_config.c	100;"	function	signature:(void)
+Tim4_Update_Interrupt	app\source\stm8_interrupt_vector.c	16;"	prototype	file:	signature:(void)
+Tim4_Update_Interrupt	app\source\switch_control.c	111;"	function	signature:(void)
+Time_Caculate	app\source\switch_control.c	131;"	function	signature:(void)
+TypeH	app\include\system.h	10;"	member	struct:RCV_DATA_TYPE
+TypeL	app\include\system.h	11;"	member	struct:RCV_DATA_TYPE
+UART1_SR	app\source\data_rcv.c	14;"	variable
+UART1_SR	app\source\data_rcv.c	15;"	variable
+UART1_SR	app\source\data_send.c	16;"	variable
+UART_REGISTER	app\source\data_rcv.c	16;"	macro	file:
+UART_REGISTER	app\source\data_send.c	17;"	macro	file:
+Uart_Init	app\source\mcu_config.c	88;"	function	file:	signature:(void)
+Uart_Rcv_Interrupt	app\source\data_rcv.c	42;"	function	signature:(void)
+Uart_Rcv_Interrupt	app\source\stm8_interrupt_vector.c	15;"	prototype	file:	signature:(void)
+_Enum_ERR	app\source\data_rcv.c	32;"	enum	file:
+_Flag	app\include\system.h	6;"	typedef	typeref:enum:__anon1
+_MACRO_BITS_DEFINE_H_	app\include\stm8s_bitsdefine.h	2;"	macro
+_RcvDataType	app\include\system.h	15;"	typedef	typeref:struct:RCV_DATA_TYPE
+_Uchar	app\include\system.h	4;"	typedef
+_Uint	app\include\system.h	5;"	typedef
+__AD_SCAN_H__	app\include\ad_scan.h	2;"	macro
+__DATA_PROCESS_H__	app\include\data_process.h	2;"	macro
+__DATA_RCV_H__	app\include\data_rcv.h	2;"	macro
+__DATA_SEND_H__	app\include\data_send.h	2;"	macro
+__KEY_SCAN_H__	app\include\key_scan.h	2;"	macro
+__MAIN_H__	app\include\main.h	2;"	macro
+__MODS0__	c:\program files (x86)\cosmic\cxstm8\hstm8\mods0.h	11;"	macro
+__STM8S103F__	app\include\stm8s103f.h	6;"	macro
+__STRING__	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	6;"	macro
+__SWITCH_CONTROL_H__	app\include\switch_control.h	2;"	macro
+__SYSTEM_H__	app\include\system.h	2;"	macro
+_stext	app\source\stm8_interrupt_vector.c	27;"	prototype	file:
+_vectab	app\source\stm8_interrupt_vector.c	29;"	variable
+interrupt_handler	app\source\stm8_interrupt_vector.c	9;"	member	struct:interrupt_vector	file:
+interrupt_handler_t	app\source\stm8_interrupt_vector.c	5;"	typedef	file:
+interrupt_instruction	app\source\stm8_interrupt_vector.c	8;"	member	struct:interrupt_vector	file:
+interrupt_vector	app\source\stm8_interrupt_vector.c	7;"	struct	file:
+main	app\source\main.c	16;"	function	signature:(void)
+memchr	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	26;"	prototype	signature:(void *s, char c, unsigned int n)
+memcmp	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	20;"	prototype	signature:(void *s1, void *s2, unsigned int n)
+memcpy	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	27;"	prototype	signature:(void *s1, void *s2, unsigned int n)
+memmove	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	28;"	prototype	signature:(void *s1, void *s2, unsigned int n)
+memset	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	29;"	prototype	signature:(void *s, char c, unsigned int n)
+strcat	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	12;"	prototype	signature:(char *s1, char *s2)
+strchr	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	13;"	prototype	signature:(char *s, char c)
+strcmp	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	21;"	prototype	signature:(char *s1, char *s2)
+strcpy	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	14;"	prototype	signature:(char *s1, char *s2)
+strcspn	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	23;"	prototype	signature:(char *s1, char *s2)
+strlen	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	24;"	prototype	signature:(char *s)
+strncat	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	15;"	prototype	signature:(char *s1, char *s2, unsigned int n)
+strncmp	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	22;"	prototype	signature:(char *s1, char *s2, unsigned int n)
+strncpy	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	16;"	prototype	signature:(char *s1, char *s2, unsigned int n)
+strpbrk	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	17;"	prototype	signature:(char *s1, char *s2)
+strrchr	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	18;"	prototype	signature:(char *s, char c)
+strspn	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	25;"	prototype	signature:(char *s1, char *s2)
+strstr	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	19;"	prototype	signature:(char *s1, char *s2)

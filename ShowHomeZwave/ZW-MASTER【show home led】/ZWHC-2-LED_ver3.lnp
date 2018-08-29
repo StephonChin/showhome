@@ -1,0 +1,8 @@
+"STARTUP.obj",
+"main.obj",
+"mcu_init.obj",
+"mode.obj",
+"led.obj",
+"uart.obj" 
+TO "ZWHC-2-LED_ver3" 
+RAMSIZE(256) 

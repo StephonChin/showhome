@@ -1,0 +1,8 @@
+".\Output\STARTUP.obj",
+".\Output\BTLED.obj",
+".\Output\Data_Process.obj",
+".\Output\Key_Scan.obj",
+".\Output\Led_Display.obj",
+".\Output\MCU_Config.obj" 
+TO ".\Output\BTLED" 
+PRINT(".\BTLED.m51") RAMSIZE(256) 

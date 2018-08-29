@@ -1,0 +1,144 @@
+C51 COMPILER V9.52.0.0   MCU_CONFIG                                                        04/12/2018 09:58:44 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MCU_CONFIG
+OBJECT MODULE PLACED IN .\Output\MCU_Config.obj
+COMPILER INVOKED BY: C:\Keil\C51\C51\BIN\C51.EXE UserSrc\MCU_Config.c BROWSE INCDIR(.\UserInc) DEBUG OBJECTEXTEND PRINT(
+                    -.\MCU_Config.lst) TABS(2) OBJECT(.\Output\MCU_Config.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2            *
+   3            * @FileName     Configuration.c
+   4            * @Date         2018.03.29
+   5            * @Author       DS.Chin
+   6            * @CopyRight    (C) CopyRight  @2016 ~ 2026 Willis Ltd. Co.
+   7            * @Description  This file contains all the function prototyped for the config
+   8            *               fimer library
+   9            *
+  10          *******************************************************************************/
+  11          #include "MCU_Config.h"
+  12          
+  13          
+  14          
+  15          /******************************************************************
+  16            *
+  17            * Function Name     MCU_Config
+  18            *
+  19          ******************************************************************/
+  20          void MCU_Config(void)
+  21          {
+  22   1        /* Disable Interrupt */
+  23   1        IE &= ~BIT7;
+  24   1          
+  25   1        CLK_Init();
+  26   1        
+  27   1        GPIO_Init();
+  28   1        
+  29   1        TIM_Init();
+  30   1          
+  31   1        WDT_Init();
+  32   1          
+  33   1          /* Enable Interrupt */
+  34   1        IE |= BIT7;
+  35   1      }
+  36          
+  37          /******************************************************************
+  38            *
+  39            * Function Name     CLK_Init
+  40            *
+  41          ******************************************************************/
+  42          static void CLK_Init(void)
+  43          {
+  44   1        TA    = 0xAA;
+  45   1        TA    = 0x55;
+  46   1        CKSWT  &= ~(BIT1 | BIT0); 
+  47   1      }
+  48          
+  49          /******************************************************************
+  50            *
+  51            * Function Name     GPIO_Init
+  52            *
+  53          ******************************************************************/
+  54          static void GPIO_Init(void)
+C51 COMPILER V9.52.0.0   MCU_CONFIG                                                        04/12/2018 09:58:44 PAGE 2   
+
+  55          {
+  56   1        //P00 P01 output, 
+  57   1        P0M1 &= ~( BIT0 | BIT1);
+  58   1        P0M2 |= (BIT0 | BIT1);
+  59   1        P0 &= ~(BIT0 | BIT1);
+  60   1        
+  61   1        //p07 - Key P06 Key, 
+  62   1        P0M1 |= (BIT6 | BIT7);
+  63   1        P0M2 &= ~(BIT6 | BIT7);
+  64   1        
+  65   1        //P15 - ZERO
+  66   1        P1M1 |= BIT5;
+  67   1        P1M2 &= ~BIT5;
+  68   1        
+  69   1        PICON = 0x41;
+  70   1        PINEN = 0x20;
+  71   1        PIPEN = 0x20;
+  72   1        
+  73   1        //EIE |= BIT1;
+  74   1      }
+  75          
+  76          /******************************************************************
+  77            *
+  78            * Function Name     TIM_Init
+  79            *
+  80          ******************************************************************/
+  81          static void TIM_Init(void)
+  82          {
+  83   1        /* TIMER 0 */
+  84   1        TMOD    = 0x2;
+  85   1        CKCON  &= ~BIT3;    //1.843M
+  86   1        TL0     = 145;
+  87   1        TH0     = 145;   //1.382375 / 1.843 = 100us
+  88   1        ET0     = 1;
+  89   1        TCON   |= BIT4;
+  90   1        
+  91   1        
+  92   1        /* TIMER 2 */
+  93   1        T2CON   = 0x0;
+  94   1        T2MOD   = 0xA0;     //22.118 / 16 = 1.382375M
+  95   1        RCMP2L  = 0x00;
+  96   1        RCMP2H  = 0xE5;       //10ms
+  97   1        TR2   = 1;
+  98   1      }
+  99          
+ 100          
+ 101          
+ 102          
+ 103          
+ 104          /*******************************************************************
+ 105            *
+ 106            * Function Name     WDT_Init
+ 107            *
+ 108          ******************************************************************/
+ 109          static void WDT_Init(void)
+ 110          {
+ 111   1          TA      = 0xAA;
+ 112   1          TA      = 0x55;
+ 113   1          WDCON   = 0xC3;     // 102.4ms
+ 114   1      }
+ 115          
+ 116          
+C51 COMPILER V9.52.0.0   MCU_CONFIG                                                        04/12/2018 09:58:44 PAGE 3   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    101    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

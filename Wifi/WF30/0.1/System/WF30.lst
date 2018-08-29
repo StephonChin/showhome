@@ -1,0 +1,950 @@
+gpasm-1.7.0_beta1 (Apr 28 2016)WF30.asm           2018-8-21  08:25:54          PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      00002 ;
+                      00003 ;       ProjName         WF30
+                      00004 ;       MCU Info          MC30P6060
+                      00005 ;                               |>  No reset volatage
+                      00006 ;                               |>      WDT clock enable 288ms
+                      00007 ;                               |>      Crystal 8M 2T
+                      00008 ;       Date            2018.08.18
+                      00009 ;       Author          DS.Chin
+                      00010 ;       Version         0.0
+                      00011 ;       Brief           the initial version
+                      00012 ;
+                      00013 ;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      00014 #include "mc30P6060.inc"
+                      00001         
+                      00002 ;MC30P6060.INC  Standard Header File, Version 1.00 by Sinomcu
+                      00003         
+                      00004 
+                      00005 
+                      00006 ;==========================================================================
+                      00007 ;
+                      00008 ;       Revision History
+                      00009 ;
+                      00010 ;==========================================================================
+                      00011 
+                      00012 ;Rev:   Date:    Reason:
+                      00013 
+                      00014 ;1.00   12/06/21 Initial Release
+                      00015 
+                      00016 ;==========================================================================
+                      00017 ;
+                      00018 ;       Verify Processor
+                      00019 ;
+                      00020 ;==========================================================================
+                      00021 ;==========================================================================
+                      00022 ;
+                      00023 ;       Register Definitions
+                      00024 ;
+                      00025 ;==========================================================================
+                      00026 
+                      00027 ;----- Register Files------------------------------------------------------
+                      00028 
+  00000000            00029 INDF                         EQU     H'0000'
+  00000001            00030 T0CNT                        EQU     H'0001'
+  00000002            00031 PCL                          EQU     H'0002'
+  00000003            00032 STATUS                       EQU     H'0003'
+  00000004            00033 FSR                          EQU     H'0004'
+  00000005            00034 P0                           EQU     H'0005'
+  00000006            00035 P1                           EQU     H'0006'
+  00000008            00036 MCR                          EQU     H'0008'
+  00000009            00037 KBIM                         EQU     H'0009'
+  0000000A            00038 PCLATH                       EQU     H'000A'
+  0000000B            00039 PDCON                        EQU     H'000B'
+  0000000C            00040 ODCON                        EQU     H'000C'
+  0000000D            00041 PUCON                        EQU     H'000D'
+  0000000E            00042 INTECON                      EQU     H'000E'
+  0000000F            00043 INTFLAG                      EQU     H'000F'
+  00000041            00044 T0CR                         EQU     H'0041'
+  00000045            00045 DDR0                         EQU     H'0045'
+  00000046            00046 DDR1                           EQU     H'0046'
+  00000048            00047 PWMCR                        EQU     H'0048'
+  00000049            00048 T1DATA1                      EQU     H'0049'
+  0000004A            00049 T1DATA2                          EQU     H'004A'
+  0000004B            00050 TM0CR                        EQU     H'004B'
+  0000004C            00051 T1CR                         EQU     H'004C'
+  0000004D            00052 T1CNT                        EQU     H'004D'
+  0000004E            00053 T1LOAD                       EQU     H'004E'
+  0000004F            00054 T1DATA0                      EQU     H'004F'
+                      00055 
+                      00056 ;INDF 
+                      00057 #define         INDF7          INDF,7
+                      00058 #define         INDF6          INDF,6
+                      00059 #define         INDF5          INDF,5
+                      00060 #define         INDF4          INDF,4
+                      00061 #define         INDF3          INDF,3
+                      00062 #define         INDF2          INDF,2
+                      00063 #define         INDF1          INDF,1
+                      00064 #define         INDF0          INDF,0
+                      00065 
+                      00066 ;T0CNT 
+                      00067 #define         T0C7           T0CNT,7
+                      00068 #define         T0C6           T0CNT,6
+                      00069 #define         T0C5           T0CNT,5
+                      00070 #define         T0C4           T0CNT,4
+                      00071 #define         T0C3           T0CNT,3
+                      00072 #define         T0C2           T0CNT,2
+                      00073 #define         T0C1           T0CNT,1
+                      00074 #define         T0C0           T0CNT,0
+                      00075 
+                      00076 ;PCL 
+                      00077 #define         PC7             PCL,7
+                      00078 #define         PC6             PCL,6
+                      00079 #define         PC5             PCL,5
+                      00080 #define         PC4             PCL,4
+                      00081 #define         PC3             PCL,3
+                      00082 #define         PC2             PCL,2
+                      00083 #define         PC1             PCL,1
+                      00084 #define         PC0             PCL,0
+                      00085 
+                      00086 ;----- STATUS Bits --------------------------------------------------------
+                      00087 #define RST     STATUS,7
+                      00088 #define TO      STATUS,4
+                      00089 #define PD      STATUS,3
+                      00090 #define Z         STATUS,2
+                      00091 #define DC      STATUS,1
+                      00092 #define C         STATUS,0
+                      00093 
+                      00094 ;FSR 
+                      00095 #define         FSR5           FSR,5
+                      00096 #define         FSR4           FSR,4
+                      00097 #define         FSR3           FSR,3
+                      00098 #define         FSR2           FSR,2
+                      00099 #define         FSR1           FSR,1
+                      00100 #define         FSR0           FSR,0
+                      00101 
+                      00102 ;P0 
+                      00103 #define         P03D           P0,3
+                      00104 #define         P02D           P0,2
+                      00105 #define         P01D           P0,1
+                      00106 #define         P00D           P0,0
+                      00107 
+                      00108 ;P1 
+                      00109 #define         P17D           P1,7
+                      00110 #define         P16D           P1,6
+                      00111 #define         P15D           P1,5
+                      00112 #define         P14D           P1,4
+                      00113 #define         P13D           P1,3
+                      00114 #define         P12D           P1,2
+                      00115 #define         P11D           P1,1
+                      00116 #define         P10D           P1,0
+                      00117 
+                      00118 ;----- MCR Bits --------------------------------------------------------
+                      00119 #define WDTEN       MCR,7
+                      00120 #define EIS           MCR,6
+                      00121 #define LVDF        MCR,5
+                      00122 #define LVDSEL3   MCR,4
+                      00123 #define LVDSEL2   MCR,3
+                      00124 #define LVDSEL1   MCR,2
+                      00125 #define LVDSEL0   MCR,1
+                      00126 #define LVDEN       MCR,0
+                      00127 
+                      00128 ;KBIM 
+                      00129 #define         KBIM5           KBIM,5
+                      00130 #define         KBIM4           KBIM,4
+                      00131 #define         KBIM3           KBIM,3
+                      00132 #define         KBIM2           KBIM,2
+                      00133 #define         KBIM1           KBIM,1
+                      00134 #define         KBIM0           KBIM,0
+                      00135 
+                      00136 ;----- PCLATH Bits --------------------------------------------------------
+                      00137 #define PCH1      PCLATH,1
+                      00138 #define PCH0      PCLATH,0
+                      00139 
+                      00140 ;PDCON
+                      00141 #define         P12PD           PDCON,6
+                      00142 #define         P11PD           PDCON,5
+                      00143 #define         P10PD           PDCON,4
+                      00144 #define         P03PD           PDCON,3
+                      00145 #define         P02PD           PDCON,2
+                      00146 #define         P01PD           PDCON,1
+                      00147 #define         P00PD           PDCON,0
+                      00148 
+                      00149 ;ODCON
+                      00150 #define         P17OD           ODCON,7
+                      00151 #define         P16OD           ODCON,6
+                      00152 #define         P15OD           ODCON,5
+                      00153 #define         P14OD           ODCON,4
+                      00154 #define         P12OD           ODCON,2
+                      00155 #define         P11OD           ODCON,1
+                      00156 #define         P10OD           ODCON,0
+                      00157 
+                      00158 ;PUCON
+                      00159 #define         P17PU           PUCON,7
+                      00160 #define         P16PU           PUCON,6
+                      00161 #define         P15PU           PUCON,5
+                      00162 #define         P14PU           PUCON,4
+                      00163 #define         P12PU           PUCON,2
+                      00164 #define         P11PU           PUCON,1
+                      00165 #define         P10PU           PUCON,0
+                      00166 
+                      00167 ;----- INTECON Bits --------------------------------------------------------
+                      00168 #define INTE      INTECON
+                      00169 #define GIE         INTECON,7
+                      00170 #define INTIE     INTECON,2
+                      00171 #define KBIE      INTECON,1
+                      00172 #define T0IE      INTECON,0
+                      00173 
+                      00174 ;----- INTFLAG Bits --------------------------------------------------------
+                      00175 #define INTF      INTFLAG
+                      00176 #define INTIF     INTF,2
+                      00177 #define KBIF      INTF,1
+                      00178 #define T0IF      INTF,0
+                      00179 
+                      00180 ;----- T0CR Bits --------------------------------------------------------
+                      00181 #define         INT0M           T0CR,6
+                      00182 #define         T0PTS           T0CR,5
+                      00183 #define         T0SE            T0CR,4
+                      00184 #define         T0PTA           T0CR,3
+                      00185 #define         T0PR2           T0CR,2
+                      00186 #define         T0PR1           T0CR,1
+                      00187 #define         T0PR0           T0CR,0
+                      00188 
+                      00189 ;DDR0
+                      00190 #define         DDR03           DDR0,3
+                      00191 #define         DDR02           DDR0,2
+                      00192 #define         DDR01           DDR0,1
+                      00193 #define         DDR00           DDR0,0
+                      00194 
+                      00195 ;DDR1
+                      00196 #define         DDR17           DDR1,7
+                      00197 #define         DDR16           DDR1,6
+                      00198 #define         DDR15           DDR1,5
+                      00199 #define         DDR14           DDR1,4
+                      00200 #define         DDR13           DDR1,3
+                      00201 #define         DDR12           DDR1,2
+                      00202 #define         DDR11           DDR1,1
+                      00203 #define         DDR10           DDR1,0
+                      00204 
+                      00205 ;PWMCR
+                      00206 #define         PMW0OE          PWMCR,7
+                      00207 #define         PWM1OE          PWMCR,6
+                      00208 #define         PWM2OE          PWMCR,5
+                      00209 #define         DBLCK           PWMCR,4
+                      00210 #define         PWMMD           PWMCR,3
+                      00211 #define         PWMINV          PWMCR,2
+                      00212 #define         PMW1E           PWMCR,1
+                      00213 #define         PWM2E           PWMCR,0
+                      00214 
+                      00215 ;T1DATA1
+                      00216 #define T1DATA17   T1DATA1,7
+                      00217 #define T1DATA16   T1DATA1,6
+                      00218 #define T1DATA15   T1DATA1,5
+                      00219 #define T1DATA14   T1DATA1,4
+                      00220 #define T1DATA13   T1DATA1,3
+                      00221 #define T1DATA12   T1DATA1,2
+                      00222 #define T1DATA11   T1DATA1,1
+                      00223 #define T1DATA10   T1DATA1,0
+                      00224 
+                      00225 ;T1DATA2
+                      00226 #define T1DATA27   T1DATA2,7
+                      00227 #define T1DATA26   T1DATA2,6
+                      00228 #define T1DATA25   T1DATA2,5
+                      00229 #define T1DATA24   T1DATA2,4
+                      00230 #define T1DATA23   T1DATA2,3
+                      00231 #define T1DATA22   T1DATA2,2
+                      00232 #define T1DATA21   T1DATA2,1
+                      00233 #define T1DATA20   T1DATA2,0
+                      00234 
+                      00235 ;------TM0CR -----------------
+                      00236 #define TBS     TM0CR,7
+                      00237 #define T1IE    TM0CR,1
+                      00238 #define T1IF    TM0CR,0
+                      00239 
+                      00240 ;-------T1CR----------
+                      00241 #define TC1EN    T1CR,7
+                      00242 #define PWM0E    T1CR,6
+                      00243 #define BUZE     T1CR,5
+                      00244 #define T1PTS1   T1CR,4
+                      00245 #define T1PTS0   T1CR,3
+                      00246 #define T1PR2    T1CR,2
+                      00247 #define T1PR1    T1CR,1
+                      00248 #define T1PR0    T1CR,0
+                      00249 
+                      00250 ;T1CNT
+                      00251 #define T1C7   T1CNT,7
+                      00252 #define T1C6   T1CNT,6
+                      00253 #define T1C5   T1CNT,5
+                      00254 #define T1C4   T1CNT,4
+                      00255 #define T1C3   T1CNT,3
+                      00256 #define T1C2   T1CNT,2
+                      00257 #define T1C1   T1CNT,1
+                      00258 #define T1C0   T1CNT,0
+                      00259 
+                      00260 ;T1LOAD
+                      00261 #define T1LOAD7   T1LOAD,7
+                      00262 #define T1LOAD6   T1LOAD,6
+                      00263 #define T1LOAD5   T1LOAD,5
+                      00264 #define T1LOAD4   T1LOAD,4
+                      00265 #define T1LOAD3   T1LOAD,3
+                      00266 #define T1LOAD2   T1LOAD,2
+                      00267 #define T1LOAD1   T1LOAD,1
+                      00268 #define T1LOAD0   T1LOAD,0
+                      00269 
+                      00270 ;T1DATA0
+                      00271 #define T1DATA07   T1DATA0,7
+                      00272 #define T1DATA06   T1DATA0,6
+                      00273 #define T1DATA05   T1DATA0,5
+                      00274 #define T1DATA04   T1DATA0,4
+                      00275 #define T1DATA03   T1DATA0,3
+                      00276 #define T1DATA02   T1DATA0,2
+                      00277 #define T1DATA01   T1DATA0,1
+                      00278 #define T1DATA00   T1DATA0,0
+                      00279 
+                      00015 
+                      00016 
+                      00017 ;--------------------------------------------------------------------
+                      00018 ; Port Define
+                      00019 #define         PORT_RELAY                      P1,2
+                      00020 #define         PORT_ON                           P1,4
+                      00021 #define         PORT_OFF                          P1,5
+                      00022 #define         PORT_KEY                        P1,0
+                      00023 
+                      00024 
+                      00025 ;--------------------------------------------------------------------
+                      00026 ; Parameters
+                      00027 cblock    0x10
+                      00028 StatusTemp
+                      00029 AccTemp
+                      00030 
+                      00031 WorkFlag
+                      00032 WorkFlag1
+                      00033 
+                      00034 LowTime
+                      00035 HighTime
+                      00036 
+                      00037 PowerLowTime
+                      00038 PowerHighTime
+                      00039 
+                      00040 Mode
+                      00041 ModeTime
+                      00042 
+                      00043 OnTime
+                      00044 OffTime
+                      00045 
+                      00046 
+                      00047 endc
+                      00048 
+                      00049 ;--------------------------------------------------------------------
+                      00050 ; Flag Define
+                      00051 #define     ModeInit                WorkFlag,0
+                      00052 #define     OnOffFlag               WorkFlag,1
+                      00053 #define     OnFlag                  WorkFlag,2
+                      00054 #define     OffFlag                     WorkFlag,3
+                      00055 #define     KeyLowFlag              WorkFlag,4
+                      00056 #define     KeyHighFlag             WorkFlag,5
+                      00057 #define     KeyTrigFlag             WorkFlag,6
+                      00058 #define     PowerOnFlag             WorkFlag,7
+                      00059 #define     PowerStableFlag         WorkFlag1,0
+                      00060 
+                      00061 
+                      00062 
+                      00063 ;--------------------------------------------------------------------
+                      00064 ; Programm & Interrupt Entrance
+                      00065         org                 0x03ff
+03FF   2800           00066         goto        _Start
+                      00067         org                 0x08
+0008   2800           00068         goto        _Interrupt
+                      00069 
+                      00070 ;--------------------------------------------------------------------
+                      00071 ; Interrupt Code
+0009                  00072 _Interrupt:
+0009   1591           00073         movra           AccTemp
+000A   1103           00074     swapar              STATUS
+000B   1590           00075     movra               StatusTemp
+                      00076 
+                      00077 
+000C                  00078 _Interrupt_Exit:
+000C   1D8F           00079         clrr            INTFLAG
+000D   3C8F           00080     bclr        KBIF
+000E   1110           00081         swapar          StatusTemp
+000F   1583           00082     movra               STATUS
+0010   1191           00083     swapr               AccTemp
+0011   1111           00084     swapar              AccTemp
+0012   000D           00085         RETIE
+                      00086 
+                      00087 
+                      00088 
+                      00089 
+                      00090 ;--------------------------------------------------------------------
+                      00091 ; MCU Config
+0013                  00092 _Start:
+0013   1D8E           00093         clrr    INTECON             ;interrupt
+0014   1D88           00094         clrr    MCR                             ;watch dog
+                      00095 
+0015   0B05           00096         movai   b'00000101'
+0016   15C6           00097         movra   DDR1                            ;P14 P15 output P10 P12 input
+0017   0B30           00098     movai   b'00110000'
+0018   158C           00099         movra   ODCON                           ;output open-drain
+0019   1D8D           00100         clrr    PUCON
+001A   1D8B           00101     clrr    PDCON
+                      00102 
+                      00103 
+001B   0B02           00104         movai   0x02
+001C   15C1           00105         movra   T0CR                            ;uping edge, Ft0 = Fcpu, Pre for T0, Ft=8/2/8=0.5M Tt=2us  (2T)
+001D   0B38           00106         movai   56
+001E   1581           00107         movra   T0CNT               ;time0 - 200  200 * 2 = 400us
+                      00108 
+                      00109 
+001F   3B88           00110         bset    WDTEN
+0020   000E           00111         CLRWDT                                          ; Clear the watch dog timer count
+                      00112 
+0021   0B3F           00113         movai   0x3f
+0022   1584           00114         movra   FSR
+0023   2800           00115         goto    _Ram_clear
+                      00116 
+                      00117 
+                      00118 
+                      00119 
+                      00120 
+                      00121 ;--------------------------------------------------------------------
+                      00122 ; Parameters Initialize
+0024                  00123 _Ram_clear:
+0024   1D80           00124         clrr    INDF
+0025   1B84           00125         decr    FSR
+0026   0BD0           00126         movai   0xd0
+0027   1204           00127         rsubar  FSR
+0028   3403           00128         jbclr   C
+0029   2800           00129         goto    _Ram_clear
+002A   2800           00130         goto    _User_Init
+                      00131 
+                      00132 
+                      00133 
+                      00134 
+                      00135 ;--------------------------------------------------------------------
+                      00136 ; User Data Initialize
+002B                  00137 _User_Init:
+002B   3A06           00138     bset    PORT_ON
+002C   3A86           00139     bset    PORT_OFF
+002D   2800           00140         goto    Main
+                      00141 
+                      00142 
+                      00143 
+                      00144 
+                      00145 
+                      00146 ;--------------------------------------------------------------------
+                      00147 ; Main Code
+002E                  00148 Main:
+002E   300F           00149         jbset   T0IF
+002F   2800           00150         goto    Main
+0030   3C0F           00151         bclr    T0IF
+                      00152 
+0031   0B38           00153         movai   56
+0032   1581           00154         movra   T0CNT                           ; scan each 200us
+                      00155 
+0033   000E           00156         CLRWDT                                          ;clear the WDT timer count
+                      00157 
+                      00158 ;       jbclr   PORT_OUT
+                      00159 ;       goto    $+3
+                      00160 ;       bset    PORT_OUT
+                      00161 ;       goto    $+2
+                      00162 ;       bclr    PORT_OUT
+                      00163 ;       goto    Main
+                      00164 
+0034   2800           00165         goto    Power_Stability
+                      00166 
+                      00167 ;--------------------------------------------------------------------
+                      00168 ;Wait the power stability
+                      00169 ;--------------------------------------------------------------------
+0035                  00170 Power_Stability:
+0035   3413           00171     jbclr   PowerStableFlag
+0036   2800           00172     goto    Power_Stability_Exit
+                      00173 
+0037   3406           00174     jbclr   PORT_KEY
+0038   2800           00175     goto    High_Stability
+0039   2800           00176     goto    Low_Stability
+                      00177 
+003A                  00178 High_Stability:
+003A   1D96           00179     clrr    PowerLowTime
+                      00180 
+003B   1997           00181     incr    PowerHighTime
+003C   0BC8           00182     movai   200           ;80ms
+003D   1217           00183     rsubar  PowerHighTime
+003E   3003           00184     jbset   C
+003F   2800           00185     goto    Power_Stability_Ret
+                      00186 
+0040   1D97           00187     clrr    PowerHighTime
+0041   3813           00188     bset    PowerStableFlag
+0042   2800           00189     goto    Power_Stability_Ret
+                      00190 
+0043                  00191 Low_Stability:
+0043   1D97           00192     clrr    PowerHighTime
+                      00193 
+0044   1996           00194     incr    PowerLowTime
+0045   0BC8           00195     movai   200
+0046   1216           00196     rsubar  PowerLowTime
+0047   3003           00197     jbset   C
+0048   2800           00198     goto    Power_Stability_Ret
+                      00199 
+0049   1D96           00200     clrr    PowerLowTime
+004A   3813           00201     bset    PowerStableFlag
+004B   2800           00202     goto    Power_Stability_Ret
+                      00203 
+004C                  00204 Power_Stability_Ret:
+004C   2800           00205     goto    Main
+                      00206 
+                      00207 
+004D                  00208 Power_Stability_Exit:
+004D   2800           00209     goto    On_Off_Det
+                      00210 
+                      00211 ;--------------------------------------------------------------------
+                      00212 ;Get the output status
+                      00213 ;--------------------------------------------------------------------
+004E                  00214 On_Off_Det:
+004E   3506           00215     jbclr   PORT_RELAY
+004F   2800           00216     goto    On_Det
+0050   2800           00217     goto    Off_Det
+0051                  00218 On_Det:
+0051   1D9B           00219     clrr    OffTime
+                      00220 
+0052   3512           00221     jbclr   OnFlag
+0053   2800           00222     goto    On_Off_Det_Exit
+                      00223 
+0054   199A           00224     incr    OnTime
+0055   0B64           00225     movai   100     ;40ms
+0056   121A           00226     rsubar  OnTime
+0057   3003           00227     jbset   C
+0058   2800           00228     goto    On_Off_Det_Exit
+                      00229 
+0059   3912           00230     bset    OnFlag
+005A   3D92           00231     bclr    OffFlag
+005B   3892           00232     bset    OnOffFlag
+005C   1D9A           00233     clrr    OnTime
+005D   2800           00234     goto    On_Off_Det_Exit
+                      00235 
+005E                  00236 Off_Det:
+005E   1D9A           00237     clrr    OnTime
+                      00238 
+005F   3592           00239     jbclr     OffFlag
+0060   2800           00240     goto      On_Off_Det_Exit
+                      00241 
+0061   199B           00242     incr      OffTime
+0062   0B64           00243     movai     100
+0063   121B           00244     rsubar    OffTime
+0064   3003           00245     jbset     C
+0065   2800           00246     goto      On_Off_Det_Exit
+                      00247 
+0066   1D9B           00248     clrr      OffTime
+0067   3992           00249     bset      OffFlag
+0068   3D12           00250     bclr      OnFlag
+0069   3C92           00251     bclr      OnOffFlag
+006A   2800           00252     goto      On_Off_Det_Exit
+                      00253 
+006B                  00254 On_Off_Det_Exit:
+006B   2800           00255     goto      Key_Scan
+                      00256 
+                      00257 
+                      00258 ;--------------------------------------------------------------------
+                      00259 ; Scan the key status
+                      00260 ;--------------------------------------------------------------------
+006C                  00261 Key_Scan:
+006C   3406           00262     jbclr   PORT_KEY
+006D   2800           00263     goto    Key_High
+006E   2800           00264     goto    Key_Low
+                      00265 
+006F                  00266 Key_High:
+006F   1D94           00267     clrr    LowTime
+                      00268 
+0070   3692           00269     jbclr   KeyHighFlag
+0071   2800           00270     goto    Key_Scan_Exit
+                      00271 
+0072   1995           00272     incr    HighTime
+0073   0B64           00273     movai   100
+0074   1215           00274     rsubar  HighTime
+0075   3003           00275     jbset   C
+0076   2800           00276     goto    Key_Scan_Exit
+                      00277 
+0077   1D95           00278     clrr   HighTime
+0078   3A92           00279     bset    KeyHighFlag
+0079   3E12           00280     bclr    KeyLowFlag
+007A   3B12           00281     bset    KeyTrigFlag
+007B   2800           00282     goto    Key_Scan_Exit
+                      00283 
+007C                  00284 Key_Low:
+007C   1D95           00285     clrr    HighTime
+                      00286 
+007D   3612           00287     jbclr   KeyLowFlag
+007E   2800           00288     goto    Key_Scan_Exit
+                      00289 
+007F   1994           00290     incr    LowTime
+0080   0B64           00291     movai   100
+0081   1214           00292     rsubar  LowTime
+0082   3003           00293     jbset   C
+0083   2800           00294     goto    Key_Scan_Exit
+                      00295 
+0084   1D94           00296     clrr    LowTime
+0085   3A12           00297     bset    KeyLowFlag
+0086   3E92           00298     bclr    KeyHighFlag
+0087   3B12           00299     bset    KeyTrigFlag
+0088   2800           00300     goto    Key_Scan_Exit
+                      00301 
+0089                  00302 Key_Scan_Exit:
+0089   2800           00303         goto    Mode_Change
+                      00304 
+                      00305 ;---------------------------------------------------------------------
+                      00306 ;Change the mode
+                      00307 ;---------------------------------------------------------------------
+008A                  00308 Mode_Change:
+008A   3312           00309     jbset   KeyTrigFlag
+008B   2800           00310     goto    Mode_Change_Exit
+                      00311 
+008C   3F12           00312     bclr    KeyTrigFlag
+                      00313 
+008D   3392           00314     jbset   PowerOnFlag
+008E   2800           00315     goto    Power_On_Init
+                      00316 
+008F   3092           00317     jbset   OnOffFlag
+0090   2800           00318     goto    Change_On
+0091   2800           00319     goto    Change_Off
+                      00320 
+0092                  00321 Change_On:
+0092   0B01           00322     movai   1
+0093   1598           00323     movra   Mode
+0094   3812           00324     bset    ModeInit
+0095   2800           00325     goto    Mode_Change_Exit
+                      00326 
+0096                  00327 Change_Off:
+0096   0B02           00328     movai   2
+0097   1598           00329     movra   Mode
+0098   3812           00330     bset    ModeInit
+0099   2800           00331     goto    Mode_Change_Exit
+                      00332 
+009A                  00333 Power_On_Init:
+009A   3B92           00334     bset    PowerOnFlag
+009B   2800           00335     goto    Mode_Change_Exit
+                      00336 
+009C                  00337 Mode_Change_Exit:
+009C   2800           00338     goto    Mode_Control
+                      00339 
+                      00340 ;---------------------------------------------------------------------
+009D                  00341 Mode_Control:
+009D   3412           00342     jbclr   ModeInit
+009E   2800           00343     goto    Mode_Control_Sub
+                      00344 
+009F   3C12           00345     bclr    ModeInit
+00A0   3A06           00346     bset    PORT_ON
+00A1   3A86           00347     bset    PORT_OFF
+00A2   1D99           00348     clrr    ModeTime
+00A3   2800           00349     goto    Mode_Control_Sub
+                      00350 
+00A4                  00351 Mode_Control_Sub:
+00A4   0B01           00352     movai   1
+00A5   1218           00353     rsubar  Mode
+00A6   3003           00354     jbset   C
+00A7   2800           00355     goto    Mode_Standby
+                      00356 
+00A8   0B02           00357     movai   2
+00A9   1218           00358     rsubar  Mode
+00AA   3003           00359     jbset   C
+00AB   2800           00360     goto    Mode_On
+00AC   2800           00361     goto    Mode_Off
+                      00362 
+00AD                  00363 Mode_Standby:
+00AD   3A06           00364     bset    PORT_ON
+00AE   3A86           00365     bset    PORT_OFF
+00AF   2800           00366     goto    Mode_Control_Exit
+                      00367 
+00B0                  00368 Mode_On:
+00B0   3E06           00369     bclr    PORT_ON
+00B1   2800           00370     goto    Mode_Time_Delay
+                      00371 
+00B2                  00372 Mode_Off:
+00B2   3E86           00373     bclr    PORT_OFF
+00B3   2800           00374     goto    Mode_Time_Delay
+                      00375 
+00B4                  00376 Mode_Time_Delay:
+00B4   1999           00377     incr    ModeTime
+00B5   0BC8           00378     movai   200       ;400 * 200 = 80ms
+00B6   1219           00379     rsubar  ModeTime
+00B7   3003           00380     jbset   C
+00B8   2800           00381     goto    Mode_Control_Exit
+                      00382 
+00B9   1D99           00383     clrr    ModeTime
+00BA   1D98           00384     clrr    Mode
+00BB   3812           00385     bset    ModeInit
+00BC   2800           00386     goto    Mode_Control_Exit
+                      00387 
+00BD                  00388 Mode_Control_Exit:
+00BD   2800           00389         goto    Main
+                      00390 
+                      00391 
+                      00392 
+                      00393 
+                      00394 
+                      00395 
+                      00396 
+                      00397 ;--------------------------------------------------------------------
+                      00398         end
+gpasm-1.7.0_beta1 (Apr 28 2016)WF30.asm           2018-8-21  08:25:54          PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE
+
+AccTemp                           00000011
+Change_Off                        00000096
+Change_On                         00000092
+DDR0                              00000045
+DDR1                              00000046
+FSR                               00000004
+HighTime                          00000015
+High_Stability                    0000003A
+INDF                              00000000
+INTECON                           0000000E
+INTFLAG                           0000000F
+KBIM                              00000009
+Key_High                          0000006F
+Key_Low                           0000007C
+Key_Scan                          0000006C
+Key_Scan_Exit                     00000089
+LowTime                           00000014
+Low_Stability                     00000043
+MCR                               00000008
+Main                              0000002E
+Mode                              00000018
+ModeTime                          00000019
+Mode_Change                       0000008A
+Mode_Change_Exit                  0000009C
+Mode_Control                      0000009D
+Mode_Control_Exit                 000000BD
+Mode_Control_Sub                  000000A4
+Mode_Off                          000000B2
+Mode_On                           000000B0
+Mode_Standby                      000000AD
+Mode_Time_Delay                   000000B4
+ODCON                             0000000C
+OffTime                           0000001B
+Off_Det                           0000005E
+OnTime                            0000001A
+On_Det                            00000051
+On_Off_Det                        0000004E
+On_Off_Det_Exit                   0000006B
+P0                                00000005
+P1                                00000006
+PCL                               00000002
+PCLATH                            0000000A
+PDCON                             0000000B
+PUCON                             0000000D
+PWMCR                             00000048
+PowerHighTime                     00000017
+PowerLowTime                      00000016
+Power_On_Init                     0000009A
+Power_Stability                   00000035
+Power_Stability_Exit              0000004D
+Power_Stability_Ret               0000004C
+STATUS                            00000003
+StatusTemp                        00000010
+T0CNT                             00000001
+T0CR                              00000041
+T1CNT                             0000004D
+T1CR                              0000004C
+T1DATA0                           0000004F
+T1DATA1                           00000049
+T1DATA2                           0000004A
+T1LOAD                            0000004E
+TM0CR                             0000004B
+WorkFlag                          00000012
+WorkFlag1                         00000013
+_Interrupt                        00000009
+_Interrupt_Exit                   0000000C
+_Ram_clear                        00000024
+_Start                            00000013
+_User_Init                        0000002B
+__30P011                          00000001
+BUZE                              T1CR,5
+C                                 STATUS,0
+DBLCK                             PWMCR,4
+DC                                STATUS,1
+DDR00                             DDR0,0
+DDR01                             DDR0,1
+DDR02                             DDR0,2
+DDR03                             DDR0,3
+DDR10                             DDR1,0
+DDR11                             DDR1,1
+DDR12                             DDR1,2
+DDR13                             DDR1,3
+DDR14                             DDR1,4
+DDR15                             DDR1,5
+DDR16                             DDR1,6
+DDR17                             DDR1,7
+EIS                               MCR,6
+FSR0                              FSR,0
+FSR1                              FSR,1
+FSR2                              FSR,2
+FSR3                              FSR,3
+FSR4                              FSR,4
+FSR5                              FSR,5
+GIE                               INTECON,7
+INDF0                             INDF,0
+INDF1                             INDF,1
+INDF2                             INDF,2
+INDF3                             INDF,3
+INDF4                             INDF,4
+INDF5                             INDF,5
+INDF6                             INDF,6
+INDF7                             INDF,7
+INT0M                             T0CR,6
+INTE                              INTECON
+INTF                              INTFLAG
+INTIE                             INTECON,2
+INTIF                             INTF,2
+KBIE                              INTECON,1
+KBIF                              INTF,1
+KBIM0                             KBIM,0
+KBIM1                             KBIM,1
+KBIM2                             KBIM,2
+KBIM3                             KBIM,3
+KBIM4                             KBIM,4
+KBIM5                             KBIM,5
+KeyHighFlag                       WorkFlag,5
+KeyLowFlag                        WorkFlag,4
+KeyTrigFlag                       WorkFlag,6
+LVDEN                             MCR,0
+LVDF                              MCR,5
+LVDSEL0                           MCR,1
+LVDSEL1                           MCR,2
+LVDSEL2                           MCR,3
+LVDSEL3                           MCR,4
+ModeInit                          WorkFlag,0
+OffFlag                           WorkFlag,3
+OnFlag                            WorkFlag,2
+OnOffFlag                         WorkFlag,1
+P00D                              P0,0
+P00PD                             PDCON,0
+P01D                              P0,1
+P01PD                             PDCON,1
+P02D                              P0,2
+P02PD                             PDCON,2
+P03D                              P0,3
+P03PD                             PDCON,3
+P10D                              P1,0
+P10OD                             ODCON,0
+P10PD                             PDCON,4
+P10PU                             PUCON,0
+P11D                              P1,1
+P11OD                             ODCON,1
+P11PD                             PDCON,5
+P11PU                             PUCON,1
+P12D                              P1,2
+P12OD                             ODCON,2
+P12PD                             PDCON,6
+P12PU                             PUCON,2
+P13D                              P1,3
+P14D                              P1,4
+P14OD                             ODCON,4
+P14PU                             PUCON,4
+P15D                              P1,5
+P15OD                             ODCON,5
+P15PU                             PUCON,5
+P16D                              P1,6
+P16OD                             ODCON,6
+P16PU                             PUCON,6
+P17D                              P1,7
+P17OD                             ODCON,7
+P17PU                             PUCON,7
+PC0                               PCL,0
+PC1                               PCL,1
+PC2                               PCL,2
+PC3                               PCL,3
+PC4                               PCL,4
+PC5                               PCL,5
+PC6                               PCL,6
+PC7                               PCL,7
+PCH0                              PCLATH,0
+PCH1                              PCLATH,1
+PD                                STATUS,3
+PMW0OE                            PWMCR,7
+PMW1E                             PWMCR,1
+PORT_KEY                          P1,0
+PORT_OFF                          P1,5
+PORT_ON                           P1,4
+PORT_RELAY                        P1,2
+PWM0E                             T1CR,6
+PWM1OE                            PWMCR,6
+PWM2E                             PWMCR,0
+PWM2OE                            PWMCR,5
+PWMINV                            PWMCR,2
+PWMMD                             PWMCR,3
+PowerOnFlag                       WorkFlag,7
+PowerStableFlag                   WorkFlag1,0
+RST                               STATUS,7
+T0C0                              T0CNT,0
+T0C1                              T0CNT,1
+T0C2                              T0CNT,2
+T0C3                              T0CNT,3
+T0C4                              T0CNT,4
+T0C5                              T0CNT,5
+T0C6                              T0CNT,6
+T0C7                              T0CNT,7
+T0IE                              INTECON,0
+T0IF                              INTF,0
+T0PR0                             T0CR,0
+T0PR1                             T0CR,1
+T0PR2                             T0CR,2
+T0PTA                             T0CR,3
+T0PTS                             T0CR,5
+T0SE                              T0CR,4
+T1C0                              T1CNT,0
+T1C1                              T1CNT,1
+T1C2                              T1CNT,2
+T1C3                              T1CNT,3
+T1C4                              T1CNT,4
+T1C5                              T1CNT,5
+T1C6                              T1CNT,6
+T1C7                              T1CNT,7
+T1DATA00                          T1DATA0,0
+T1DATA01                          T1DATA0,1
+T1DATA02                          T1DATA0,2
+T1DATA03                          T1DATA0,3
+T1DATA04                          T1DATA0,4
+T1DATA05                          T1DATA0,5
+T1DATA06                          T1DATA0,6
+T1DATA07                          T1DATA0,7
+T1DATA10                          T1DATA1,0
+T1DATA11                          T1DATA1,1
+T1DATA12                          T1DATA1,2
+T1DATA13                          T1DATA1,3
+T1DATA14                          T1DATA1,4
+T1DATA15                          T1DATA1,5
+T1DATA16                          T1DATA1,6
+T1DATA17                          T1DATA1,7
+T1DATA20                          T1DATA2,0
+T1DATA21                          T1DATA2,1
+T1DATA22                          T1DATA2,2
+T1DATA23                          T1DATA2,3
+T1DATA24                          T1DATA2,4
+T1DATA25                          T1DATA2,5
+T1DATA26                          T1DATA2,6
+T1DATA27                          T1DATA2,7
+T1IE                              TM0CR,1
+T1IF                              TM0CR,0
+T1LOAD0                           T1LOAD,0
+T1LOAD1                           T1LOAD,1
+T1LOAD2                           T1LOAD,2
+T1LOAD3                           T1LOAD,3
+T1LOAD4                           T1LOAD,4
+T1LOAD5                           T1LOAD,5
+T1LOAD6                           T1LOAD,6
+T1LOAD7                           T1LOAD,7
+T1PR0                             T1CR,0
+T1PR1                             T1CR,1
+T1PR2                             T1CR,2
+T1PTS0                            T1CR,3
+T1PTS1                            T1CR,4
+TBS                               TM0CR,7
+TC1EN                             T1CR,7
+TO                                STATUS,4
+WDTEN                             MCR,7
+Z                                 STATUS,2
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

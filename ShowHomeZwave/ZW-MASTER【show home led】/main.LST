@@ -1,0 +1,128 @@
+C51 COMPILER V9.52.0.0   MAIN                                                              03/30/2017 14:18:05 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil51\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1           /*****************************
+   2           *作者:chenyk
+   3           *日期:2014.10.28
+   4           *mcu:mc96f6508a
+   5           *功能:控制led闪烁
+   6           *修改记录:
+   7           ******************************/
+   8          #include"main.h"
+   9          #include "mc96f6508a.h"
+  10          uchar main_loop=0;
+  11          
+  12          uchar  uart_data[14];
+  13          uchar  uart_step;
+  14          bit uart_updata=0;
+  15          bit uart_start;
+  16          void main(void)
+  17          {
+  18   1        sys_clock_init();  //初始化系统时钟，8mhz
+  19   1        gpio_init();       //初始化gpio
+  20   1        uart_init();      //初始化uart
+  21   1        t0_init();      //初始化t0
+  22   1        power_on_flag=1;
+  23   1        while(1)
+  24   1        { 
+  25   2         if(TIFR&0x01==0x01) //200us
+  26   2          {
+  27   3            TIFR&=0xfe;
+  28   3          //WDTCR|=0x20;     //清看门狗
+  29   3            
+  30   3            //P56=~P56;
+  31   3      
+  32   3          led_control();   
+  33   3          uart_receive();
+  34   3          switch(main_loop) //800us
+  35   3          {
+  36   4            case 0:
+  37   4          main_loop+=1;
+  38   4          //green_9=1;
+  39   4          //red_9=1;
+  40   4          //blue_9=1;
+  41   4          mode_play();
+  42   4          break;
+  43   4      
+  44   4          case 1:
+  45   4          main_loop+=1;
+  46   4          //led_control();
+  47   4          break;
+  48   4      
+  49   4          case 2:
+  50   4          main_loop+=1;
+  51   4          //uart_receive();
+  52   4          break;
+  53   4      
+  54   4          case 3:
+  55   4          main_loop=0;
+C51 COMPILER V9.52.0.0   MAIN                                                              03/30/2017 14:18:05 PAGE 2   
+
+  56   4          break;
+  57   4      
+  58   4          default:
+  59   4          main_loop=0;
+  60   4          break;
+  61   4          }
+  62   3          }
+  63   2        }
+  64   1      }
+  65          
+  66           /**********************
+  67           *名称:uart_rx_Int()
+  68           *功能:uart 接收收据
+  69           *输入:无
+  70           *输出:无
+  71           *修改记录:
+  72           **********************/
+  73           
+  74          void uart_rx_Int(void) interrupt 9      
+  75          {
+  76   1        uchar i;
+  77   1        
+  78   1        if(uart_start)
+  79   1        {
+  80   2          uart_data[uart_step]=UARTDR;
+  81   2          if(uart_data[uart_step]=='#')
+  82   2          {
+  83   3            uart_updata=1;
+  84   3            uart_start=0;
+  85   3          }
+  86   2          
+  87   2          uart_step++;
+  88   2          if(uart_step>13)
+  89   2          {
+  90   3            uart_start=0;
+  91   3          }
+  92   2        }
+  93   1        else
+  94   1        {
+  95   2          uart_data[0]=UARTDR;
+  96   2          if(uart_data[0]=='$')
+  97   2          {
+  98   3            uart_start=1;
+  99   3            uart_step=1;
+ 100   3            for(i=0;i<13;i++) uart_data[i]=0;
+ 101   3          }
+ 102   2        }
+ 103   1      } 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    146    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

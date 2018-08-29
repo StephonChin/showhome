@@ -1,0 +1,853 @@
+start listing elf file - .\Bin/DT50.out
+
+
+------------------begin data section------------------
+
+Start   Length(Byte)  Type  Name                             Source File
+000000    0X05        Data  crt0@data                        
+0X0005    0X05        Data  _InterruptBackupData             
+0X000A    0X01        Data  _key_c_GlobalBitDataPool0        F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\key.c
+0X000B    0X01        Data  _power_save_c_GlobalBitDataPool0   F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\power_save.c
+0X000C    0X05        Data  _sdata2@segment                  F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\main.c
+0X0011    0X02        Data  _sdata3@segment                  F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\key.c
+0X0013    0X01        Data  _sdata4@segment                  F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\key.c
+0X0014    0X01        Data  _sdata5@segment                  F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\key.c
+0X0015    0X01        Data  _sdata6@segment                  F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\key.c
+0X0016    0X01        Data  _sdata7@segment                  F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\key.c
+0X0017    0X01        Data  _sdata8@segment                  F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\key.c
+0X0018    0X01        Data  _sdata9@segment                  F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\key.c
+0X0019    0X01        Data  _sdata10@segment                 F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\key.c
+0X001A    0X01        Data  _warningCnt3@segment             F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\beep.c
+0X001B    0X01        Data  _warningCnt2@segment             F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\beep.c
+0X001C    0X01        Data  _warningCnt1@segment             F:\ZW1104(Flood Sensor)&ZW1105\ZW1104-1\Src\beep.c
+
+
+crt0@data SEGMENT DATA INBANK
+	H	DS	1
+	L	DS	1
+	X	DS	1
+	I	DS	1
+	T	DS	1
+
+_InterruptBackupData SEGMENT DATA INBANK
+	_bufT	DS	1
+	_bufI	DS	1
+	_bufY	DS	1
+	_bufZ	DS	1
+	_bufR	DS	1
+
+_key_c_GlobalBitDataPool0 SEGMENT DATA INBANK
+	_flagWarningInit	DSBIT	1
+	_flagKeyTrigger	DSBIT	1
+	_out_enable	DSBIT	1
+
+_power_save_c_GlobalBitDataPool0 SEGMENT DATA INBANK
+	_power_save_enable	DSBIT	1
+
+_sdata2@segment SEGMENT DATA INBANK
+	_sdata2	DS	1
+
+_sdata3@segment SEGMENT DATA INBANK
+	_sdata3	DS	1
+
+_sdata4@segment SEGMENT DATA INBANK
+	_sdata4	DS	1
+
+_sdata5@segment SEGMENT DATA INBANK
+	_sdata5	DS	1
+
+_sdata6@segment SEGMENT DATA INBANK
+	_sdata6	DSBIT	1
+
+_sdata7@segment SEGMENT DATA INBANK
+	_sdata7	DSBIT	1
+
+_sdata8@segment SEGMENT DATA INBANK
+	_sdata8	DSBIT	1
+
+_sdata9@segment SEGMENT DATA INBANK
+	_sdata9	DSBIT	1
+
+_sdata10@segment SEGMENT DATA INBANK
+	_sdata10	DSBIT	1
+
+_warningCnt3@segment SEGMENT DATA INBANK
+	_warningCnt3	DS	1
+
+_warningCnt2@segment SEGMENT DATA INBANK
+	_warningCnt2	DS	1
+
+_warningCnt1@segment SEGMENT DATA INBANK
+	_warningCnt1	DS	1
+
+
+------------------begin disassembly code------------------
+
+    0: 800A       	JMP 0x000A
+    1: 0000       	NOP
+    2: 0000       	NOP
+    3: 0000       	NOP
+    4: 0000       	NOP
+    5: 0000       	NOP
+    6: 0000       	NOP
+    7: 0000       	NOP
+_interrupt@_ISR_isr:
+    8: 8043       	JMP 0x0043
+.CODE:
+    9: F9F9       	CALL 0x39F9
+_SGV_INIT_CODE_BEGIN:
+    A: 2D7F       	MOV A, #7fh
+    B: 2FDF       	B0MOV STKP, A
+    C: C010       	CALL 0x0010
+    D: C013       	CALL 0x0013
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+    F: 801A       	JMP 0x001A
+__ClearWatchDogTimer:
+   10: 2D5A       	MOV A, #5ah
+   11: 2FCC       	B0MOV WDTR, A
+   12: 0E00       	RET
+__ClrRAM:
+   13: 2B84       	CLR 0x84
+   14: 332F       	B0MOV 0x83, #2Fh
+ClrRAM10:
+   15: 2BE7       	CLR 0xE7
+   16: 2683       	DECMS 0x83
+   17: 8015       	JMP 0x0015
+   18: 2BE7       	CLR 0xE7
+   19: 0E00       	RET
+_Function_main_code:
+                  	                  	
+                  	                  	#include "main.h"
+                  	                  	
+                  	                  	void main(void)
+                  	                  	{
+                  	                  	  static uchar main_step;
+                  	                  	  gpio_init();
+   1A: C05B       	CALL 0x005B
+L17:
+                  	                  	  time_init();
+   1B: C06F       	CALL 0x006F
+L3:
+                  	                  	  {
+                  	                  	    if(FTC0IRQ)    //100us
+   1C: 7DC8       	B0BTS1 0xC8.5
+   1D: 8040       	JMP 0x0040
+L21:
+                  	                  		{
+                  	                  		  FTC0IRQ=0;
+   1E: 65C8       	B0BCLR 0xC8.5
+L24:
+                  	                  		  switch(main_step)
+   1F: 1E0C       	MOV A, 0x0C
+   20: 1480       	ADD A, #80h
+   21: 0684       	CMPRS A, #84h
+   22: 7286       	B0BTS0 0x86.2
+   23: 802C       	JMP 0x002C
+   24: 2480       	SUB A, #80h
+   25: 7A86       	B0BTS1 0x86.2
+   26: 802C       	JMP 0x002C
+   27: 03CE       	B0ADD PCL, A
+   28: 802D       	JMP 0x002D
+   29: 8032       	JMP 0x0032
+   2A: 8037       	JMP 0x0037
+   2B: 803B       	JMP 0x003B
+L60:
+   2C: 803F       	JMP 0x003F
+L25:
+                  	                  		  {
+                  	                  		    case 0:
+                  	                  			  key_scan();
+   2D: C07B       	CALL 0x007B
+L28:
+                  	                  			  BeepPulseControl();
+   2E: C0E2       	CALL 0x00E2
+L29:
+                  	                  			  main_step=1;
+   2F: 2D01       	MOV A, #01h
+   30: 1F0C       	MOV 0x0C, A
+L30:
+                  	                  			break;
+   31: 8040       	JMP 0x0040
+L11:
+                  	                  	
+                  	                  			case 1:
+                  	                  			  led_control();
+   32: C0BE       	CALL 0x00BE
+L32:
+                  	                  			  BeepPulseControl();
+   33: C0E2       	CALL 0x00E2
+L33:
+                  	                  			  main_step=2;
+   34: 2D02       	MOV A, #02h
+   35: 1F0C       	MOV 0x0C, A
+L34:
+                  	                  			break;
+   36: 8040       	JMP 0x0040
+L12:
+                  	                  	
+                  	                  			case 2:
+                  	                  		      BeepPulseControl();
+   37: C0E2       	CALL 0x00E2
+L36:
+                  	                  			  main_step=3;
+   38: 2D03       	MOV A, #03h
+   39: 1F0C       	MOV 0x0C, A
+L37:
+                  	                  			break;
+   3A: 8040       	JMP 0x0040
+L13:
+                  	                  	
+                  	                  			case 3:
+                  	                  			  power_save();
+   3B: C0CB       	CALL 0x00CB
+L39:
+                  	                  			  BeepPulseControl();	
+   3C: C0E2       	CALL 0x00E2
+L40:
+                  	                  			  main_step=0;
+   3D: 2B0C       	CLR 0x0C
+L41:
+                  	                  			break;
+   3E: 8040       	JMP 0x0040
+L8:
+                  	                  	
+                  	                  			default:
+                  	                  			main_step=0;
+   3F: 2B0C       	CLR 0x0C
+L43:
+                  	                  	
+                  	                  	  while(1)
+   40: 801C       	JMP 0x001C
+L51:
+                  	                  			break;
+                  	                  		  }
+                  	                  		}
+                  	                  	  }
+                  	                  	}
+   41: C010       	CALL 0x0010
+   42: 8041       	JMP 0x0041
+_Function_ISR_isr_code:
+   43: 0400       	PUSH
+   44: 2E84       	B0MOV A, Y
+   45: 2F07       	B0MOV 0x07, A
+   46: 2E83       	B0MOV A, Z
+   47: 2F08       	B0MOV 0x08, A
+   48: 2E82       	B0MOV A, R
+   49: 2F09       	B0MOV 0x09, A
+   4A: 2E04       	B0MOV A, 0x04
+   4B: 2F05       	B0MOV 0x05, A
+   4C: 2E03       	B0MOV A, 0x03
+   4D: 2F06       	B0MOV 0x06, A
+L54:
+                  	                  	
+                  	                  	void __interrupt[0x08] ISR(void)
+                  	                  	{
+                  	                  	
+                  	                  	  INTRQ=0;
+   4E: 2BC8       	CLR 0xC8
+L57:
+                  	                  	}
+   4F: 2E05       	B0MOV A, 0x05
+   50: 2F04       	B0MOV 0x04, A
+   51: 2E06       	B0MOV A, 0x06
+   52: 2F03       	B0MOV 0x03, A
+   53: 2E07       	B0MOV A, 0x07
+   54: 2F84       	B0MOV Y, A
+   55: 2E08       	B0MOV A, 0x08
+   56: 2F83       	B0MOV Z, A
+   57: 2E09       	B0MOV A, 0x09
+   58: 2F82       	B0MOV R, A
+   59: 0500       	POP
+   5A: 0F00       	RETI
+_Function_gpio_init_code:
+                  	                  	#include "mcu_init.h"
+                  	                  	
+                  	                  	 /*
+                  	                  	 * 函数名：gpio_init
+                  	                  	 * 描述  ：初始化gpio
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	void gpio_init(void)
+                  	                  	{
+                  	                  	  FP00M = 0;
+   5B: 60B8       	B0BCLR P0M.0
+L5:
+                  	                  	  P0UR = 0;
+   5C: 2BE0       	CLR 0xE0
+L6:
+                  	                  	
+                  	                  	  P1M=0xfc;
+   5D: 2DFC       	MOV A, #fch
+   5E: 2FC1       	B0MOV P1M, A
+L7:
+                  	                  	  P1UR=0x02;
+   5F: 2D02       	MOV A, #02h
+   60: 2FE1       	B0MOV P1UR, A
+L8:
+                  	                  	  P1=0x00;
+   61: 2BD1       	CLR 0xD1
+L9:
+                  	                  	  P1W=0x01;
+   62: 2D01       	MOV A, #01h
+   63: 2FC0       	B0MOV P1W, A
+L10:
+                  	                  	
+                  	                  	  FP12M = 1;
+   64: 6AC1       	B0BSET P1M.2
+L11:
+                  	                  	  FP13M = 1;
+   65: 6BC1       	B0BSET P1M.3
+L12:
+                  	                  	  FP12 = 0;
+   66: 62D1       	B0BCLR P1.2
+L13:
+                  	                  	  FP13 = 0;
+   67: 63D1       	B0BCLR P1.3
+L14:
+                  	                  	
+                  	                  	  P2M=0xff;
+   68: 2DFF       	MOV A, #ffh
+   69: 2FC2       	B0MOV P2M, A
+L15:
+                  	                  	  P2=0x00;
+   6A: 2BD2       	CLR 0xD2
+L16:
+                  	                  	
+                  	                  	  P5M=0xff;
+   6B: 2FC5       	B0MOV P5M, A
+L17:
+                  	                  	  P5=0x10;
+   6C: 2D10       	MOV A, #10h
+   6D: 2FD5       	B0MOV P5, A
+L18:
+                  	                  	}
+   6E: 0E00       	RET
+_Function_time_init_code:
+                  	                  	
+                  	                  	/*
+                  	                  	 * 函数名：time_init
+                  	                  	 * 描述  ：初始化time
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	void time_init(void)
+                  	                  	{
+                  	                  	  T0C=0x00;
+   6F: 2BD9       	CLR 0xD9
+L24:
+                  	                  	  T0M=0x01;     //RTC功能
+   70: 2D01       	MOV A, #01h
+   71: 2FD8       	B0MOV T0M, A
+L25:
+                  	                  	  
+                  	                  	  TC0R=206;     //(256-206)*2us=100us
+   72: 2DCE       	MOV A, #ceh
+   73: 2FCD       	B0MOV TC0R, A
+L26:
+                  	                  	  TC0C=206;
+   74: 2FDB       	B0MOV TC0C, A
+L27:
+                  	                  	  TC0M=0xf4; 
+   75: 2DF4       	MOV A, #f4h
+   76: 2FDA       	B0MOV TC0M, A
+L28:
+                  	                  	
+                  	                  	  FT0IEN=1;     //使能t0中断
+   77: 6CC9       	B0BSET INTEN.4
+L29:
+                  	                  	  FT0IRQ=0;
+   78: 64C8       	B0BCLR INTRQ.4
+L30:
+                  	                  	  FGIE=1;       //开放全局中断
+   79: 6FDF       	B0BSET STKP.7
+L31:
+                  	                  	}
+   7A: 0E00       	RET
+_Function_key_scan_code:
+                  	                  	#include "key.h"
+                  	                  	
+                  	                  	 /*
+                  	                  	 * 函数名：key_scan
+                  	                  	 * 描述  ：按键扫描
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	bit out_enable;
+                  	                  	bit flagKeyTrigger;
+                  	                  	bit flagWarningInit;
+                  	                  	void key_scan(void)
+                  	                  	{
+                  	                  	  static uchar sw2_count_1;
+                  	                  	  static uchar sw2_count_2;
+                  	                  	  static uchar sw1_count_1;
+                  	                  	  static uchar sw1_count_2;
+                  	                  	
+                  	                  	  static bit sw2_have_done_1;
+                  	                  	  static bit sw2_have_done_2;
+                  	                  	  static bit sw1_have_done_1;
+                  	                  	  static bit sw1_have_done_2;
+                  	                  	  static bit sw2_buf;
+                  	                  	
+                  	                  	
+                  	                  	  if(!out_enable)
+   7B: 520A       	BTS0 0x0A.2
+   7C: 80BD       	JMP 0x00BD
+L36:
+                  	                  	  {
+                  	                  	    if(sw1)
+   7D: 78D0       	B0BTS1 P0.0
+   7E: 808F       	JMP 0x008F
+L39:
+                  	                  	    {
+                  	                  		  sw1_count_1+=1;
+   7F: 1613       	INCMS 0x13
+   80: 0000       	NOP
+L42:
+                  	                  	 	  sw1_count_2=0;
+   81: 2B14       	CLR 0x14
+L43:
+                  	                  		  if(sw1_count_1>99)
+   82: 1E13       	MOV A, 0x13
+   83: 0663       	CMPRS A, #63h
+   84: 7A86       	B0BTS1 0x86.2
+   85: 809C       	JMP 0x009C
+L44:
+                  	                  		  { 
+                  	                  		    sw1_count_1=0;
+   86: 2B13       	CLR 0x13
+L47:
+                  	                  			sw1_have_done_2=0;
+   87: 4018       	BCLR 0x18.0
+L48:
+                  	                  			//--------------DS.Chin-------2015.5.14---
+                  	                  			flagKeyTrigger = 1;
+   88: 490A       	BSET 0x0A.1
+L49:
+                  	                  			flagWarningInit = 1;
+   89: 480A       	BSET 0x0A.0
+L50:
+                  	                  			//----------------------------------------
+                  	                  			if(!sw1_have_done_1)
+   8A: 5017       	BTS0 0x17.0
+   8B: 809C       	JMP 0x009C
+L51:
+                  	                  			{
+                  	                  			  sw1_have_done_1=1;
+   8C: 4817       	BSET 0x17.0
+L54:
+                  	                  			  power_save_enable=1; 			           
+   8D: 480B       	BSET 0x0B.0
+L55:
+                  	                  			}
+                  	                  		  } 
+                  	                  	    }
+   8E: 809C       	JMP 0x009C
+L13:
+                  	                  	    else
+                  	                  	    {
+                  	                  		  sw1_count_1=0;
+   8F: 2B13       	CLR 0x13
+L64:
+                  	                  		  sw1_count_2+=1;
+   90: 1614       	INCMS 0x14
+   91: 0000       	NOP
+L65:
+                  	                  		  if(sw1_count_2>99)
+   92: 1E14       	MOV A, 0x14
+   93: 0663       	CMPRS A, #63h
+   94: 7A86       	B0BTS1 0x86.2
+   95: 809C       	JMP 0x009C
+L66:
+                  	                  		  { 
+                  	                  		    sw1_count_2=0;
+   96: 2B14       	CLR 0x14
+L69:
+                  	                  			sw1_have_done_1=0;
+   97: 4017       	BCLR 0x17.0
+L70:
+                  	                  			if(!sw1_have_done_2)
+   98: 5018       	BTS0 0x18.0
+   99: 809C       	JMP 0x009C
+L71:
+                  	                  			{
+                  	                  			  sw1_have_done_2=1;
+   9A: 4818       	BSET 0x18.0
+L74:
+                  	                  			  power_save_enable=1;              
+   9B: 480B       	BSET 0x0B.0
+L75:
+                  	                  			}
+                  	                  		  }
+                  	                  	    }
+                  	                  	
+                  	                  	    if(sw2)
+   9C: 78D1       	B0BTS1 0xD1.0
+   9D: 80AE       	JMP 0x00AE
+L82:
+                  	                  	    {
+                  	                  	      sw2_count_1+=1;
+   9E: 160D       	INCMS 0x0D
+   9F: 0000       	NOP
+L85:
+                  	                  	 	  sw2_count_2=0;
+   A0: 2B11       	CLR 0x11
+L86:
+                  	                  		  if(sw2_count_1>99)
+   A1: 1E0D       	MOV A, 0x0D
+   A2: 0663       	CMPRS A, #63h
+   A3: 7A86       	B0BTS1 0x86.2
+   A4: 80BD       	JMP 0x00BD
+L87:
+                  	                  		  { 
+                  	                  		    sw2_count_1=0;
+   A5: 2B0D       	CLR 0x0D
+L90:
+                  	                  			sw2_have_done_2=0;
+   A6: 4016       	BCLR 0x16.0
+L91:
+                  	                  			if(!sw2_have_done_1)
+   A7: 5015       	BTS0 0x15.0
+   A8: 80BD       	JMP 0x00BD
+L92:
+                  	                  			{
+                  	                  			  sw2_have_done_1=1;
+   A9: 4815       	BSET 0x15.0
+L95:
+                  	                  			  power_save_enable=1;
+   AA: 480B       	BSET 0x0B.0
+L96:
+                  	                  			  out_enable=1; 
+   AB: 4A0A       	BSET 0x0A.2
+L97:
+                  	                  			  sw2_buf=1;             
+   AC: 4819       	BSET 0x19.0
+L98:
+                  	                  			}
+                  	                  		  } 
+                  	                  	    }
+   AD: 80BD       	JMP 0x00BD
+L23:
+                  	                  	    else
+                  	                  	    {
+                  	                  		  sw2_count_1=0;
+   AE: 2B0D       	CLR 0x0D
+L107:
+                  	                  		  sw2_count_2+=1;
+   AF: 1611       	INCMS 0x11
+   B0: 0000       	NOP
+L108:
+                  	                  		  if(sw2_count_2>99)
+   B1: 1E11       	MOV A, 0x11
+   B2: 0663       	CMPRS A, #63h
+   B3: 7A86       	B0BTS1 0x86.2
+   B4: 80BD       	JMP 0x00BD
+L109:
+                  	                  		  {  
+                  	                  		    sw2_count_2=0;
+   B5: 2B11       	CLR 0x11
+L112:
+                  	                  			sw2_have_done_1=0;
+   B6: 4015       	BCLR 0x15.0
+L113:
+                  	                  			if(!sw2_have_done_2)
+   B7: 5016       	BTS0 0x16.0
+   B8: 80BD       	JMP 0x00BD
+L114:
+                  	                  			{
+                  	                  			  sw2_have_done_2=1;
+   B9: 4816       	BSET 0x16.0
+L117:
+                  	                  			  power_save_enable=1;
+   BA: 480B       	BSET 0x0B.0
+L118:
+                  	                  			  out_enable=1;
+   BB: 4A0A       	BSET 0x0A.2
+L119:
+                  	                  			  sw2_buf=0;              
+   BC: 4019       	BCLR 0x19.0
+L120:
+                  	                  			}
+                  	                  		  }  
+                  	                  	    }
+                  	                  	  } 
+                  	                  	}
+   BD: 0E00       	RET
+_Function_led_control_code:
+                  	                  	#include "led.h"
+                  	                  	
+                  	                  	 /*
+                  	                  	 * 函数名：led_control
+                  	                  	 * 描述  ：控制led亮灭
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	
+                  	                  	void led_control(void)
+                  	                  	{
+                  	                  	  static uchar out_delay;
+                  	                  	
+                  	                  	  if(out_enable)
+   BE: 5A0A       	BTS1 0x0A.2
+   BF: 80CA       	JMP 0x00CA
+L10:
+                  	                  	  {
+                  	                  	    out=0;
+   C0: 64D5       	B0BCLR 0xD5.4
+L13:
+                  	                  		out_delay+=1;
+   C1: 160E       	INCMS 0x0E
+   C2: 0000       	NOP
+L14:
+                  	                  		if(out_delay>249)
+   C3: 1E0E       	MOV A, 0x0E
+   C4: 06F9       	CMPRS A, #F9h
+   C5: 7A86       	B0BTS1 0x86.2
+   C6: 80CA       	JMP 0x00CA
+L15:
+                  	                  		{
+                  	                  		  out_delay=0;
+   C7: 2B0E       	CLR 0x0E
+L18:
+                  	                  		  out=1;
+   C8: 6CD5       	B0BSET 0xD5.4
+L19:
+                  	                  		  out_enable=0;
+   C9: 420A       	BCLR 0x0A.2
+L20:
+                  	                  		}
+                  	                  	  }
+                  	                  	}
+   CA: 0E00       	RET
+_Function_power_save_code:
+                  	                  	#include "power_save.h"
+                  	                  	
+                  	                  	 /*
+                  	                  	 * 函数名：power_save
+                  	                  	 * 描述  ：低功耗
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	void power_save(void)
+                  	                  	{
+                  	                  	  static uchar sleep_delay_1;
+                  	                  	  static uchar sleep_delay_2;
+                  	                  	
+                  	                  	  if(power_save_enable)
+   CB: 580B       	BTS1 0x0B.0
+   CC: 80D1       	JMP 0x00D1
+L13:
+                  	                  	  {
+                  	                  	    power_save_enable=0;
+   CD: 400B       	BCLR 0x0B.0
+L16:
+                  	                  		sleep_delay_1=0;
+   CE: 2B0F       	CLR 0x0F
+L17:
+                  	                  		sleep_delay_2=0;
+   CF: 2B12       	CLR 0x12
+L18:
+                  	                  	  }
+   D0: 80E1       	JMP 0x00E1
+L4:
+                  	                  	  else
+                  	                  	  {
+                  	                  	    sleep_delay_1+=1;
+   D1: 160F       	INCMS 0x0F
+   D2: 0000       	NOP
+L23:
+                  	                  	    if(sleep_delay_1>249)
+   D3: 1E0F       	MOV A, 0x0F
+   D4: 06F9       	CMPRS A, #F9h
+   D5: 7A86       	B0BTS1 0x86.2
+   D6: 80E1       	JMP 0x00E1
+L24:
+                  	                  	    {
+                  	                  		  sleep_delay_1=0;
+   D7: 2B0F       	CLR 0x0F
+L27:
+                  	                  		  sleep_delay_2+=1;
+   D8: 1612       	INCMS 0x12
+   D9: 0000       	NOP
+L28:
+                  	                  		  if(sleep_delay_2>9)
+   DA: 1E12       	MOV A, 0x12
+   DB: 0609       	CMPRS A, #09h
+   DC: 7A86       	B0BTS1 0x86.2
+   DD: 80E1       	JMP 0x00E1
+L29:
+                  	                  		  {
+                  	                  		    sleep_delay_2=0;
+   DE: 2B12       	CLR 0x12
+L32:
+                  	                  		    FCPUM1=0;
+   DF: 64CA       	B0BCLR 0xCA.4
+L33:
+                  	                  		    FCPUM0=1;         //进入睡眠模式
+   E0: 6BCA       	B0BSET 0xCA.3
+L34:
+                  	                  		  }
+                  	                  		}  
+                  	                  	  }
+                  	                  	}
+   E1: 0E00       	RET
+_Function_BeepPulseControl_code:
+                  	                  	#include "beep.h"
+                  	                  	
+                  	                  	uchar warningCnt1;
+                  	                  	uchar warningCnt2;
+                  	                  	uchar warningCnt3;
+                  	                  	
+                  	                  	/*----------------------------------------------------------
+                  	                  	 * FunctionName: BeepPulseControl
+                  	                  	 * Describe: when press the key, beep louder & pulse high for 10s
+                  	                  	 */
+                  	                  	void BeepPulseControl(void)
+                  	                  	{
+                  	                  		static uchar keyOnCnt = 0;
+                  	                  		if (flagKeyTrigger)
+   E2: 590A       	BTS1 0x0A.1
+   E3: 8112       	JMP 0x0112
+L20:
+                  	                  		{
+                  	                  			power_save_enable = 1;
+   E4: 480B       	BSET 0x0B.0
+L23:
+                  	                  	
+                  	                  			if (flagWarningInit)
+   E5: 580A       	BTS1 0x0A.0
+   E6: 80EC       	JMP 0x00EC
+L24:
+                  	                  			{
+                  	                  				flagWarningInit = 0;
+   E7: 400A       	BCLR 0x0A.0
+L27:
+                  	                  				pulsePort = 1;
+   E8: 6AD1       	B0BSET 0xD1.2
+L28:
+                  	                  				warningCnt1    = 0;
+   E9: 2B1C       	CLR 0x1C
+L29:
+                  	                  				warningCnt2    = 0;
+   EA: 2B1B       	CLR 0x1B
+L30:
+                  	                  				warningCnt3    = 0;
+   EB: 2B1A       	CLR 0x1A
+L31:
+                  	                  			}
+                  	                  			
+                  	                  			if (keyOnCnt == 0)
+   EC: 1E10       	MOV A, 0x10
+   ED: 0600       	CMPRS A, #00h
+   EE: 80F0       	JMP 0x00F0
+L34:
+                  	                  				out_enable = 1;
+   EF: 4A0A       	BSET 0x0A.2
+L7:
+                  	                  	
+                  	                  			keyOnCnt++;
+   F0: 1610       	INCMS 0x10
+   F1: 0000       	NOP
+L36:
+                  	                  			if (keyOnCnt > 250) keyOnCnt = 1;
+   F2: 1E10       	MOV A, 0x10
+   F3: 06FA       	CMPRS A, #FAh
+   F4: 7A86       	B0BTS1 0x86.2
+   F5: 80F8       	JMP 0x00F8
+L37:
+                  	                  			if (keyOnCnt > 250) keyOnCnt = 1;
+   F6: 2D01       	MOV A, #01h
+   F7: 1F10       	MOV 0x10, A
+L9:
+                  	                  			warningCnt1++;		
+   F8: 161C       	INCMS 0x1C
+   F9: 0000       	NOP
+L39:
+                  	                  	
+                  	                  			if (warningCnt1 > 199) //20ms
+   FA: 1E1C       	MOV A, 0x1C
+   FB: 06C7       	CMPRS A, #C7h
+   FC: 7A86       	B0BTS1 0x86.2
+   FD: 8117       	JMP 0x0117
+L40:
+                  	                  			{
+                  	                  				warningCnt1 = 0;
+   FE: 2B1C       	CLR 0x1C
+L43:
+                  	                  				warningCnt2++;
+   FF: 161B       	INCMS 0x1B
+  100: 0000       	NOP
+L44:
+                  	                  				
+                  	                  				if (warningCnt2 > 49) //1s
+  101: 1E1B       	MOV A, 0x1B
+  102: 0631       	CMPRS A, #31h
+  103: 7A86       	B0BTS1 0x86.2
+  104: 8117       	JMP 0x0117
+L45:
+                  	                  				{
+                  	                  					warningCnt2 = 0;
+  105: 2B1B       	CLR 0x1B
+L48:
+                  	                  					warningCnt3++;
+  106: 161A       	INCMS 0x1A
+  107: 0000       	NOP
+L49:
+                  	                  	
+                  	                  					if (warningCnt3 > 9) //10s
+  108: 1E1A       	MOV A, 0x1A
+  109: 0609       	CMPRS A, #09h
+  10A: 7A86       	B0BTS1 0x86.2
+  10B: 8117       	JMP 0x0117
+L50:
+                  	                  					{
+                  	                  						warningCnt3 = 0;
+  10C: 2B1A       	CLR 0x1A
+L53:
+                  	                  						pulsePort  = 0;
+  10D: 62D1       	B0BCLR 0xD1.2
+L54:
+                  	                  						flagKeyTrigger = 0;
+  10E: 410A       	BCLR 0x0A.1
+L55:
+                  	                  						keyOnCnt = 0;
+  10F: 2B10       	CLR 0x10
+L56:
+                  	                  						out_enable = 1;
+  110: 4A0A       	BSET 0x0A.2
+L57:
+                  	                  					}
+                  	                  				}	
+                  	                  			}
+                  	                  		}
+  111: 8117       	JMP 0x0117
+L3:
+                  	                  		else
+                  	                  		{
+                  	                  			pulsePort = 0;
+  112: 62D1       	B0BCLR 0xD1.2
+L68:
+                  	                  	
+                  	                  			warningCnt1    = 0;
+  113: 2B1C       	CLR 0x1C
+L69:
+                  	                  			warningCnt2    = 0;
+  114: 2B1B       	CLR 0x1B
+L70:
+                  	                  			warningCnt3    = 0;
+  115: 2B1A       	CLR 0x1A
+L71:
+                  	                  			flagKeyTrigger = 0;
+  116: 410A       	BCLR 0x0A.1
+L72:
+                  	                  		}
+                  	                  	}
+  117: 0E00       	RET

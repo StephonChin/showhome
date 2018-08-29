@@ -1,0 +1,11 @@
+14:23:32 **** Incremental Build of configuration Default for project SCI_IRQ ****
+make -j1 all 
+系统找不到指定的路径。
+C:/eclipse/tool_chain/ccore-elf-gcc/bin/mcore-elf-as -g -gstabs ./src/crt0.s -o crt0.o
+process_begin: CreateProcess(NULL, C:/eclipse/tool_chain/ccore-elf-gcc/bin/mcore-elf-as -g -gstabs ./src/crt0.s -o crt0.o, ...) failed.
+make (e=2): 系统找不到指定的文件。
+
+make: *** [crt0.o] Error 2
+
+14:23:32 Build Finished (took 156ms)
+

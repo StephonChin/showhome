@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\BT1505\BT1505.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\BT36\BT36.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\BT37\BT37.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\BT39\BT39.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

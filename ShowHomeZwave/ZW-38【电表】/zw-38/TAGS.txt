@@ -1,0 +1,364 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AENERGY	ade7753.h	12;"	macro
+AENERGY	type.h	7;"	macro
+APOS	ade7753.h	27;"	macro
+APOS	type.h	22;"	macro
+CFDEN	ade7753.h	31;"	macro
+CFDEN	type.h	26;"	macro
+CFNUM	ade7753.h	30;"	macro
+CFNUM	type.h	25;"	macro
+CH1OS	ade7753.h	23;"	macro
+CH1OS	type.h	18;"	macro
+CH2OS	ade7753.h	24;"	macro
+CH2OS	type.h	19;"	macro
+CHKSUM	ade7753.h	51;"	macro
+CHKSUM	type.h	46;"	macro
+DEF_16BIT_REG_AT	stm8s103f.h	20;"	macro
+DEF_16BIT_REG_AT	stm8s103f.h	25;"	macro
+DEF_8BIT_REG_AT	stm8s103f.h	19;"	macro
+DEF_8BIT_REG_AT	stm8s103f.h	24;"	macro
+DIEREV	ade7753.h	52;"	macro
+DIEREV	type.h	47;"	macro
+GAIN	ade7753.h	25;"	macro
+GAIN	type.h	20;"	macro
+IPEAK	ade7753.h	44;"	macro
+IPEAK	type.h	39;"	macro
+IPKLVL	ade7753.h	42;"	macro
+IPKLVL	type.h	37;"	macro
+IRMS	ade7753.h	32;"	macro
+IRMS	type.h	27;"	macro
+IRMSOS	ade7753.h	34;"	macro
+IRMSOS	type.h	29;"	macro
+IRQEN	ade7753.h	20;"	macro
+IRQEN	type.h	15;"	macro
+LAENERGY	ade7753.h	14;"	macro
+LAENERGY	type.h	9;"	macro
+LINECYC	ade7753.h	38;"	macro
+LINECYC	type.h	33;"	macro
+LVAENERGY	ade7753.h	17;"	macro
+LVAENERGY	type.h	12;"	macro
+MODE	ade7753.h	19;"	macro
+MODE	type.h	14;"	macro
+NonHandledInterrupt	stm8_interrupt_vector.c	40;"	function	signature:(void)
+PA_IDR	stm8s_bitsdefine.h	18;"	variable
+PA_IDR	stm8s_bitsdefine.h	19;"	variable
+PA_IDR	stm8s_bitsdefine.h	20;"	variable
+PA_IDR	stm8s_bitsdefine.h	21;"	variable
+PA_IDR	stm8s_bitsdefine.h	22;"	variable
+PA_IDR	stm8s_bitsdefine.h	23;"	variable
+PA_IDR	stm8s_bitsdefine.h	24;"	variable
+PA_IDR	stm8s_bitsdefine.h	25;"	variable
+PA_ODR	stm8s_bitsdefine.h	10;"	variable
+PA_ODR	stm8s_bitsdefine.h	11;"	variable
+PA_ODR	stm8s_bitsdefine.h	12;"	variable
+PA_ODR	stm8s_bitsdefine.h	13;"	variable
+PA_ODR	stm8s_bitsdefine.h	14;"	variable
+PA_ODR	stm8s_bitsdefine.h	15;"	variable
+PA_ODR	stm8s_bitsdefine.h	8;"	variable
+PA_ODR	stm8s_bitsdefine.h	9;"	variable
+PB_IDR	stm8s_bitsdefine.h	38;"	variable
+PB_IDR	stm8s_bitsdefine.h	39;"	variable
+PB_IDR	stm8s_bitsdefine.h	40;"	variable
+PB_IDR	stm8s_bitsdefine.h	41;"	variable
+PB_IDR	stm8s_bitsdefine.h	42;"	variable
+PB_IDR	stm8s_bitsdefine.h	43;"	variable
+PB_IDR	stm8s_bitsdefine.h	44;"	variable
+PB_IDR	stm8s_bitsdefine.h	45;"	variable
+PB_ODR	stm8s_bitsdefine.h	28;"	variable
+PB_ODR	stm8s_bitsdefine.h	29;"	variable
+PB_ODR	stm8s_bitsdefine.h	30;"	variable
+PB_ODR	stm8s_bitsdefine.h	31;"	variable
+PB_ODR	stm8s_bitsdefine.h	32;"	variable
+PB_ODR	stm8s_bitsdefine.h	33;"	variable
+PB_ODR	stm8s_bitsdefine.h	34;"	variable
+PB_ODR	stm8s_bitsdefine.h	35;"	variable
+PC_IDR	stm8s_bitsdefine.h	58;"	variable
+PC_IDR	stm8s_bitsdefine.h	59;"	variable
+PC_IDR	stm8s_bitsdefine.h	60;"	variable
+PC_IDR	stm8s_bitsdefine.h	61;"	variable
+PC_IDR	stm8s_bitsdefine.h	62;"	variable
+PC_IDR	stm8s_bitsdefine.h	63;"	variable
+PC_IDR	stm8s_bitsdefine.h	64;"	variable
+PC_IDR	stm8s_bitsdefine.h	65;"	variable
+PC_ODR	stm8s_bitsdefine.h	48;"	variable
+PC_ODR	stm8s_bitsdefine.h	49;"	variable
+PC_ODR	stm8s_bitsdefine.h	50;"	variable
+PC_ODR	stm8s_bitsdefine.h	51;"	variable
+PC_ODR	stm8s_bitsdefine.h	52;"	variable
+PC_ODR	stm8s_bitsdefine.h	53;"	variable
+PC_ODR	stm8s_bitsdefine.h	54;"	variable
+PC_ODR	stm8s_bitsdefine.h	55;"	variable
+PD_IDR	stm8s_bitsdefine.h	78;"	variable
+PD_IDR	stm8s_bitsdefine.h	79;"	variable
+PD_IDR	stm8s_bitsdefine.h	80;"	variable
+PD_IDR	stm8s_bitsdefine.h	81;"	variable
+PD_IDR	stm8s_bitsdefine.h	82;"	variable
+PD_IDR	stm8s_bitsdefine.h	83;"	variable
+PD_IDR	stm8s_bitsdefine.h	84;"	variable
+PD_IDR	stm8s_bitsdefine.h	85;"	variable
+PD_ODR	stm8s_bitsdefine.h	68;"	variable
+PD_ODR	stm8s_bitsdefine.h	69;"	variable
+PD_ODR	stm8s_bitsdefine.h	70;"	variable
+PD_ODR	stm8s_bitsdefine.h	71;"	variable
+PD_ODR	stm8s_bitsdefine.h	72;"	variable
+PD_ODR	stm8s_bitsdefine.h	73;"	variable
+PD_ODR	stm8s_bitsdefine.h	74;"	variable
+PD_ODR	stm8s_bitsdefine.h	75;"	variable
+PERIOD	ade7753.h	49;"	macro
+PERIOD	type.h	44;"	macro
+PHCAL	ade7753.h	26;"	macro
+PHCAL	type.h	21;"	macro
+RAENERGY	ade7753.h	13;"	macro
+RAENERGY	type.h	8;"	macro
+RESERVED	ade7753.h	18;"	macro
+RESERVED	type.h	13;"	macro
+RSTIPEAK	ade7753.h	45;"	macro
+RSTIPEAK	type.h	40;"	macro
+RSTSTATUS	ade7753.h	22;"	macro
+RSTSTATUS	type.h	17;"	macro
+RSTVPEAK	ade7753.h	47;"	macro
+RSTVPEAK	type.h	42;"	macro
+RVAENERGY	ade7753.h	16;"	macro
+RVAENERGY	type.h	11;"	macro
+SAGCYC	ade7753.h	40;"	macro
+SAGCYC	type.h	35;"	macro
+SAGLVL	ade7753.h	41;"	macro
+SAGLVL	type.h	36;"	macro
+STATUS	ade7753.h	21;"	macro
+STATUS	type.h	16;"	macro
+STM8S003F3	stm8s003f3.h	3;"	macro
+STM8S103F	stm8s103f.h	12;"	macro
+TEMP	ade7753.h	48;"	macro
+TEMP	type.h	43;"	macro
+TMODE	ade7753.h	50;"	macro
+TMODE	type.h	45;"	macro
+VADIV	ade7753.h	37;"	macro
+VADIV	type.h	32;"	macro
+VAENERGY	ade7753.h	15;"	macro
+VAENERGY	type.h	10;"	macro
+VAGAIN	ade7753.h	36;"	macro
+VAGAIN	type.h	31;"	macro
+VPEAK	ade7753.h	46;"	macro
+VPEAK	type.h	41;"	macro
+VPKLVL	ade7753.h	43;"	macro
+VPKLVL	type.h	38;"	macro
+VRMS	ade7753.h	33;"	macro
+VRMS	type.h	28;"	macro
+VRMSOS	ade7753.h	35;"	macro
+VRMSOS	type.h	30;"	macro
+WAVEFORM	ade7753.h	11;"	macro
+WAVEFORM	type.h	6;"	macro
+WDIV	ade7753.h	29;"	macro
+WDIV	type.h	24;"	macro
+WGAIN	ade7753.h	28;"	macro
+WGAIN	type.h	23;"	macro
+ZXTOUT	ade7753.h	39;"	macro
+ZXTOUT	type.h	34;"	macro
+_MACRO_BITS_DEFINE_H_	stm8s_bitsdefine.h	2;"	macro
+__MODS0__	c:\program files (x86)\cosmic\cxstm8\hstm8\mods0.h	11;"	macro
+__STM8S103F__	stm8s103f.h	6;"	macro
+__ade7753_h	ade7753.h	2;"	macro
+__clk_h	clk.h	2;"	macro
+__eeprom_h	eeprom.h	2;"	macro
+__gpio_h	gpio.h	2;"	macro
+__main_h	main.h	2;"	macro
+__meter_h	meter.h	2;"	macro
+__type_h	type.h	2;"	macro
+__uart_h	uart.h	2;"	macro
+_stext	stm8_interrupt_vector.c	48;"	prototype	file:
+_vectab	stm8_interrupt_vector.c	50;"	variable
+ade7753_config	ade7753.c	54;"	function	signature:(void)
+ade7753_config	ade7753.h	190;"	prototype	signature:(void)
+ade7753_config	main.h	14;"	prototype	signature:(void)
+ade7753_cs	ade7753.c	11;"	macro	file:
+ade7753_read_byte	ade7753.c	287;"	function	signature:(void)
+ade7753_read_byte	ade7753.c	38;"	prototype	file:	signature:(void)
+ade7753_read_bytes	ade7753.c	338;"	function	signature:(uchar reg_name)
+ade7753_read_bytes	ade7753.c	40;"	prototype	file:	signature:(uchar reg_name)
+ade7753_read_bytes	ade7753.h	192;"	prototype	signature:(uchar reg_name)
+ade7753_read_bytes	stm8_interrupt_vector.c	28;"	prototype	file:	signature:(uchar reg_name)
+ade7753_write_byte	ade7753.c	269;"	function	signature:(uchar val)
+ade7753_write_byte	ade7753.c	37;"	prototype	file:	signature:(uchar val)
+ade7753_write_bytes	ade7753.c	311;"	function	signature:(uchar reg_name)
+ade7753_write_bytes	ade7753.c	39;"	prototype	file:	signature:(uchar reg_name)
+ade7753_write_bytes	ade7753.h	191;"	prototype	signature:(uchar reg_name)
+aenergy_updata	type.h	53;"	macro
+anergy	ade7753.h	138;"	member	struct:__anon1
+apos	ade7753.h	153;"	member	struct:__anon1
+bstate	stm8_interrupt_vector.c	12;"	variable
+buf	ade7753.c	19;"	variable
+cfden	ade7753.h	157;"	member	struct:__anon1
+cfnum	ade7753.h	156;"	member	struct:__anon1
+ch1os	ade7753.h	149;"	member	struct:__anon1
+ch2os	ade7753.h	150;"	member	struct:__anon1
+char_val	ade7753.h	185;"	member	union:__anon2
+chksum	ade7753.h	177;"	member	struct:__anon1
+clk_config	clk.c	15;"	function	signature:(void)
+clk_config	clk.h	6;"	prototype	signature:(void)
+clk_config	main.h	9;"	prototype	signature:(void)
+data_buf	ade7753.c	18;"	variable
+delay_us	ade7753.c	44;"	function	signature:(uchar ts)
+delta_time	stm8_interrupt_vector.c	14;"	variable
+delta_time_count1	stm8_interrupt_vector.c	15;"	variable
+delta_time_count2	stm8_interrupt_vector.c	16;"	variable
+dierev	ade7753.h	178;"	member	struct:__anon1
+disableInterrupts	gpio.c	10;"	macro	file:
+eeprom_config	eeprom.c	17;"	function	signature:(void)
+eeprom_init	eeprom.c	50;"	function	signature:(void)
+eeprom_init	eeprom.h	13;"	prototype	signature:(void)
+eeprom_init	main.h	10;"	prototype	signature:(void)
+eeprom_read	eeprom.c	29;"	function	signature:(u8 addr)
+eeprom_write	ade7753.h	198;"	prototype	signature:(u8 addr,u8 data)
+eeprom_write	eeprom.c	39;"	function	signature:(u8 addr,u8 data)
+eeprom_write	uart.h	11;"	prototype	signature:(u8 addr,u8 data)
+enableInterrupts	gpio.c	9;"	macro	file:
+energy_registers	ade7753.h	180;"	typedef	typeref:struct:__anon1
+ext10	stm8_interrupt_vector.c	23;"	prototype	file:	signature:(void)
+ext10	stm8_interrupt_vector.c	85;"	function	signature:(void)
+frequency	ade7753.c	29;"	variable
+gain	ade7753.h	151;"	member	struct:__anon1
+get_aenergy	type.h	59;"	macro
+get_chanel1_waveform	type.h	57;"	macro
+get_chanel2_waveform	type.h	58;"	macro
+get_irms	type.h	56;"	macro
+get_vrms	type.h	55;"	macro
+gpio_config	gpio.c	19;"	function	signature:(void)
+gpio_config	gpio.h	6;"	prototype	signature:(void)
+gpio_config	main.h	13;"	prototype	signature:(void)
+int_val	ade7753.h	184;"	member	union:__anon2
+interrupt_handler	stm8_interrupt_vector.c	37;"	member	struct:interrupt_vector	file:
+interrupt_handler_t	stm8_interrupt_vector.c	33;"	typedef	file:
+interrupt_instruction	stm8_interrupt_vector.c	36;"	member	struct:interrupt_vector	file:
+interrupt_vector	stm8_interrupt_vector.c	35;"	struct	file:
+ipeak	ade7753.h	170;"	member	struct:__anon1
+ipklvl	ade7753.h	168;"	member	struct:__anon1
+irms	ade7753.c	21;"	variable
+irms	ade7753.h	158;"	member	struct:__anon1
+irms_updata	type.h	51;"	macro
+irmsos	ade7753.h	160;"	member	struct:__anon1
+irqen	ade7753.h	146;"	member	struct:__anon1
+kwh	ade7753.c	27;"	variable
+laenergy	ade7753.c	25;"	variable
+laenergy	ade7753.h	140;"	member	struct:__anon1
+laenergy_add_up	ade7753.c	26;"	variable
+linecyc	ade7753.h	164;"	member	struct:__anon1
+long_val	ade7753.h	183;"	member	union:__anon2
+lvaenergy	ade7753.c	24;"	variable
+lvaenergy	ade7753.h	143;"	member	struct:__anon1
+lvarenergy	ade7753.h	144;"	member	struct:__anon1
+main	main.c	9;"	function
+meter_data_get	ade7753.c	378;"	function	signature:(u8 reg_name)
+meter_data_get	ade7753.h	193;"	prototype	signature:(u8 reg_name)
+meter_data_get	stm8_interrupt_vector.c	29;"	prototype	file:	signature:(u8 reg_name)
+meter_get	main.h	16;"	prototype	signature:(void)
+meter_get	meter.c	19;"	function	signature:(void)
+meter_get	meter.h	9;"	prototype	signature:(void)
+meter_rate_get	ade7753.c	489;"	function	signature:(void)
+meter_rate_get	ade7753.h	195;"	prototype	signature:(void)
+meter_rate_get	main.h	18;"	prototype	signature:(void)
+meter_updata_type	ade7753.c	28;"	variable
+meter_watt	ade7753.c	441;"	function	signature:(u8 val)
+meter_watt	ade7753.h	194;"	prototype	signature:(u8 val)
+meter_watt	stm8_interrupt_vector.c	30;"	prototype	file:	signature:(u8 val)
+miso	ade7753.c	14;"	macro	file:
+mode	ade7753.h	145;"	member	struct:__anon1
+mosi	ade7753.c	13;"	macro	file:
+no_ok	type.h	71;"	macro
+offset_chanel1	ade7753.c	147;"	function	signature:(void)
+offset_chanel1	ade7753.c	41;"	prototype	file:	signature:(void)
+offset_chanel2	ade7753.c	208;"	function	signature:(void)
+offset_chanel2	ade7753.c	42;"	prototype	file:	signature:(void)
+ok	type.h	70;"	macro
+p	eeprom.c	10;"	variable
+period	ade7753.h	175;"	member	struct:__anon1
+phcal	ade7753.h	152;"	member	struct:__anon1
+ranergy	ade7753.h	139;"	member	struct:__anon1
+rate	stm8_interrupt_vector.c	18;"	variable
+rate_buf	stm8_interrupt_vector.c	17;"	variable
+rate_choice	ade7753.c	30;"	variable
+rate_count	stm8_interrupt_vector.c	19;"	variable
+rd_reg	ade7753.h	90;"	variable
+rddata	ade7753.h	186;"	member	union:__anon2
+reg_len	ade7753.h	55;"	variable
+report_a	type.h	63;"	macro
+report_d	type.h	65;"	macro
+report_k	type.h	64;"	macro
+report_r	type.h	66;"	macro
+report_rate	type.h	68;"	macro
+report_state	stm8_interrupt_vector.c	13;"	variable
+report_v	type.h	62;"	macro
+report_va	type.h	67;"	macro
+report_w	type.h	61;"	macro
+rstipeak	ade7753.h	171;"	member	struct:__anon1
+rststatus	ade7753.h	148;"	member	struct:__anon1
+rstvpeak	ade7753.h	173;"	member	struct:__anon1
+rvaenergy	ade7753.h	142;"	member	struct:__anon1
+sagcyc	ade7753.h	166;"	member	struct:__anon1
+saglvl	ade7753.h	167;"	member	struct:__anon1
+sck	ade7753.c	12;"	macro	file:
+status	ade7753.h	147;"	member	struct:__anon1
+temp	ade7753.h	174;"	member	struct:__anon1
+time4	stm8_interrupt_vector.c	167;"	function	signature:(void)
+time4	stm8_interrupt_vector.c	25;"	prototype	file:	signature:(void)
+timr4_config	clk.c	30;"	function	signature:(void)
+timr4_config	clk.h	7;"	prototype	signature:(void)
+timr4_config	main.h	17;"	prototype	signature:(void)
+tmode	ade7753.h	176;"	member	struct:__anon1
+u16	ade7753.h	6;"	macro
+u16	eeprom.h	5;"	macro
+u16	main.h	5;"	macro
+u16	meter.h	5;"	macro
+u16	stm8_interrupt_vector.c	8;"	macro	file:
+u16	uart.h	5;"	macro
+u32	ade7753.h	7;"	macro
+u32	eeprom.h	6;"	macro
+u32	main.h	6;"	macro
+u32	meter.h	6;"	macro
+u32	stm8_interrupt_vector.c	9;"	macro	file:
+u32	uart.h	6;"	macro
+u8	ade7753.h	5;"	macro
+u8	clk.h	4;"	macro
+u8	eeprom.h	4;"	macro
+u8	gpio.h	4;"	macro
+u8	main.h	4;"	macro
+u8	meter.h	4;"	macro
+u8	stm8_interrupt_vector.c	7;"	macro	file:
+u8	uart.h	4;"	macro
+uart1_rx	stm8_interrupt_vector.c	136;"	function	signature:(void)
+uart1_rx	stm8_interrupt_vector.c	24;"	prototype	file:	signature:(void)
+uart_Config	main.h	12;"	prototype	signature:(void)
+uart_Config	uart.c	38;"	function	signature:(void)
+uart_Config	uart.h	8;"	prototype	signature:(void)
+uart_tx	main.h	15;"	prototype	signature:(void)
+uart_tx	uart.c	61;"	function	signature:(void)
+uart_tx	uart.h	9;"	prototype	signature:(void)
+uchar	ade7753.h	4;"	macro
+uchar	clk.h	3;"	macro
+uchar	eeprom.h	3;"	macro
+uchar	gpio.h	3;"	macro
+uchar	main.h	3;"	macro
+uchar	meter.h	3;"	macro
+uchar	stm8_interrupt_vector.c	6;"	macro	file:
+uchar	uart.h	3;"	macro
+vadiv	ade7753.h	163;"	member	struct:__anon1
+vaenergy	ade7753.h	141;"	member	struct:__anon1
+valchange	ade7753.h	187;"	typedef	typeref:union:__anon2
+vgain	ade7753.h	162;"	member	struct:__anon1
+vpeak	ade7753.h	172;"	member	struct:__anon1
+vpklvl	ade7753.h	169;"	member	struct:__anon1
+vrms	ade7753.c	22;"	variable
+vrms	ade7753.h	159;"	member	struct:__anon1
+vrms_updata	type.h	50;"	macro
+vrmsos	ade7753.h	161;"	member	struct:__anon1
+waveform	ade7753.c	23;"	variable
+waveform	ade7753.h	137;"	member	struct:__anon1
+waveform_updata	type.h	52;"	macro
+wdiv	ade7753.h	155;"	member	struct:__anon1
+wgain	ade7753.h	154;"	member	struct:__anon1
+wr_rd_reg	ade7753.h	64;"	variable
+zxtout	ade7753.h	165;"	member	struct:__anon1

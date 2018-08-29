@@ -1,0 +1,1010 @@
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE RGB_DISPLAY
+OBJECT MODULE PLACED IN .\Output\RGB_Display.obj
+COMPILER INVOKED BY: C:\Keil\C51\C51\BIN\C51.EXE UserSrc\RGB_Display.c BROWSE INCDIR(.\UserInc) DEBUG OBJECTEXTEND PRINT
+                    -(.\RGB_Display.lst) TABS(2) OBJECT(.\Output\RGB_Display.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2            *
+   3            * @FileName     RGB_Display.c
+   4            * @Date         2018.03.29
+   5            * @Author       DS.Chin
+   6            * @CopyRight    (C) CopyRight  @2016 ~ 2026 Willis Ltd. Co.
+   7            * @Description  This file contains all the function prototyped for the config
+   8            *               fimer library
+   9            *
+  10          *******************************************************************************/
+  11          #include "RGB_Display.h"
+  12          
+  13          /* Gloable Paramters */
+  14          xdata _TypeDisplay            RGBDisplayData;
+  15          
+  16          
+  17          
+  18          /* File Parameters */
+  19          xdata _Uint8    TempCnt;
+  20          xdata _Uint8    TempDuty;
+  21          xdata _Uint8    TempR;
+  22          xdata _Uint8    TempG;
+  23          xdata _Uint8    TempB;
+  24          xdata _Uint8    FadeR;
+  25          xdata _Uint8    FadeG;
+  26          xdata _Uint8    FadeB;
+  27          xdata _Uint8    ModeStep;
+  28          xdata _Uint8    ModeTime;
+  29          xdata _Uint8    HoldTime;
+  30          xdata _Uint8    TempTime;
+  31          xdata _Uint8    ColorStep;
+  32          xdata _Sint16   RndSeed;
+  33          
+  34          
+  35          
+  36          
+  37          /* Color Vector Table */
+  38          const _Uint8 COLOR_VECTOR[16][3] =
+  39          {
+  40            250,0,0,          //0x0:red
+  41            0,250,0,          //0x1:green 
+  42            0,0,250,          //0x2:blue
+  43            250,50,0,         //0x3:orange
+  44            250,50,100,       //0x4:pink
+  45            0,250,50,         //0x5:spring green
+  46            250,150,0,        //0x6:gold
+  47            250,0,50,         //0x7:peach
+  48            100,200,0,        //0x8:lawn green
+  49            0,250,250,        //0x9:sky blue
+  50            100,0,250,        //0xa:purple
+  51            200,250,200,      //0xb:pure white
+  52            150,250,250,      //0xc:cold white
+  53            250,250,50,       //0xd:warm white
+  54          };
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 2   
+
+  55          
+  56          
+  57          const _Uint8 COLOR_VECTOR_2[21][3] =
+  58          {
+  59            245,0,0,        
+  60            210,35,0,         
+  61            175,70,0,         
+  62            140,105,0,      
+  63            105,140,0,    
+  64            70,175,0,         
+  65            35,210,0,       
+  66            0,245,0,      
+  67            0,210,35,       
+  68            0,175,70,       
+  69            0,140,105,        
+  70            0,105,140,        
+  71            0,70,175,         
+  72            0,35,210,      
+  73            0,0,245,      
+  74            35,0,210,     
+  75            70,0,175,
+  76            105,0,140,
+  77            140,0,105,
+  78            175,0,70,
+  79            210,0,35
+  80            
+  81          };
+  82          
+  83          
+  84          
+  85          /*******************************************************************
+  86            *
+  87            * FunctionName  RGB_Display
+  88            *
+  89          *******************************************************************/
+  90          void RGB_Display(void)
+  91          {
+  92   1        switch (RGBDisplayData.Mode)
+  93   1        {
+  94   2          case 0:   RGB_Off();            break;
+  95   2          case 1:   RGB_Steady();         break;
+  96   2          case 2:   RGB_Polar_1();        break;
+  97   2          case 3:   RGB_Polar_2();        break;
+  98   2          case 4:   RGB_Fade();           break;
+  99   2          case 5:   RGB_Candle();         break;
+ 100   2          case 6:   RGB_ColorShow();      break;
+ 101   2          case 7:   RGB_Roll();           break;
+ 102   2          case 8:   RGB_Run();            break;
+ 103   2          case 9:   RGB_RainBown();       break;
+ 104   2        }
+ 105   1      }
+ 106          
+ 107          
+ 108          /*******************************************************************
+ 109            *
+ 110            * FunctionName  RGB_Display
+ 111            *
+ 112          *******************************************************************/
+ 113          static void RGB_Off(void)
+ 114          {
+ 115   1        if (RGBDisplayData.InitFlag == TRUE)
+ 116   1        {
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 3   
+
+ 117   2          RGBDisplayData.InitFlag = FALSE;
+ 118   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 119   2          {
+ 120   3            RGBData.Buffer[TempCnt].DutyR = 0;
+ 121   3            RGBData.Buffer[TempCnt].DutyG = 0;
+ 122   3            RGBData.Buffer[TempCnt].DutyB = 0;
+ 123   3          }
+ 124   2          
+ 125   2          UpdateFlag = TRUE;
+ 126   2        }
+ 127   1      }
+ 128          
+ 129          
+ 130          /*******************************************************************
+ 131            *
+ 132            * FunctionName  RGB_Steady
+ 133            *
+ 134          *******************************************************************/
+ 135          static void RGB_Steady(void)
+ 136          {
+ 137   1        if (RGBDisplayData.InitFlag == TRUE)
+ 138   1        {
+ 139   2          RGBDisplayData.InitFlag = FALSE;
+ 140   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 141   2          {
+ 142   3            RGBData.Buffer[TempCnt].DutyR = COLOR_VECTOR[RGBDisplayData.ColorVal][0];
+ 143   3            RGBData.Buffer[TempCnt].DutyG = COLOR_VECTOR[RGBDisplayData.ColorVal][1];
+ 144   3            RGBData.Buffer[TempCnt].DutyB = COLOR_VECTOR[RGBDisplayData.ColorVal][2];
+ 145   3          }
+ 146   2          
+ 147   2          UpdateFlag = TRUE;
+ 148   2        }
+ 149   1      }
+ 150          
+ 151          
+ 152          /*******************************************************************
+ 153            *
+ 154            * FunctionName  RGB_Polar_1
+ 155            *
+ 156          *******************************************************************/
+ 157          static void RGB_Polar_1(void)
+ 158          {
+ 159   1        if (RGBDisplayData.InitFlag == TRUE)
+ 160   1        {
+ 161   2          RGBDisplayData.InitFlag = FALSE;
+ 162   2          
+ 163   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 164   2          {
+ 165   3            RGBData.Buffer[TempCnt].DutyR = 0;
+ 166   3            RGBData.Buffer[TempCnt].DutyG = 0;
+ 167   3            RGBData.Buffer[TempCnt].DutyB = 0;
+ 168   3          }
+ 169   2          
+ 170   2          ModeStep    = 0;
+ 171   2          ModeTime    = 0;
+ 172   2          TempR       = 0;
+ 173   2          TempB       = 0;
+ 174   2          TempG       = 0;
+ 175   2          
+ 176   2          UpdateFlag = TRUE;
+ 177   2          
+ 178   2          return;
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 4   
+
+ 179   2        }
+ 180   1        
+ 181   1        if (ModeTime < 1)
+ 182   1        {
+ 183   2          ModeTime++;
+ 184   2          return;
+ 185   2        }
+ 186   1        ModeTime = 0;
+ 187   1        
+ 188   1        UpdateFlag = TRUE;
+ 189   1        
+ 190   1        switch (ModeStep)
+ 191   1        {
+ 192   2          case 0:
+ 193   2            if (TempR < 255)    TempR += 3;
+ 194   2            else                ModeStep++;
+ 195   2          break;
+ 196   2          
+ 197   2          case 1:
+ 198   2            if (TempG < 255)    TempG += 3;
+ 199   2            else                ModeStep++;
+ 200   2          break;
+ 201   2          
+ 202   2          case 2:
+ 203   2            if (TempR > 0)      TempR -= 3;
+ 204   2            else                ModeStep++;
+ 205   2          break;
+ 206   2          
+ 207   2          case 3:
+ 208   2            if (TempB < 255)    TempB += 3;
+ 209   2            else                ModeStep++;
+ 210   2          break;
+ 211   2          
+ 212   2          case 4:
+ 213   2            if (TempG > 0)      TempG -= 3;
+ 214   2            else                ModeStep++;
+ 215   2          break;
+ 216   2          
+ 217   2          case 5:
+ 218   2            if (TempR < 255)    TempR += 3;
+ 219   2            else                ModeStep++;
+ 220   2          break;
+ 221   2          
+ 222   2          case 6:
+ 223   2            if (TempB > 0)      TempB -= 3;
+ 224   2            else                ModeStep = 1;
+ 225   2          break;
+ 226   2        }
+ 227   1        
+ 228   1        for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 229   1        {
+ 230   2          RGBData.Buffer[TempCnt].DutyR = TempR;
+ 231   2          RGBData.Buffer[TempCnt].DutyG = TempG;
+ 232   2          RGBData.Buffer[TempCnt].DutyB = TempB;
+ 233   2        }
+ 234   1      }
+ 235          
+ 236          
+ 237          /*******************************************************************
+ 238            *
+ 239            * FunctionName  RGB_Polar_2
+ 240            *
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 5   
+
+ 241          *******************************************************************/
+ 242          static void RGB_Polar_2(void)
+ 243          {
+ 244   1        if (RGBDisplayData.InitFlag == TRUE)
+ 245   1        {
+ 246   2          RGBDisplayData.InitFlag = FALSE;
+ 247   2          
+ 248   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 249   2          {
+ 250   3            RGBData.Buffer[TempCnt].DutyR = 0;
+ 251   3            RGBData.Buffer[TempCnt].DutyG = 0;
+ 252   3            RGBData.Buffer[TempCnt].DutyB = 0;
+ 253   3          }
+ 254   2          
+ 255   2          ModeStep    = 0;
+ 256   2          ModeTime    = 0;
+ 257   2          TempR       = 0;
+ 258   2          TempB       = 0;
+ 259   2          TempG       = 0;
+ 260   2          
+ 261   2          UpdateFlag = TRUE;
+ 262   2          
+ 263   2          return;
+ 264   2        }
+ 265   1        
+ 266   1        if (ModeTime < 5)
+ 267   1        {
+ 268   2          ModeTime++;
+ 269   2          return;
+ 270   2        }
+ 271   1        ModeTime = 0;
+ 272   1        
+ 273   1        UpdateFlag = TRUE;
+ 274   1        
+ 275   1        switch (ModeStep)
+ 276   1        {
+ 277   2          case 0:
+ 278   2            if (TempR < 250)    TempR += 10;
+ 279   2            else                ModeStep++;
+ 280   2          break;
+ 281   2          
+ 282   2          case 1:
+ 283   2            if (TempG < 250)    TempG += 10;
+ 284   2            else                ModeStep++;
+ 285   2          break;
+ 286   2          
+ 287   2          case 2:
+ 288   2            if (TempR > 0)      TempR -= 10;
+ 289   2            else                ModeStep++;
+ 290   2          break;
+ 291   2          
+ 292   2          case 3:
+ 293   2            if (TempB < 250)    TempB += 10;
+ 294   2            else                ModeStep++;
+ 295   2          break;
+ 296   2          
+ 297   2          case 4:
+ 298   2            if (TempG > 0)      TempG -= 10;
+ 299   2            else                ModeStep++;
+ 300   2          break;
+ 301   2          
+ 302   2          case 5:
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 6   
+
+ 303   2            if (TempR < 250)    TempR += 10;
+ 304   2            else                ModeStep++;
+ 305   2          break;
+ 306   2          
+ 307   2          case 6:
+ 308   2            if (TempB > 0)      TempB -= 10;
+ 309   2            else                ModeStep = 1;
+ 310   2          break;
+ 311   2        }
+ 312   1        
+ 313   1        for (TempCnt = 20; TempCnt > 0; TempCnt--)
+ 314   1        {
+ 315   2          RGBData.Buffer[TempCnt].DutyR = RGBData.Buffer[TempCnt - 1].DutyR;
+ 316   2          RGBData.Buffer[TempCnt].DutyG = RGBData.Buffer[TempCnt - 1].DutyG;
+ 317   2          RGBData.Buffer[TempCnt].DutyB = RGBData.Buffer[TempCnt - 1].DutyB;
+ 318   2        }
+ 319   1        RGBData.Buffer[0].DutyR   = TempR;
+ 320   1        RGBData.Buffer[0].DutyG   = TempG;
+ 321   1        RGBData.Buffer[0].DutyB   = TempB;
+ 322   1        
+ 323   1        for (TempCnt = 21; TempCnt < LED_TOTAL; TempCnt++)
+ 324   1        {
+ 325   2          RGBData.Buffer[TempCnt].DutyR = RGBData.Buffer[LED_TOTAL - TempCnt - 1].DutyR;
+ 326   2          RGBData.Buffer[TempCnt].DutyG = RGBData.Buffer[LED_TOTAL - TempCnt - 1].DutyG;
+ 327   2          RGBData.Buffer[TempCnt].DutyB = RGBData.Buffer[LED_TOTAL - TempCnt - 1].DutyB;
+ 328   2        }
+ 329   1      }
+ 330          
+ 331          
+ 332          /*******************************************************************
+ 333            *
+ 334            * FunctionName  RGB_Fade
+ 335            *
+ 336          *******************************************************************/
+ 337          static void RGB_Fade(void)
+ 338          {
+ 339   1        if (RGBDisplayData.InitFlag == TRUE)
+ 340   1        {
+ 341   2          RGBDisplayData.InitFlag = FALSE;
+ 342   2          
+ 343   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 344   2          {
+ 345   3            RGBData.Buffer[TempCnt].DutyR = 0;
+ 346   3            RGBData.Buffer[TempCnt].DutyG = 0;
+ 347   3            RGBData.Buffer[TempCnt].DutyB = 0;
+ 348   3          }
+ 349   2          
+ 350   2          ModeStep    = 0;
+ 351   2          ModeTime    = 0;
+ 352   2          TempR       = 0;
+ 353   2          TempB       = 0;
+ 354   2          TempG       = 0;
+ 355   2          ColorStep   = 0;
+ 356   2          FadeR       = COLOR_VECTOR[ColorStep][R] / FADE_LEVEL;
+ 357   2          FadeG       = COLOR_VECTOR[ColorStep][G] / FADE_LEVEL;
+ 358   2          FadeB       = COLOR_VECTOR[ColorStep][B] / FADE_LEVEL;
+ 359   2          
+ 360   2          UpdateFlag = TRUE;
+ 361   2          
+ 362   2          return;
+ 363   2        }
+ 364   1        
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 7   
+
+ 365   1        if (ModeTime < 5)
+ 366   1        {
+ 367   2          ModeTime++;
+ 368   2          return;
+ 369   2        }
+ 370   1        ModeTime = 0;
+ 371   1        
+ 372   1        UpdateFlag = TRUE;
+ 373   1        
+ 374   1        switch (ModeStep)
+ 375   1        {
+ 376   2          case 0:
+ 377   2          {
+ 378   3            if (TempR < COLOR_VECTOR[ColorStep][R] || TempG < COLOR_VECTOR[ColorStep][G] || TempB < COLOR_VECTOR
+             -[ColorStep][B])
+ 379   3            {
+ 380   4              TempR += FadeR;
+ 381   4              TempG += FadeG;
+ 382   4              TempB += FadeB;
+ 383   4            }
+ 384   3            else
+ 385   3            {
+ 386   4              ModeStep++;
+ 387   4            }
+ 388   3          }
+ 389   2          break;
+ 390   2            
+ 391   2          default:
+ 392   2          {
+ 393   3            if (TempR > 0 || TempG > 0 || TempB > 0)
+ 394   3            {
+ 395   4              TempR -= FadeR;
+ 396   4              TempG -= FadeG;
+ 397   4              TempB -= FadeB;
+ 398   4            }
+ 399   3            else
+ 400   3            {
+ 401   4              ModeStep    = 0;
+ 402   4              ColorStep++;
+ 403   4              if (ColorStep >= COLOR_MAX)   ColorStep = 0;
+ 404   4              FadeR       = COLOR_VECTOR[ColorStep][R] / FADE_LEVEL;
+ 405   4              FadeG       = COLOR_VECTOR[ColorStep][G] / FADE_LEVEL;
+ 406   4              FadeB       = COLOR_VECTOR[ColorStep][B] / FADE_LEVEL;
+ 407   4            }
+ 408   3          } break;
+ 409   2        }
+ 410   1        
+ 411   1        for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 412   1        {
+ 413   2          RGBData.Buffer[TempCnt].DutyR = TempR;
+ 414   2          RGBData.Buffer[TempCnt].DutyG = TempG;
+ 415   2          RGBData.Buffer[TempCnt].DutyB = TempB;
+ 416   2        }
+ 417   1      }
+ 418          
+ 419          
+ 420          
+ 421          /*******************************************************************
+ 422            *
+ 423            * FunctionName  RGB_Candle
+ 424            *
+ 425          *******************************************************************/
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 8   
+
+ 426          static void RGB_Candle(void)
+ 427          {
+ 428   1        if (RGBDisplayData.InitFlag == TRUE)
+ 429   1        {
+ 430   2          RGBDisplayData.InitFlag = FALSE;
+ 431   2          
+ 432   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 433   2          {
+ 434   3            RGBData.Buffer[TempCnt].DutyR = 0;
+ 435   3            RGBData.Buffer[TempCnt].DutyG = 0;
+ 436   3            RGBData.Buffer[TempCnt].DutyB = 0;
+ 437   3          }
+ 438   2          
+ 439   2          ModeStep    = 0;
+ 440   2          ModeTime    = 0;
+ 441   2          TempR       = 0;
+ 442   2          TempB       = 0;
+ 443   2          TempG       = 0;
+ 444   2          
+ 445   2          ColorStep   = 0;
+ 446   2          
+ 447   2          RAND();
+ 448   2          TempTime = (_Uint8)rand() % 20;
+ 449   2          
+ 450   2          FadeR       = COLOR_VECTOR[ColorStep][R] / FADE_LEVEL;
+ 451   2          FadeG       = COLOR_VECTOR[ColorStep][G] / FADE_LEVEL;
+ 452   2          FadeB       = COLOR_VECTOR[ColorStep][B] / FADE_LEVEL;
+ 453   2          
+ 454   2          RAND();
+ 455   2          TempDuty = (_Uint8)rand() % 35 + 15;
+ 456   2          
+ 457   2          UpdateFlag = TRUE;
+ 458   2          
+ 459   2          return;
+ 460   2        }
+ 461   1        
+ 462   1        switch (ModeStep)
+ 463   1        {
+ 464   2          case 0:
+ 465   2          {
+ 466   3              ModeTime++;
+ 467   3              if (ModeTime > TempTime)
+ 468   3              {
+ 469   4                ModeTime = 0;
+ 470   4                if (TempR < (FadeR * TempDuty) || TempG < (FadeG * TempDuty) || TempB < (FadeB * TempDuty))
+ 471   4                {
+ 472   5                  TempR += FadeR;
+ 473   5                  TempG += FadeG;
+ 474   5                  TempB += FadeB;
+ 475   5                }
+ 476   4                else
+ 477   4                {
+ 478   5                  ModeStep++;
+ 479   5                  RAND();
+ 480   5                  TempTime = (_Uint8)rand() % 15;
+ 481   5                  RAND();
+ 482   5                  TempDuty = (_Uint8)rand() % 15;
+ 483   5                }
+ 484   4              }
+ 485   3          } break;
+ 486   2          
+ 487   2          case 1:
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 9   
+
+ 488   2          {
+ 489   3              ModeTime++;
+ 490   3              if (ModeTime > TempTime)
+ 491   3              {
+ 492   4                ModeTime = 0;
+ 493   4                if (TempR > (FadeR * TempDuty) || TempG > (FadeG * TempDuty) || TempB > (FadeB * TempDuty))
+ 494   4                {
+ 495   5                  TempR -= FadeR;
+ 496   5                  TempG -= FadeG;
+ 497   5                  TempB -= FadeB;
+ 498   5                }
+ 499   4                else
+ 500   4                {
+ 501   5                  ModeStep++;
+ 502   5                  RAND();
+ 503   5                  TempTime = (_Uint8)rand() % 15;
+ 504   5                  RAND();
+ 505   5                  TempDuty = (_Uint8)rand() % 25 + 25;
+ 506   5                }
+ 507   4              }
+ 508   3          } break;
+ 509   2          
+ 510   2          default:
+ 511   2          {
+ 512   3            HoldTime++;
+ 513   3            if (HoldTime >= 20)
+ 514   3            {
+ 515   4              HoldTime = 0;
+ 516   4              ColorStep++;
+ 517   4              if (ColorStep >= COLOR_MAX)   ColorStep = 0;
+ 518   4              TempR = 0;
+ 519   4              TempG = 0;
+ 520   4              TempB = 0;
+ 521   4              FadeR = COLOR_VECTOR[ColorStep][R] / 50;
+ 522   4              FadeG = COLOR_VECTOR[ColorStep][G] / 50;
+ 523   4              FadeB = COLOR_VECTOR[ColorStep][B] / 50;
+ 524   4            }
+ 525   3            
+ 526   3            ModeStep = 0;
+ 527   3          } break;
+ 528   2        }
+ 529   1        
+ 530   1        
+ 531   1        for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 532   1        {
+ 533   2          RGBData.Buffer[TempCnt].DutyR = TempR;
+ 534   2          RGBData.Buffer[TempCnt].DutyG = TempG;
+ 535   2          RGBData.Buffer[TempCnt].DutyB = TempB;
+ 536   2        }
+ 537   1        
+ 538   1        UpdateFlag = TRUE;
+ 539   1      }
+ 540          
+ 541          
+ 542          
+ 543          /*******************************************************************
+ 544            *
+ 545            * FunctionName  RGB_ColorShow
+ 546            *
+ 547          *******************************************************************/
+ 548          static void RGB_ColorShow(void)
+ 549          {
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 10  
+
+ 550   1        if (RGBDisplayData.InitFlag == TRUE)
+ 551   1        {
+ 552   2          RGBDisplayData.InitFlag = FALSE;
+ 553   2          
+ 554   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 555   2          {
+ 556   3            RGBData.Buffer[TempCnt].DutyR = 0;
+ 557   3            RGBData.Buffer[TempCnt].DutyG = 0;
+ 558   3            RGBData.Buffer[TempCnt].DutyB = 0;
+ 559   3          }
+ 560   2          
+ 561   2          ModeStep    = 0;
+ 562   2          ModeTime    = 0;
+ 563   2          TempR       = 0;
+ 564   2          TempB       = 0;
+ 565   2          TempG       = 0;
+ 566   2          
+ 567   2          UpdateFlag = TRUE;
+ 568   2          
+ 569   2          return;
+ 570   2        }
+ 571   1        
+ 572   1        if (ModeTime < 8)
+ 573   1        {
+ 574   2          ModeTime++;
+ 575   2          return;
+ 576   2        }
+ 577   1        ModeTime = 0;
+ 578   1        
+ 579   1        UpdateFlag = TRUE;
+ 580   1        
+ 581   1        
+ 582   1        HoldTime++;
+ 583   1        if (HoldTime >= 250)
+ 584   1        {
+ 585   2          HoldTime = 0;
+ 586   2          ModeStep++;
+ 587   2          if (ModeStep > 5) 
+ 588   2          {
+ 589   3            ModeStep = 0;
+ 590   3          }
+ 591   2        }
+ 592   1        
+ 593   1        
+ 594   1        switch (ModeStep)
+ 595   1        {
+ 596   2          case 0:
+ 597   2          {
+ 598   3              TempB   = 0;
+ 599   3              TempR  += 5;
+ 600   3              TempG  -= 7;
+ 601   3          } break;
+ 602   2            
+ 603   2          case 1:
+ 604   2          {
+ 605   3              TempG    = 0;
+ 606   3              TempB   -= 6;
+ 607   3              TempR   += 9;
+ 608   3          } break;
+ 609   2              
+ 610   2          case 2:
+ 611   2          {
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 11  
+
+ 612   3              TempR      = 0;
+ 613   3              TempG     += 7;
+ 614   3              TempB     -= 4;
+ 615   3          } break;
+ 616   2          
+ 617   2          case 3:
+ 618   2          {
+ 619   3              TempB   = 0;
+ 620   3              TempR  -= 5;
+ 621   3              TempG  += 8;
+ 622   3          } break;
+ 623   2            
+ 624   2          case 4:
+ 625   2          {
+ 626   3              TempG    = 0;
+ 627   3              TempB   += 3;
+ 628   3              TempR   -= 7;
+ 629   3          } break;
+ 630   2              
+ 631   2          case 5:
+ 632   2          {
+ 633   3              TempR      = 0;
+ 634   3              TempG     -= 8;
+ 635   3              TempB     += 3;
+ 636   3          } break;
+ 637   2        }
+ 638   1        
+ 639   1        for (TempCnt = 20; TempCnt > 0; TempCnt--)
+ 640   1        {
+ 641   2          RGBData.Buffer[TempCnt].DutyR = RGBData.Buffer[TempCnt - 1].DutyR;
+ 642   2          RGBData.Buffer[TempCnt].DutyG = RGBData.Buffer[TempCnt - 1].DutyG;
+ 643   2          RGBData.Buffer[TempCnt].DutyB = RGBData.Buffer[TempCnt - 1].DutyB;
+ 644   2        }
+ 645   1        RGBData.Buffer[0].DutyR   = TempR;
+ 646   1        RGBData.Buffer[0].DutyG   = TempG;
+ 647   1        RGBData.Buffer[0].DutyB   = TempB;
+ 648   1      }
+ 649          
+ 650          
+ 651          /*******************************************************************
+ 652            *
+ 653            * FunctionName  RGB_Roll
+ 654            *
+ 655          *******************************************************************/
+ 656          static void RGB_Roll(void)
+ 657          {
+ 658   1        if (RGBDisplayData.InitFlag == TRUE)
+ 659   1        {
+ 660   2          RGBDisplayData.InitFlag = FALSE;
+ 661   2          
+ 662   2          ColorStep   = 0;
+ 663   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 664   2          {
+ 665   3            RGBData.Buffer[TempCnt].DutyR = 0;
+ 666   3            RGBData.Buffer[TempCnt].DutyG = 0;
+ 667   3            RGBData.Buffer[TempCnt].DutyB = 0;
+ 668   3          }
+ 669   2          
+ 670   2          ModeStep    = 0;
+ 671   2          ModeTime    = 0;
+ 672   2          TempR       = 0;
+ 673   2          TempB       = 0;
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 12  
+
+ 674   2          TempG       = 0;
+ 675   2          
+ 676   2          TempTime = 0;
+ 677   2          
+ 678   2          UpdateFlag = TRUE;
+ 679   2          
+ 680   2          return;
+ 681   2        }
+ 682   1        
+ 683   1        
+ 684   1        if (ModeTime < 10)
+ 685   1        {
+ 686   2          ModeTime++;
+ 687   2          return;
+ 688   2        }
+ 689   1        ModeTime = 0;
+ 690   1        
+ 691   1        
+ 692   1        
+ 693   1        
+ 694   1        RGBData.Buffer[ModeStep].DutyR = COLOR_VECTOR[ColorStep][R];
+ 695   1        RGBData.Buffer[ModeStep].DutyG = COLOR_VECTOR[ColorStep][G];
+ 696   1        RGBData.Buffer[ModeStep].DutyB = COLOR_VECTOR[ColorStep][B];
+ 697   1        RGBData.Buffer[LED_TOTAL - 1 - ModeStep].DutyR = COLOR_VECTOR[ColorStep][R];
+ 698   1        RGBData.Buffer[LED_TOTAL - 1 - ModeStep].DutyG = COLOR_VECTOR[ColorStep][G];
+ 699   1        RGBData.Buffer[LED_TOTAL - 1 - ModeStep].DutyB = COLOR_VECTOR[ColorStep][B];
+ 700   1        
+ 701   1        switch (TempTime)
+ 702   1        {
+ 703   2          case 0:
+ 704   2          {
+ 705   3            if (ModeStep < 10)
+ 706   3            {
+ 707   4              ModeStep++;
+ 708   4            }
+ 709   3            else
+ 710   3            {
+ 711   4              ModeStep = 0;
+ 712   4              ColorStep++;
+ 713   4              if (ColorStep >= COLOR_MAX - 3) 
+ 714   4              {
+ 715   5                ColorStep = 0;
+ 716   5                TempTime++;
+ 717   5                ModeStep = 10;
+ 718   5              }
+ 719   4            }
+ 720   3          } break;
+ 721   2          
+ 722   2          default:
+ 723   2          {
+ 724   3            if (ModeStep > 0)
+ 725   3            {
+ 726   4              ModeStep--;
+ 727   4            }
+ 728   3            else
+ 729   3            {
+ 730   4              ModeStep = 10;
+ 731   4              ColorStep++;
+ 732   4              if (ColorStep >= COLOR_MAX - 3) 
+ 733   4              {
+ 734   5                ColorStep = 0;
+ 735   5                TempTime = 0;
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 13  
+
+ 736   5                ModeStep = 0;
+ 737   5              }
+ 738   4            }
+ 739   3          } break;
+ 740   2        }
+ 741   1        
+ 742   1      
+ 743   1        UpdateFlag = TRUE;
+ 744   1      }
+ 745          
+ 746          /*******************************************************************
+ 747            *
+ 748            * FunctionName  RGB_Run
+ 749            *
+ 750          *******************************************************************/
+ 751          static void RGB_Run(void)
+ 752          {
+ 753   1        if (RGBDisplayData.InitFlag == TRUE)
+ 754   1        {
+ 755   2          RGBDisplayData.InitFlag = FALSE;
+ 756   2          
+ 757   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 758   2          {
+ 759   3            RGBData.Buffer[TempCnt].DutyR = 0;
+ 760   3            RGBData.Buffer[TempCnt].DutyG = 0;
+ 761   3            RGBData.Buffer[TempCnt].DutyB = 0;
+ 762   3          }
+ 763   2          
+ 764   2          ModeStep    = 0;
+ 765   2          ModeTime    = 0;
+ 766   2          TempR       = 0;
+ 767   2          TempB       = 0;
+ 768   2          TempG       = 0;
+ 769   2          FadeR      = 250;
+ 770   2          FadeG      = 0;
+ 771   2          FadeB      = 0;
+ 772   2          ColorStep   = 0;
+ 773   2          
+ 774   2          TempTime    = 0;
+ 775   2          
+ 776   2          UpdateFlag = TRUE;
+ 777   2          
+ 778   2          return;
+ 779   2        }
+ 780   1        
+ 781   1        
+ 782   1        if (ModeTime < 5)
+ 783   1        {
+ 784   2          ModeTime++;
+ 785   2          return;
+ 786   2        }
+ 787   1        ModeTime = 0;
+ 788   1        
+ 789   1        
+ 790   1      
+ 791   1        if (ModeStep < 9)
+ 792   1        {
+ 793   2          TempR = FadeR;
+ 794   2          TempG = FadeG;
+ 795   2          TempB = FadeB;
+ 796   2        }
+ 797   1        else if (ModeStep < 11)
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 14  
+
+ 798   1        {
+ 799   2          if (ColorStep == 0)
+ 800   2          {
+ 801   3            TempR = 250;
+ 802   3            TempG = 250;
+ 803   3            TempB = 0;
+ 804   3          }
+ 805   2          else if (ColorStep == 1)
+ 806   2          {
+ 807   3            TempR = 0;
+ 808   3            TempG = 250;
+ 809   3            TempB = 250;
+ 810   3          }
+ 811   2          else if (ColorStep == 2)
+ 812   2          {
+ 813   3            TempR = 250;
+ 814   3            TempG = 0;
+ 815   3            TempB = 250;
+ 816   3          }
+ 817   2        }
+ 818   1        
+ 819   1      
+ 820   1        ModeStep++;
+ 821   1        if (ModeStep >= 11)  
+ 822   1        {
+ 823   2          ModeStep = 0;
+ 824   2          
+ 825   2          switch (ColorStep)
+ 826   2          {
+ 827   3            case 0:
+ 828   3              if (FadeR > 0)
+ 829   3              {
+ 830   4                FadeR -= 5;
+ 831   4                FadeG += 5;
+ 832   4              }
+ 833   3              else
+ 834   3              {
+ 835   4                ColorStep++;
+ 836   4              }
+ 837   3            break;
+ 838   3              
+ 839   3            case 1:
+ 840   3              if (FadeG > 0)
+ 841   3              {
+ 842   4                FadeG -= 5;
+ 843   4                FadeB += 5;
+ 844   4              }
+ 845   3              else
+ 846   3              {
+ 847   4                ColorStep++;
+ 848   4              }
+ 849   3            break;
+ 850   3            
+ 851   3            case 2:
+ 852   3              if (FadeB > 0)
+ 853   3              {
+ 854   4                FadeB -= 5;
+ 855   4                FadeR += 5;
+ 856   4              }
+ 857   3              else
+ 858   3              {
+ 859   4                ColorStep = 0;
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 15  
+
+ 860   4                TempTime = 1 - TempTime;
+ 861   4              }
+ 862   3            break;
+ 863   3          }
+ 864   2        }
+ 865   1        
+ 866   1      
+ 867   1        if (TempTime == 0)
+ 868   1        {
+ 869   2          for (TempCnt = LED_TOTAL - 1; TempCnt > 0; TempCnt--)
+ 870   2          {
+ 871   3            RGBData.Buffer[TempCnt].DutyR = RGBData.Buffer[TempCnt - 1].DutyR;
+ 872   3            RGBData.Buffer[TempCnt].DutyG = RGBData.Buffer[TempCnt - 1].DutyG;
+ 873   3            RGBData.Buffer[TempCnt].DutyB = RGBData.Buffer[TempCnt - 1].DutyB;
+ 874   3          }
+ 875   2          RGBData.Buffer[0].DutyR   = TempR;
+ 876   2          RGBData.Buffer[0].DutyG   = TempG;
+ 877   2          RGBData.Buffer[0].DutyB   = TempB;
+ 878   2        }
+ 879   1        else
+ 880   1        {
+ 881   2          for (TempCnt = 0; TempCnt < LED_TOTAL - 1; TempCnt++)
+ 882   2          {
+ 883   3            RGBData.Buffer[TempCnt].DutyR = RGBData.Buffer[TempCnt + 1].DutyR;
+ 884   3            RGBData.Buffer[TempCnt].DutyG = RGBData.Buffer[TempCnt + 1].DutyG;
+ 885   3            RGBData.Buffer[TempCnt].DutyB = RGBData.Buffer[TempCnt + 1].DutyB;
+ 886   3          }
+ 887   2          RGBData.Buffer[LED_TOTAL - 1].DutyR   = TempR;
+ 888   2          RGBData.Buffer[LED_TOTAL - 1].DutyG   = TempG;
+ 889   2          RGBData.Buffer[LED_TOTAL - 1].DutyB   = TempB;
+ 890   2        }
+ 891   1        
+ 892   1        UpdateFlag = TRUE;
+ 893   1      }
+ 894          
+ 895          /*******************************************************************
+ 896            *
+ 897            * FunctionName  RGB_RainBown
+ 898            *
+ 899          *******************************************************************/
+ 900          static void RGB_RainBown(void)
+ 901          {
+ 902   1        if (RGBDisplayData.InitFlag == TRUE)
+ 903   1        {
+ 904   2          RGBDisplayData.InitFlag = FALSE;
+ 905   2          
+ 906   2          for (TempCnt = 0; TempCnt < LED_TOTAL; TempCnt++)
+ 907   2          {
+ 908   3            RGBData.Buffer[TempCnt].DutyR = COLOR_VECTOR_2[TempCnt][R];
+ 909   3            RGBData.Buffer[TempCnt].DutyG = COLOR_VECTOR_2[TempCnt][G];
+ 910   3            RGBData.Buffer[TempCnt].DutyB = COLOR_VECTOR_2[TempCnt][B];
+ 911   3          }
+ 912   2          
+ 913   2          
+ 914   2          
+ 915   2          ModeStep    = 0;
+ 916   2          ModeTime    = 0;
+ 917   2          TempR       = 0;
+ 918   2          TempB       = 0;
+ 919   2          TempG       = 0;
+ 920   2          ColorStep   = 0;
+ 921   2          
+C51 COMPILER V9.52.0.0   RGB_DISPLAY                                                       04/05/2018 22:21:31 PAGE 16  
+
+ 922   2          UpdateFlag = TRUE;
+ 923   2          
+ 924   2          return;
+ 925   2        }
+ 926   1        
+ 927   1        
+ 928   1        if (ModeTime < 8)
+ 929   1        {
+ 930   2          ModeTime++;
+ 931   2          return;
+ 932   2        }
+ 933   1        ModeTime = 0;
+ 934   1        
+ 935   1        
+ 936   1        
+ 937   1        TempR = RGBData.Buffer[0].DutyR;
+ 938   1        TempG = RGBData.Buffer[0].DutyG;
+ 939   1        TempB = RGBData.Buffer[0].DutyB;
+ 940   1        for (TempCnt = 0; TempCnt < LED_TOTAL - 1; TempCnt++)
+ 941   1        {
+ 942   2          RGBData.Buffer[TempCnt].DutyR = RGBData.Buffer[TempCnt + 1].DutyR;
+ 943   2          RGBData.Buffer[TempCnt].DutyG = RGBData.Buffer[TempCnt + 1].DutyG;
+ 944   2          RGBData.Buffer[TempCnt].DutyB = RGBData.Buffer[TempCnt + 1].DutyB;
+ 945   2        }
+ 946   1      
+ 947   1        RGBData.Buffer[LED_TOTAL - 1].DutyR   = TempR;
+ 948   1        RGBData.Buffer[LED_TOTAL - 1].DutyG   = TempG;
+ 949   1        RGBData.Buffer[LED_TOTAL - 1].DutyB   = TempB;
+ 950   1        
+ 951   1        
+ 952   1        UpdateFlag = TRUE;
+ 953   1      }
+ 954          
+ 955          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   4573    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     19    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =    111    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

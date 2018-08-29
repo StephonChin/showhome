@@ -1,0 +1,326 @@
+C51 COMPILER V9.52.0.0   DATA_PROCESS                                                      07/07/2017 16:30:05 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DATA_PROCESS
+OBJECT MODULE PLACED IN Data_Process.obj
+COMPILER INVOKED BY: C:\Keil51\C51\BIN\C51.EXE Source\Data_Process.c BROWSE INCDIR(.\Include) DEBUG OBJECTEXTEND PRINT(.
+                    -\Data_Process.lst) TABS(2) OBJECT(Data_Process.obj)
+
+line level    source
+
+   1          /*******************************************************************
+   2            *
+   3            * @FileName   Data_Process.c
+   4            * @Date       2017.03.03
+   5            * @Author     DS.Chin
+   6            *
+   7          *********************************************************************/
+   8          #include "Data_Process.h"
+   9          
+  10          /* @Gloable Variables --------------------------------------*/
+  11          _Flag NetChgFlag;
+  12          
+  13          
+  14          /* @File Variables -----------------------------------------*/
+  15          _Flag TamperCloseFlag;
+  16          _Flag ConnectFlag;
+  17          _Flag SensorFlag;
+  18          _Flag PowerOnFlag;
+  19          _Flag   NetPortFlag = TRUE;
+  20          _Uint8  NetPortTime;
+  21          
+  22          enum
+  23          {
+  24            TAMPER_IDLE,
+  25            TAMPER_CLOSE,
+  26            TAMPER_OPEN
+  27          }TamperStatus;
+  28          
+  29          enum
+  30          {
+  31            NET_IDLE,
+  32            NET_CONNECT,
+  33            NET_DISCONNECT
+  34          }NetStatus,NetPreStatus;
+  35          
+  36          
+  37          
+  38          
+  39          /***********************************************************************
+  40            *
+  41            * @FunctionName Power_On_Init
+  42            *
+  43          ***/
+  44          void Power_On_Init(void)
+  45          {
+  46   1      //  /* To Check the device have or not connect to the net */
+  47   1      //  if (PORT_DEV_ADD == SET)    NetStatus = NET_DISCONNECT;
+  48   1      //  else                        NetStatus = NET_CONNECT;
+  49   1        
+  50   1        /* Tamper status check */
+  51   1        if (PORT_TAMPER == RESET)   TamperStatus = TAMPER_CLOSE;
+  52   1        else                        TamperStatus = TAMPER_OPEN;
+  53   1        
+  54   1        
+C51 COMPILER V9.52.0.0   DATA_PROCESS                                                      07/07/2017 16:30:05 PAGE 2   
+
+  55   1        NetPreStatus = NetStatus;
+  56   1        PowerOnFlag = TRUE;
+  57   1        if (NetStatus == NET_CONNECT)   WKCON |= BIT3;
+  58   1      }
+  59          
+  60          
+  61          
+  62          
+  63          
+  64          
+  65          /***********************************************************************
+  66            *
+  67            * @FunctionName Data_Process
+  68            *
+  69          ***/
+  70          void Data_Process(void)
+  71          {
+  72   1        static _Uint8 ShakeTime;
+  73   1        static _Flag  ShakeFlag;
+  74   1        
+  75   1        /* Check the PORT_TAMPER after pulse occur */
+  76   1        if (NetPortFlag == TRUE)
+  77   1        {
+  78   2          NetPortTime++;
+  79   2          if (NetPortTime > 10) // > 100ms
+  80   2          {
+  81   3            NetPortFlag = FALSE;
+  82   3            if (PORT_DEV_ADD == SET)    NetStatus = NET_DISCONNECT;
+  83   3            else                      NetStatus = NET_CONNECT;
+  84   3          }
+  85   2        }
+  86   1        else
+  87   1        {
+  88   2          NetPortTime = 0;
+  89   2        }
+  90   1        
+  91   1        /* to check the net status, change mode to G-FAST when connected, & to */
+  92   1        /* RGB-SLOWLY when disconnected */
+  93   1        if (NetStatus != NET_IDLE)
+  94   1        {
+  95   2          ShakeTime++;
+  96   2          if (ShakeTime > 2)
+  97   2          {
+  98   3            ShakeTime = 0;
+  99   3            
+ 100   3            if (NetStatus == NET_CONNECT && PORT_DEV_ADD == RESET && NetPreStatus != NET_CONNECT)
+ 101   3            {
+ 102   4              ShakeFlag         = TRUE;
+ 103   4              ConnectFlag       = TRUE;
+ 104   4              LedData.ModeBuf   = LED_G_FAST;
+ 105   4              if (PowerOnFlag != TRUE)      
+ 106   4              {
+ 107   5                NetChgFlag = TRUE;
+ 108   5              }
+ 109   4              NetPreStatus = NetStatus;
+ 110   4              
+ 111   4              WKCON |= BIT3;
+ 112   4            }
+ 113   3            else if (NetStatus == NET_DISCONNECT && PORT_DEV_ADD == SET && NetPreStatus != NET_DISCONNECT)
+ 114   3            {
+ 115   4              ShakeFlag         = TRUE;
+ 116   4              ConnectFlag       = FALSE;
+C51 COMPILER V9.52.0.0   DATA_PROCESS                                                      07/07/2017 16:30:05 PAGE 3   
+
+ 117   4              LedData.ModeBuf   = LED_RGB_SLOW;
+ 118   4              NetPreStatus = NetStatus;
+ 119   4              
+ 120   4              WKCON &= ~BIT3;
+ 121   4            }
+ 122   3      
+ 123   3            if (ShakeFlag == TRUE)
+ 124   3            {
+ 125   4              ShakeFlag = FALSE;
+ 126   4              
+ 127   4              // get mode & set init Flag
+ 128   4              LedData.Mode      = LedData.ModeBuf;
+ 129   4              LedData.InitFlag  = TRUE;
+ 130   4            }
+ 131   3            // clear status
+ 132   3            PowerOnFlag = FALSE;
+ 133   3            NetStatus = NET_IDLE;
+ 134   3          }
+ 135   2        }
+ 136   1        else
+ 137   1        {
+ 138   2          ShakeTime   = 0;
+ 139   2          ShakeFlag   = FALSE;
+ 140   2        }
+ 141   1      
+ 142   1        
+ 143   1        
+ 144   1        
+ 145   1        
+ 146   1        /* have not connect to the net , keep the mode as RGB flash slowly when */
+ 147   1        /* Tamper tirg. Keep Off mode when sensor trig */
+ 148   1        if (ConnectFlag == FALSE)
+ 149   1        {
+ 150   2          /* check the tamper status */
+ 151   2          if (TamperStatus != TAMPER_IDLE)
+ 152   2          {
+ 153   3            if (TamperStatus == TAMPER_CLOSE)
+ 154   3            {
+ 155   4              TamperCloseFlag = TRUE;
+ 156   4              LedData.ModeBuf = LED_RGB_OFF;
+ 157   4            }
+ 158   3            else
+ 159   3            {
+ 160   4              TamperCloseFlag = FALSE;
+ 161   4              LedData.ModeBuf = LED_RGB_SLOW;
+ 162   4            }
+ 163   3            
+ 164   3            // get mode & set init flag
+ 165   3            LedData.Mode      = LedData.ModeBuf;
+ 166   3            LedData.InitFlag  = TRUE;
+ 167   3            WakeUpMode        = 1;
+ 168   3            WakeUpInit        = TRUE;
+ 169   3              
+ 170   3            // clear status
+ 171   3            TamperStatus = TAMPER_IDLE;
+ 172   3          }
+ 173   2        }
+ 174   1        
+ 175   1        
+ 176   1        
+ 177   1        
+ 178   1        
+C51 COMPILER V9.52.0.0   DATA_PROCESS                                                      07/07/2017 16:30:05 PAGE 4   
+
+ 179   1        /* when device connected to the net, change mode to B-SLOW when tamper trig */
+ 180   1        /* and to R-SLOW when tamper closed and sensor trig */
+ 181   1        else if (NetChgFlag == FALSE)
+ 182   1        {
+ 183   2          /* check the tamper status */
+ 184   2          if (TamperStatus != TAMPER_IDLE)
+ 185   2          {
+ 186   3            if (TamperStatus == TAMPER_CLOSE)
+ 187   3            {
+ 188   4              TamperCloseFlag = TRUE;
+ 189   4              LedData.ModeBuf = LED_RGB_OFF;
+ 190   4            }
+ 191   3            else
+ 192   3            {
+ 193   4              TamperCloseFlag = FALSE;
+ 194   4              LedData.ModeBuf = LED_B_SLOW;
+ 195   4            }
+ 196   3            
+ 197   3            // get the mode and set init flag
+ 198   3            LedData.Mode      = LedData.ModeBuf;
+ 199   3            LedData.InitFlag  = TRUE;
+ 200   3            WakeUpMode        = 1;
+ 201   3            WakeUpInit        = TRUE;
+ 202   3            
+ 203   3            // clear status
+ 204   3            TamperStatus = TAMPER_IDLE;
+ 205   3          }
+ 206   2          
+ 207   2          
+ 208   2          
+ 209   2          /* check the sensor status when tamper closed */
+ 210   2          if (TamperCloseFlag == TRUE)
+ 211   2          {
+ 212   3            if (SensorStatus != SENSOR_IDLE)
+ 213   3            {
+ 214   4              if (SensorStatus == SENSOR_TRIG)    
+ 215   4              {
+ 216   5                SensorFlag    = TRUE;
+ 217   5                LedData.Mode  = LED_R_SLOW;
+ 218   5                TriggerMode   = 1;
+ 219   5              }
+ 220   4              else                                
+ 221   4              {
+ 222   5                SensorFlag    = FALSE;
+ 223   5                LedData.Mode  = LED_RGB_OFF;
+ 224   5                TriggerMode   = 0;
+ 225   5              }
+ 226   4              
+ 227   4              //get the mode and set init flag
+ 228   4              LedData.InitFlag  = TRUE;
+ 229   4              WakeUpMode        = 1;
+ 230   4              WakeUpInit        = TRUE;
+ 231   4              
+ 232   4              //clear status
+ 233   4              SensorStatus = SENSOR_IDLE;
+ 234   4            }
+ 235   3            else if (SensorFlag == TRUE)
+ 236   3            {
+ 237   4              if (LedData.Mode != LED_R_SLOW)
+ 238   4              {
+ 239   5                LedData.Mode      = LED_R_SLOW;
+ 240   5                LedData.InitFlag  = TRUE;
+C51 COMPILER V9.52.0.0   DATA_PROCESS                                                      07/07/2017 16:30:05 PAGE 5   
+
+ 241   5              }
+ 242   4            }
+ 243   3          }
+ 244   2        }
+ 245   1      }
+ 246          
+ 247          
+ 248          
+ 249          
+ 250          
+ 251          
+ 252          /***********************************************************************
+ 253            *
+ 254            * @FunctionName   Interrupt_Process
+ 255            * 
+ 256          ***/
+ 257          void Interrupt_Process(void) interrupt 7
+ 258          {
+ 259   1      //  //Device Add
+ 260   1      //  if ((PIF & 0x20) == 0x20)
+ 261   1      //  {
+ 262   1      //    if (PORT_DEV_ADD == SET)    NetStatus   = NET_DISCONNECT;
+ 263   1      //    else                        NetStatus   = NET_CONNECT;
+ 264   1      //  }
+ 265   1        //Device Add
+ 266   1        if ((PIF & 0x20) == 0x20)
+ 267   1        {
+ 268   2          NetPortFlag = TRUE;
+ 269   2          NetPortTime = 0;
+ 270   2        }
+ 271   1        
+ 272   1        
+ 273   1        //Tamper
+ 274   1        if ((PIF & 0x80) == 0x80)
+ 275   1        {
+ 276   2          if (PORT_TAMPER == RESET)   
+ 277   2          {
+ 278   3            TamperStatus = TAMPER_CLOSE;
+ 279   3          }
+ 280   2          else                        
+ 281   2          {
+ 282   3            TamperStatus = TAMPER_OPEN;
+ 283   3          }
+ 284   2        }
+ 285   1        
+ 286   1        
+ 287   1        
+ 288   1        //Clear
+ 289   1        PIF = 0x0;
+ 290   1      }
+ 291          
+ 292          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    352    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.52.0.0   DATA_PROCESS                                                      07/07/2017 16:30:05 PAGE 6   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

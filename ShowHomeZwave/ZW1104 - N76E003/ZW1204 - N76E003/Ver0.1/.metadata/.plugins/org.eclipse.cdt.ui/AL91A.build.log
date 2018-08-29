@@ -1,0 +1,31 @@
+16:12:48 **** Build of configuration Debug for project AL91A ****
+make -j4 all 
+'Building file: ../PrivateSources/SystemInit.c'
+'Invoking: Cross GCC Compiler'
+mcore-elf-gcc -I"C:\C0_IDE/tool-chain/ccore-elf/lib/gcc/mcore-elf/4.6.0/include" -I"C:\C0_IDE/tool-chain/ccore-elf/mcore-elf/include" -I"H:\ShowLights\Ver0.0\AL91A\PrivateIncludes" -I"H:\ShowLights\Ver0.0\AL91A\Public\Includes" -Os -fno-common -g -mlittle-endian -Wall -c -o "PrivateSources/SystemInit.o" "../PrivateSources/SystemInit.c"
+'Finished building: ../PrivateSources/SystemInit.c'
+' '
+'Building target: AL91A.elf'
+'Invoking: Cross GCC Linker'
+mcore-elf-ld -EL -L"C:\C0_IDE/tool-chain/ccore-elf/mcore-elf/lib/c0_div" -L"C:\C0_IDE/tool-chain/ccore-elf/lib/gcc/mcore-elf/4.6.0/c0_div" -e __start -N -t -warn-common -Map AL91A.map -T../linkmap -o "AL91A.elf"  ./Public/Sources/CSR1010.o ./Public/Sources/Data_Process.o ./Public/Sources/Eprom.o ./Public/Sources/Key_Scan.o ./Public/Sources/Led_Class.o ./Public/Sources/crt0.o ./Public/Sources/vector_rce.o ./Public/Sources/vector_table.o  ./PrivateSources/AL91A.o ./PrivateSources/SystemInit.o   --start-group -lgcc -lc -lg -lm -lcmb -lsim -lnosys --end-group
+mcore-elf-ld: mode elf32mcore
+./Public/Sources/CSR1010.o
+./Public/Sources/Data_Process.o
+./Public/Sources/Eprom.o
+./Public/Sources/Key_Scan.o
+./Public/Sources/Led_Class.o
+./Public/Sources/crt0.o
+./Public/Sources/vector_rce.o
+./Public/Sources/vector_table.o
+./PrivateSources/AL91A.o
+./PrivateSources/SystemInit.o
+'Finished building target: AL91A.elf'
+' '
+make --no-print-directory post-build
+mcore-elf-objcopy  -O binary AL91A.elf AL91A.bin& mcore-elf-objdump -D AL91A.elf > AL91A.obj& mcore-elf-size AL91A.elf
+   text	   data	    bss	    dec	    hex	filename
+    448	      0	      8	    456	    1c8	AL91A.elf
+' '
+
+16:13:00 Build Finished (took 12s.190ms)
+

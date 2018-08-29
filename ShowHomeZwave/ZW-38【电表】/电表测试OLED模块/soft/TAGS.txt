@@ -1,0 +1,218 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BitStatus	system_config.h	10;"	typedef	typeref:enum:__anon1
+ClkConfig	mcu_config.c	28;"	function	signature:(void)
+ClkConfig	mcu_config.h	8;"	prototype	signature:(void)
+DATA_RECEIVE	oled.h	52;"	macro
+DATA_SEND	oled.h	51;"	macro
+DEF_16BIT_REG_AT	stm8s103f.h	20;"	macro
+DEF_16BIT_REG_AT	stm8s103f.h	25;"	macro
+DEF_8BIT_REG_AT	stm8s103f.h	19;"	macro
+DEF_8BIT_REG_AT	stm8s103f.h	24;"	macro
+DataGet	uart.c	66;"	function	signature:(void)
+DataGet	uart.h	12;"	prototype	signature:(void)
+F6x8	oled.c	8;"	variable
+FLAG_ADD_FINISH	oled.h	58;"	macro
+FLAG_BUSY	oled.h	56;"	macro
+FLAG_RECEIVE_FINISH	oled.h	60;"	macro
+FLAG_SEND_FINISH	oled.h	59;"	macro
+FLAG_START_FINISH	oled.h	57;"	macro
+FlagStatus	system_config.h	10;"	typedef	typeref:enum:__anon1
+GpioConfig	mcu_config.c	6;"	function	signature:(void)
+GpioConfig	mcu_config.h	6;"	prototype	signature:(void)
+I2C_ACK	oled.h	53;"	macro
+I2C_START	oled.h	48;"	macro
+I2C_STOP	oled.h	49;"	macro
+LED_DC	oled.h	10;"	macro
+LED_Fill	oled.c	171;"	function	signature:(u8t ucData)
+LED_IMAGE_WHITE	oled.h	14;"	macro
+LED_Init	oled.c	335;"	function	signature:(void)
+LED_Init	oled.h	17;"	prototype	signature:(void)
+LED_P6x8Char	oled.c	376;"	function	signature:(u8t ucIdxX, u8t ucIdxY, u8t ucData)
+LED_P6x8Char	oled.h	20;"	prototype	signature:(u8t ucIdxX, u8t ucIdxY, u8t ucData)
+LED_P6x8Str	oled.c	404;"	function	signature:(u8t ucIdxX, u8t ucIdxY, u8t ucDataStr[])
+LED_RST	oled.h	13;"	macro
+LED_SCL	oled.h	12;"	macro
+LED_SDA	oled.h	11;"	macro
+LED_SetPos	oled.c	161;"	function	signature:(u8t ucIdxX, u8t ucIdxY)
+LED_SetPos	oled.h	23;"	prototype	signature:(u8t ucIdxX, u8t ucIdxY)
+LED_WrCmd	oled.c	135;"	function	signature:(u8t ucCmd)
+LED_WrCmd	oled.h	22;"	prototype	signature:(u8t ucCmd)
+LED_WrDat	oled.c	108;"	function	signature:(u8t ucData)
+LED_WrDat	oled.h	21;"	prototype	signature:(u8t ucData)
+LedDisplay	oled.c	446;"	function	signature:(u8t dataPostion)
+LedDisplay	oled.h	19;"	prototype	signature:(u8t dataPostion)
+LedDisplayChs	oled.c	429;"	function	signature:(void)
+LedDisplayChs	oled.h	18;"	prototype	signature:(void)
+MAIN_H	main.h	2;"	macro
+MCU_ACK_NO	oled.h	47;"	macro
+MCU_ACK_YES	oled.h	46;"	macro
+MCU_CONFIG_H	mcu_config.h	2;"	macro
+NULL	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	8;"	macro
+NonHandledInterrupt	stm8_interrupt_vector.c	12;"	function	signature:(void)
+OLED_H	oled.h	2;"	macro
+PA_IDR	stm8s_bitsdefine.h	18;"	variable
+PA_IDR	stm8s_bitsdefine.h	19;"	variable
+PA_IDR	stm8s_bitsdefine.h	20;"	variable
+PA_IDR	stm8s_bitsdefine.h	21;"	variable
+PA_IDR	stm8s_bitsdefine.h	22;"	variable
+PA_IDR	stm8s_bitsdefine.h	23;"	variable
+PA_IDR	stm8s_bitsdefine.h	24;"	variable
+PA_IDR	stm8s_bitsdefine.h	25;"	variable
+PA_ODR	stm8s_bitsdefine.h	10;"	variable
+PA_ODR	stm8s_bitsdefine.h	11;"	variable
+PA_ODR	stm8s_bitsdefine.h	12;"	variable
+PA_ODR	stm8s_bitsdefine.h	13;"	variable
+PA_ODR	stm8s_bitsdefine.h	14;"	variable
+PA_ODR	stm8s_bitsdefine.h	15;"	variable
+PA_ODR	stm8s_bitsdefine.h	8;"	variable
+PA_ODR	stm8s_bitsdefine.h	9;"	variable
+PB_IDR	stm8s_bitsdefine.h	38;"	variable
+PB_IDR	stm8s_bitsdefine.h	39;"	variable
+PB_IDR	stm8s_bitsdefine.h	40;"	variable
+PB_IDR	stm8s_bitsdefine.h	41;"	variable
+PB_IDR	stm8s_bitsdefine.h	42;"	variable
+PB_IDR	stm8s_bitsdefine.h	43;"	variable
+PB_IDR	stm8s_bitsdefine.h	44;"	variable
+PB_IDR	stm8s_bitsdefine.h	45;"	variable
+PB_ODR	stm8s_bitsdefine.h	28;"	variable
+PB_ODR	stm8s_bitsdefine.h	29;"	variable
+PB_ODR	stm8s_bitsdefine.h	30;"	variable
+PB_ODR	stm8s_bitsdefine.h	31;"	variable
+PB_ODR	stm8s_bitsdefine.h	32;"	variable
+PB_ODR	stm8s_bitsdefine.h	33;"	variable
+PB_ODR	stm8s_bitsdefine.h	34;"	variable
+PB_ODR	stm8s_bitsdefine.h	35;"	variable
+PC_IDR	stm8s_bitsdefine.h	58;"	variable
+PC_IDR	stm8s_bitsdefine.h	59;"	variable
+PC_IDR	stm8s_bitsdefine.h	60;"	variable
+PC_IDR	stm8s_bitsdefine.h	61;"	variable
+PC_IDR	stm8s_bitsdefine.h	62;"	variable
+PC_IDR	stm8s_bitsdefine.h	63;"	variable
+PC_IDR	stm8s_bitsdefine.h	64;"	variable
+PC_IDR	stm8s_bitsdefine.h	65;"	variable
+PC_ODR	stm8s_bitsdefine.h	48;"	variable
+PC_ODR	stm8s_bitsdefine.h	49;"	variable
+PC_ODR	stm8s_bitsdefine.h	50;"	variable
+PC_ODR	stm8s_bitsdefine.h	51;"	variable
+PC_ODR	stm8s_bitsdefine.h	52;"	variable
+PC_ODR	stm8s_bitsdefine.h	53;"	variable
+PC_ODR	stm8s_bitsdefine.h	54;"	variable
+PC_ODR	stm8s_bitsdefine.h	55;"	variable
+PD_IDR	stm8s_bitsdefine.h	78;"	variable
+PD_IDR	stm8s_bitsdefine.h	79;"	variable
+PD_IDR	stm8s_bitsdefine.h	80;"	variable
+PD_IDR	stm8s_bitsdefine.h	81;"	variable
+PD_IDR	stm8s_bitsdefine.h	82;"	variable
+PD_IDR	stm8s_bitsdefine.h	83;"	variable
+PD_IDR	stm8s_bitsdefine.h	84;"	variable
+PD_IDR	stm8s_bitsdefine.h	85;"	variable
+PD_ODR	stm8s_bitsdefine.h	68;"	variable
+PD_ODR	stm8s_bitsdefine.h	69;"	variable
+PD_ODR	stm8s_bitsdefine.h	70;"	variable
+PD_ODR	stm8s_bitsdefine.h	71;"	variable
+PD_ODR	stm8s_bitsdefine.h	72;"	variable
+PD_ODR	stm8s_bitsdefine.h	73;"	variable
+PD_ODR	stm8s_bitsdefine.h	74;"	variable
+PD_ODR	stm8s_bitsdefine.h	75;"	variable
+RESET	system_config.h	10;"	enumerator	enum:__anon1
+RespondStr	uart.c	90;"	function	signature:(u8t *pStr)
+RespondStr	uart.h	11;"	prototype	signature:(u8t *pStr)
+SET	system_config.h	10;"	enumerator	enum:__anon1
+STM8S003F3P	stm8s003f3p.h	3;"	macro
+STM8S103F	stm8s103f.h	12;"	macro
+SYSTEM_CONFIG_H	system_config.h	2;"	macro
+SetAddressingMode	oled.c	195;"	function	signature:(u8t ucData)
+SetAddressingMode	oled.h	25;"	prototype	signature:(u8t ucData)
+SetChargePump	oled.c	230;"	function	signature:(u8t ucData)
+SetChargePump	oled.h	30;"	prototype	signature:(u8t d)
+SetColumnAddress	oled.c	204;"	function	signature:(u8t a, u8t b)
+SetColumnAddress	oled.h	26;"	prototype	signature:(u8t a, u8t b)
+SetCommonConfig	oled.c	312;"	function	signature:(u8t ucData)
+SetCommonConfig	oled.h	41;"	prototype	signature:(u8t d)
+SetCommonRemap	oled.c	282;"	function	signature:(u8t ucData)
+SetCommonRemap	oled.h	37;"	prototype	signature:(u8t d)
+SetContrastControl	oled.c	224;"	function	signature:(u8t ucData)
+SetContrastControl	oled.h	29;"	prototype	signature:(u8t d)
+SetDisplayClock	oled.c	296;"	function	signature:(u8t ucData)
+SetDisplayClock	oled.h	39;"	prototype	signature:(u8t d)
+SetDisplayOffset	oled.c	290;"	function	signature:(u8t ucData)
+SetDisplayOffset	oled.h	38;"	prototype	signature:(u8t d)
+SetDisplayOnOff	oled.c	268;"	function	signature:(u8t ucData)
+SetDisplayOnOff	oled.h	35;"	prototype	signature:(u8t d)
+SetEntireDisplay	oled.c	246;"	function	signature:(u8t ucData)
+SetEntireDisplay	oled.h	32;"	prototype	signature:(u8t d)
+SetInverseDisplay	oled.c	254;"	function	signature:(u8t ucData)
+SetInverseDisplay	oled.h	33;"	prototype	signature:(u8t d)
+SetMultiplexRatio	oled.c	262;"	function	signature:(u8t ucData)
+SetMultiplexRatio	oled.h	34;"	prototype	signature:(u8t d)
+SetNop	oled.c	326;"	function	signature:(void)
+SetNop	oled.h	43;"	prototype	signature:(void)
+SetPageAddress	oled.c	211;"	function	signature:(u8t a, u8t b)
+SetPageAddress	oled.h	27;"	prototype	signature:(u8t a, u8t b)
+SetPrechargePeriod	oled.c	304;"	function	signature:(u8t ucData)
+SetPrechargePeriod	oled.h	40;"	prototype	signature:(u8t d)
+SetSegmentRemap	oled.c	238;"	function	signature:(u8t ucData)
+SetSegmentRemap	oled.h	31;"	prototype	signature:(u8t d)
+SetStartColumn	oled.c	187;"	function	signature:(u8t ucData)
+SetStartColumn	oled.h	24;"	prototype	signature:(u8t ucData)
+SetStartLine	oled.c	218;"	function	signature:(u8t ucData)
+SetStartLine	oled.h	28;"	prototype	signature:(u8t d)
+SetStartPage	oled.c	276;"	function	signature:(u8t ucData)
+SetStartPage	oled.h	36;"	prototype	signature:(u8t d)
+SetVCOMH	oled.c	320;"	function	signature:(u8t ucData)
+SetVCOMH	oled.h	42;"	prototype	signature:(u8t d)
+Timer4Interrupt	main.c	42;"	function	signature:(void)
+Timer4Interrupt	stm8_interrupt_vector.c	23;"	prototype	file:	signature:(void)
+TimerConfig	mcu_config.c	57;"	function	signature:(void)
+TimerConfig	mcu_config.h	9;"	prototype	signature:(void)
+UART_WITH_ZWAVE_H	uart.h	2;"	macro
+UartConfig	mcu_config.c	37;"	function	signature:(void)
+UartConfig	mcu_config.h	7;"	prototype	signature:(void)
+UartInterrupt	stm8_interrupt_vector.c	22;"	prototype	file:	signature:(void)
+UartInterrupt	uart.c	22;"	function	signature:(void)
+_MACRO_BITS_DEFINE_H_	stm8s_bitsdefine.h	2;"	macro
+__MODS0__	c:\program files (x86)\cosmic\cxstm8\hstm8\mods0.h	11;"	macro
+__STM8S103F__	stm8s103f.h	6;"	macro
+__STRING__	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	6;"	macro
+_stext	stm8_interrupt_vector.c	20;"	prototype	file:
+_vectab	stm8_interrupt_vector.c	25;"	variable
+dataDisplay	uart.c	12;"	variable
+dataReceive	uart.c	10;"	variable
+dataReceive2	uart.c	11;"	variable
+flagCmdEnd	uart.c	15;"	variable
+flagCmdStart	uart.c	14;"	variable
+flagUartTransmit	uart.h	7;"	macro
+interrupt_handler	stm8_interrupt_vector.c	9;"	member	struct:interrupt_vector	file:
+interrupt_handler_t	stm8_interrupt_vector.c	5;"	typedef	file:
+interrupt_instruction	stm8_interrupt_vector.c	8;"	member	struct:interrupt_vector	file:
+interrupt_vector	stm8_interrupt_vector.c	7;"	struct	file:
+main	main.c	10;"	function	signature:(void)
+memchr	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	26;"	prototype	signature:(void *s, char c, unsigned int n)
+memcmp	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	20;"	prototype	signature:(void *s1, void *s2, unsigned int n)
+memcpy	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	27;"	prototype	signature:(void *s1, void *s2, unsigned int n)
+memmove	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	28;"	prototype	signature:(void *s1, void *s2, unsigned int n)
+memset	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	29;"	prototype	signature:(void *s, char c, unsigned int n)
+refreshFlag	main.c	9;"	variable
+strcat	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	12;"	prototype	signature:(char *s1, char *s2)
+strchr	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	13;"	prototype	signature:(char *s, char c)
+strcmp	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	21;"	prototype	signature:(char *s1, char *s2)
+strcpy	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	14;"	prototype	signature:(char *s1, char *s2)
+strcspn	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	23;"	prototype	signature:(char *s1, char *s2)
+strlen	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	24;"	prototype	signature:(char *s)
+strncat	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	15;"	prototype	signature:(char *s1, char *s2, unsigned int n)
+strncmp	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	22;"	prototype	signature:(char *s1, char *s2, unsigned int n)
+strncpy	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	16;"	prototype	signature:(char *s1, char *s2, unsigned int n)
+strpbrk	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	17;"	prototype	signature:(char *s1, char *s2)
+strrchr	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	18;"	prototype	signature:(char *s, char c)
+strspn	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	25;"	prototype	signature:(char *s1, char *s2)
+strstr	c:\program files (x86)\cosmic\cxstm8\hstm8\string.h	19;"	prototype	signature:(char *s1, char *s2)
+timeCnt1	main.c	7;"	variable
+timeCnt2	main.c	8;"	variable
+u16t	system_config.h	9;"	typedef
+u8t	system_config.h	8;"	typedef
+uartDataRegistor	uart.h	9;"	macro

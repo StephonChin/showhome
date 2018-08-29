@@ -1,0 +1,1231 @@
+start listing elf file - .\Bin/ZW104.out
+
+
+------------------begin data section------------------
+
+Start   Length(Byte)  Type  Name                             Source File
+000000    0X05        Data  crt0@data                        
+0X0005    0X05        Data  _InterruptBackupData             
+0X000A    0X01        Data  _led_c_GlobalBitDataPool0        E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\led.c
+0X000B    0X01        Data  _mode_c_GlobalBitDataPool0       E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\mode.c
+0X000C    0X01        Data  _led_mode@segment                E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\led.c
+0X000D    0X01        Data  _led_delay_3@segment             E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\led.c
+0X000E    0X01        Data  _led_delay_2@segment             E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\led.c
+0X000F    0X01        Data  _led_delay_1@segment             E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\led.c
+0X0010    0X01        Data  _mode_delay_6@segment            E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\mode.c
+0X0011    0X01        Data  _mode_delay_5@segment            E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\mode.c
+0X0012    0X01        Data  _mode_delay_4@segment            E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\mode.c
+0X0013    0X01        Data  _mode_delay_3@segment            E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\mode.c
+0X0014    0X01        Data  _mode_delay_2@segment            E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\mode.c
+0X0015    0X01        Data  _mode_delay_1@segment            E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\mode.c
+0X0016    0X01        Data  _check_port3_change_count@segment   E:\guomeng\2015年项目\z-wave\ZW1105\软件\ZW104\Src\mode.c
+
+
+crt0@data SEGMENT DATA INBANK
+	H	DS	1
+	L	DS	1
+	X	DS	1
+	I	DS	1
+	T	DS	1
+
+_InterruptBackupData SEGMENT DATA INBANK
+	_bufT	DS	1
+	_bufI	DS	1
+	_bufY	DS	1
+	_bufZ	DS	1
+	_bufR	DS	1
+
+_led_c_GlobalBitDataPool0 SEGMENT DATA INBANK
+	_led_mode_init	DSBIT	1
+
+_mode_c_GlobalBitDataPool0 SEGMENT DATA INBANK
+	_have_get_node	DSBIT	1
+	_check_port3_buf	DSBIT	1
+	_mode_three	DSBIT	1
+	_mode_two	DSBIT	1
+	_mode_one	DSBIT	1
+	_power_up	DSBIT	1
+
+_led_mode@segment SEGMENT DATA INBANK
+	_led_mode	DS	1
+
+_led_delay_3@segment SEGMENT DATA INBANK
+	_led_delay_3	DS	1
+
+_led_delay_2@segment SEGMENT DATA INBANK
+	_led_delay_2	DS	1
+
+_led_delay_1@segment SEGMENT DATA INBANK
+	_led_delay_1	DS	1
+
+_mode_delay_6@segment SEGMENT DATA INBANK
+	_mode_delay_6	DS	1
+
+_mode_delay_5@segment SEGMENT DATA INBANK
+	_mode_delay_5	DS	1
+
+_mode_delay_4@segment SEGMENT DATA INBANK
+	_mode_delay_4	DS	1
+
+_mode_delay_3@segment SEGMENT DATA INBANK
+	_mode_delay_3	DS	1
+
+_mode_delay_2@segment SEGMENT DATA INBANK
+	_mode_delay_2	DS	1
+
+_mode_delay_1@segment SEGMENT DATA INBANK
+	_mode_delay_1	DS	1
+
+_check_port3_change_count@segment SEGMENT DATA INBANK
+	_check_port3_change_count	DS	1
+
+
+------------------begin disassembly code------------------
+
+    0: 800A       	JMP 0x000A
+    1: 0000       	NOP
+    2: 0000       	NOP
+    3: 0000       	NOP
+    4: 0000       	NOP
+    5: 0000       	NOP
+    6: 0000       	NOP
+    7: 0000       	NOP
+_interrupt@_ISR_isr:
+    8: 8126       	JMP 0x0126
+_Function_power_start_code:
+                  	                  	
+                  	                  	/***************************
+                  	                  	*name:void power_start(void)
+                  	                  	*function:
+                  	                  	*input:
+                  	                  	*output:
+                  	                  	*modification:
+                  	                  	****************************/
+                  	                  	void power_start(void)
+                  	                  	{
+                  	                  	  
+                  	                  	}
+    9: 0E00       	RET
+_SGV_INIT_CODE_BEGIN:
+    A: 2D7F       	MOV A, #7fh
+    B: 2FDF       	B0MOV STKP, A
+    C: C010       	CALL 0x0010
+    D: C013       	CALL 0x0013
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+    F: 816B       	JMP 0x016B
+__ClearWatchDogTimer:
+   10: 2D5A       	MOV A, #5ah
+   11: 2FCC       	B0MOV WDTR, A
+   12: 0E00       	RET
+__ClrRAM:
+   13: 2B84       	CLR 0x84
+   14: 332F       	B0MOV 0x83, #2Fh
+ClrRAM10:
+   15: 2BE7       	CLR 0xE7
+   16: 2683       	DECMS 0x83
+   17: 8015       	JMP 0x0015
+   18: 2BE7       	CLR 0xE7
+   19: 0E00       	RET
+_Function_mode_selection_code:
+                  	                  	/***********************
+                  	                  	*author:chenyk
+                  	                  	*data:2014.11.24
+                  	                  	***********************/
+                  	                  	#include "mode.h"
+                  	                  	
+                  	                  	/**********************
+                  	                  	*name:void mode_selection(void)
+                  	                  	*function: select mode
+                  	                  	*input:no
+                  	                  	*output:no
+                  	                  	*modification:
+                  	                  	***********************/
+                  	                  	void mode_selection(void)
+                  	                  	{
+                  	                  	  if(check_port3)
+   1A: 79D1       	B0BTS1 0xD1.1
+   1B: 8022       	JMP 0x0022
+L28:
+                  	                  	  {
+                  	                  	    if(!check_port3_buf){check_port3_buf=1;check_port3_change_count+=1;}
+   1C: 510B       	BTS0 0x0B.1
+   1D: 8027       	JMP 0x0027
+L31:
+                  	                  	    if(!check_port3_buf){check_port3_buf=1;check_port3_change_count+=1;}
+   1E: 490B       	BSET 0x0B.1
+L34:
+                  	                  	    if(!check_port3_buf){check_port3_buf=1;check_port3_change_count+=1;}
+   1F: 1616       	INCMS 0x16
+   20: 0000       	NOP
+L35:
+                  	                  	  }
+   21: 8027       	JMP 0x0027
+L2:
+                  	                  	  else
+                  	                  	  {
+                  	                  	    if(check_port3_buf){check_port3_buf=0;check_port3_change_count+=1;}
+   22: 590B       	BTS1 0x0B.1
+   23: 8027       	JMP 0x0027
+L42:
+                  	                  	    if(check_port3_buf){check_port3_buf=0;check_port3_change_count+=1;}
+   24: 410B       	BCLR 0x0B.1
+L45:
+                  	                  	    if(check_port3_buf){check_port3_buf=0;check_port3_change_count+=1;}
+   25: 1616       	INCMS 0x16
+   26: 0000       	NOP
+L46:
+                  	                  	  }
+                  	                  	
+                  	                  	
+                  	                  	  if(mode_delay_1>7)
+   27: 1E15       	MOV A, 0x15
+   28: 0607       	CMPRS A, #07h
+   29: 7A86       	B0BTS1 0x86.2
+   2A: 8040       	JMP 0x0040
+L51:
+                  	                  	  {
+                  	                  	    mode_delay_1=0;
+   2B: 2B15       	CLR 0x15
+L54:
+                  	                  		if(check_port3_change_count>1)
+   2C: 1E16       	MOV A, 0x16
+   2D: 0601       	CMPRS A, #01h
+   2E: 7A86       	B0BTS1 0x86.2
+   2F: 803E       	JMP 0x003E
+L55:
+                  	                  		{
+                  	                  		  check_port3_change_count=0;
+   30: 2B16       	CLR 0x16
+L58:
+                  	                  		  if(led_mode !=0 ||power_up==0)
+   31: 1E0C       	MOV A, 0x0C
+   32: 0600       	CMPRS A, #00h
+   33: 8036       	JMP 0x0036
+   34: 550B       	BTS0 0x0B.5
+   35: 8040       	JMP 0x0040
+L14:
+                  	                  		  {
+                  	                  			power_up=1;
+   36: 4D0B       	BSET 0x0B.5
+L62:
+                  	                  			led_mode=0;
+   37: 2B0C       	CLR 0x0C
+L63:
+                  	                  			led_mode_init=0;
+   38: 400A       	BCLR 0x0A.0
+L64:
+                  	                  			have_get_node=0;
+   39: 400B       	BCLR 0x0B.0
+L65:
+                  	                  			mode_one=0;
+   3A: 440B       	BCLR 0x0B.4
+L66:
+                  	                  		    mode_two=0;
+   3B: 430B       	BCLR 0x0B.3
+L67:
+                  	                  		    mode_three=0;
+   3C: 420B       	BCLR 0x0B.2
+L68:
+                  	                  		  }
+                  	                  	    }
+   3D: 8040       	JMP 0x0040
+L10:
+                  	                  		else
+                  	                  		{
+                  	                  		  have_get_node=1;
+   3E: 480B       	BSET 0x0B.0
+L75:
+                  	                  		  check_port3_change_count=0;
+   3F: 2B16       	CLR 0x16
+L76:
+                  	                  		}
+                  	                  	  }
+                  	                  	
+                  	                  	
+                  	                  	  if(check_port2)
+   40: 7BD1       	B0BTS1 0xD1.3
+   41: 804D       	JMP 0x004D
+L81:
+                  	                  	  {
+                  	                  	    if(mode_three==0 && have_get_node==1)
+   42: 520B       	BTS0 0x0B.2
+   43: 8064       	JMP 0x0064
+   44: 580B       	BTS1 0x0B.0
+   45: 8064       	JMP 0x0064
+L84:
+                  	                  		{
+                  	                  		  mode_one=0;
+   46: 440B       	BCLR 0x0B.4
+L87:
+                  	                  		  mode_two=0;
+   47: 430B       	BCLR 0x0B.3
+L88:
+                  	                  		  mode_three=1;
+   48: 4A0B       	BSET 0x0B.2
+L89:
+                  	                  	      led_mode=3;              //绿
+   49: 2D03       	MOV A, #03h
+   4A: 1F0C       	MOV 0x0C, A
+L90:
+                  	                  		  led_mode_init=0;          
+   4B: 400A       	BCLR 0x0A.0
+L91:
+                  	                  		}
+                  	                  	  }
+   4C: 8064       	JMP 0x0064
+L15:
+                  	                  	  else if(check_port1)
+   4D: 7AD1       	B0BTS1 0xD1.2
+   4E: 805A       	JMP 0x005A
+L96:
+                  	                  	  {
+                  	                  	    if(mode_two==0 && have_get_node==1)
+   4F: 530B       	BTS0 0x0B.3
+   50: 8064       	JMP 0x0064
+   51: 580B       	BTS1 0x0B.0
+   52: 8064       	JMP 0x0064
+L99:
+                  	                  		{
+                  	                  		  mode_one=0;
+   53: 440B       	BCLR 0x0B.4
+L102:
+                  	                  		  mode_two=1;
+   54: 4B0B       	BSET 0x0B.3
+L103:
+                  	                  		  mode_three=0;
+   55: 420B       	BCLR 0x0B.2
+L104:
+                  	                  		  led_mode=2;               //红
+   56: 2D02       	MOV A, #02h
+   57: 1F0C       	MOV 0x0C, A
+L105:
+                  	                  		  led_mode_init=0;
+   58: 400A       	BCLR 0x0A.0
+L106:
+                  	                  		}
+                  	                  	  }
+   59: 8064       	JMP 0x0064
+L19:
+                  	                  	  else
+                  	                  	  {
+                  	                  	    if(mode_one==0 && have_get_node==1)
+   5A: 540B       	BTS0 0x0B.4
+   5B: 8064       	JMP 0x0064
+   5C: 580B       	BTS1 0x0B.0
+   5D: 8064       	JMP 0x0064
+L113:
+                  	                  		{
+                  	                  		  mode_one=1;
+   5E: 4C0B       	BSET 0x0B.4
+L116:
+                  	                  		  mode_two=0;
+   5F: 430B       	BCLR 0x0B.3
+L117:
+                  	                  		  mode_three=0;
+   60: 420B       	BCLR 0x0B.2
+L118:
+                  	                  		  led_mode=1;              //蓝
+   61: 2D01       	MOV A, #01h
+   62: 1F0C       	MOV 0x0C, A
+L119:
+                  	                  		  led_mode_init=0;
+   63: 400A       	BCLR 0x0A.0
+L120:
+                  	                  		}
+                  	                  	  }
+                  	                  	}
+   64: 0E00       	RET
+_Function_led_control_two_code:
+                  	                  	
+                  	                  	/***************************
+                  	                  	*name:void led_control_two(void)
+                  	                  	*function:
+                  	                  	*input:
+                  	                  	*output:
+                  	                  	*modification:
+                  	                  	****************************/
+                  	                  	void led_control_two(void)
+                  	                  	{
+                  	                  	  if(led_mode_init==0)
+   65: 500A       	BTS0 0x0A.0
+   66: 8072       	JMP 0x0072
+L115:
+                  	                  	  {
+                  	                  	    led_mode_init=1;
+   67: 480A       	BSET 0x0A.0
+L118:
+                  	                  		led_delay_3=0;
+   68: 2B0D       	CLR 0x0D
+L119:
+                  	                  		g1=0;
+   69: 60D1       	B0BCLR 0xD1.0
+L120:
+                  	                  		r1=0;
+   6A: 60D0       	B0BCLR 0xD0.0
+L121:
+                  	                  		r2=0;
+   6B: 63D2       	B0BCLR 0xD2.3
+L122:
+                  	                  		r3=0;
+   6C: 62D2       	B0BCLR 0xD2.2
+L123:
+                  	                  		g2=0;
+   6D: 64D2       	B0BCLR 0xD2.4
+L124:
+                  	                  		g3=0;
+   6E: 61D2       	B0BCLR 0xD2.1
+L125:
+                  	                  		b1=1;
+   6F: 6CD5       	B0BSET 0xD5.4
+L126:
+                  	                  		b2=1;
+   70: 6DD2       	B0BSET 0xD2.5
+L127:
+                  	                  		b3=1;
+   71: 68D2       	B0BSET 0xD2.0
+L128:
+                  	                  	  }
+                  	                  	  
+                  	                  	  if(led_delay_3==1)
+   72: 250D       	DECS 0x0D
+   73: 8077       	JMP 0x0077
+L131:
+                  	                  	  {
+                  	                  		b1=0;
+   74: 64D5       	B0BCLR 0xD5.4
+L134:
+                  	                  		b2=0;
+   75: 65D2       	B0BCLR 0xD2.5
+L135:
+                  	                  		b3=0;
+   76: 60D2       	B0BCLR 0xD2.0
+L136:
+                  	                  	  }
+                  	                  	  if(led_delay_3==2)
+   77: 1E0D       	MOV A, 0x0D
+   78: 0602       	CMPRS A, #02h
+   79: 807D       	JMP 0x007D
+L139:
+                  	                  	  {
+                  	                  	    b1=1;
+   7A: 6CD5       	B0BSET 0xD5.4
+L142:
+                  	                  		b2=1;
+   7B: 6DD2       	B0BSET 0xD2.5
+L143:
+                  	                  		b3=1;
+   7C: 68D2       	B0BSET 0xD2.0
+L144:
+                  	                  	  }
+                  	                  	  if(led_delay_3==3)
+   7D: 1E0D       	MOV A, 0x0D
+   7E: 0603       	CMPRS A, #03h
+   7F: 8083       	JMP 0x0083
+L147:
+                  	                  	  {
+                  	                  		b1=0;
+   80: 64D5       	B0BCLR 0xD5.4
+L150:
+                  	                  		b2=0;
+   81: 65D2       	B0BCLR 0xD2.5
+L151:
+                  	                  		b3=0;
+   82: 60D2       	B0BCLR 0xD2.0
+L152:
+                  	                  	  }
+                  	                  	
+                  	                  	  if(led_delay_3==4)
+   83: 1E0D       	MOV A, 0x0D
+   84: 0604       	CMPRS A, #04h
+   85: 8089       	JMP 0x0089
+L155:
+                  	                  	  {
+                  	                  		b1=1;
+   86: 6CD5       	B0BSET 0xD5.4
+L158:
+                  	                  	    b2=1;
+   87: 6DD2       	B0BSET 0xD2.5
+L159:
+                  	                  		b3=1;
+   88: 68D2       	B0BSET 0xD2.0
+L160:
+                  	                  	  }
+                  	                  	  
+                  	                  	  if(led_delay_3==5)
+   89: 1E0D       	MOV A, 0x0D
+   8A: 0605       	CMPRS A, #05h
+   8B: 808F       	JMP 0x008F
+L163:
+                  	                  	  {
+                  	                  		b1=0;
+   8C: 64D5       	B0BCLR 0xD5.4
+L166:
+                  	                  		b2=0;
+   8D: 65D2       	B0BCLR 0xD2.5
+L167:
+                  	                  		b3=0;
+   8E: 60D2       	B0BCLR 0xD2.0
+L168:
+                  	                  	  }
+                  	                  	  if(led_delay_3==110)
+   8F: 1E0D       	MOV A, 0x0D
+   90: 066E       	CMPRS A, #6Eh
+   91: 8096       	JMP 0x0096
+L171:
+                  	                  	  {
+                  	                  		 led_delay_3=0;
+   92: 2B0D       	CLR 0x0D
+L174:
+                  	                  	     b1=1;
+   93: 6CD5       	B0BSET 0xD5.4
+L175:
+                  	                  		 b2=1;
+   94: 6DD2       	B0BSET 0xD2.5
+L176:
+                  	                  		 b3=1;
+   95: 68D2       	B0BSET 0xD2.0
+L177:
+                  	                  	   }
+                  	                  	}
+   96: 0E00       	RET
+_Function_led_control_four_code:
+                  	                  	
+                  	                  	/***************************
+                  	                  	*name:void led_control_four(void)
+                  	                  	*function:
+                  	                  	*input:
+                  	                  	*output:
+                  	                  	*modification:
+                  	                  	****************************/
+                  	                  	void led_control_four(void)
+                  	                  	{
+                  	                  	  if(led_mode_init==0)
+   97: 500A       	BTS0 0x0A.0
+   98: 80A4       	JMP 0x00A4
+L281:
+                  	                  	  {
+                  	                  	    led_mode_init=1;
+   99: 480A       	BSET 0x0A.0
+L284:
+                  	                  		led_delay_3=0;
+   9A: 2B0D       	CLR 0x0D
+L285:
+                  	                  		r1=0;
+   9B: 60D0       	B0BCLR 0xD0.0
+L286:
+                  	                  		g1=1;
+   9C: 68D1       	B0BSET 0xD1.0
+L287:
+                  	                  		r2=0;
+   9D: 63D2       	B0BCLR 0xD2.3
+L288:
+                  	                  		r3=0;
+   9E: 62D2       	B0BCLR 0xD2.2
+L289:
+                  	                  		g2=1;
+   9F: 6CD2       	B0BSET 0xD2.4
+L290:
+                  	                  		g3=1;
+   A0: 69D2       	B0BSET 0xD2.1
+L291:
+                  	                  		b1=0;
+   A1: 64D5       	B0BCLR 0xD5.4
+L292:
+                  	                  		b2=0;
+   A2: 65D2       	B0BCLR 0xD2.5
+L293:
+                  	                  		b3=0;
+   A3: 60D2       	B0BCLR 0xD2.0
+L294:
+                  	                  	  }
+                  	                  	
+                  	                  	  if(led_delay_3==1)
+   A4: 250D       	DECS 0x0D
+   A5: 80A9       	JMP 0x00A9
+L297:
+                  	                  	  {
+                  	                  		g1=0;
+   A6: 60D1       	B0BCLR 0xD1.0
+L300:
+                  	                  		g2=0;
+   A7: 64D2       	B0BCLR 0xD2.4
+L301:
+                  	                  		g3=0;
+   A8: 61D2       	B0BCLR 0xD2.1
+L302:
+                  	                  	  }
+                  	                  	  if(led_delay_3==2)
+   A9: 1E0D       	MOV A, 0x0D
+   AA: 0602       	CMPRS A, #02h
+   AB: 80AF       	JMP 0x00AF
+L305:
+                  	                  	  {
+                  	                  	    g1=1;
+   AC: 68D1       	B0BSET 0xD1.0
+L308:
+                  	                  		g2=1;
+   AD: 6CD2       	B0BSET 0xD2.4
+L309:
+                  	                  		g3=1;
+   AE: 69D2       	B0BSET 0xD2.1
+L310:
+                  	                  	  }
+                  	                  	  if(led_delay_3==3)
+   AF: 1E0D       	MOV A, 0x0D
+   B0: 0603       	CMPRS A, #03h
+   B1: 80B5       	JMP 0x00B5
+L313:
+                  	                  	  {
+                  	                  		g1=0;
+   B2: 60D1       	B0BCLR 0xD1.0
+L316:
+                  	                  		g2=0;
+   B3: 64D2       	B0BCLR 0xD2.4
+L317:
+                  	                  		g3=0;
+   B4: 61D2       	B0BCLR 0xD2.1
+L318:
+                  	                  	  }
+                  	                  	
+                  	                  	  if(led_delay_3==4)
+   B5: 1E0D       	MOV A, 0x0D
+   B6: 0604       	CMPRS A, #04h
+   B7: 80BB       	JMP 0x00BB
+L321:
+                  	                  	  {
+                  	                  		g1=1;
+   B8: 68D1       	B0BSET 0xD1.0
+L324:
+                  	                  	    g2=1;
+   B9: 6CD2       	B0BSET 0xD2.4
+L325:
+                  	                  		g3=1;
+   BA: 69D2       	B0BSET 0xD2.1
+L326:
+                  	                  	  }
+                  	                  	  if(led_delay_3==5)
+   BB: 1E0D       	MOV A, 0x0D
+   BC: 0605       	CMPRS A, #05h
+   BD: 80C1       	JMP 0x00C1
+L329:
+                  	                  	  {
+                  	                  	    g1=0;
+   BE: 60D1       	B0BCLR 0xD1.0
+L332:
+                  	                  		g2=0;
+   BF: 64D2       	B0BCLR 0xD2.4
+L333:
+                  	                  		g3=0;
+   C0: 61D2       	B0BCLR 0xD2.1
+L334:
+                  	                  	  }
+                  	                  	  
+                  	                  	  if(led_delay_3==110)
+   C1: 1E0D       	MOV A, 0x0D
+   C2: 066E       	CMPRS A, #6Eh
+   C3: 80C8       	JMP 0x00C8
+L337:
+                  	                  	  {
+                  	                  		led_delay_3=0;
+   C4: 2B0D       	CLR 0x0D
+L340:
+                  	                  		g1=1;
+   C5: 68D1       	B0BSET 0xD1.0
+L341:
+                  	                  		g2=1;
+   C6: 6CD2       	B0BSET 0xD2.4
+L342:
+                  	                  		g3=1;
+   C7: 69D2       	B0BSET 0xD2.1
+L343:
+                  	                  	  }
+                  	                  	}
+   C8: 0E00       	RET
+_Function_led_control_three_code:
+                  	                  	
+                  	                  	/***************************
+                  	                  	*name:void led_control_three(void)
+                  	                  	*function:
+                  	                  	*input:
+                  	                  	*output:
+                  	                  	*modification:
+                  	                  	****************************/
+                  	                  	void led_control_three(void)
+                  	                  	{
+                  	                  	  if(led_mode_init==0)
+   C9: 500A       	BTS0 0x0A.0
+   CA: 80D6       	JMP 0x00D6
+L199:
+                  	                  	  {
+                  	                  	    led_mode_init=1;
+   CB: 480A       	BSET 0x0A.0
+L202:
+                  	                  		led_delay_3=0;
+   CC: 2B0D       	CLR 0x0D
+L203:
+                  	                  		r1=1;
+   CD: 68D0       	B0BSET 0xD0.0
+L204:
+                  	                  		r2=1;
+   CE: 6BD2       	B0BSET 0xD2.3
+L205:
+                  	                  		r3=1;
+   CF: 6AD2       	B0BSET 0xD2.2
+L206:
+                  	                  		g1=0;
+   D0: 60D1       	B0BCLR 0xD1.0
+L207:
+                  	                  		g2=0;
+   D1: 64D2       	B0BCLR 0xD2.4
+L208:
+                  	                  		g3=0;
+   D2: 61D2       	B0BCLR 0xD2.1
+L209:
+                  	                  		b1=0;
+   D3: 64D5       	B0BCLR 0xD5.4
+L210:
+                  	                  		b2=0;
+   D4: 65D2       	B0BCLR 0xD2.5
+L211:
+                  	                  		b3=0;
+   D5: 60D2       	B0BCLR 0xD2.0
+L212:
+                  	                  	  } 
+                  	                  	
+                  	                  	  if(led_delay_3==1)
+   D6: 250D       	DECS 0x0D
+   D7: 80DB       	JMP 0x00DB
+L215:
+                  	                  	  {
+                  	                  		r1=0;
+   D8: 60D0       	B0BCLR 0xD0.0
+L218:
+                  	                  	    r2=0;
+   D9: 63D2       	B0BCLR 0xD2.3
+L219:
+                  	                  		r3=0;
+   DA: 62D2       	B0BCLR 0xD2.2
+L220:
+                  	                  	  }
+                  	                  	  if(led_delay_3==2)
+   DB: 1E0D       	MOV A, 0x0D
+   DC: 0602       	CMPRS A, #02h
+   DD: 80E1       	JMP 0x00E1
+L223:
+                  	                  	  {
+                  	                  	    r1=1;
+   DE: 68D0       	B0BSET 0xD0.0
+L226:
+                  	                  		r2=1;
+   DF: 6BD2       	B0BSET 0xD2.3
+L227:
+                  	                  		r3=1;
+   E0: 6AD2       	B0BSET 0xD2.2
+L228:
+                  	                  	  }
+                  	                  	  if(led_delay_3==3)
+   E1: 1E0D       	MOV A, 0x0D
+   E2: 0603       	CMPRS A, #03h
+   E3: 80E7       	JMP 0x00E7
+L231:
+                  	                  	  {
+                  	                  		r1=0;
+   E4: 60D0       	B0BCLR 0xD0.0
+L234:
+                  	                  		r2=0;
+   E5: 63D2       	B0BCLR 0xD2.3
+L235:
+                  	                  		r3=0;
+   E6: 62D2       	B0BCLR 0xD2.2
+L236:
+                  	                  	  }
+                  	                  	
+                  	                  	  if(led_delay_3==4)
+   E7: 1E0D       	MOV A, 0x0D
+   E8: 0604       	CMPRS A, #04h
+   E9: 80ED       	JMP 0x00ED
+L239:
+                  	                  	  {
+                  	                  		r1=1;
+   EA: 68D0       	B0BSET 0xD0.0
+L242:
+                  	                  		r2=1;
+   EB: 6BD2       	B0BSET 0xD2.3
+L243:
+                  	                  	    r3=1;
+   EC: 6AD2       	B0BSET 0xD2.2
+L244:
+                  	                  	  }
+                  	                  	  if(led_delay_3==5)
+   ED: 1E0D       	MOV A, 0x0D
+   EE: 0605       	CMPRS A, #05h
+   EF: 80F3       	JMP 0x00F3
+L247:
+                  	                  	  {
+                  	                  	    r1=0;
+   F0: 60D0       	B0BCLR 0xD0.0
+L250:
+                  	                  		r2=0;
+   F1: 63D2       	B0BCLR 0xD2.3
+L251:
+                  	                  		r3=0;
+   F2: 62D2       	B0BCLR 0xD2.2
+L252:
+                  	                  	  }
+                  	                  	  
+                  	                  	  if(led_delay_3==110)
+   F3: 1E0D       	MOV A, 0x0D
+   F4: 066E       	CMPRS A, #6Eh
+   F5: 80F8       	JMP 0x00F8
+L255:
+                  	                  	  {
+                  	                  		led_delay_3=0;
+   F6: 2B0D       	CLR 0x0D
+L258:
+                  	                  	    //led_mode=1;
+                  	                  	    led_mode_init=0;
+   F7: 400A       	BCLR 0x0A.0
+L259:
+                  	                  	   }
+                  	                  	}
+   F8: 0E00       	RET
+_Function_led_control_one_code:
+                  	                  	
+                  	                  	
+                  	                  	/***************************
+                  	                  	*name:void led_control_one(void)
+                  	                  	*function:
+                  	                  	*input:
+                  	                  	*output:
+                  	                  	*modification:
+                  	                  	****************************/
+                  	                  	void led_control_one(void)
+                  	                  	{
+                  	                  	  if(led_mode_init==0)
+   F9: 500A       	BTS0 0x0A.0
+   FA: 8106       	JMP 0x0106
+L40:
+                  	                  	  {
+                  	                  	    led_mode_init=1;
+   FB: 480A       	BSET 0x0A.0
+L43:
+                  	                  		led_delay_3=0;
+   FC: 2B0D       	CLR 0x0D
+L44:
+                  	                  		r1=1;
+   FD: 68D0       	B0BSET 0xD0.0
+L45:
+                  	                  		r2=1;
+   FE: 6BD2       	B0BSET 0xD2.3
+L46:
+                  	                  		r3=1;
+   FF: 6AD2       	B0BSET 0xD2.2
+L47:
+                  	                  		g1=0;
+  100: 60D1       	B0BCLR 0xD1.0
+L48:
+                  	                  		g2=0;
+  101: 64D2       	B0BCLR 0xD2.4
+L49:
+                  	                  		g3=0;
+  102: 61D2       	B0BCLR 0xD2.1
+L50:
+                  	                  		b1=0;
+  103: 64D5       	B0BCLR 0xD5.4
+L51:
+                  	                  		b2=0;
+  104: 65D2       	B0BCLR 0xD2.5
+L52:
+                  	                  		b3=0;
+  105: 60D2       	B0BCLR 0xD2.0
+L53:
+                  	                  	  }
+                  	                  	  
+                  	                  	  if(led_delay_3==1)
+  106: 250D       	DECS 0x0D
+  107: 810E       	JMP 0x010E
+L56:
+                  	                  	  {
+                  	                  		r1=0;
+  108: 60D0       	B0BCLR 0xD0.0
+L59:
+                  	                  	    r2=0;
+  109: 63D2       	B0BCLR 0xD2.3
+L60:
+                  	                  		r3=0;
+  10A: 62D2       	B0BCLR 0xD2.2
+L61:
+                  	                  		g1=1;
+  10B: 68D1       	B0BSET 0xD1.0
+L62:
+                  	                  		g2=1;
+  10C: 6CD2       	B0BSET 0xD2.4
+L63:
+                  	                  		g3=1;
+  10D: 69D2       	B0BSET 0xD2.1
+L64:
+                  	                  	  }
+                  	                  		  
+                  	                  	  if(led_delay_3==3)
+  10E: 1E0D       	MOV A, 0x0D
+  10F: 0603       	CMPRS A, #03h
+  110: 8117       	JMP 0x0117
+L67:
+                  	                  	  {
+                  	                  		g1=0;
+  111: 60D1       	B0BCLR 0xD1.0
+L70:
+                  	                  	    g2=0;
+  112: 64D2       	B0BCLR 0xD2.4
+L71:
+                  	                  		g3=0;
+  113: 61D2       	B0BCLR 0xD2.1
+L72:
+                  	                  		b1=1;
+  114: 6CD5       	B0BSET 0xD5.4
+L73:
+                  	                  		b2=1;
+  115: 6DD2       	B0BSET 0xD2.5
+L74:
+                  	                  		b3=1;
+  116: 68D2       	B0BSET 0xD2.0
+L75:
+                  	                  	  }
+                  	                  	  if(led_delay_3==5)
+  117: 1E0D       	MOV A, 0x0D
+  118: 0605       	CMPRS A, #05h
+  119: 8121       	JMP 0x0121
+L78:
+                  	                  	  {
+                  	                  		b1=0;
+  11A: 64D5       	B0BCLR 0xD5.4
+L81:
+                  	                  	    b2=0;
+  11B: 65D2       	B0BCLR 0xD2.5
+L82:
+                  	                  		b3=0;
+  11C: 60D2       	B0BCLR 0xD2.0
+L83:
+                  	                  		r1=1;
+  11D: 68D0       	B0BSET 0xD0.0
+L84:
+                  	                  		r2=1;
+  11E: 6BD2       	B0BSET 0xD2.3
+L85:
+                  	                  		r3=1;
+  11F: 6AD2       	B0BSET 0xD2.2
+L86:
+                  	                  		led_delay_3=0;
+  120: 2B0D       	CLR 0x0D
+L87:
+                  	                  	  }
+                  	                  	  if(led_delay_3==6)
+  121: 1E0D       	MOV A, 0x0D
+  122: 0606       	CMPRS A, #06h
+  123: 8125       	JMP 0x0125
+L90:
+                  	                  	  {
+                  	                  		led_delay_3=0;
+  124: 2B0D       	CLR 0x0D
+L93:
+                  	                  	  }
+                  	                  	}
+  125: 0E00       	RET
+_Function_ISR_isr_code:
+  126: 0400       	PUSH
+  127: 2E84       	B0MOV A, Y
+  128: 2F07       	B0MOV 0x07, A
+  129: 2E83       	B0MOV A, Z
+  12A: 2F08       	B0MOV 0x08, A
+  12B: 2E82       	B0MOV A, R
+  12C: 2F09       	B0MOV 0x09, A
+  12D: 2E04       	B0MOV A, 0x04
+  12E: 2F05       	B0MOV 0x05, A
+  12F: 2E03       	B0MOV A, 0x03
+  130: 2F06       	B0MOV 0x06, A
+L24:
+                  	                  	
+                  	                  	/*-------------------------
+                  	                  	
+                  	                  	--------------------------*/
+                  	                  	void __interrupt[0x08] ISR(void)
+                  	                  	{
+                  	                  	  if(FT0IRQ)
+  131: 7CC8       	B0BTS1 INTRQ.4
+  132: 8139       	JMP 0x0139
+L27:
+                  	                  	  {
+                  	                  	    T0C=173; 
+  133: 2DAD       	MOV A, #adh
+  134: 2FD9       	B0MOV T0C, A
+L30:
+                  	                  	    mode_delay_1+=1;
+  135: 1615       	INCMS 0x15
+  136: 0000       	NOP
+L31:
+                  	                  		led_delay_3+=1;
+  137: 160D       	INCMS 0x0D
+  138: 0000       	NOP
+L32:
+                  	                  	  }
+                  	                  	  INTRQ=0;
+  139: 2BC8       	CLR 0xC8
+L35:
+                  	                  	}
+  13A: 2E05       	B0MOV A, 0x05
+  13B: 2F04       	B0MOV 0x04, A
+  13C: 2E06       	B0MOV A, 0x06
+  13D: 2F03       	B0MOV 0x03, A
+  13E: 2E07       	B0MOV A, 0x07
+  13F: 2F84       	B0MOV Y, A
+  140: 2E08       	B0MOV A, 0x08
+  141: 2F83       	B0MOV Z, A
+  142: 2E09       	B0MOV A, 0x09
+  143: 2F82       	B0MOV R, A
+  144: 0500       	POP
+  145: 0F00       	RETI
+_Function_led_control_code:
+                  	                  	/***********************
+                  	                  	*author:chenyk
+                  	                  	*data:2014.11.24
+                  	                  	***********************/
+                  	                  	#include "led.h"
+                  	                  	
+                  	                  	/**********************
+                  	                  	*name:void led_control(void)
+                  	                  	*function:control led
+                  	                  	*input:no
+                  	                  	*output:no
+                  	                  	*modification:
+                  	                  	***********************/
+                  	                  	void led_control(void)
+                  	                  	{
+                  	                  	  //led_mode=1;
+                  	                  	  switch(led_mode)
+  146: 1E0C       	MOV A, 0x0C
+  147: 1480       	ADD A, #80h
+  148: 0684       	CMPRS A, #84h
+  149: 7286       	B0BTS0 0x86.2
+  14A: 8153       	JMP 0x0153
+  14B: 2480       	SUB A, #80h
+  14C: 7A86       	B0BTS1 0x86.2
+  14D: 8153       	JMP 0x0153
+  14E: 03CE       	B0ADD PCL, A
+  14F: 8154       	JMP 0x0154
+  150: 8156       	JMP 0x0156
+  151: 8158       	JMP 0x0158
+  152: 815A       	JMP 0x015A
+L348:
+  153: 815B       	JMP 0x015B
+L11:
+                  	                  	  {
+                  	                  	    case 0:
+                  	                  		  led_control_one();
+  154: C0F9       	CALL 0x00F9
+L14:
+                  	                  		  break;
+  155: 815B       	JMP 0x015B
+L5:
+                  	                  	
+                  	                  	    case 1:
+                  	                  		  led_control_two();
+  156: C065       	CALL 0x0065
+L16:
+                  	                  		  break;
+  157: 815B       	JMP 0x015B
+L6:
+                  	                  	
+                  	                  	    case 2:
+                  	                  		  led_control_three();
+  158: C0C9       	CALL 0x00C9
+L18:
+                  	                  		  break;
+  159: 815B       	JMP 0x015B
+L7:
+                  	                  	
+                  	                  	    case 3:
+                  	                  		  led_control_four();
+  15A: C097       	CALL 0x0097
+L20:
+                  	                  		  break;
+                  	                  	
+                  	                  		default:
+                  	                  		  break;
+                  	                  	  }
+                  	                  	}
+  15B: 0E00       	RET
+_Function_gpio_init_code:
+                  	                  	/******************
+                  	                  	*author:chenyk
+                  	                  	*data:2014.11.24
+                  	                  	*******************/
+                  	                  	
+                  	                  	#include "gpio.h"
+                  	                  	
+                  	                  	
+                  	                  	/**********************
+                  	                  	*name:void gpio_init(void)
+                  	                  	*function:initialization gpio
+                  	                  	*input:no
+                  	                  	*output:no
+                  	                  	*modification:
+                  	                  	***********************/
+                  	                  	void gpio_init(void)
+                  	                  	{
+                  	                  	  P0M=0x01;
+  15C: 2D01       	MOV A, #01h
+  15D: 2FB8       	B0MOV P0M, A
+L5:
+                  	                  	  FP00=0;
+  15E: 60D0       	B0BCLR P0.0
+L6:
+                  	                  	
+                  	                  	  P1M=0x01;
+  15F: 2FC1       	B0MOV P1M, A
+L7:
+                  	                  	  P1UR=0xf2;
+  160: 2DF2       	MOV A, #f2h
+  161: 2FE1       	B0MOV P1UR, A
+L8:
+                  	                  	  P1=0x00;
+  162: 2BD1       	CLR 0xD1
+L9:
+                  	                  	
+                  	                  	  P2M=0xff;
+  163: 2DFF       	MOV A, #ffh
+  164: 2FC2       	B0MOV P2M, A
+L10:
+                  	                  	  P2=0x00;
+  165: 2BD2       	CLR 0xD2
+L11:
+                  	                  	
+                  	                  	  FP54M=1;
+  166: 6CC5       	B0BSET 0xC5.4
+L12:
+                  	                  	  FP54=0;
+  167: 64D5       	B0BCLR 0xD5.4
+L13:
+                  	                  	  P1W=0x0e;
+  168: 2D0E       	MOV A, #0eh
+  169: 2FC0       	B0MOV P1W, A
+L14:
+                  	                  	}
+  16A: 0E00       	RET
+_Function_main_code:
+                  	                  	/**************************
+                  	                  	*
+                  	                  	**************************/
+                  	                  	#include "main.h"
+                  	                  	void main(void)
+                  	                  	{ 
+                  	                  	  OSCM=0x06;             //低速模式
+  16B: 2D06       	MOV A, #06h
+  16C: 2FCA       	B0MOV OSCM, A
+L8:
+                  	                  	  gpio_init();
+  16D: C15C       	CALL 0x015C
+L9:
+                  	                  	  tc0_init();
+  16E: C176       	CALL 0x0176
+L2:
+                  	                  	  {
+                  	                  	    //_ClearWatchDogTimer();      //清看门狗
+                  	                  	
+                  	                  		mode_selection();
+  16F: C01A       	CALL 0x001A
+L13:
+                  	                  		led_control();
+  170: C146       	CALL 0x0146
+L14:
+                  	                  	      
+                  	                  	    FCPUM1=1;
+  171: 6CCA       	B0BSET OSCM.4
+L15:
+                  	                  		FCPUM0=0;
+  172: 63CA       	B0BCLR OSCM.3
+L16:
+                  	                  	  while(1)
+  173: 816F       	JMP 0x016F
+L19:
+                  	                  	  }
+                  	                  	}
+  174: C010       	CALL 0x0010
+  175: 8174       	JMP 0x0174
+_Function_tc0_init_code:
+                  	                  	/**********************
+                  	                  	*author:chenyk
+                  	                  	*data:201411.22
+                  	                  	***********************/
+                  	                  	#include "time.h"
+                  	                  	
+                  	                  	/*********************
+                  	                  	*name:void tc0_init(void)
+                  	                  	*function:initialization tc0
+                  	                  	*input:no
+                  	                  	*output:no
+                  	                  	*modification:
+                  	                  	**********************/
+                  	                  	void tc0_init(void)
+                  	                  	{
+                  	                  	  T0M=0x40;       
+  176: 2D40       	MOV A, #40h
+  177: 2FD8       	B0MOV T0M, A
+L5:
+                  	                  	  T0C=173;          //(256-6)*(16/(16/（4/1000）))US=1S
+  178: 2DAD       	MOV A, #adh
+  179: 2FD9       	B0MOV T0C, A
+L6:
+                  	                  	
+                  	                  	  FT0ENB=1;   
+  17A: 6FD8       	B0BSET T0M.7
+L7:
+                  	                  	 
+                  	                  	  FT0IEN=1; 
+  17B: 6CC9       	B0BSET INTEN.4
+L8:
+                  	                  	  FGIE=1; 
+  17C: 6FDF       	B0BSET STKP.7
+L9:
+                  	                  	
+                  	                  	}
+  17D: 0E00       	RET
+_Function_mode_check_code:
+                  	                  	
+                  	                  	/**************************
+                  	                  	*name:void mode_check(void)
+                  	                  	*function:
+                  	                  	*input:
+                  	                  	*output:
+                  	                  	*modification:
+                  	                  	***************************/
+                  	                  	void mode_check(void)
+                  	                  	{
+                  	                  	  
+                  	                  	}
+  17E: 0E00       	RET
+_Function_power_save_code:
+                  	                  	/******************
+                  	                  	*author:chenyk
+                  	                  	*data:2015.4.10
+                  	                  	*******************/
+                  	                  	
+                  	                  	#include "power_save.h"
+                  	                  	
+                  	                  	
+                  	                  	/**********************
+                  	                  	*name:
+                  	                  	*function:
+                  	                  	*input:no
+                  	                  	*output:no
+                  	                  	*modification:
+                  	                  	***********************/
+                  	                  	
+                  	                  	void power_save(void)
+                  	                  	{
+                  	                  	}
+  17F: 0E00       	RET
+.CODE:
+  180: F9F9       	CALL 0x39F9

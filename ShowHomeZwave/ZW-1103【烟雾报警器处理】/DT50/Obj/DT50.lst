@@ -1,0 +1,1342 @@
+start listing elf file - .\Bin/DT50.out
+
+
+------------------begin data section------------------
+
+Start   Length(Byte)  Type  Name                             Source File
+000000    0X05        Data  crt0@data                        
+0X0005    0X05        Data  _InterruptBackupData             
+0X000A    0X01        Data  _key_c_GlobalBitDataPool0        H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\key.c
+0X000B    0X01        Data  _power_save_c_GlobalBitDataPool0   H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\power_save.c
+0X000C    0X01        Data  _beep_c_GlobalBitDataPool0       H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X000D    0X01        Data  _VirtualReg                      
+0X000E    0X04        Data  _sdata2@segment                  H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\main.c
+0X0012    0X02        Data  _sdata3@segment                  H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\key.c
+0X0014    0X01        Data  _sdata4@segment                  H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\key.c
+0X0015    0X01        Data  _sdata5@segment                  H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\key.c
+0X0016    0X01        Data  _sdata6@segment                  H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\key.c
+0X0017    0X01        Data  _sdata7@segment                  H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\key.c
+0X0018    0X01        Data  _sdata8@segment                  H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\key.c
+0X0019    0X01        Data  _sdata9@segment                  H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\key.c
+0X001A    0X01        Data  _sdata10@segment                 H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\key.c
+0X001B    0X01        Data  _timeDelay3@segment              H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X001C    0X01        Data  _timeDelay2@segment              H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X001D    0X01        Data  _timeDelay1@segment              H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X001E    0X01        Data  _pulseCnt3@segment               H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X001F    0X01        Data  _pulseCnt2@segment               H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X0020    0X01        Data  _pulseCnt1@segment               H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X0021    0X01        Data  _beepCnt4@segment                H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X0022    0X01        Data  _beepCnt3@segment                H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X0023    0X01        Data  _beepCnt2@segment                H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X0024    0X01        Data  _beepCnt1@segment                H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+0X0025    0X02        Data  _Function_BeepSound_data         H:\固邦\ShowHome\ShowHomeZwave\ZW-1103【烟雾报警器处理】\DT50\Src\beep.c
+
+
+crt0@data SEGMENT DATA INBANK
+	H	DS	1
+	L	DS	1
+	X	DS	1
+	I	DS	1
+	T	DS	1
+
+_InterruptBackupData SEGMENT DATA INBANK
+	_bufT	DS	1
+	_bufI	DS	1
+	_bufY	DS	1
+	_bufZ	DS	1
+	_bufR	DS	1
+
+_key_c_GlobalBitDataPool0 SEGMENT DATA INBANK
+	_flagProtectOff	DSBIT	1
+	_flagProtectOn	DSBIT	1
+	_flagProtect	DSBIT	1
+	_flagWarningInit	DSBIT	1
+	_flagKeyTrigger	DSBIT	1
+	_out_enable	DSBIT	1
+
+_power_save_c_GlobalBitDataPool0 SEGMENT DATA INBANK
+	_power_save_enable	DSBIT	1
+
+_beep_c_GlobalBitDataPool0 SEGMENT DATA INBANK
+	_pulseActiveFlag	DSBIT	1
+	_timeDelayFlag	DSBIT	1
+	_beepActiveFlag	DSBIT	1
+	_delayInitFlag	DSBIT	1
+	_beepInitFlag	DSBIT	1
+
+_VirtualReg SEGMENT DATA INBANK
+	W0	DS	1
+
+_sdata2@segment SEGMENT DATA INBANK
+	_sdata2	DS	1
+
+_sdata3@segment SEGMENT DATA INBANK
+	_sdata3	DS	1
+
+_sdata4@segment SEGMENT DATA INBANK
+	_sdata4	DS	1
+
+_sdata5@segment SEGMENT DATA INBANK
+	_sdata5	DS	1
+
+_sdata6@segment SEGMENT DATA INBANK
+	_sdata6	DSBIT	1
+
+_sdata7@segment SEGMENT DATA INBANK
+	_sdata7	DSBIT	1
+
+_sdata8@segment SEGMENT DATA INBANK
+	_sdata8	DSBIT	1
+
+_sdata9@segment SEGMENT DATA INBANK
+	_sdata9	DSBIT	1
+
+_sdata10@segment SEGMENT DATA INBANK
+	_sdata10	DSBIT	1
+
+_timeDelay3@segment SEGMENT DATA INBANK
+	_timeDelay3	DS	1
+
+_timeDelay2@segment SEGMENT DATA INBANK
+	_timeDelay2	DS	1
+
+_timeDelay1@segment SEGMENT DATA INBANK
+	_timeDelay1	DS	1
+
+_pulseCnt3@segment SEGMENT DATA INBANK
+	_pulseCnt3	DS	1
+
+_pulseCnt2@segment SEGMENT DATA INBANK
+	_pulseCnt2	DS	1
+
+_pulseCnt1@segment SEGMENT DATA INBANK
+	_pulseCnt1	DS	1
+
+_beepCnt4@segment SEGMENT DATA INBANK
+	_beepCnt4	DS	1
+
+_beepCnt3@segment SEGMENT DATA INBANK
+	_beepCnt3	DS	1
+
+_beepCnt2@segment SEGMENT DATA INBANK
+	_beepCnt2	DS	1
+
+_beepCnt1@segment SEGMENT DATA INBANK
+	_beepCnt1	DS	1
+
+_Function_BeepSound_data SEGMENT DATA INBANK
+	_BeepSound_arg@0	DS	1
+	_BeepSound_arg@1	DS	1
+
+
+------------------begin disassembly code------------------
+
+    0: 800A       	JMP 0x000A
+    1: 0000       	NOP
+    2: 0000       	NOP
+    3: 0000       	NOP
+    4: 0000       	NOP
+    5: 0000       	NOP
+    6: 0000       	NOP
+    7: 0000       	NOP
+_interrupt@_ISR_isr:
+    8: 803A       	JMP 0x003A
+.CODE:
+    9: F9F9       	CALL 0x39F9
+_SGV_INIT_CODE_BEGIN:
+    A: 2D7F       	MOV A, #7fh
+    B: 2FDF       	B0MOV STKP, A
+    C: C010       	CALL 0x0010
+    D: C013       	CALL 0x0013
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+    F: 801A       	JMP 0x001A
+__ClearWatchDogTimer:
+   10: 2D5A       	MOV A, #5ah
+   11: 2FCC       	B0MOV WDTR, A
+   12: 0E00       	RET
+__ClrRAM:
+   13: 2B84       	CLR 0x84
+   14: 332F       	B0MOV 0x83, #2Fh
+ClrRAM10:
+   15: 2BE7       	CLR 0xE7
+   16: 2683       	DECMS 0x83
+   17: 8015       	JMP 0x0015
+   18: 2BE7       	CLR 0xE7
+   19: 0E00       	RET
+_Function_main_code:
+                  	                  	
+                  	                  	#include "main.h"
+                  	                  	
+                  	                  	void main(void)
+                  	                  	{
+                  	                  	  static uchar main_step;
+                  	                  	  gpio_init();
+   1A: C052       	CALL 0x0052
+L16:
+                  	                  	  time_init();
+   1B: C061       	CALL 0x0061
+L3:
+                  	                  	  {
+                  	                  	    if(FTC0IRQ)    //132us
+   1C: 7DC8       	B0BTS1 0xC8.5
+   1D: 8037       	JMP 0x0037
+L20:
+                  	                  		{
+                  	                  		  FTC0IRQ=0;
+   1E: 65C8       	B0BCLR 0xC8.5
+L23:
+                  	                  		  BeepPulseControl();
+   1F: C15A       	CALL 0x015A
+L24:
+                  	                  		  switch(main_step)
+   20: 1E0E       	MOV A, 0x0E
+   21: 7086       	B0BTS0 0x86.0
+   22: 802B       	JMP 0x002B
+   23: 2401       	SUB A, #01h
+   24: 7086       	B0BTS0 0x86.0
+   25: 802F       	JMP 0x002F
+   26: 1E0E       	MOV A, 0x0E
+   27: 2402       	SUB A, #02h
+   28: 7086       	B0BTS0 0x86.0
+   29: 8033       	JMP 0x0033
+   2A: 8036       	JMP 0x0036
+L25:
+                  	                  		  {
+                  	                  		    case 0:
+                  	                  			  key_scan();
+   2B: C06D       	CALL 0x006D
+L28:
+                  	                  			  main_step=1;
+   2C: 2D01       	MOV A, #01h
+   2D: 1F0E       	MOV 0x0E, A
+L29:
+                  	                  			break;
+   2E: 8037       	JMP 0x0037
+L11:
+                  	                  	
+                  	                  			case 1:
+                  	                  			  led_control();
+   2F: C0C0       	CALL 0x00C0
+L31:
+                  	                  			  main_step=2;
+   30: 2D02       	MOV A, #02h
+   31: 1F0E       	MOV 0x0E, A
+L32:
+                  	                  			break;
+   32: 8037       	JMP 0x0037
+L12:
+                  	                  	
+                  	                  			case 2:
+                  	                  			  power_save();
+   33: C0CD       	CALL 0x00CD
+L34:
+                  	                  			  main_step=0;
+   34: 2B0E       	CLR 0x0E
+L35:
+                  	                  			break;
+   35: 8037       	JMP 0x0037
+L8:
+                  	                  	
+                  	                  	
+                  	                  			default:
+                  	                  			main_step=0;
+   36: 2B0E       	CLR 0x0E
+L37:
+                  	                  	
+                  	                  	  while(1)
+   37: 801C       	JMP 0x001C
+L45:
+                  	                  			break;
+                  	                  		  }
+                  	                  		}
+                  	                  	  }
+                  	                  	}
+   38: C010       	CALL 0x0010
+   39: 8038       	JMP 0x0038
+_Function_ISR_isr_code:
+   3A: 0400       	PUSH
+   3B: 2E84       	B0MOV A, Y
+   3C: 2F07       	B0MOV 0x07, A
+   3D: 2E83       	B0MOV A, Z
+   3E: 2F08       	B0MOV 0x08, A
+   3F: 2E82       	B0MOV A, R
+   40: 2F09       	B0MOV 0x09, A
+   41: 2E04       	B0MOV A, 0x04
+   42: 2F05       	B0MOV 0x05, A
+   43: 2E03       	B0MOV A, 0x03
+   44: 2F06       	B0MOV 0x06, A
+L48:
+                  	                  	
+                  	                  	void __interrupt[0x08] ISR(void)
+                  	                  	{
+                  	                  	
+                  	                  	  INTRQ=0;
+   45: 2BC8       	CLR 0xC8
+L51:
+                  	                  	}
+   46: 2E05       	B0MOV A, 0x05
+   47: 2F04       	B0MOV 0x04, A
+   48: 2E06       	B0MOV A, 0x06
+   49: 2F03       	B0MOV 0x03, A
+   4A: 2E07       	B0MOV A, 0x07
+   4B: 2F84       	B0MOV Y, A
+   4C: 2E08       	B0MOV A, 0x08
+   4D: 2F83       	B0MOV Z, A
+   4E: 2E09       	B0MOV A, 0x09
+   4F: 2F82       	B0MOV R, A
+   50: 0500       	POP
+   51: 0F00       	RETI
+_Function_gpio_init_code:
+                  	                  	#include "mcu_init.h"
+                  	                  	
+                  	                  	 /*
+                  	                  	 * 函数名：gpio_init
+                  	                  	 * 描述  ：初始化gpio
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	void gpio_init(void)
+                  	                  	{
+                  	                  	  P0M=0x00;
+   52: 2BB8       	CLR 0xB8
+L5:
+                  	                  	  P0UR=0x00;//ds 0x00
+   53: 2BE0       	CLR 0xE0
+L6:
+                  	                  	
+                  	                  	  P1M=0xfc;
+   54: 2DFC       	MOV A, #fch
+   55: 2FC1       	B0MOV P1M, A
+L7:
+                  	                  	  P1UR=0xFD;
+   56: 2DFD       	MOV A, #fdh
+   57: 2FE1       	B0MOV P1UR, A
+L8:
+                  	                  	  P1W=0x01;
+   58: 2D01       	MOV A, #01h
+   59: 2FC0       	B0MOV P1W, A
+L9:
+                  	                  	 // FP10M = 0;
+                  	                  	 // FP10R = 1;
+                  	                  	 // FP12M = 1;
+                  	                  	 // FP13M = 1;
+                  	                  	  FP12 = 0;
+   5A: 62D1       	B0BCLR P1.2
+L10:
+                  	                  	  FP13 = 0;
+   5B: 63D1       	B0BCLR P1.3
+L11:
+                  	                  	
+                  	                  	 // P2M=0xff;
+                  	                  	//  P2=0x00;
+                  	                  	
+                  	                  	  P5M=0xff;
+   5C: 2DFF       	MOV A, #ffh
+   5D: 2FC5       	B0MOV P5M, A
+L12:
+                  	                  	  P5=0x10;
+   5E: 2D10       	MOV A, #10h
+   5F: 2FD5       	B0MOV P5, A
+L13:
+                  	                  	}
+   60: 0E00       	RET
+_Function_time_init_code:
+                  	                  	
+                  	                  	/*
+                  	                  	 * 函数名：time_init
+                  	                  	 * 描述  ：初始化time
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	void time_init(void)
+                  	                  	{
+                  	                  	  T0C=0x00;
+   61: 2BD9       	CLR 0xD9
+L19:
+                  	                  	  T0M=0x01;     //RTC功能
+   62: 2D01       	MOV A, #01h
+   63: 2FD8       	B0MOV T0M, A
+L20:
+                  	                  	  
+                  	                  	  TC0R=190;     //(256-206)*2us=100us
+   64: 2DBE       	MOV A, #beh
+   65: 2FCD       	B0MOV TC0R, A
+L21:
+                  	                  	  TC0C=190;
+   66: 2FDB       	B0MOV TC0C, A
+L22:
+                  	                  	  TC0M=0xf4; 	//
+   67: 2DF4       	MOV A, #f4h
+   68: 2FDA       	B0MOV TC0M, A
+L23:
+                  	                  	
+                  	                  	  FT0IEN=1;     //使能t0中断
+   69: 6CC9       	B0BSET INTEN.4
+L24:
+                  	                  	  FT0IRQ=0;
+   6A: 64C8       	B0BCLR INTRQ.4
+L25:
+                  	                  	  FGIE=1;       //开放全局中断
+   6B: 6FDF       	B0BSET STKP.7
+L26:
+                  	                  	}
+   6C: 0E00       	RET
+_Function_key_scan_code:
+                  	                  	#include "key.h"
+                  	                  	
+                  	                  	 /*
+                  	                  	 * 函数名：key_scan
+                  	                  	 * 描述  ：按键扫描
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	bit out_enable;
+                  	                  	bit flagKeyTrigger;
+                  	                  	bit flagWarningInit;
+                  	                  	bit flagProtect;
+                  	                  	bit flagProtectOn;
+                  	                  	bit flagProtectOff;
+                  	                  	
+                  	                  	void key_scan(void)
+                  	                  	{
+                  	                  	  static uchar sw2_count_1;
+                  	                  	  static uchar sw2_count_2;
+                  	                  	  static uchar sw1_count_1;
+                  	                  	  static uchar sw1_count_2;
+                  	                  	
+                  	                  	  static bit sw2_have_done_1;
+                  	                  	  static bit sw2_have_done_2;
+                  	                  	  static bit sw1_have_done_1;
+                  	                  	  static bit sw1_have_done_2;
+                  	                  	  static bit sw2_buf;
+                  	                  	
+                  	                  	
+                  	                  	
+                  	                  		if(sw2)
+   6D: 78D1       	B0BTS1 P1.0
+   6E: 8085       	JMP 0x0085
+L38:
+                  	                  	    {
+                  	                  	      sw2_count_1+=1;
+   6F: 160F       	INCMS 0x0F
+   70: 0000       	NOP
+L41:
+                  	                  	 	  sw2_count_2=0;
+   71: 2B12       	CLR 0x12
+L42:
+                  	                  		  if(sw2_count_1>99)
+   72: 1E0F       	MOV A, 0x0F
+   73: 0663       	CMPRS A, #63h
+   74: 7A86       	B0BTS1 0x86.2
+   75: 80BF       	JMP 0x00BF
+L43:
+                  	                  		  { 
+                  	                  		    sw2_count_1=0;
+   76: 2B0F       	CLR 0x0F
+L46:
+                  	                  			sw2_have_done_2=0;
+   77: 4017       	BCLR 0x17.0
+L47:
+                  	                  			if(!sw2_have_done_1)
+   78: 5016       	BTS0 0x16.0
+   79: 80BF       	JMP 0x00BF
+L48:
+                  	                  			{
+                  	                  			  flagProtect = 0;
+   7A: 420A       	BCLR 0x0A.2
+L51:
+                  	                  			  beepInitFlag = 1;
+   7B: 4C0C       	BSET 0x0C.4
+L52:
+                  	                  			  beepActiveFlag = 0;
+   7C: 420C       	BCLR 0x0C.2
+L53:
+                  	                  			  flagProtectOff = 1;
+   7D: 480A       	BSET 0x0A.0
+L54:
+                  	                  			  flagProtectOn  = 0;
+   7E: 410A       	BCLR 0x0A.1
+L55:
+                  	                  			  flagKeyTrigger = 0;
+   7F: 440A       	BCLR 0x0A.4
+L56:
+                  	                  			  sw2_have_done_1=1;
+   80: 4816       	BSET 0x16.0
+L57:
+                  	                  			  power_save_enable=1;
+   81: 480B       	BSET 0x0B.0
+L58:
+                  	                  			  out_enable=1; 
+   82: 4D0A       	BSET 0x0A.5
+L59:
+                  	                  			  sw2_buf=1;             
+   83: 481A       	BSET 0x1A.0
+L60:
+                  	                  			}
+                  	                  		  } 
+                  	                  	    }
+   84: 80BF       	JMP 0x00BF
+L11:
+                  	                  	    else
+                  	                  	    {
+                  	                  			if (!flagProtect)
+   85: 520A       	BTS0 0x0A.2
+   86: 80A0       	JMP 0x00A0
+L69:
+                  	                  			{
+                  	                  				sw2_count_1=0;
+   87: 2B0F       	CLR 0x0F
+L72:
+                  	                  			  	sw2_count_2+=1;
+   88: 1612       	INCMS 0x12
+   89: 0000       	NOP
+L73:
+                  	                  			  	if(sw2_count_2>99)
+   8A: 1E12       	MOV A, 0x12
+   8B: 0663       	CMPRS A, #63h
+   8C: 7A86       	B0BTS1 0x86.2
+   8D: 80BF       	JMP 0x00BF
+L74:
+                  	                  			  	{  
+                  	                  			   		sw2_count_2=0;
+   8E: 2B12       	CLR 0x12
+L77:
+                  	                  					sw2_have_done_1=0;
+   8F: 4016       	BCLR 0x16.0
+L78:
+                  	                  					if(!sw2_have_done_2)
+   90: 5017       	BTS0 0x17.0
+   91: 80BF       	JMP 0x00BF
+L79:
+                  	                  					{
+                  	                  				  		flagProtect = 1;
+   92: 4A0A       	BSET 0x0A.2
+L82:
+                  	                  				  		if (flagProtectOff)
+   93: 580A       	BTS1 0x0A.0
+   94: 809B       	JMP 0x009B
+L83:
+                  	                  				  		{
+                  	                  				  			flagProtectOff = 0;
+   95: 400A       	BCLR 0x0A.0
+L86:
+                  	                  				  			flagProtectOn = 1;
+   96: 490A       	BSET 0x0A.1
+L87:
+                  	                  							beepInitFlag = 1;
+   97: 4C0C       	BSET 0x0C.4
+L88:
+                  	                  							beepActiveFlag = 0;
+   98: 420C       	BCLR 0x0C.2
+L89:
+                  	                  							timeDelayFlag = 0;
+   99: 410C       	BCLR 0x0C.1
+L90:
+                  	                  							delayInitFlag = 1;
+   9A: 4B0C       	BSET 0x0C.3
+L91:
+                  	                  				  		}
+                  	                  				  		sw2_have_done_2=1;
+   9B: 4817       	BSET 0x17.0
+L94:
+                  	                  				  		power_save_enable=1;
+   9C: 480B       	BSET 0x0B.0
+L95:
+                  	                  				  		out_enable=1;
+   9D: 4D0A       	BSET 0x0A.5
+L96:
+                  	                  				  		sw2_buf=0;              
+   9E: 401A       	BCLR 0x1A.0
+L97:
+                  	                  					}
+                  	                  			  	} 
+                  	                  			}
+   9F: 80BF       	JMP 0x00BF
+L17:
+                  	                  			else
+                  	                  			{
+                  	                  				if(sw1)
+   A0: 78D0       	B0BTS1 0xD0.0
+   A1: 80B2       	JMP 0x00B2
+L106:
+                  	                  				{	
+                  	                  					sw1_count_1+=1;
+   A2: 1614       	INCMS 0x14
+   A3: 0000       	NOP
+L109:
+                  	                  					sw1_count_2=0;
+   A4: 2B15       	CLR 0x15
+L110:
+                  	                  					if(sw1_count_1>99)
+   A5: 1E14       	MOV A, 0x14
+   A6: 0663       	CMPRS A, #63h
+   A7: 7A86       	B0BTS1 0x86.2
+   A8: 80BF       	JMP 0x00BF
+L111:
+                  	                  					{ 
+                  	                  						sw1_count_1=0;
+   A9: 2B14       	CLR 0x14
+L114:
+                  	                  						sw1_have_done_2=0;
+   AA: 4019       	BCLR 0x19.0
+L115:
+                  	                  						//--------------DS.Chin-------2015.5.6---
+                  	                  						flagKeyTrigger = 1;
+   AB: 4C0A       	BSET 0x0A.4
+L116:
+                  	                  						flagWarningInit = 1;
+   AC: 4B0A       	BSET 0x0A.3
+L117:
+                  	                  						//----------------------------------------
+                  	                  						if(!sw1_have_done_1)
+   AD: 5018       	BTS0 0x18.0
+   AE: 80BF       	JMP 0x00BF
+L118:
+                  	                  						{
+                  	                  							sw1_have_done_1=1;
+   AF: 4818       	BSET 0x18.0
+L121:
+                  	                  							power_save_enable=1;             
+   B0: 480B       	BSET 0x0B.0
+L122:
+                  	                  						} 			           
+                  	                  					} 
+                  	                  				}
+   B1: 80BF       	JMP 0x00BF
+L25:
+                  	                  				else
+                  	                  				{
+                  	                  					sw1_count_1=0;
+   B2: 2B14       	CLR 0x14
+L131:
+                  	                  					sw1_count_2+=1;
+   B3: 1615       	INCMS 0x15
+   B4: 0000       	NOP
+L132:
+                  	                  					if(sw1_count_2>99)
+   B5: 1E15       	MOV A, 0x15
+   B6: 0663       	CMPRS A, #63h
+   B7: 7A86       	B0BTS1 0x86.2
+   B8: 80BF       	JMP 0x00BF
+L133:
+                  	                  					{ 
+                  	                  						sw1_count_2=0;
+   B9: 2B15       	CLR 0x15
+L136:
+                  	                  						sw1_have_done_1=0;
+   BA: 4018       	BCLR 0x18.0
+L137:
+                  	                  						if(!sw1_have_done_2)
+   BB: 5019       	BTS0 0x19.0
+   BC: 80BF       	JMP 0x00BF
+L138:
+                  	                  						{
+                  	                  							sw1_have_done_2=1;
+   BD: 4819       	BSET 0x19.0
+L141:
+                  	                  							power_save_enable=1;             
+   BE: 480B       	BSET 0x0B.0
+L142:
+                  	                  						}
+                  	                  					}
+                  	                  				}
+                  	                  			}
+                  	                  		   
+                  	                  	    }
+                  	                  	
+                  	                  	
+                  	                  	/*	if (!sw2_buf)
+                  	                  		{
+                  	                  			if(sw1)
+                  	                  			{	
+                  	                  				sw1_count_1+=1;
+                  	                  				sw1_count_2=0;
+                  	                  				if(sw1_count_1>99)
+                  	                  				{ 
+                  	                  					sw1_count_1=0;
+                  	                  					sw1_have_done_2=0;
+                  	                  					//--------------DS.Chin-------2015.5.6---
+                  	                  					flagKeyTrigger = 1;
+                  	                  					flagWarningInit = 1;
+                  	                  					//----------------------------------------
+                  	                  					if(!sw1_have_done_1)
+                  	                  					{
+                  	                  						sw1_have_done_1=1;
+                  	                  						power_save_enable=1;             
+                  	                  					} 			           
+                  	                  				} 
+                  	                  			}
+                  	                  			else
+                  	                  			{
+                  	                  				sw1_count_1=0;
+                  	                  				sw1_count_2+=1;
+                  	                  				if(sw1_count_2>99)
+                  	                  				{ 
+                  	                  					sw1_count_2=0;
+                  	                  					sw1_have_done_1=0;
+                  	                  					if(!sw1_have_done_2)
+                  	                  					{
+                  	                  						sw1_have_done_2=1;
+                  	                  						power_save_enable=1;             
+                  	                  					}
+                  	                  				}
+                  	                  			}
+                  	                  		}*/
+                  	                  	
+                  	                  	  
+                  	                  	}
+   BF: 0E00       	RET
+_Function_led_control_code:
+                  	                  	#include "led.h"
+                  	                  	
+                  	                  	 /*
+                  	                  	 * 函数名：led_control
+                  	                  	 * 描述  ：控制led亮灭
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	
+                  	                  	void led_control(void)
+                  	                  	{
+                  	                  	  static uchar out_delay;
+                  	                  	
+                  	                  	  if(out_enable)
+   C0: 5D0A       	BTS1 0x0A.5
+   C1: 80CC       	JMP 0x00CC
+L10:
+                  	                  	  {
+                  	                  	    out=0;
+   C2: 64D5       	B0BCLR 0xD5.4
+L13:
+                  	                  		out_delay+=1;
+   C3: 1610       	INCMS 0x10
+   C4: 0000       	NOP
+L14:
+                  	                  		if(out_delay>249)
+   C5: 1E10       	MOV A, 0x10
+   C6: 06F9       	CMPRS A, #F9h
+   C7: 7A86       	B0BTS1 0x86.2
+   C8: 80CC       	JMP 0x00CC
+L15:
+                  	                  		{
+                  	                  		  out_delay=0;
+   C9: 2B10       	CLR 0x10
+L18:
+                  	                  		  out=1;
+   CA: 6CD5       	B0BSET 0xD5.4
+L19:
+                  	                  		  out_enable=0;
+   CB: 450A       	BCLR 0x0A.5
+L20:
+                  	                  		}
+                  	                  	  }
+                  	                  	}
+   CC: 0E00       	RET
+_Function_power_save_code:
+                  	                  	#include "power_save.h"
+                  	                  	
+                  	                  	 /*
+                  	                  	 * 函数名：power_save
+                  	                  	 * 描述  ：低功耗
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	void power_save(void)
+                  	                  	{
+                  	                  	  static uchar sleep_delay_1;
+                  	                  	  static uchar sleep_delay_2;
+                  	                  	
+                  	                  	  if(power_save_enable)
+   CD: 580B       	BTS1 0x0B.0
+   CE: 80D3       	JMP 0x00D3
+L13:
+                  	                  	  {
+                  	                  	    power_save_enable=0;
+   CF: 400B       	BCLR 0x0B.0
+L16:
+                  	                  		sleep_delay_1=0;
+   D0: 2B11       	CLR 0x11
+L17:
+                  	                  		sleep_delay_2=0;
+   D1: 2B13       	CLR 0x13
+L18:
+                  	                  	  }
+   D2: 80E3       	JMP 0x00E3
+L4:
+                  	                  	  else
+                  	                  	  {
+                  	                  	    sleep_delay_1+=1;
+   D3: 1611       	INCMS 0x11
+   D4: 0000       	NOP
+L23:
+                  	                  	    if(sleep_delay_1>249)
+   D5: 1E11       	MOV A, 0x11
+   D6: 06F9       	CMPRS A, #F9h
+   D7: 7A86       	B0BTS1 0x86.2
+   D8: 80E3       	JMP 0x00E3
+L24:
+                  	                  	    {
+                  	                  		  sleep_delay_1=0;
+   D9: 2B11       	CLR 0x11
+L27:
+                  	                  		  sleep_delay_2+=1;
+   DA: 1613       	INCMS 0x13
+   DB: 0000       	NOP
+L28:
+                  	                  		  if(sleep_delay_2>9)
+   DC: 1E13       	MOV A, 0x13
+   DD: 0609       	CMPRS A, #09h
+   DE: 7A86       	B0BTS1 0x86.2
+   DF: 80E3       	JMP 0x00E3
+L29:
+                  	                  		  {
+                  	                  		    sleep_delay_2=0;
+   E0: 2B13       	CLR 0x13
+L32:
+                  	                  		    FCPUM1=0;
+   E1: 64CA       	B0BCLR 0xCA.4
+L33:
+                  	                  		    FCPUM0=1;         //进入睡眠模式
+   E2: 6BCA       	B0BSET 0xCA.3
+L34:
+                  	                  		  }
+                  	                  		}  
+                  	                  	  }
+                  	                  	}
+   E3: 0E00       	RET
+_Function_PulseOutput_code:
+                  	                  	#include "beep.h"
+                  	                  	
+                  	                  	uchar beepCnt1;
+                  	                  	uchar beepCnt2;
+                  	                  	uchar beepCnt3;
+                  	                  	uchar beepCnt4;
+                  	                  	uchar pulseCnt1;
+                  	                  	uchar pulseCnt2;
+                  	                  	uchar pulseCnt3;
+                  	                  	uchar timeDelay1;
+                  	                  	uchar timeDelay2;
+                  	                  	uchar timeDelay3;
+                  	                  	
+                  	                  	bit beepInitFlag;
+                  	                  	bit delayInitFlag;
+                  	                  	bit beepActiveFlag;
+                  	                  	bit pulseActiveFlag;
+                  	                  	bit timeDelayFlag;
+                  	                  	
+                  	                  	/*----------------------------------------------------------
+                  	                  	 * FunctionName: PulseOutput
+                  	                  	 */
+                  	                  	static bit PulseOutput(void)
+                  	                  	{
+                  	                  		if (pulsePort == 0)
+   E4: 72D1       	B0BTS0 0xD1.2
+   E5: 80E7       	JMP 0x00E7
+L13:
+                  	                  			out_enable = 1;
+   E6: 4D0A       	BSET 0x0A.5
+L2:
+                  	                  	
+                  	                  		pulsePort = 1;
+   E7: 6AD1       	B0BSET 0xD1.2
+L15:
+                  	                  		pulseCnt1++;
+   E8: 1620       	INCMS 0x20
+   E9: 0000       	NOP
+L16:
+                  	                  		
+                  	                  		if (pulseCnt1 > 189)//25ms
+   EA: 1E20       	MOV A, 0x20
+   EB: 06BD       	CMPRS A, #BDh
+   EC: 7A86       	B0BTS1 0x86.2
+   ED: 8101       	JMP 0x0101
+L17:
+                  	                  		{
+                  	                  			pulseCnt1 = 0;
+   EE: 2B20       	CLR 0x20
+L20:
+                  	                  			pulseCnt2++;
+   EF: 161F       	INCMS 0x1F
+   F0: 0000       	NOP
+L21:
+                  	                  			if (pulseCnt2 > 39) //1s
+   F1: 1E1F       	MOV A, 0x1F
+   F2: 0627       	CMPRS A, #27h
+   F3: 7A86       	B0BTS1 0x86.2
+   F4: 8101       	JMP 0x0101
+L22:
+                  	                  			{
+                  	                  				pulseCnt2 = 0;
+   F5: 2B1F       	CLR 0x1F
+L25:
+                  	                  				pulseCnt3++;
+   F6: 161E       	INCMS 0x1E
+   F7: 0000       	NOP
+L26:
+                  	                  				if (pulseCnt3 > 9)//10s
+   F8: 1E1E       	MOV A, 0x1E
+   F9: 0609       	CMPRS A, #09h
+   FA: 7A86       	B0BTS1 0x86.2
+   FB: 8101       	JMP 0x0101
+L27:
+                  	                  				{
+                  	                  					pulseCnt3 = 0;
+   FC: 2B1E       	CLR 0x1E
+L30:
+                  	                  					pulsePort = 0;
+   FD: 62D1       	B0BCLR 0xD1.2
+L31:
+                  	                  					out_enable = 1;
+   FE: 4D0A       	BSET 0x0A.5
+L32:
+                  	                  					return 1;
+   FF: 2D01       	MOV A, #01h
+  100: 8102       	JMP 0x0102
+L33:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  	
+                  	                  		return 0;
+  101: 2D00       	MOV A, #00h
+L40:
+                  	                  	}
+  102: 0E00       	RET
+_Function_TimeDelay10s_code:
+                  	                  	
+                  	                  	/*---------------------------------------------------------
+                  	                  	 * FunctionName: TimeDelay10s
+                  	                  	 */
+                  	                  	static bit TimeDelay10s(void)
+                  	                  	{
+                  	                  		if (delayInitFlag)
+  103: 5B0C       	BTS1 0x0C.3
+  104: 810A       	JMP 0x010A
+L54:
+                  	                  		{
+                  	                  			delayInitFlag = 0;
+  105: 430C       	BCLR 0x0C.3
+L57:
+                  	                  			timeDelayFlag = 0;
+  106: 410C       	BCLR 0x0C.1
+L58:
+                  	                  			timeDelay1 = 0;
+  107: 2B1D       	CLR 0x1D
+L59:
+                  	                  			timeDelay2 = 0;
+  108: 2B1C       	CLR 0x1C
+L60:
+                  	                  			timeDelay3 = 0;
+  109: 2B1B       	CLR 0x1B
+L61:
+                  	                  		}
+                  	                  		timeDelay1++;
+  10A: 161D       	INCMS 0x1D
+  10B: 0000       	NOP
+L64:
+                  	                  		if (timeDelay1 > 189)
+  10C: 1E1D       	MOV A, 0x1D
+  10D: 06BD       	CMPRS A, #BDh
+  10E: 7A86       	B0BTS1 0x86.2
+  10F: 8121       	JMP 0x0121
+L65:
+                  	                  		{
+                  	                  			timeDelay1 = 0;
+  110: 2B1D       	CLR 0x1D
+L68:
+                  	                  			timeDelay2++;
+  111: 161C       	INCMS 0x1C
+  112: 0000       	NOP
+L69:
+                  	                  			if (timeDelay2 > 39)
+  113: 1E1C       	MOV A, 0x1C
+  114: 0627       	CMPRS A, #27h
+  115: 7A86       	B0BTS1 0x86.2
+  116: 8121       	JMP 0x0121
+L70:
+                  	                  			{
+                  	                  				timeDelay2 = 0;
+  117: 2B1C       	CLR 0x1C
+L73:
+                  	                  				timeDelay3++;
+  118: 161B       	INCMS 0x1B
+  119: 0000       	NOP
+L74:
+                  	                  				if (timeDelay3 > 9)
+  11A: 1E1B       	MOV A, 0x1B
+  11B: 0609       	CMPRS A, #09h
+  11C: 7A86       	B0BTS1 0x86.2
+  11D: 8121       	JMP 0x0121
+L75:
+                  	                  				{
+                  	                  					timeDelay3 = 0;
+  11E: 2B1B       	CLR 0x1B
+L78:
+                  	                  					return 1;
+  11F: 2D01       	MOV A, #01h
+  120: 8122       	JMP 0x0122
+L79:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  	
+                  	                  		return 0;
+  121: 2D00       	MOV A, #00h
+L86:
+                  	                  	}
+  122: 0E00       	RET
+_Function_BeepSound_code:
+                  	                  	/*----------------------------------------------------------
+                  	                  	 * FunctionName: BeepSound
+                  	                  	 * Parameters: soundCnt---> buzzer on times
+                  	                  	 			   soundLastTime---> buzzer on time
+                  	                  	 */
+                  	                  	static bit BeepSound(uchar soundCnt, uchar soundLastTime)
+                  	                  	{
+                  	                  		if (beepInitFlag)
+  123: 5C0C       	BTS1 0x0C.4
+  124: 812B       	JMP 0x012B
+L104:
+                  	                  		{
+                  	                  			beepInitFlag = 0;
+  125: 440C       	BCLR 0x0C.4
+L107:
+                  	                  			beepCnt1 = 0;
+  126: 2B24       	CLR 0x24
+L108:
+                  	                  			beepCnt2 = 0;
+  127: 2B23       	CLR 0x23
+L109:
+                  	                  			beepCnt3 = 0;
+  128: 2B22       	CLR 0x22
+L110:
+                  	                  			beepCnt4 = 0;
+  129: 2B21       	CLR 0x21
+L111:
+                  	                  			beepActiveFlag = 0;
+  12A: 420C       	BCLR 0x0C.2
+L112:
+                  	                  		}
+                  	                  		beepCnt1++;
+  12B: 1624       	INCMS 0x24
+  12C: 0000       	NOP
+L115:
+                  	                  	
+                  	                  		//beep sound control
+                  	                  		if (beepCnt3 < soundLastTime )
+  12D: 1E22       	MOV A, 0x22
+  12E: 2226       	SUB A, 0x26
+  12F: 7286       	B0BTS0 0x86.2
+  130: 8138       	JMP 0x0138
+L116:
+                  	                  				beepPort ^= 1;
+  131: 2D00       	MOV A, #00h
+  132: 73D1       	B0BTS0 0xD1.3
+  133: 2D01       	MOV A, #01h
+  134: 6BD1       	B0BSET 0xD1.3
+  135: 0600       	CMPRS A, #00h
+  136: 63D1       	B0BCLR 0xD1.3
+  137: 8139       	JMP 0x0139
+L91:
+                  	                  		else
+                  	                  				beepPort = 0;
+  138: 63D1       	B0BCLR 0xD1.3
+L92:
+                  	                  	
+                  	                  	
+                  	                  		if (beepCnt1 > 151) //20ms
+  139: 1E24       	MOV A, 0x24
+  13A: 0697       	CMPRS A, #97h
+  13B: 7A86       	B0BTS1 0x86.2
+  13C: 8158       	JMP 0x0158
+L119:
+                  	                  		{
+                  	                  			beepCnt1 = 0;
+  13D: 2B24       	CLR 0x24
+L122:
+                  	                  			beepCnt2++;		
+  13E: 1623       	INCMS 0x23
+  13F: 0000       	NOP
+L123:
+                  	                  			if (beepCnt2 > 2) //60ms
+  140: 1E23       	MOV A, 0x23
+  141: 0602       	CMPRS A, #02h
+  142: 7A86       	B0BTS1 0x86.2
+  143: 8158       	JMP 0x0158
+L124:
+                  	                  			{
+                  	                  				beepCnt2 = 0;
+  144: 2B23       	CLR 0x23
+L127:
+                  	                  				beepCnt3++;
+  145: 1622       	INCMS 0x22
+  146: 0000       	NOP
+L128:
+                  	                  				if (beepCnt3 > (soundLastTime * 2))
+  147: 1E26       	MOV A, 0x26
+  148: 2F0D       	B0MOV 0x0D, A
+  149: 6286       	B0BCLR PFLAG.2
+  14A: 0B0D       	RLCM 0x0D
+  14B: 1E22       	MOV A, 0x22
+  14C: 070D       	CMPRS A, 0x0D
+  14D: 7A86       	B0BTS1 0x86.2
+  14E: 8158       	JMP 0x0158
+L129:
+                  	                  				{
+                  	                  					beepCnt3 = 0;
+  14F: 2B22       	CLR 0x22
+L132:
+                  	                  					beepCnt4++;
+  150: 1621       	INCMS 0x21
+  151: 0000       	NOP
+L133:
+                  	                  					if (beepCnt4 == soundCnt )
+  152: 1E21       	MOV A, 0x21
+  153: 0725       	CMPRS A, 0x25
+  154: 8158       	JMP 0x0158
+L134:
+                  	                  					{
+                  	                  						beepCnt4 = 0;
+  155: 2B21       	CLR 0x21
+L137:
+                  	                  	
+                  	                  						return 1;
+  156: 2D01       	MOV A, #01h
+  157: 8159       	JMP 0x0159
+L138:
+                  	                  					}
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  	
+                  	                  		return 0;
+  158: 2D00       	MOV A, #00h
+L147:
+                  	                  	}
+  159: 0E00       	RET
+_Function_BeepPulseControl_code:
+                  	                  	
+                  	                  	/*----------------------------------------------------------
+                  	                  	 * FunctionName: BeepPulseControl
+                  	                  	 * Describe: when press the key, beep louder & pulse high for 10s
+                  	                  	 */
+                  	                  	void BeepPulseControl(void)
+                  	                  	{
+                  	                  		if (flagWarningInit)
+  15A: 5B0A       	BTS1 0x0A.3
+  15B: 8161       	JMP 0x0161
+L177:
+                  	                  		{
+                  	                  			flagWarningInit = 0;
+  15C: 430A       	BCLR 0x0A.3
+L180:
+                  	                  			pulseActiveFlag = 0;
+  15D: 400C       	BCLR 0x0C.0
+L181:
+                  	                  			pulseCnt1 = 0;
+  15E: 2B20       	CLR 0x20
+L182:
+                  	                  			pulseCnt2 = 0;
+  15F: 2B1F       	CLR 0x1F
+L183:
+                  	                  			pulseCnt3 = 0;
+  160: 2B1E       	CLR 0x1E
+L184:
+                  	                  		}
+                  	                  	
+                  	                  		if (flagProtect)
+  161: 5A0A       	BTS1 0x0A.2
+  162: 819C       	JMP 0x019C
+L187:
+                  	                  		{
+                  	                  			if (flagProtectOn)
+  163: 590A       	BTS1 0x0A.1
+  164: 8175       	JMP 0x0175
+L190:
+                  	                  			{
+                  	                  				power_save_enable = 1 ;
+  165: 480B       	BSET 0x0B.0
+L193:
+                  	                  				pulsePort = 0;
+  166: 62D1       	B0BCLR 0xD1.2
+L194:
+                  	                  				if (!beepActiveFlag)
+  167: 520C       	BTS0 0x0C.2
+  168: 8172       	JMP 0x0172
+L195:
+                  	                  					beepActiveFlag = BeepSound(1, 12);
+  169: 2D0C       	MOV A, #0ch
+  16A: 1F26       	MOV 0x26, A
+  16B: 2D01       	MOV A, #01h
+  16C: 1F25       	MOV 0x25, A
+  16D: C123       	CALL 0x0123
+  16E: 420C       	BCLR 0x0C.2
+  16F: 0600       	CMPRS A, #00h
+  170: 4A0C       	BSET 0x0C.2
+  171: 81B4       	JMP 0x01B4
+L156:
+                  	                  				else
+                  	                  				{
+                  	                  					flagProtectOn  = 0;
+  172: 410A       	BCLR 0x0A.1
+L199:
+                  	                  					beepActiveFlag = 0;
+  173: 420C       	BCLR 0x0C.2
+L200:
+                  	                  				}
+                  	                  			}
+  174: 81B4       	JMP 0x01B4
+L154:
+                  	                  			else if (flagKeyTrigger)
+  175: 5C0A       	BTS1 0x0A.4
+  176: 81B4       	JMP 0x01B4
+L205:
+                  	                  			{
+                  	                  				power_save_enable = 1 ;
+  177: 480B       	BSET 0x0B.0
+L208:
+                  	                  				if (!beepActiveFlag)
+  178: 520C       	BTS0 0x0C.2
+  179: 8183       	JMP 0x0183
+L209:
+                  	                  					beepActiveFlag = BeepSound(5, 7);
+  17A: 2D07       	MOV A, #07h
+  17B: 1F26       	MOV 0x26, A
+  17C: 2D05       	MOV A, #05h
+  17D: 1F25       	MOV 0x25, A
+  17E: C123       	CALL 0x0123
+  17F: 420C       	BCLR 0x0C.2
+  180: 0600       	CMPRS A, #00h
+  181: 4A0C       	BSET 0x0C.2
+  182: 818C       	JMP 0x018C
+L160:
+                  	                  				else
+                  	                  				{
+                  	                  					if (!timeDelayFlag)
+  183: 510C       	BTS0 0x0C.1
+  184: 818A       	JMP 0x018A
+L213:
+                  	                  						timeDelayFlag = TimeDelay10s();
+  185: C103       	CALL 0x0103
+  186: 410C       	BCLR 0x0C.1
+  187: 0600       	CMPRS A, #00h
+  188: 490C       	BSET 0x0C.1
+  189: 818C       	JMP 0x018C
+L162:
+                  	                  					else
+                  	                  					{
+                  	                  						timeDelayFlag  = 0;
+  18A: 410C       	BCLR 0x0C.1
+L217:
+                  	                  						beepActiveFlag = 0;
+  18B: 420C       	BCLR 0x0C.2
+L218:
+                  	                  					}
+                  	                  				}
+                  	                  	
+                  	                  				if (!pulseActiveFlag)
+  18C: 500C       	BTS0 0x0C.0
+  18D: 8193       	JMP 0x0193
+L223:
+                  	                  					pulseActiveFlag = PulseOutput();
+  18E: C0E4       	CALL 0x00E4
+  18F: 400C       	BCLR 0x0C.0
+  190: 0600       	CMPRS A, #00h
+  191: 480C       	BSET 0x0C.0
+  192: 81B4       	JMP 0x01B4
+L164:
+                  	                  				else
+                  	                  				{
+                  	                  					if (beepActiveFlag)
+  193: 5A0C       	BTS1 0x0C.2
+  194: 81B4       	JMP 0x01B4
+L227:
+                  	                  					{
+                  	                  						beepActiveFlag  = 0;
+  195: 420C       	BCLR 0x0C.2
+L230:
+                  	                  						pulseActiveFlag = 0;
+  196: 400C       	BCLR 0x0C.0
+L231:
+                  	                  						flagKeyTrigger  = 0;
+  197: 440A       	BCLR 0x0A.4
+L232:
+                  	                  						timeDelay1 = 0;
+  198: 2B1D       	CLR 0x1D
+L233:
+                  	                  						timeDelay2 = 0;
+  199: 2B1C       	CLR 0x1C
+L234:
+                  	                  						timeDelay3 = 0;
+  19A: 2B1B       	CLR 0x1B
+L235:
+                  	                  					}
+                  	                  				}
+                  	                  			}
+                  	                  	
+                  	                  		}
+  19B: 81B4       	JMP 0x01B4
+L152:
+                  	                  		else
+                  	                  		{
+                  	                  			if (flagProtectOff)
+  19C: 580A       	BTS1 0x0A.0
+  19D: 81B4       	JMP 0x01B4
+L246:
+                  	                  			{
+                  	                  				power_save_enable = 1 ;
+  19E: 480B       	BSET 0x0B.0
+L249:
+                  	                  				pulsePort = 0;
+  19F: 62D1       	B0BCLR 0xD1.2
+L250:
+                  	                  				if (!beepActiveFlag)
+  1A0: 520C       	BTS0 0x0C.2
+  1A1: 81AB       	JMP 0x01AB
+L251:
+                  	                  					beepActiveFlag = BeepSound(2, 10);
+  1A2: 2D0A       	MOV A, #0ah
+  1A3: 1F26       	MOV 0x26, A
+  1A4: 2D02       	MOV A, #02h
+  1A5: 1F25       	MOV 0x25, A
+  1A6: C123       	CALL 0x0123
+  1A7: 420C       	BCLR 0x0C.2
+  1A8: 0600       	CMPRS A, #00h
+  1A9: 4A0C       	BSET 0x0C.2
+  1AA: 81B4       	JMP 0x01B4
+L170:
+                  	                  				else
+                  	                  				{
+                  	                  					if (!timeDelayFlag)
+  1AB: 510C       	BTS0 0x0C.1
+  1AC: 81B2       	JMP 0x01B2
+L255:
+                  	                  						timeDelayFlag = TimeDelay10s();
+  1AD: C103       	CALL 0x0103
+  1AE: 410C       	BCLR 0x0C.1
+  1AF: 0600       	CMPRS A, #00h
+  1B0: 490C       	BSET 0x0C.1
+  1B1: 81B4       	JMP 0x01B4
+L172:
+                  	                  					else
+                  	                  					{
+                  	                  						timeDelayFlag  = 0;
+  1B2: 410C       	BCLR 0x0C.1
+L259:
+                  	                  						beepActiveFlag = 0;
+  1B3: 420C       	BCLR 0x0C.2
+L260:
+                  	                  					}
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  	}
+  1B4: 0E00       	RET

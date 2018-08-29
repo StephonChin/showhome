@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>98910328</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\Speaker.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Speaker.o</file>
+      <file>$TOOLKIT_DIR$\lib\dlstm8smn.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\Dial_Switch.pbi</file>
+      <file>$PROJ_DIR$\Sources\Led_Display.c</file>
+      <file>$PROJ_DIR$\Sources\Rf_Rcv.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\Led_Display.pbi</file>
+      <file>$PROJ_DIR$\Sources\Key_Scan.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\MCU_Config.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\Rf_Rcv.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Led_Display.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\Key_Scan.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\MCU_Config.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\iostm8s003f3.h</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Key_Scan.o</file>
+      <file>$TOOLKIT_DIR$\lib\dbgstm8smd.a</file>
+      <file>$TOOLKIT_DIR$\config\lnkstm8s003f3.icf</file>
+      <file>$PROJ_DIR$\Debug\Obj\Door_Bell.o</file>
+      <file>$PROJ_DIR$\Sources\MCU_Config.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\Door_Bell.pbd</file>
+      <file>$PROJ_DIR$\Sources\Speaker.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\Dial_Switch.o</file>
+      <file>$PROJ_DIR$\Debug\Exe\Door_Bell.out</file>
+      <file>$PROJ_DIR$\Debug\Obj\Door_Bell.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Rf_Rcv.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\Data_process.o</file>
+      <file>$PROJ_DIR$\Debug\Exe\Door_Bell.s19</file>
+      <file>$PROJ_DIR$\Sources\Data_process.c</file>
+      <file>$PROJ_DIR$\Includes\Speaker.h</file>
+      <file>$PROJ_DIR$\Sources\Dial_Switch.c</file>
+      <file>$PROJ_DIR$\Sources\Door_Bell.c</file>
+      <file>$PROJ_DIR$\Includes\Door_Bell.h</file>
+      <file>$PROJ_DIR$\Includes\Port_Def.h</file>
+      <file>$PROJ_DIR$\Includes\Rf_Rcv.h</file>
+      <file>$PROJ_DIR$\Includes\Data_Process.h</file>
+      <file>$PROJ_DIR$\Includes\Key_Scan.h</file>
+      <file>$PROJ_DIR$\Includes\MCU_Config.h</file>
+      <file>$PROJ_DIR$\Includes\Dial_Switch.h</file>
+      <file>$PROJ_DIR$\Includes\Type_Def.h</file>
+      <file>$PROJ_DIR$\Includes\Led_Display.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Data_process.pbi</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Sources\Led_Display.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 40 39 13 14 33</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Sources\Rf_Rcv.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Sources\Key_Scan.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 15</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 36 39 13 14 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13 39 14 36 33</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Sources\MCU_Config.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 37 39 13 14 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13 39 14 37 33</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Sources\Speaker.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 0</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 29 39 13 14 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13 39 14 29 33</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\Door_Bell.out</name>
+      <outputs>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 27</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 17 26 22 18 15 10 8 25 1 2 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Sources\Data_process.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 35 39 13 14 36 33 29 38 40</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29 33 39 40 36 38 13 35 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Sources\Dial_Switch.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 38 39 13 14 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13 39 14 38 33</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Sources\Door_Bell.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 32 39 13 14 37 33 35 36 29 38 40 34</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38 33 29 37 40 14 39 35 36 34 13 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 23</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

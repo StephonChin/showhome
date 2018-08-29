@@ -1,0 +1,145 @@
+C51 COMPILER V9.52.0.0   KEY_SCAN                                                          07/22/2017 16:47:45 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE KEY_SCAN
+OBJECT MODULE PLACED IN Key_Scan.obj
+COMPILER INVOKED BY: C:\Keil51\C51\BIN\C51.EXE Source\Key_Scan.c BROWSE INCDIR(.\Include) DEBUG OBJECTEXTEND PRINT(.\Key
+                    -_Scan.lst) TABS(2) OBJECT(Key_Scan.obj)
+
+line level    source
+
+   1          /************************************************************************
+   2            *
+   3            * @FileName   Key_Scan.c
+   4            * @Date       21-April-2017
+   5            * @Author     DS.Chin
+   6            * 
+   7          *************************************************************************/
+   8          #include "Key_Scan.h"
+   9          
+  10          
+  11          
+  12          /* <---- Gloable Variables -----------------------------------> */
+  13          _TypeSensor_E   SensorStatus;
+  14          _Flag           KeySleepFlag;
+  15          _Flag           TrigForbidFlag;
+  16          
+  17          /**
+  18            * @FunctionName   Key_Scan
+  19            * @Date           21-April-2017
+  20            * @Author         DS.Chin
+  21            */
+  22          void Key_Scan(void)
+  23          {
+  24   1        static _Uint8   KeyReleaseTime;
+  25   1        static _Flag    KeyReleaseFlag;
+  26   1        
+  27   1        static _Uint8   KeyPressTime;
+  28   1        static _Flag    KeyPressFlag;
+  29   1        
+  30   1        static _Flag    PressCntFlag;
+  31   1        static _Uint8   PressCntTime;
+  32   1        static _Uint8   KeyPressCnt;
+  33   1        
+  34   1        
+  35   1        
+  36   1        //SENSOR脚打开
+  37   1        if (PORT_SENSOR == RESET)
+  38   1        {
+  39   2          KeyPressTime = 0;
+  40   2          
+  41   2          if (KeyReleaseFlag == FALSE)
+  42   2          {
+  43   3            KeySleepFlag = FALSE;
+  44   3            KeyReleaseTime++;
+  45   3            if (KeyReleaseTime >= 200)  //2s
+  46   3            {
+  47   4              SensorStatus    = SENSOR_OPEN;
+  48   4              KeyReleaseFlag  = TRUE;
+  49   4              TrigForbidFlag  = TRUE;
+  50   4              WKCON |= BIT3;
+  51   4              KeyPressFlag    = FALSE;
+  52   4            }
+  53   3          }
+  54   2          else
+C51 COMPILER V9.52.0.0   KEY_SCAN                                                          07/22/2017 16:47:45 PAGE 2   
+
+  55   2          {
+  56   3            KeySleepFlag = TRUE;
+  57   3          }
+  58   2        }
+  59   1        
+  60   1        
+  61   1        //SENSOR脚触发
+  62   1        else 
+  63   1        {
+  64   2          KeyReleaseTime = 0;
+  65   2          
+  66   2          if (KeyPressFlag == FALSE)
+  67   2          {
+  68   3            KeySleepFlag = FALSE;
+  69   3            
+  70   3            PressCntFlag = TRUE;        //SENSOR触发脚开始计时标志位
+  71   3            KeyPressTime++;
+  72   3            if (KeyPressTime > 2)
+  73   3            {
+  74   4              KeyPressTime = 0;
+  75   4              if (KeyPressCnt < 50)
+  76   4              {
+  77   5                KeyPressCnt++;
+  78   5              }
+  79   4            }
+  80   3          }
+  81   2          else
+  82   2          {
+  83   3            KeySleepFlag = TRUE;
+  84   3          }
+  85   2        }
+  86   1        
+  87   1        
+  88   1        if (PressCntFlag  == TRUE)
+  89   1        {
+  90   2          PressCntTime++;
+  91   2          if (PressCntTime >= 200)
+  92   2          {
+  93   3            PressCntTime = 0;
+  94   3            PressCntFlag = FALSE;
+  95   3            
+  96   3            //当在2秒内触发次数超过20次时，触发成功
+  97   3            if (KeyPressCnt >=  20)
+  98   3            {
+  99   4              KeyPressCnt   = 0;
+ 100   4              
+ 101   4              if (TrigForbidFlag == FALSE)    
+ 102   4              {
+ 103   5                SensorStatus  = SENSOR_CLOSE;
+ 104   5                KeyPressFlag  = TRUE;
+ 105   5                KeyReleaseFlag = FALSE;
+ 106   5              }
+ 107   4            }
+ 108   3          }
+ 109   2        }
+ 110   1        else
+ 111   1        {
+ 112   2          PressCntTime = 0;
+ 113   2        }
+ 114   1        
+ 115   1        
+ 116   1      
+C51 COMPILER V9.52.0.0   KEY_SCAN                                                          07/22/2017 16:47:45 PAGE 3   
+
+ 117   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    121    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

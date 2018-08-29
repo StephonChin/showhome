@@ -1,0 +1,1 @@
+"Source\Comm.c" BROWSE INCDIR(.\Include) DEBUG OBJECTEXTEND PRINT(.\Comm.lst) TABS (2) OBJECT(Comm.obj)

@@ -1,0 +1,8 @@
+dataBufferAddr=0x00800400
+dataFilename=F\:\\C0_workspace\\TEST1\\Debug\\TEST1.bin
+dynamicCodeAddr=0x00800000
+eclipse.preferences.version=1
+elffilename=F\:\\C0_workspace\\eFlash\\Eflash_pmg.elf
+flashAddr=0x00000000
+flashPageSize=2560
+paraAddr=0x00800E00

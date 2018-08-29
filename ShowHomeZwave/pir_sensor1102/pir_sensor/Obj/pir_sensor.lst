@@ -1,0 +1,590 @@
+start listing elf file - .\Bin/pir_sensor.out
+
+
+------------------begin data section------------------
+
+Start   Length(Byte)  Type  Name                             Source File
+000000    0X05        Data  crt0@data                        
+0X0005    0X01        Data  _main_c_GlobalBitDataPool0       E:\guomeng\2015年项目\pir_sensor1102\pir_sensor\Src\main.c
+0X0006    0X05        Data  _InterruptBackupData             
+0X000B    0X01        Data  _out_delay@segment               E:\guomeng\2015年项目\pir_sensor1102\pir_sensor\Src\main.c
+0X000C    0X01        Data  _sleep_delay_3@segment           E:\guomeng\2015年项目\pir_sensor1102\pir_sensor\Src\main.c
+0X000D    0X01        Data  _sleep_delay_2@segment           E:\guomeng\2015年项目\pir_sensor1102\pir_sensor\Src\main.c
+0X000E    0X01        Data  _sleep_delay_1@segment           E:\guomeng\2015年项目\pir_sensor1102\pir_sensor\Src\main.c
+
+
+crt0@data SEGMENT DATA INBANK
+	H	DS	1
+	L	DS	1
+	X	DS	1
+	I	DS	1
+	T	DS	1
+
+_main_c_GlobalBitDataPool0 SEGMENT DATA INBANK
+	_out_enable	DSBIT	1
+	_int_trigger	DSBIT	1
+	_out_finish	DSBIT	1
+	_on_trigger	DSBIT	1
+	_open_trigger	DSBIT	1
+	_int_wave_up	DSBIT	1
+
+_InterruptBackupData SEGMENT DATA INBANK
+	_bufT	DS	1
+	_bufI	DS	1
+	_bufY	DS	1
+	_bufZ	DS	1
+	_bufR	DS	1
+
+_out_delay@segment SEGMENT DATA INBANK
+	_out_delay	DS	1
+
+_sleep_delay_3@segment SEGMENT DATA INBANK
+	_sleep_delay_3	DS	1
+
+_sleep_delay_2@segment SEGMENT DATA INBANK
+	_sleep_delay_2	DS	1
+
+_sleep_delay_1@segment SEGMENT DATA INBANK
+	_sleep_delay_1	DS	1
+
+
+------------------begin disassembly code------------------
+
+    0: 800A       	JMP 0x000A
+    1: 0000       	NOP
+    2: 0000       	NOP
+    3: 0000       	NOP
+    4: 0000       	NOP
+    5: 0000       	NOP
+    6: 0000       	NOP
+    7: 0000       	NOP
+_interrupt@_interrupt_isr_isr:
+    8: 80B5       	JMP 0x00B5
+.CODE:
+    9: F9F9       	CALL 0x39F9
+_SGV_INIT_CODE_BEGIN:
+    A: 2D7F       	MOV A, #7fh
+    B: 2FDF       	B0MOV STKP, A
+    C: C010       	CALL 0x0010
+    D: C013       	CALL 0x0013
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+    F: 8034       	JMP 0x0034
+__ClearWatchDogTimer:
+   10: 2D5A       	MOV A, #5ah
+   11: 2FCC       	B0MOV WDTR, A
+   12: 0E00       	RET
+__ClrRAM:
+   13: 2B84       	CLR 0x84
+   14: 332F       	B0MOV 0x83, #2Fh
+ClrRAM10:
+   15: 2BE7       	CLR 0xE7
+   16: 2683       	DECMS 0x83
+   17: 8015       	JMP 0x0015
+   18: 2BE7       	CLR 0xE7
+   19: 0E00       	RET
+_Function_gpio_init_code:
+                  	                  	/***********************
+                  	                  	*作者:chenyk
+                  	                  	*日期:2015/4/21
+                  	                  	*版本:Ver1
+                  	                  	***********************/
+                  	                  	#include "sn8p2511.h"
+                  	                  	
+                  	                  	#define uchar unsigned char 
+                  	                  	
+                  	                  	uchar sleep_delay_1;
+                  	                  	uchar sleep_delay_2;
+                  	                  	uchar sleep_delay_3;
+                  	                  	
+                  	                  	uchar out_delay;
+                  	                  	//uchar wave_step;
+                  	                  	
+                  	                  	bit int_wave_up;
+                  	                  	bit open_trigger;
+                  	                  	bit on_trigger;
+                  	                  	bit out_finish;
+                  	                  	bit int_trigger;
+                  	                  	bit out_enable;
+                  	                  	
+                  	                  	#define out FP54
+                  	                  	#define out_led FP12
+                  	                  	
+                  	                  	#define key1 FP00
+                  	                  	#define key2 FP10
+                  	                  	
+                  	                  	void gpio_init(void)
+                  	                  	{
+                  	                  	  P0M=0x00;
+   1A: 2BB8       	CLR 0xB8
+L5:
+                  	                  	  //P0UR=0x01;
+                  	                  	  INTRQ=0x00;
+   1B: 2BC8       	CLR 0xC8
+L6:
+                  	                  	  INTEN=0x01;
+   1C: 2D01       	MOV A, #01h
+   1D: 2FC9       	B0MOV INTEN, A
+L7:
+                  	                  	  PEDGE=0x08;
+   1E: 2D08       	MOV A, #08h
+   1F: 2FBF       	B0MOV PEDGE, A
+L8:
+                  	                  	  FGIE=1;
+   20: 6FDF       	B0BSET STKP.7
+L9:
+                  	                  	
+                  	                  	  P1M=0xfe;
+   21: 2DFE       	MOV A, #feh
+   22: 2FC1       	B0MOV P1M, A
+L10:
+                  	                  	  P1UR=0x01;
+   23: 2D01       	MOV A, #01h
+   24: 2FE1       	B0MOV P1UR, A
+L11:
+                  	                  	  P1=0x00;
+   25: 2BD1       	CLR 0xD1
+L12:
+                  	                  	  P1W=0x01;
+   26: 2FC0       	B0MOV P1W, A
+L13:
+                  	                  	
+                  	                  	  P2M=0xff;
+   27: 2DFF       	MOV A, #ffh
+   28: 2FC2       	B0MOV P2M, A
+L14:
+                  	                  	  P2=0x00;
+   29: 2BD2       	CLR 0xD2
+L15:
+                  	                  	
+                  	                  	  P5M=0xff;
+   2A: 2FC5       	B0MOV P5M, A
+L16:
+                  	                  	  P5=0x10;
+   2B: 2D10       	MOV A, #10h
+   2C: 2FD5       	B0MOV P5, A
+L17:
+                  	                  	}
+   2D: 0E00       	RET
+_Function_time_init_code:
+                  	                  	
+                  	                  	
+                  	                  	void time_init(void)
+                  	                  	{
+                  	                  	  TC0C=156;
+   2E: 2D9C       	MOV A, #9ch
+   2F: 2FDB       	B0MOV TC0C, A
+L23:
+                  	                  	  TC0R=156;
+   30: 2FCD       	B0MOV TC0R, A
+L24:
+                  	                  	  TC0M=0xf4;
+   31: 2DF4       	MOV A, #f4h
+   32: 2FDA       	B0MOV TC0M, A
+L25:
+                  	                  	}
+   33: 0E00       	RET
+_Function_main_code:
+                  	                  	
+                  	                  	
+                  	                  	void main(void)
+                  	                  	{
+                  	                  	  OSCM=0x06;
+   34: 2D06       	MOV A, #06h
+   35: 2FCA       	B0MOV OSCM, A
+L70:
+                  	                  	  gpio_init();
+   36: C01A       	CALL 0x001A
+L71:
+                  	                  	  time_init();
+   37: C02E       	CALL 0x002E
+L28:
+                  	                  	  {
+                  	                  	    if(FTC0IRQ)
+   38: 7DC8       	B0BTS1 INTRQ.5
+   39: 80B2       	JMP 0x00B2
+L75:
+                  	                  		{
+                  	                  		  FTC0IRQ=0;
+   3A: 65C8       	B0BCLR INTRQ.5
+L78:
+                  	                  	
+                  	                  		  //FP22=~FP22;
+                  	                  	
+                  	                  	      if(key2)
+   3B: 78D1       	B0BTS1 P1.0
+   3C: 8049       	JMP 0x0049
+L79:
+                  	                  		  {
+                  	                  		    if((open_trigger==0)&&(out_finish==0))
+   3D: 5405       	BTS0 0x05.4
+   3E: 805C       	JMP 0x005C
+   3F: 5205       	BTS0 0x05.2
+   40: 805C       	JMP 0x005C
+L82:
+                  	                  			{
+                  	                  			  open_trigger=1;
+   41: 4C05       	BSET 0x05.4
+L85:
+                  	                  			  on_trigger=0;
+   42: 4305       	BCLR 0x05.3
+L86:
+                  	                  			  out_finish=1;
+   43: 4A05       	BSET 0x05.2
+L87:
+                  	                  			  out_enable=1;
+   44: 4805       	BSET 0x05.0
+L88:
+                  	                  			  out=0;
+   45: 64D5       	B0BCLR P5.4
+L89:
+                  	                  			  out_led=0;
+   46: 62D1       	B0BCLR P1.2
+L90:
+                  	                  			  out_delay=0;
+   47: 2B0B       	CLR 0x0B
+L91:
+                  	                  			}
+                  	                  		  }
+   48: 805C       	JMP 0x005C
+L33:
+                  	                  		  else
+                  	                  	      {
+                  	                  		    if((on_trigger==0)&&(out_finish==0))
+   49: 5305       	BTS0 0x05.3
+   4A: 8057       	JMP 0x0057
+   4B: 5205       	BTS0 0x05.2
+   4C: 8057       	JMP 0x0057
+L98:
+                  	                  			{
+                  	                  			  on_trigger=1;
+   4D: 4B05       	BSET 0x05.3
+L101:
+                  	                  			  open_trigger=0;
+   4E: 4405       	BCLR 0x05.4
+L102:
+                  	                  			  out_finish=1;
+   4F: 4A05       	BSET 0x05.2
+L103:
+                  	                  			  out=0;
+   50: 64D5       	B0BCLR 0xD5.4
+L104:
+                  	                  			  out_delay=0;
+   51: 2B0B       	CLR 0x0B
+L105:
+                  	                  			  int_wave_up=0;
+   52: 4505       	BCLR 0x05.5
+L106:
+                  	                  			  out_led=0;
+   53: 62D1       	B0BCLR 0xD1.2
+L107:
+                  	                  			  out_enable=1;
+   54: 4805       	BSET 0x05.0
+L108:
+                  	                  			  sleep_delay_3=0;
+   55: 2B0C       	CLR 0x0C
+L109:
+                  	                  			}
+   56: 805C       	JMP 0x005C
+L37:
+                  	                  			else
+                  	                  			{
+                  	                  			  if(out_finish==0)
+   57: 5205       	BTS0 0x05.2
+   58: 805C       	JMP 0x005C
+L114:
+                  	                  			  {
+                  	                  			    if(int_wave_up)
+   59: 5D05       	BTS1 0x05.5
+   5A: 805C       	JMP 0x005C
+L117:
+                  	                  				{
+                  	                  				  int_trigger=1;
+   5B: 4905       	BSET 0x05.1
+L120:
+                  	                  				}
+                  	                  			  }
+                  	                  			}
+                  	                  	      }
+                  	                  		  
+                  	                  		  if(out_enable)
+   5C: 5805       	BTS1 0x05.0
+   5D: 806D       	JMP 0x006D
+L129:
+                  	                  		  {
+                  	                  		    out_delay+=1;
+   5E: 160B       	INCMS 0x0B
+   5F: 0000       	NOP
+L132:
+                  	                  			if(out_delay>2)
+   60: 1E0B       	MOV A, 0x0B
+   61: 0602       	CMPRS A, #02h
+   62: 7A86       	B0BTS1 0x86.2
+   63: 80B2       	JMP 0x00B2
+L133:
+                  	                  			{
+                  	                  			  out_delay=0;
+   64: 2B0B       	CLR 0x0B
+L136:
+                  	                  			  out=1;
+   65: 6CD5       	B0BSET 0xD5.4
+L137:
+                  	                  			  out_finish=0;
+   66: 4205       	BCLR 0x05.2
+L138:
+                  	                  			  out_enable=0;
+   67: 4005       	BCLR 0x05.0
+L139:
+                  	                  	
+                  	                  			   FCPUM1=0;
+   68: 64CA       	B0BCLR 0xCA.4
+L140:
+                  	                  		       FCPUM0=1;
+   69: 6BCA       	B0BSET 0xCA.3
+L141:
+                  	                  			   FCLKMD=1;
+   6A: 6ACA       	B0BSET 0xCA.2
+L142:
+                  	                  			   FSTPHX=1;
+   6B: 69CA       	B0BSET 0xCA.1
+L143:
+                  	                  			}
+                  	                  		  }
+   6C: 80B2       	JMP 0x00B2
+L43:
+                  	                  		  else if(int_trigger==1)
+   6D: 5905       	BTS1 0x05.1
+   6E: 80B2       	JMP 0x00B2
+L148:
+                  	                  		  {
+                  	                  			sleep_delay_1+=1;
+   6F: 160E       	INCMS 0x0E
+   70: 0000       	NOP
+L151:
+                  	                  			if(sleep_delay_1>4)
+   71: 1E0E       	MOV A, 0x0E
+   72: 0604       	CMPRS A, #04h
+   73: 7A86       	B0BTS1 0x86.2
+   74: 8080       	JMP 0x0080
+L152:
+                  	                  			{
+                  	                  			  sleep_delay_1=0;
+   75: 2B0E       	CLR 0x0E
+L155:
+                  	                  			  sleep_delay_2+=1;
+   76: 160D       	INCMS 0x0D
+   77: 0000       	NOP
+L156:
+                  	                  			  if(sleep_delay_2>24)
+   78: 1E0D       	MOV A, 0x0D
+   79: 0618       	CMPRS A, #18h
+   7A: 7A86       	B0BTS1 0x86.2
+   7B: 8080       	JMP 0x0080
+L157:
+                  	                  			  {
+                  	                  			    out_led=0;
+   7C: 62D1       	B0BCLR 0xD1.2
+L160:
+                  	                  			    sleep_delay_2=0;
+   7D: 2B0D       	CLR 0x0D
+L161:
+                  	                  				sleep_delay_3=6;
+   7E: 2D06       	MOV A, #06h
+   7F: 1F0C       	MOV 0x0C, A
+L162:
+                  	                  			  }
+                  	                  			}
+                  	                  	
+                  	                  			sleep_delay_3+=1;
+   80: 160C       	INCMS 0x0C
+   81: 0000       	NOP
+L167:
+                  	                  			if(sleep_delay_3>6)
+   82: 1E0C       	MOV A, 0x0C
+   83: 0606       	CMPRS A, #06h
+   84: 7A86       	B0BTS1 0x86.2
+   85: 809E       	JMP 0x009E
+L168:
+                  	                  			{
+                  	                  			  if(sleep_delay_3==8)
+   86: 0608       	CMPRS A, #08h
+   87: 808B       	JMP 0x008B
+L171:
+                  	                  			  {
+                  	                  			   FGIE=0;
+   88: 67DF       	B0BCLR 0xDF.7
+L174:
+                  	                  			   out=0;
+   89: 64D5       	B0BCLR 0xD5.4
+L175:
+                  	                  			   out_finish=1;
+   8A: 4A05       	BSET 0x05.2
+L176:
+                  	                  			  }
+                  	                  	
+                  	                  			  if(sleep_delay_3==9)
+   8B: 1E0C       	MOV A, 0x0C
+   8C: 0609       	CMPRS A, #09h
+   8D: 8090       	JMP 0x0090
+L179:
+                  	                  			  {
+                  	                  			    out=1;
+   8E: 6CD5       	B0BSET 0xD5.4
+L182:
+                  	                  				out_finish=0;
+   8F: 4205       	BCLR 0x05.2
+L183:
+                  	                  	           }
+                  	                  			   if(sleep_delay_3>113)
+   90: 1E0C       	MOV A, 0x0C
+   91: 0671       	CMPRS A, #71h
+   92: 7A86       	B0BTS1 0x86.2
+   93: 80B2       	JMP 0x00B2
+L186:
+                  	                  			   { 
+                  	                  				  int_wave_up=0;
+   94: 4505       	BCLR 0x05.5
+L189:
+                  	                  				  int_trigger=0;
+   95: 4105       	BCLR 0x05.1
+L190:
+                  	                  				  sleep_delay_3=0;
+   96: 2B0C       	CLR 0x0C
+L191:
+                  	                  				  FP00IRQ=0;
+   97: 60C8       	B0BCLR 0xC8.0
+L192:
+                  	                  				  FGIE=1;
+   98: 6FDF       	B0BSET 0xDF.7
+L193:
+                  	                  			      FCPUM1=0;
+   99: 64CA       	B0BCLR 0xCA.4
+L194:
+                  	                  		      	  FCPUM0=1;
+   9A: 6BCA       	B0BSET 0xCA.3
+L195:
+                  	                  			   	  FCLKMD=1;
+   9B: 6ACA       	B0BSET 0xCA.2
+L196:
+                  	                  			      FSTPHX=1;
+   9C: 69CA       	B0BSET 0xCA.1
+L197:
+                  	                  			  }
+                  	                  			}
+   9D: 80B2       	JMP 0x00B2
+L53:
+                  	                  			else
+                  	                  			{
+                  	                  			  if(sleep_delay_3>4) sleep_delay_3=4;
+   9E: 1E0C       	MOV A, 0x0C
+   9F: 0604       	CMPRS A, #04h
+   A0: 7A86       	B0BTS1 0x86.2
+   A1: 80A5       	JMP 0x00A5
+L204:
+                  	                  			  if(sleep_delay_3>4) sleep_delay_3=4;
+   A2: 2D04       	MOV A, #04h
+   A3: 1F0C       	MOV 0x0C, A
+   A4: 80B2       	JMP 0x00B2
+L61:
+                  	                  			  else
+                  	                  			  {
+                  	                  	            if(sleep_delay_3>3)
+   A5: 1E0C       	MOV A, 0x0C
+   A6: 0603       	CMPRS A, #03h
+   A7: 7A86       	B0BTS1 0x86.2
+   A8: 80AC       	JMP 0x00AC
+L208:
+                  	                  				{
+                  	                  				  out=1;
+   A9: 6CD5       	B0BSET 0xD5.4
+L211:
+                  	                  			      out_finish=0;
+   AA: 4205       	BCLR 0x05.2
+L212:
+                  	                  				}
+   AB: 80B2       	JMP 0x00B2
+L63:
+                  	                  				else
+                  	                  				{
+                  	                  				  if(sleep_delay_3>1)
+   AC: 1E0C       	MOV A, 0x0C
+   AD: 0601       	CMPRS A, #01h
+   AE: 7A86       	B0BTS1 0x86.2
+   AF: 80B2       	JMP 0x00B2
+L217:
+                  	                  			      {
+                  	                  			       out=0;
+   B0: 64D5       	B0BCLR 0xD5.4
+L220:
+                  	                  			       out_finish=1;
+   B1: 4A05       	BSET 0x05.2
+L221:
+                  	                  	
+                  	                  	  while(1)
+   B2: 8038       	JMP 0x0038
+L236:
+                  	                  			      }
+                  	                  			    }
+                  	                  	          }
+                  	                  			}
+                  	                  		  }	    
+                  	                  	    }
+                  	                  	  }
+                  	                  	}
+   B3: C010       	CALL 0x0010
+   B4: 80B3       	JMP 0x00B3
+_Function_interrupt_isr_isr_code:
+   B5: 0400       	PUSH
+   B6: 2E84       	B0MOV A, Y
+   B7: 2F08       	B0MOV 0x08, A
+   B8: 2E83       	B0MOV A, Z
+   B9: 2F09       	B0MOV 0x09, A
+   BA: 2E82       	B0MOV A, R
+   BB: 2F0A       	B0MOV 0x0A, A
+   BC: 2E04       	B0MOV A, 0x04
+   BD: 2F06       	B0MOV 0x06, A
+   BE: 2E03       	B0MOV A, 0x03
+   BF: 2F07       	B0MOV 0x07, A
+L241:
+                  	                  	
+                  	                  	/****************************
+                  	                  	*
+                  	                  	*****************************/
+                  	                  	void __interrupt[0x08] interrupt_isr(void)
+                  	                  	{
+                  	                  	  if(FP00IRQ)
+   C0: 78C8       	B0BTS1 INTRQ.0
+   C1: 80C6       	JMP 0x00C6
+L244:
+                  	                  	  {
+                  	                  	    int_wave_up=1;
+   C2: 4D05       	BSET 0x05.5
+L247:
+                  	                  		out_led=1;
+   C3: 6AD1       	B0BSET P1.2
+L248:
+                  	                  		sleep_delay_1=0;
+   C4: 2B0E       	CLR 0x0E
+L249:
+                  	                  		sleep_delay_2=0;
+   C5: 2B0D       	CLR 0x0D
+L250:
+                  	                  	  }
+                  	                  	  FP00IRQ=0;
+   C6: 60C8       	B0BCLR 0xC8.0
+L253:
+                  	                  	}
+   C7: 2E06       	B0MOV A, 0x06
+   C8: 2F04       	B0MOV 0x04, A
+   C9: 2E07       	B0MOV A, 0x07
+   CA: 2F03       	B0MOV 0x03, A
+   CB: 2E08       	B0MOV A, 0x08
+   CC: 2F84       	B0MOV Y, A
+   CD: 2E09       	B0MOV A, 0x09
+   CE: 2F83       	B0MOV Z, A
+   CF: 2E0A       	B0MOV A, 0x0A
+   D0: 2F82       	B0MOV R, A
+   D1: 0500       	POP
+   D2: 0F00       	RETI

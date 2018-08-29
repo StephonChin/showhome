@@ -1,0 +1,677 @@
+start listing elf file - .\Bin/ZW1101.out
+
+
+------------------begin data section------------------
+
+Start   Length(Byte)  Type  Name                             Source File
+000000    0X05        Data  crt0@data                        
+0X0005    0X03        Data  _sdata3@segment                  F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\process_com.c
+0X0008    0X03        Data  _sdata4@segment                  F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\process_com.c
+0X000B    0X01        Data  _sdata5@segment                  F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\process_key.c
+0X000C    0X01        Data  _sdata6@segment                  F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\process_key.c
+0X000D    0X01        Data  _sdata7@segment                  F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\process_key.c
+0X000E    0X01        Data  _sdata8@segment                  F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\process_key.c
+0X000F    0X01        Data  _sdata9@segment                  F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\process_key.c
+0X0010    0X01        Data  _sdata10@segment                 F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\process_key.c
+0X0011    0X01        Data  _sleepFlag@segment               F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\system.c
+0X0012    0X01        Data  _wakeFlag@segment                F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\system.c
+0X0013    0X01        Data  _triggerFlag@segment             F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\system.c
+0X0014    0X01        Data  _Function_main_data              F:\固邦项目\project\ZW-1101--磁控\ZW1101\Src\main.c
+
+
+crt0@data SEGMENT DATA INBANK
+	H	DS	1
+	L	DS	1
+	X	DS	1
+	I	DS	1
+	T	DS	1
+
+_sdata3@segment SEGMENT DATA INBANK
+	_sdata3	DS	1
+
+_sdata4@segment SEGMENT DATA INBANK
+	_sdata4	DS	1
+
+_sdata5@segment SEGMENT DATA INBANK
+	_sdata5	DS	1
+
+_sdata6@segment SEGMENT DATA INBANK
+	_sdata6	DS	1
+
+_sdata7@segment SEGMENT DATA INBANK
+	_sdata7	DS	1
+
+_sdata8@segment SEGMENT DATA INBANK
+	_sdata8	DS	1
+
+_sdata9@segment SEGMENT DATA INBANK
+	_sdata9	DS	1
+
+_sdata10@segment SEGMENT DATA INBANK
+	_sdata10	DS	1
+
+_sleepFlag@segment SEGMENT DATA INBANK
+	_sleepFlag	DS	1
+
+_wakeFlag@segment SEGMENT DATA INBANK
+	_wakeFlag	DS	1
+
+_triggerFlag@segment SEGMENT DATA INBANK
+	_triggerFlag	DS	1
+
+_Function_main_data SEGMENT DATA INBANK
+	_main_data@0	DS	1
+
+
+------------------begin disassembly code------------------
+
+    0: 800A       	JMP 0x000A
+    1: 0000       	NOP
+    2: 0000       	NOP
+    3: 0000       	NOP
+    4: 0000       	NOP
+    5: 0000       	NOP
+    6: 0000       	NOP
+    7: 0000       	NOP
+.CODE:
+    8: F9F9       	CALL 0x39F9
+_SGV_INIT_CODE_BEGIN:
+    A: 2D7F       	MOV A, #7fh
+    B: 2FDF       	B0MOV STKP, A
+    C: C010       	CALL 0x0010
+    D: C013       	CALL 0x0013
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+    F: 801A       	JMP 0x001A
+__ClearWatchDogTimer:
+   10: 2D5A       	MOV A, #5ah
+   11: 2FCC       	B0MOV WDTR, A
+   12: 0E00       	RET
+__ClrRAM:
+   13: 2B84       	CLR 0x84
+   14: 332F       	B0MOV 0x83, #2Fh
+ClrRAM10:
+   15: 2BE7       	CLR 0xE7
+   16: 2683       	DECMS 0x83
+   17: 8015       	JMP 0x0015
+   18: 2BE7       	CLR 0xE7
+   19: 0E00       	RET
+_Function_main_code:
+                  	                  	/**************************************************
+                  	                  	 * FileName: zw1101
+                  	                  	 * Date: 2015.08.05
+                  	                  	 * Author: DS.Chin
+                  	                  	 * Describe: 磁控传感器8脚SN2511程序
+                  	                  	***************************************************/
+                  	                  	#include "main.h"
+                  	                  	
+                  	                  	void main(void)
+                  	                  	{
+                  	                  		u8t mainStep = 0;
+   1A: 2B14       	CLR 0x14
+L15:
+                  	                  	
+                  	                  		McuConfig();
+   1B: C04B       	CALL 0x004B
+L3:
+                  	                  		{
+                  	                  			if (FTC0IRQ)
+   1C: 7DC8       	B0BTS1 0xC8.5
+   1D: 802F       	JMP 0x002F
+L19:
+                  	                  			{
+                  	                  				FTC0IRQ = 0;
+   1E: 65C8       	B0BCLR 0xC8.5
+L22:
+                  	                  				switch (mainStep)
+   1F: 1E14       	MOV A, 0x14
+   20: 7086       	B0BTS0 0x86.0
+   21: 8026       	JMP 0x0026
+   22: 2401       	SUB A, #01h
+   23: 7086       	B0BTS0 0x86.0
+   24: 802A       	JMP 0x002A
+   25: 802D       	JMP 0x002D
+L23:
+                  	                  				{
+                  	                  					case 0:
+                  	                  						ProcessKey();
+   26: C067       	CALL 0x0067
+L26:
+                  	                  						mainStep++;
+   27: 1614       	INCMS 0x14
+   28: 0000       	NOP
+L27:
+                  	                  						break;
+   29: 802E       	JMP 0x002E
+L11:
+                  	                  					case 1:
+                  	                  						ProcessCom();
+   2A: C04E       	CALL 0x004E
+L29:
+                  	                  						mainStep = 0;
+   2B: 2B14       	CLR 0x14
+L30:
+                  	                  						break;
+   2C: 802E       	JMP 0x002E
+L8:
+                  	                  					default:
+                  	                  						mainStep = 0;
+   2D: 2B14       	CLR 0x14
+L32:
+                  	                  						break;
+                  	                  				}
+                  	                  	
+                  	                  				SleepMode();
+   2E: C0BA       	CALL 0x00BA
+L36:
+                  	                  	
+                  	                  		while(1)
+   2F: 801C       	JMP 0x001C
+L41:
+                  	                  			}
+                  	                  		}
+                  	                  	}
+   30: C010       	CALL 0x0010
+   31: 8030       	JMP 0x0030
+_Function_GpioInit_code:
+                  	                  	/***********************************************************
+                  	                  	 * MCU 初始化 
+                  	                  	 ***********************************************************/
+                  	                  	#include "mcu_config.h"
+                  	                  	
+                  	                  	/**********************************************************
+                  	                  	 * 函数名：gpio_init
+                  	                  	 * 描述  ：初始化gpio
+                  	                  	 ******************************/
+                  	                  	static void GpioInit(void)
+                  	                  	{
+                  	                  		  FP00M = 0;
+   32: 60B8       	B0BCLR 0xB8.0
+L6:
+                  	                  		  P0UR = 0;//////////////
+   33: 2BE0       	CLR 0xE0
+L7:
+                  	                  	
+                  	                  		  P1M=0xfe;
+   34: 2DFE       	MOV A, #feh
+   35: 2FC1       	B0MOV P1M, A
+L8:
+                  	                  		  P1UR=0x00;
+   36: 2BE1       	CLR 0xE1
+L9:
+                  	                  		  P1=0x00;//////////////
+   37: 2BD1       	CLR 0xD1
+L10:
+                  	                  		  P1W=0x01;
+   38: 2D01       	MOV A, #01h
+   39: 2FC0       	B0MOV P1W, A
+L11:
+                  	                  	
+                  	                  		  FP12M = 1;
+   3A: 6AC1       	B0BSET P1M.2
+L12:
+                  	                  		  FP13M = 1;
+   3B: 6BC1       	B0BSET P1M.3
+L13:
+                  	                  		  FP12 = 0;
+   3C: 62D1       	B0BCLR P1.2
+L14:
+                  	                  		  FP13 = 0;
+   3D: 63D1       	B0BCLR P1.3
+L15:
+                  	                  	
+                  	                  		  P2M=0xff;
+   3E: 2DFF       	MOV A, #ffh
+   3F: 2FC2       	B0MOV P2M, A
+L16:
+                  	                  		  P2=0x00;
+   40: 2BD2       	CLR 0xD2
+L17:
+                  	                  	
+                  	                  		  P5M=0xff;
+   41: 2FC5       	B0MOV P5M, A
+L18:
+                  	                  		  P5=0x10;
+   42: 2D10       	MOV A, #10h
+   43: 2FD5       	B0MOV P5, A
+L19:
+                  	                  	}
+   44: 0E00       	RET
+_Function_TimerInit_code:
+                  	                  	
+                  	                  	/*
+                  	                  	 * 函数名：time_init
+                  	                  	 * 描述  ：初始化time
+                  	                  	 * 输入  ：无
+                  	                  	 * 输出  ：无
+                  	                  	 * 调用  ：外部调用
+                  	                  	 */
+                  	                  	static void TimerInit(void)
+                  	                  	{
+                  	                  		  TC0R=206;     //(256-206)*2us=100us
+   45: 2DCE       	MOV A, #ceh
+   46: 2FCD       	B0MOV TC0R, A
+L25:
+                  	                  		  TC0C=206;
+   47: 2FDB       	B0MOV TC0C, A
+L26:
+                  	                  		  TC0M=0xf4; 
+   48: 2DF4       	MOV A, #f4h
+   49: 2FDA       	B0MOV TC0M, A
+L27:
+                  	                  	}
+   4A: 0E00       	RET
+_Function_McuConfig_code:
+                  	                  	
+                  	                  	/**********************************************
+                  	                  	 * FunctionName: 初始化
+                  	                  	 ************************/
+                  	                  	void McuConfig(void)
+                  	                  	{
+                  	                  		GpioInit();
+   4B: C032       	CALL 0x0032
+L33:
+                  	                  		TimerInit();
+   4C: C045       	CALL 0x0045
+L34:
+                  	                  	}
+   4D: 0E00       	RET
+_Function_ProcessCom_code:
+                  	                  	/************************************************************
+                  	                  	 * FileName: process_com.c
+                  	                  	 * Describe: 唤醒信号
+                  	                  	*************************************************************/
+                  	                  	#include "process_com.h"
+                  	                  	
+                  	                  	/**********************************************************
+                  	                  	 * FunctionName: ProcessCom
+                  	                  	 * Describe: 当按键有变化时，发送信号100ms low pulse
+                  	                  	**********************************************************/
+                  	                  	void ProcessCom(void)
+                  	                  	{
+                  	                  		static u8t pulseTimeCnt1;
+                  	                  		static u8t pulseTimeCnt2;
+                  	                  	
+                  	                  		if (!wakeFlag)
+   4E: 1E12       	MOV A, 0x12
+   4F: 0600       	CMPRS A, #00h
+   50: 8055       	JMP 0x0055
+L14:
+                  	                  		{
+                  	                  			comPort = 1;
+   51: 6CD5       	B0BSET 0xD5.4
+L17:
+                  	                  			pulseTimeCnt1 = 0;
+   52: 2B05       	CLR 0x05
+L18:
+                  	                  			pulseTimeCnt2 = 0;
+   53: 2B08       	CLR 0x08
+L19:
+                  	                  		}
+   54: 8066       	JMP 0x0066
+L5:
+                  	                  		else
+                  	                  		{
+                  	                  			comPort = 0;
+   55: 64D5       	B0BCLR 0xD5.4
+L24:
+                  	                  			pulseTimeCnt1++;
+   56: 1605       	INCMS 0x05
+   57: 0000       	NOP
+L25:
+                  	                  			if (pulseTimeCnt1 > 99)	//20ms
+   58: 1E05       	MOV A, 0x05
+   59: 0663       	CMPRS A, #63h
+   5A: 7A86       	B0BTS1 0x86.2
+   5B: 8066       	JMP 0x0066
+L26:
+                  	                  			{
+                  	                  				pulseTimeCnt1 = 0;
+   5C: 2B05       	CLR 0x05
+L29:
+                  	                  				pulseTimeCnt2++;
+   5D: 1608       	INCMS 0x08
+   5E: 0000       	NOP
+L30:
+                  	                  	
+                  	                  				if (pulseTimeCnt2 > 4) //100ms
+   5F: 1E08       	MOV A, 0x08
+   60: 0604       	CMPRS A, #04h
+   61: 7A86       	B0BTS1 0x86.2
+   62: 8066       	JMP 0x0066
+L31:
+                  	                  				{
+                  	                  					pulseTimeCnt2 = 0;
+   63: 2B08       	CLR 0x08
+L34:
+                  	                  					comPort = 1;
+   64: 6CD5       	B0BSET 0xD5.4
+L35:
+                  	                  					wakeFlag = 0;
+   65: 2B12       	CLR 0x12
+L36:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  	}
+   66: 0E00       	RET
+_Function_ProcessKey_code:
+                  	                  	/************************************************
+                  	                  	 * FileName: process_key.c
+                  	                  	 * Describe: 按键扫描
+                  	                  	*************************************************/
+                  	                  	#include "process_key.h"
+                  	                  	
+                  	                  	/*********************************************
+                  	                  	 * FunctionName: ProcessKey
+                  	                  	 * describe: 按键扫描
+                  	                  	*********************************************/
+                  	                  	void ProcessKey(void)
+                  	                  	{
+                  	                  		static u8t timeCnt1;
+                  	                  		static u8t timeCnt2;
+                  	                  		static u8t timeCnt3;
+                  	                  		static u8t timeCnt4;
+                  	                  		static FlagStatus protectKeyOnFlag;
+                  	                  		static FlagStatus protectKeyOffFlag;
+                  	                  		static FlagStatus triggerKeyOnFlag;
+                  	                  		static FlagStatus triggerKeyOffFlag;
+                  	                  	
+                  	                  	/////////////////////////////////////
+                  	                  	////////防拆开关
+                  	                  		if (protectPort)
+   67: 78D1       	B0BTS1 0xD1.0
+   68: 807B       	JMP 0x007B
+L36:
+                  	                  		{
+                  	                  			timeCnt1++;
+   69: 1606       	INCMS 0x06
+   6A: 0000       	NOP
+L39:
+                  	                  			timeCnt2 = 0;
+   6B: 2B09       	CLR 0x09
+L40:
+                  	                  	
+                  	                  			if (timeCnt1 > 200)
+   6C: 1E06       	MOV A, 0x06
+   6D: 06C8       	CMPRS A, #C8h
+   6E: 7A86       	B0BTS1 0x86.2
+   6F: 808C       	JMP 0x008C
+L41:
+                  	                  			{
+                  	                  				timeCnt1 = 0;
+   70: 2B06       	CLR 0x06
+L44:
+                  	                  	
+                  	                  				if (protectKeyOffFlag == 0)
+   71: 1E0E       	MOV A, 0x0E
+   72: 0600       	CMPRS A, #00h
+   73: 8077       	JMP 0x0077
+L45:
+                  	                  				{
+                  	                  					wakeFlag = 1;			//防拆开关打开
+   74: 2D01       	MOV A, #01h
+   75: 1F12       	MOV 0x12, A
+L48:
+                  	                  					sleepFlag = 0;
+   76: 2B11       	CLR 0x11
+L49:
+                  	                  				}
+                  	                  	
+                  	                  				protectKeyOnFlag  = 0;
+   77: 2B0D       	CLR 0x0D
+L52:
+                  	                  				protectKeyOffFlag = 1;
+   78: 2D01       	MOV A, #01h
+   79: 1F0E       	MOV 0x0E, A
+L53:
+                  	                  			}
+                  	                  		}
+   7A: 808C       	JMP 0x008C
+L11:
+                  	                  		else
+                  	                  		{
+                  	                  			timeCnt2++;
+   7B: 1609       	INCMS 0x09
+   7C: 0000       	NOP
+L60:
+                  	                  			timeCnt1 = 0;
+   7D: 2B06       	CLR 0x06
+L61:
+                  	                  	
+                  	                  			if (timeCnt2 > 200 )	//80ms
+   7E: 1E09       	MOV A, 0x09
+   7F: 06C8       	CMPRS A, #C8h
+   80: 7A86       	B0BTS1 0x86.2
+   81: 808C       	JMP 0x008C
+L62:
+                  	                  			{
+                  	                  				timeCnt2 = 0;
+   82: 2B09       	CLR 0x09
+L65:
+                  	                  				
+                  	                  				if (protectKeyOnFlag == 0)
+   83: 1E0D       	MOV A, 0x0D
+   84: 0600       	CMPRS A, #00h
+   85: 8089       	JMP 0x0089
+L66:
+                  	                  				{
+                  	                  					wakeFlag = 1;			//防拆开关闭合
+   86: 2D01       	MOV A, #01h
+   87: 1F12       	MOV 0x12, A
+L69:
+                  	                  					sleepFlag = 0;
+   88: 2B11       	CLR 0x11
+L70:
+                  	                  				}
+                  	                  	
+                  	                  				protectKeyOnFlag  = 1;
+   89: 2D01       	MOV A, #01h
+   8A: 1F0D       	MOV 0x0D, A
+L73:
+                  	                  				protectKeyOffFlag = 0;
+   8B: 2B0E       	CLR 0x0E
+L74:
+                  	                  			}
+                  	                  		}
+                  	                  	
+                  	                  	////////////////////////////////////////
+                  	                  	/////////触发开关
+                  	                  		if (protectKeyOnFlag)
+   8C: 1E0D       	MOV A, 0x0D
+   8D: 7086       	B0BTS0 0x86.0
+   8E: 80B5       	JMP 0x00B5
+L79:
+                  	                  		{
+                  	                  			if (triggerPort)
+   8F: 78D0       	B0BTS1 0xD0.0
+   90: 80A3       	JMP 0x00A3
+L82:
+                  	                  			{
+                  	                  				timeCnt3++;
+   91: 160B       	INCMS 0x0B
+   92: 0000       	NOP
+L85:
+                  	                  				timeCnt4 = 0;
+   93: 2B0C       	CLR 0x0C
+L86:
+                  	                  	
+                  	                  				if (timeCnt3 > 200)
+   94: 1E0B       	MOV A, 0x0B
+   95: 06C8       	CMPRS A, #C8h
+   96: 7A86       	B0BTS1 0x86.2
+   97: 80B9       	JMP 0x00B9
+L87:
+                  	                  				{
+                  	                  					timeCnt3 = 0;
+   98: 2B0B       	CLR 0x0B
+L90:
+                  	                  	
+                  	                  					if (triggerKeyOffFlag == 0)
+   99: 1E10       	MOV A, 0x10
+   9A: 0600       	CMPRS A, #00h
+   9B: 809F       	JMP 0x009F
+L91:
+                  	                  					{
+                  	                  						wakeFlag = 1;
+   9C: 2D01       	MOV A, #01h
+   9D: 1F12       	MOV 0x12, A
+L94:
+                  	                  						sleepFlag = 0;
+   9E: 2B11       	CLR 0x11
+L95:
+                  	                  					}
+                  	                  					triggerKeyOffFlag = 1;
+   9F: 2D01       	MOV A, #01h
+   A0: 1F10       	MOV 0x10, A
+L98:
+                  	                  					triggerKeyOnFlag  = 0;
+   A1: 2B0F       	CLR 0x0F
+L99:
+                  	                  				}
+                  	                  			}
+   A2: 80B9       	JMP 0x00B9
+L23:
+                  	                  			else
+                  	                  			{
+                  	                  				timeCnt4++;
+   A3: 160C       	INCMS 0x0C
+   A4: 0000       	NOP
+L106:
+                  	                  				timeCnt3 = 0;
+   A5: 2B0B       	CLR 0x0B
+L107:
+                  	                  	
+                  	                  				if (timeCnt4 > 200)
+   A6: 1E0C       	MOV A, 0x0C
+   A7: 06C8       	CMPRS A, #C8h
+   A8: 7A86       	B0BTS1 0x86.2
+   A9: 80B9       	JMP 0x00B9
+L108:
+                  	                  				{
+                  	                  					timeCnt4 = 0;
+   AA: 2B0C       	CLR 0x0C
+L111:
+                  	                  	
+                  	                  					if (triggerKeyOnFlag == 0)
+   AB: 1E0F       	MOV A, 0x0F
+   AC: 0600       	CMPRS A, #00h
+   AD: 80B1       	JMP 0x00B1
+L112:
+                  	                  					{
+                  	                  						wakeFlag = 1;
+   AE: 2D01       	MOV A, #01h
+   AF: 1F12       	MOV 0x12, A
+L115:
+                  	                  						sleepFlag = 0;
+   B0: 2B11       	CLR 0x11
+L116:
+                  	                  					}
+                  	                  	
+                  	                  					triggerKeyOnFlag  = 1;
+   B1: 2D01       	MOV A, #01h
+   B2: 1F0F       	MOV 0x0F, A
+L119:
+                  	                  					triggerKeyOffFlag = 0;
+   B3: 2B10       	CLR 0x10
+L120:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+   B4: 80B9       	JMP 0x00B9
+L21:
+                  	                  		else
+                  	                  		{
+                  	                  			timeCnt3 = 0;
+   B5: 2B0B       	CLR 0x0B
+L129:
+                  	                  			timeCnt4 = 0;
+   B6: 2B0C       	CLR 0x0C
+L130:
+                  	                  			triggerKeyOffFlag = 0;
+   B7: 2B10       	CLR 0x10
+L131:
+                  	                  			triggerKeyOnFlag  = 0;
+   B8: 2B0F       	CLR 0x0F
+L132:
+                  	                  		}
+                  	                  	}
+   B9: 0E00       	RET
+_Function_SleepMode_code:
+                  	                  	/*******************************************
+                  	                  	 * FileName: process_sleep
+                  	                  	 * Describe: 进入睡眠模式
+                  	                  	********************************************/
+                  	                  	#include "process_sleep.h"
+                  	                  	
+                  	                  	/****************************************
+                  	                  	* FunctionName: SleepMode
+                  	                  	*****************************************/
+                  	                  	void SleepMode(void)
+                  	                  	{
+                  	                  		static u8t sleepTime1;
+                  	                  		static u8t sleepTime2;
+                  	                  	
+                  	                  		if (!sleepFlag)
+   BA: 1E11       	MOV A, 0x11
+   BB: 0600       	CMPRS A, #00h
+   BC: 80C2       	JMP 0x00C2
+L14:
+                  	                  		{
+                  	                  			sleepFlag = 1;
+   BD: 2D01       	MOV A, #01h
+   BE: 1F11       	MOV 0x11, A
+L17:
+                  	                  			sleepTime1 = 0;
+   BF: 2B07       	CLR 0x07
+L18:
+                  	                  			sleepTime2 = 0;
+   C0: 2B0A       	CLR 0x0A
+L19:
+                  	                  		}
+   C1: 80D2       	JMP 0x00D2
+L5:
+                  	                  		else
+                  	                  		{
+                  	                  			sleepTime1++;
+   C2: 1607       	INCMS 0x07
+   C3: 0000       	NOP
+L24:
+                  	                  	
+                  	                  			if (sleepTime1 > 99)	//10ms
+   C4: 1E07       	MOV A, 0x07
+   C5: 0663       	CMPRS A, #63h
+   C6: 7A86       	B0BTS1 0x86.2
+   C7: 80D2       	JMP 0x00D2
+L25:
+                  	                  			{
+                  	                  				sleepTime1 = 0;
+   C8: 2B07       	CLR 0x07
+L28:
+                  	                  				sleepTime2++;
+   C9: 160A       	INCMS 0x0A
+   CA: 0000       	NOP
+L29:
+                  	                  				if (sleepTime2 > 199) //2s
+   CB: 1E0A       	MOV A, 0x0A
+   CC: 06C7       	CMPRS A, #C7h
+   CD: 7A86       	B0BTS1 0x86.2
+   CE: 80D2       	JMP 0x00D2
+L30:
+                  	                  				{
+                  	                  					sleepTime2 = 0;
+   CF: 2B0A       	CLR 0x0A
+L33:
+                  	                  					FCPUM1 = 0;
+   D0: 64CA       	B0BCLR 0xCA.4
+L34:
+                  	                  					FCPUM0 = 1;
+   D1: 6BCA       	B0BSET 0xCA.3
+L35:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  	}
+   D2: 0E00       	RET

@@ -1,0 +1,29 @@
+;	STMicroelectronics dependencies file
+
+[Version]
+Keyword=ST7Project
+Number=1.3
+
+[Root.Source Files.ade7753.c.Config.0]
+ExternDep= ade7753.c "C:\Program Files (x86)\COSMIC\CXSTM8\Hstm8\mods0.h"  stm8s003F3.h STM8S103F.h stm8s_bitsdefine.h ade7753.h type.h
+
+[Root.Source Files.clk.c.Config.0]
+ExternDep= clk.c "C:\Program Files (x86)\COSMIC\CXSTM8\Hstm8\mods0.h"  stm8s003f3.h STM8S103F.h clk.h
+
+[Root.Source Files.eeprom.c.Config.0]
+ExternDep= eeprom.c "C:\Program Files (x86)\COSMIC\CXSTM8\Hstm8\mods0.h"  stm8s003f3.h STM8S103F.h eeprom.h
+
+[Root.Source Files.gpio.c.Config.0]
+ExternDep= gpio.c "C:\Program Files (x86)\COSMIC\CXSTM8\Hstm8\mods0.h"  stm8s003f3.h STM8S103F.h gpio.h
+
+[Root.Source Files.main.c.Config.0]
+ExternDep= main.c "C:\Program Files (x86)\COSMIC\CXSTM8\Hstm8\mods0.h"  stm8s003f3.h STM8S103F.h main.h type.h
+
+[Root.Source Files.meter.c.Config.0]
+ExternDep= meter.c "C:\Program Files (x86)\COSMIC\CXSTM8\Hstm8\mods0.h"  stm8s003f3.h STM8S103F.h type.h meter.h
+
+[Root.Source Files.stm8_interrupt_vector.c.Config.0]
+ExternDep= stm8_interrupt_vector.c  "C:\Program Files (x86)\COSMIC\CXSTM8\Hstm8\mods0.h" stm8s003f3.h STM8S103F.h  type.h
+
+[Root.Source Files.uart.c.Config.0]
+ExternDep= uart.c "C:\Program Files (x86)\COSMIC\CXSTM8\Hstm8\mods0.h"  stm8s003f3.h STM8S103F.h type.h uart.h

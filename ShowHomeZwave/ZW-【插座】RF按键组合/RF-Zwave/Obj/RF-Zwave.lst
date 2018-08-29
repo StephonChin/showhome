@@ -1,0 +1,452 @@
+start listing elf file - .\Bin/RF-Zwave.out
+
+
+------------------begin data section------------------
+
+Start   Length(Byte)  Type  Name                             Source File
+000000    0X05        Data  crt0@data                        
+0X0005    0X05        Data  _InterruptBackupData             
+0X000A    0X01        Data  _VirtualReg                      
+0X000B    0X01        Data  _flagPowerOn@segment             F:\RF按键组合\RF-Zwave\Src\main.c
+0X000C    0X01        Data  _flagSingle@segment              F:\RF按键组合\RF-Zwave\Src\main.c
+0X000D    0X01        Data  _Function_waveOffPulse_data      F:\RF按键组合\RF-Zwave\Src\main.c
+0X000D    0X02        Data  _Function_rfOnPulse_data         F:\RF按键组合\RF-Zwave\Src\main.c
+0X000D    0X03        Data  _Function_Delay1s_data           F:\RF按键组合\RF-Zwave\Src\main.c
+
+
+crt0@data SEGMENT DATA INBANK
+	H	DS	1
+	L	DS	1
+	X	DS	1
+	I	DS	1
+	T	DS	1
+
+_InterruptBackupData SEGMENT DATA INBANK
+	_bufT	DS	1
+	_bufI	DS	1
+	_bufY	DS	1
+	_bufZ	DS	1
+	_bufR	DS	1
+
+_VirtualReg SEGMENT DATA INBANK
+	W0	DS	1
+
+_flagPowerOn@segment SEGMENT DATA INBANK
+	_flagPowerOn	DS	1
+
+_flagSingle@segment SEGMENT DATA INBANK
+	_flagSingle	DS	1
+
+_Function_waveOffPulse_data SEGMENT DATA INBANK
+	_waveOffPulse_data@0	DS	1
+
+_Function_rfOnPulse_data SEGMENT DATA INBANK
+	_rfOnPulse_data@0	DS	1
+	_rfOnPulse_data@1	DS	1
+
+_Function_Delay1s_data SEGMENT DATA INBANK
+	_Delay1s_arg@0	DS	1
+	_Delay1s_data@0	DS	1
+	_Delay1s_data@1	DS	1
+
+
+------------------begin disassembly code------------------
+
+    0: 800A       	JMP 0x000A
+    1: 0000       	NOP
+    2: 0000       	NOP
+    3: 0000       	NOP
+    4: 0000       	NOP
+    5: 0000       	NOP
+    6: 0000       	NOP
+    7: 0000       	NOP
+_interrupt@_interrupt_isr_isr:
+    8: 803F       	JMP 0x003F
+.CODE:
+    9: F9F9       	CALL 0x39F9
+_SGV_INIT_CODE_BEGIN:
+    A: 2D7F       	MOV A, #7fh
+    B: 2FDF       	B0MOV STKP, A
+    C: C010       	CALL 0x0010
+    D: C013       	CALL 0x0013
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+    F: 802E       	JMP 0x002E
+__ClearWatchDogTimer:
+   10: 2D5A       	MOV A, #5ah
+   11: 2FCC       	B0MOV WDTR, A
+   12: 0E00       	RET
+__ClrRAM:
+   13: 2B84       	CLR 0x84
+   14: 332F       	B0MOV 0x83, #2Fh
+ClrRAM10:
+   15: 2BE7       	CLR 0xE7
+   16: 2683       	DECMS 0x83
+   17: 8015       	JMP 0x0015
+   18: 2BE7       	CLR 0xE7
+   19: 0E00       	RET
+_Function_GpioInit_code:
+                  	                  	/**************************************
+                  	                  	 * FileName: mcu_initialize.h
+                  	                  	 * Describe: initialize the GPIO timer
+                  	                  	 *************************************/
+                  	                  	
+                  	                  	#include "system.h"
+                  	                  	
+                  	                  	/*-------------------------------------
+                  	                  	 * FunctionName: GpioInit()
+                  	                  	 */
+                  	                  	void GpioInit(void)
+                  	                  	{
+                  	                  		FP22M = 0;
+   1A: 62C2       	B0BCLR 0xC2.2
+L6:
+                  	                  		FP54M = 0;
+   1B: 64C5       	B0BCLR 0xC5.4
+L7:
+                  	                  	
+                  	                  		FP00M = 0;
+   1C: 60B8       	B0BCLR 0xB8.0
+L8:
+                  	                  		FP10M = 1;
+   1D: 68C1       	B0BSET 0xC1.0
+L9:
+                  	                  		P1OC  = 1;
+   1E: 2D01       	MOV A, #01h
+   1F: 2FE9       	B0MOV P1OC, A
+L10:
+                  	                  		
+                  	                  		FP10 = 1;
+   20: 68D1       	B0BSET P1.0
+L11:
+                  	                  	}
+   21: 0E00       	RET
+_Function_TimerInit_code:
+                  	                  	
+                  	                  	/*------------------------------------
+                  	                  	 * FunctionName: TimerInit/interrupt initialize
+                  	                  	 */
+                  	                  	void TimerInit(void)
+                  	                  	{
+                  	                  		TC0M = 0x64;	//f = 1/64
+   22: 2D64       	MOV A, #64h
+   23: 2FDA       	B0MOV TC0M, A
+L17:
+                  	                  		TC0C = 16;		//T = 20 * 64 = 1ms
+   24: 2D10       	MOV A, #10h
+   25: 2FDB       	B0MOV TC0C, A
+L18:
+                  	                  		TC0R = 16;
+   26: 2FCD       	B0MOV TC0R, A
+L19:
+                  	                  	
+                  	                  		FGIE = 0;
+   27: 67DF       	B0BCLR STKP.7
+L20:
+                  	                  		FP00IRQ = 0;
+   28: 60C8       	B0BCLR INTRQ.0
+L21:
+                  	                  		FP00G1 = 0;
+   29: 64BF       	B0BCLR PEDGE.4
+L22:
+                  	                  		FP00G0 = 1;
+   2A: 6BBF       	B0BSET PEDGE.3
+L23:
+                  	                  		FP00IEN = 1;
+   2B: 68C9       	B0BSET INTEN.0
+L24:
+                  	                  		FGIE = 1;
+   2C: 6FDF       	B0BSET STKP.7
+L25:
+                  	                  	}
+   2D: 0E00       	RET
+_Function_main_code:
+                  	                  	/*************************************************************
+                  	                  	 * FileName: main.c
+                  	                  	 * Author: DS.Chin
+                  	                  	 * Date: 2015.04.28
+                  	                  	**************************************************************/
+                  	                  	#include "system.h"
+                  	                  	
+                  	                  	FlagStatus flagSingle;
+                  	                  	FlagStatus flagPowerOn;
+                  	                  	void main(void)
+                  	                  	{
+                  	                  		GpioInit();
+   2E: C01A       	CALL 0x001A
+L13:
+                  	                  		TimerInit();
+   2F: C022       	CALL 0x0022
+L3:
+                  	                  		{
+                  	                  			if(flagSingle)
+   30: 1E0C       	MOV A, 0x0C
+   31: 7086       	B0BTS0 0x86.0
+   32: 803C       	JMP 0x003C
+L17:
+                  	                  			{
+                  	                  				flagSingle = 0;
+   33: 2B0C       	CLR 0x0C
+L20:
+                  	                  	
+                  	                  				//Delay1s(1);
+                  	                  				rfOnPulse();
+   34: C078       	CALL 0x0078
+L21:
+                  	                  					
+                  	                  				Delay1s(20);			
+   35: 2D14       	MOV A, #14h
+   36: 1F0D       	MOV 0x0D, A
+   37: C05A       	CALL 0x005A
+L22:
+                  	                  				if (flagPowerOn)
+   38: 1E0B       	MOV A, 0x0B
+   39: 7086       	B0BTS0 0x86.0
+   3A: 803C       	JMP 0x003C
+L23:
+                  	                  					waveOffPulse();
+   3B: C091       	CALL 0x0091
+L8:
+                  	                  	
+                  	                  		while(1)
+   3C: 8030       	JMP 0x0030
+L29:
+                  	                  			}
+                  	                  		}
+                  	                  	}
+   3D: C010       	CALL 0x0010
+   3E: 803D       	JMP 0x003D
+_Function_interrupt_isr_isr_code:
+   3F: 0400       	PUSH
+   40: 2E84       	B0MOV A, Y
+   41: 2F07       	B0MOV 0x07, A
+   42: 2E83       	B0MOV A, Z
+   43: 2F08       	B0MOV 0x08, A
+   44: 2E82       	B0MOV A, R
+   45: 2F09       	B0MOV 0x09, A
+   46: 2E04       	B0MOV A, 0x04
+   47: 2F05       	B0MOV 0x05, A
+   48: 2E03       	B0MOV A, 0x03
+   49: 2F06       	B0MOV 0x06, A
+L32:
+                  	                  	
+                  	                  	void __interrupt[0x08] interrupt_isr(void)
+                  	                  	{
+                  	                  		FP00IRQ = 0;
+   4A: 60C8       	B0BCLR INTRQ.0
+L35:
+                  	                  		flagPowerOn = 1;
+   4B: 2D01       	MOV A, #01h
+   4C: 1F0B       	MOV 0x0B, A
+L36:
+                  	                  		flagSingle = 1;
+   4D: 1F0C       	MOV 0x0C, A
+L37:
+                  	                  	}
+   4E: 2E05       	B0MOV A, 0x05
+   4F: 2F04       	B0MOV 0x04, A
+   50: 2E06       	B0MOV A, 0x06
+   51: 2F03       	B0MOV 0x03, A
+   52: 2E07       	B0MOV A, 0x07
+   53: 2F84       	B0MOV Y, A
+   54: 2E08       	B0MOV A, 0x08
+   55: 2F83       	B0MOV Z, A
+   56: 2E09       	B0MOV A, 0x09
+   57: 2F82       	B0MOV R, A
+   58: 0500       	POP
+   59: 0F00       	RETI
+_Function_Delay1s_code:
+                  	                  	
+                  	                  	/*--------------------------------------------------
+                  	                  	 * Function: Delay5s
+                  	                  	 */
+                  	                  	void Delay1s(u8t secNum)
+                  	                  	{
+                  	                  		u8t catNum1 = 0;
+   5A: 2B0E       	CLR 0x0E
+L52:
+                  	                  		u8t catNum2 = 0;
+   5B: 2B0F       	CLR 0x0F
+L53:
+                  	                  	
+                  	                  		FTC0ENB = 1;
+   5C: 6FDA       	B0BSET 0xDA.7
+   5D: 806E       	JMP 0x006E
+L40:
+                  	                  		{
+                  	                  			if (!zWaveSingle)
+   5E: 70D0       	B0BTS0 0xD0.0
+   5F: 8062       	JMP 0x0062
+L57:
+                  	                  			{
+                  	                  				flagPowerOn = 0;
+   60: 2B0B       	CLR 0x0B
+L60:
+                  	                  				break;
+   61: 8076       	JMP 0x0076
+L61:
+                  	                  			}
+                  	                  			else
+                  	                  			{
+                  	                  				if (FTC0IRQ == 1)
+   62: 7DC8       	B0BTS1 0xC8.5
+   63: 806E       	JMP 0x006E
+L66:
+                  	                  				{
+                  	                  					FTC0IRQ = 0;
+   64: 65C8       	B0BCLR 0xC8.5
+L69:
+                  	                  					catNum1++;
+   65: 160E       	INCMS 0x0E
+   66: 0000       	NOP
+L70:
+                  	                  					if (catNum1 > 124) 
+   67: 1E0E       	MOV A, 0x0E
+   68: 067C       	CMPRS A, #7Ch
+   69: 7A86       	B0BTS1 0x86.2
+   6A: 806E       	JMP 0x006E
+L71:
+                  	                  					{
+                  	                  						catNum1 = 0;
+   6B: 2B0E       	CLR 0x0E
+L74:
+                  	                  						catNum2++;
+   6C: 160F       	INCMS 0x0F
+   6D: 0000       	NOP
+L75:
+                  	                  		while (catNum2 < (2 * secNum))
+   6E: 1E0D       	MOV A, 0x0D
+   6F: 2F0A       	B0MOV 0x0A, A
+   70: 6286       	B0BCLR PFLAG.2
+   71: 0B0A       	RLCM 0x0A
+   72: 1E0F       	MOV A, 0x0F
+   73: 220A       	SUB A, 0x0A
+   74: 7A86       	B0BTS1 0x86.2
+   75: 805E       	JMP 0x005E
+L42:
+                  	                  					}
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  		FTC0ENB = 0;
+   76: 67DA       	B0BCLR 0xDA.7
+L85:
+                  	                  	}
+   77: 0E00       	RET
+_Function_rfOnPulse_code:
+                  	                  	
+                  	                  	/*---------------------------------------------------
+                  	                  	 * Function: send an 100ms low pulse--rf on
+                  	                  	 */
+                  	                  	void rfOnPulse(void)
+                  	                  	{
+                  	                  		u8t catNum = 0;
+   78: 2B0D       	CLR 0x0D
+L98:
+                  	                  		u8t catNum2 = 0;
+   79: 2B0E       	CLR 0x0E
+L99:
+                  	                  	
+                  	                  		FP22M = 1;
+   7A: 6AC2       	B0BSET 0xC2.2
+L100:
+                  	                  		FP22 = 0;
+   7B: 62D2       	B0BCLR 0xD2.2
+L101:
+                  	                  		FTC0ENB = 1;
+   7C: 6FDA       	B0BSET 0xDA.7
+   7D: 808A       	JMP 0x008A
+L88:
+                  	                  		{
+                  	                  			if (FTC0IRQ)
+   7E: 7DC8       	B0BTS1 0xC8.5
+   7F: 808A       	JMP 0x008A
+L105:
+                  	                  			{
+                  	                  				FTC0IRQ = 0;
+   80: 65C8       	B0BCLR 0xC8.5
+L108:
+                  	                  				catNum++;
+   81: 160D       	INCMS 0x0D
+   82: 0000       	NOP
+L109:
+                  	                  				if (catNum > 7)
+   83: 1E0D       	MOV A, 0x0D
+   84: 0607       	CMPRS A, #07h
+   85: 7A86       	B0BTS1 0x86.2
+   86: 808A       	JMP 0x008A
+L110:
+                  	                  				{
+                  	                  					catNum = 0;
+   87: 2B0D       	CLR 0x0D
+L113:
+                  	                  					catNum2++;
+   88: 160E       	INCMS 0x0E
+   89: 0000       	NOP
+L114:
+                  	                  		while (catNum2 < 50)
+   8A: 1E0E       	MOV A, 0x0E
+   8B: 2432       	SUB A, #32h
+   8C: 7A86       	B0BTS1 0x86.2
+   8D: 807E       	JMP 0x007E
+L121:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  		FP22M = 0;
+   8E: 62C2       	B0BCLR 0xC2.2
+L122:
+                  	                  		FTC0ENB = 0;
+   8F: 67DA       	B0BCLR 0xDA.7
+L123:
+                  	                  	}
+   90: 0E00       	RET
+_Function_waveOffPulse_code:
+                  	                  	
+                  	                  	
+                  	                  	/*---------------------------------------------------
+                  	                  	 * Function: send an 100ms low pulse--rf on
+                  	                  	 */
+                  	                  	void waveOffPulse(void)
+                  	                  	{
+                  	                  		u8t catNum = 0;
+   91: 2B0D       	CLR 0x0D
+L134:
+                  	                  		zWavePower = 0;
+   92: 60D1       	B0BCLR 0xD1.0
+L135:
+                  	                  		FTC0ENB = 1;
+   93: 6FDA       	B0BSET 0xDA.7
+   94: 809A       	JMP 0x009A
+L126:
+                  	                  		{
+                  	                  			if (FTC0IRQ)
+   95: 7DC8       	B0BTS1 0xC8.5
+   96: 809A       	JMP 0x009A
+L139:
+                  	                  			{
+                  	                  				catNum++;
+   97: 160D       	INCMS 0x0D
+   98: 0000       	NOP
+L142:
+                  	                  				FTC0IRQ = 0;
+   99: 65C8       	B0BCLR 0xC8.5
+L143:
+                  	                  		while (catNum < 200)
+   9A: 1E0D       	MOV A, 0x0D
+   9B: 24C8       	SUB A, #c8h
+   9C: 7A86       	B0BTS1 0x86.2
+   9D: 8095       	JMP 0x0095
+L148:
+                  	                  			}
+                  	                  		}
+                  	                  		zWavePower = 1;
+   9E: 68D1       	B0BSET 0xD1.0
+L149:
+                  	                  		FTC0ENB = 0;
+   9F: 67DA       	B0BCLR 0xDA.7
+L150:
+                  	                  	}
+   A0: 0E00       	RET

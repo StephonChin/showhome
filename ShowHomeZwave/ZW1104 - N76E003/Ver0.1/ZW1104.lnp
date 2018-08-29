@@ -1,0 +1,9 @@
+"STARTUP.obj",
+"ZW1104.obj",
+"Comm.obj",
+"Led_Display.obj",
+"MCU_Config.obj",
+"Data_Process.obj",
+"Sleep.obj" 
+TO "ZW1104" 
+RAMSIZE(256) 

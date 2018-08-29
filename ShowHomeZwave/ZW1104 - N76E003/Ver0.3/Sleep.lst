@@ -1,0 +1,65 @@
+C51 COMPILER V9.52.0.0   SLEEP                                                             07/07/2017 10:14:13 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SLEEP
+OBJECT MODULE PLACED IN Sleep.obj
+COMPILER INVOKED BY: C:\Keil51\C51\BIN\C51.EXE Source\Sleep.c BROWSE INCDIR(.\Include) DEBUG OBJECTEXTEND PRINT(.\Sleep.
+                    -lst) TABS(2) OBJECT(Sleep.obj)
+
+line level    source
+
+   1          /*******************************************************************
+   2            *
+   3            * @FileName   Sleepp.c
+   4            * @Date       2017.03.03
+   5            * @Author     DS.Chin
+   6            *
+   7          *********************************************************************/
+   8          #include "Sleep.h"
+   9          
+  10          
+  11          
+  12          /*********************************************
+  13            *
+  14            * @FunctionName Sleep_Control
+  15            *
+  16          ***/
+  17          void Sleep_Control(void)
+  18          {
+  19   1        static _Uint8 SleepTime;
+  20   1        
+  21   1        if ((LedData.Mode != LED_RGB_OFF) || (WakeUpMode != 0) || (KeySleepFlag == FALSE))
+  22   1        {
+  23   2          SleepTime = 0;
+  24   2        }
+  25   1        else
+  26   1        {
+  27   2          SleepTime++;
+  28   2          if (SleepTime > 10)
+  29   2          {
+  30   3            SleepTime = 0;
+  31   3            
+  32   3      //      /* when the mode is LED-B-SLOW, Open the WKT */
+  33   3      //      if (TrigForbidFlag == TRUE)   WKCON |= BIT3;
+  34   3            
+  35   3            /* Set PD as 1, turn into power drop mode */
+  36   3            PCON |= BIT1; 
+  37   3          }
+  38   2        }
+  39   1      }
+  40          
+  41          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     32    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

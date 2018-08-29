@@ -1,0 +1,1385 @@
+start listing elf file - .\Bin/ZW-112.out
+
+
+------------------begin data section------------------
+
+Start   Length(Byte)  Type  Name                             Source File
+000000    0X05        Data  crt0@data                        
+0X0005    0X01        Data  _system_c_GlobalBitDataPool0     F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\system.c
+0X0006    0X06        Data  _VirtualReg                      
+0X000C    0X0B        Data  __runtime_arg                    
+0X0017    0X0D        Data  _sdata2@segment                  F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\main.c
+0X0024    0X04        Data  _sdata3@segment                  F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\main.c
+0X0028    0X01        Data  _sysForbidTime@segment           F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\system.c
+0X0029    0X02        Data  _sdata4@segment                  F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\key_scan.c
+0X002B    0X02        Data  _sdata5@segment                  F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\key_scan.c
+0X002D    0X01        Data  _sdata60@segment                 F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\key_scan.c
+0X002E    0X01        Data  _sdata61@segment                 F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\key_scan.c
+0X002F    0X01        Data  _sdata6@segment                  F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\single_output.c
+0X0030    0X01        Data  _sdata7@segment                  F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\single_output.c
+0X0031    0X01        Data  _sdata8@segment                  F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\single_output.c
+0X0032    0X02        Data  _sdata9@segment                  F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\single_output.c
+0X0034    0X04        Data  _Function_AdScan_data            F:\PROJECT\ShowHome\ZW-112-时间可调\ZW-112\Src\ad_scan.c
+
+
+crt0@data SEGMENT DATA INBANK
+	H	DS	1
+	L	DS	1
+	X	DS	1
+	I	DS	1
+	T	DS	1
+
+_system_c_GlobalBitDataPool0 SEGMENT DATA INBANK
+	_forbidFlag	DSBIT	1
+	_sysTriacFlag	DSBIT	1
+	_sysTriacInit	DSBIT	1
+	_sysPirStatusFlag	DSBIT	1
+	_sysKeyStatusFlag	DSBIT	1
+
+_VirtualReg SEGMENT DATA INBANK
+	W0	DS	1
+	W1	DS	1
+	W2	DS	1
+	W3	DS	1
+	W4	DS	1
+	W5	DS	1
+
+__runtime_arg SEGMENT DATA INBANK
+	__SrcLArg0	DS	1
+	__SrcLArg1	DS	1
+	__SrcLArg2	DS	1
+	__SrcLArg3	DS	1
+	__SrcRArg0	DS	1
+	__SrcRArg1	DS	1
+	__SrcRArg2	DS	1
+	__SrcRArg3	DS	1
+	R0	DS	1
+	R1	DS	1
+	R2	DS	1
+
+_sdata2@segment SEGMENT DATA INBANK
+	_sdata2	DS	1
+
+_sdata3@segment SEGMENT DATA INBANK
+	_sdata3	DS	1
+
+_sysForbidTime@segment SEGMENT DATA INBANK
+	_sysForbidTime	DS	1
+
+_sdata4@segment SEGMENT DATA INBANK
+	_sdata4	DS	1
+
+_sdata5@segment SEGMENT DATA INBANK
+	_sdata5	DS	1
+
+_sdata60@segment SEGMENT DATA INBANK
+	_sdata60	DS	1
+
+_sdata61@segment SEGMENT DATA INBANK
+	_sdata61	DS	1
+
+_sdata6@segment SEGMENT DATA INBANK
+	_sdata6	DSBIT	1
+
+_sdata7@segment SEGMENT DATA INBANK
+	_sdata7	DSBIT	1
+
+_sdata8@segment SEGMENT DATA INBANK
+	_sdata8	DSBIT	1
+
+_sdata9@segment SEGMENT DATA INBANK
+	_sdata9	DS	2
+
+_Function_AdScan_data SEGMENT DATA INBANK
+	_AdScan_data@0	DS	1
+	_AdScan_data@1	DS	1
+	_AdScan_data@2	DS	1
+	_AdScan_data@3	DS	1
+
+
+------------------begin disassembly code------------------
+
+    0: 800A       	JMP 0x000A
+    1: 0000       	NOP
+    2: 0000       	NOP
+    3: 0000       	NOP
+    4: 0000       	NOP
+    5: 0000       	NOP
+    6: 0000       	NOP
+    7: 0000       	NOP
+.CODE:
+    8: F9F9       	CALL 0x39F9
+_SGV_INIT_CODE_BEGIN:
+    A: 2D7F       	MOV A, #7fh
+    B: 2FDF       	B0MOV STKP, A
+    C: C019       	CALL 0x0019
+    D: C01C       	CALL 0x001C
+_SGV_INIT_CODE:
+    E: 3401       	B0MOV 0x84, #01h
+    F: 334E       	B0MOV 0x83, #4Eh
+   10: 2D00       	MOV A, #00h
+   11: 2F00       	B0MOV 0x00, A
+   12: 2D1A       	MOV A, #1ah
+   13: 2F01       	B0MOV 0x01, A
+   14: 2D0A       	MOV A, #0ah
+   15: 2F02       	B0MOV 0x02, A
+   16: C034       	CALL 0x0034
+_SGV_INIT_CODE_END:
+   17: C019       	CALL 0x0019
+   18: 805E       	JMP 0x005E
+__ClearWatchDogTimer:
+   19: 2D5A       	MOV A, #5ah
+   1A: 2FCC       	B0MOV WDTR, A
+   1B: 0E00       	RET
+__ClrRAM:
+   1C: 2B84       	CLR 0x84
+   1D: 333F       	B0MOV 0x83, #3Fh
+ClrRAM10:
+   1E: 2BE7       	CLR 0xE7
+   1F: 2683       	DECMS 0x83
+   20: 801E       	JMP 0x001E
+   21: 2BE7       	CLR 0xE7
+   22: 0E00       	RET
+__CmpULong@RTSegment:
+   23: 2D80       	MOV A, #80h
+   24: 030D       	B0ADD 0x0D, A
+   25: 0311       	B0ADD 0x11, A
+__CmpULong:
+   26: 2E0D       	B0MOV A, 0x0D
+   27: 0711       	CMPRS A, 0x11
+   28: 802E       	JMP 0x002E
+@@Judge_equal:
+   29: 2E0C       	B0MOV A, 0x0C
+   2A: 0710       	CMPRS A, 0x10
+   2B: 802E       	JMP 0x002E
+   2C: 2D00       	MOV A, #00h
+   2D: 8033       	JMP 0x0033
+@@Judge_unequal:
+   2E: 7A86       	B0BTS1 0x86.2
+   2F: 8032       	JMP 0x0032
+   30: 2D01       	MOV A, #01h
+   31: 8033       	JMP 0x0033
+@@Result_Less:
+   32: 2DFF       	MOV A, #ffh
+@@EndLable:
+   33: 0E00       	RET
+sn8cc_lib@RTSegment:
+   34: 2E02       	B0MOV A, 0x02
+   35: 2F03       	B0MOV 0x03, A
+   36: 2D00       	MOV A, #00h
+   37: 2F02       	B0MOV 0x02, A
+LOOP:
+   38: 0D00       	MOVC
+   39: 2F04       	B0MOV 0x04, A
+   3A: 2E00       	B0MOV A, 0x00
+   3B: 2C84       	XCH A, 0x84
+   3C: 2F00       	B0MOV 0x00, A
+   3D: 2E01       	B0MOV A, 0x01
+   3E: 2C83       	XCH A, 0x83
+   3F: 2F01       	B0MOV 0x01, A
+   40: 2E04       	B0MOV A, 0x04
+   41: 2FE7       	B0MOV @YZ, A
+   42: 2603       	DECMS 0x03
+   43: 8045       	JMP 0x0045
+   44: 805D       	JMP 0x005D
+_Continue1:
+   45: 2D01       	MOV A, #01h
+   46: 1383       	ADD 0x83, A
+   47: 2D00       	MOV A, #00h
+   48: 1184       	ADC 0x84, A
+   49: 2E82       	B0MOV A, R
+   4A: 2FE7       	B0MOV @YZ, A
+   4B: 2603       	DECMS 0x03
+   4C: 804E       	JMP 0x004E
+   4D: 805D       	JMP 0x005D
+_Continue2:
+   4E: 2D01       	MOV A, #01h
+   4F: 1383       	ADD 0x83, A
+   50: 2D00       	MOV A, #00h
+   51: 1184       	ADC 0x84, A
+   52: 2E00       	B0MOV A, 0x00
+   53: 2C84       	XCH A, 0x84
+   54: 2F00       	B0MOV 0x00, A
+   55: 2E01       	B0MOV A, 0x01
+   56: 2C83       	XCH A, 0x83
+   57: 2F01       	B0MOV 0x01, A
+   58: 2D01       	MOV A, #01h
+   59: 1383       	ADD 0x83, A
+   5A: 2D00       	MOV A, #00h
+   5B: 1184       	ADC 0x84, A
+   5C: 8038       	JMP 0x0038
+_END:
+   5D: 0E00       	RET
+_Function_main_code:
+                  	                  	/********************************************************************
+                  	                  	 *
+                  	                  	 * @ FileName: zw-112.c
+                  	                  	 * @ Date: 2015.10.15
+                  	                  	 * @ Author: DS.Chin
+                  	                  	 * @ Describe:PIR信号检测与信号输出，可通过滑动变阻器调节触发禁止时间
+                  	                  	 *
+                  	                  	**********************************************************************/
+                  	                  	#include "main.h"
+                  	                  	
+                  	                  	/********************************************************************
+                  	                  	 * @ FunctionName: main
+                  	                  	 * @ Describe: 主函数，程序整体流程控制
+                  	                  	********************************************************************/
+                  	                  	void main(void)
+                  	                  	{
+                  	                  		static uchar 		programmStep = 0;
+                  	                  		static uchar		sleepCnt;
+                  	                  	
+                  	                  		McuConfig();
+   5E: C14B       	CALL 0x014B
+L4:
+                  	                  		{
+                  	                  			if (FTC0IRQ == 1)//	1ms
+   5F: 7DC8       	B0BTS1 0xC8.5
+   60: 8094       	JMP 0x0094
+L25:
+                  	                  			{
+                  	                  				FTC0IRQ =0;
+   61: 65C8       	B0BCLR 0xC8.5
+L28:
+                  	                  	
+                  	                  				//睡眠模式
+                  	                  				if (!sysKeyStatusFlag && !sysPirStatusFlag && !sysTriacFlag && !forbidFlag)
+   62: 5405       	BTS0 0x05.4
+   63: 8075       	JMP 0x0075
+   64: 5305       	BTS0 0x05.3
+   65: 8075       	JMP 0x0075
+   66: 5105       	BTS0 0x05.1
+   67: 8075       	JMP 0x0075
+   68: 5005       	BTS0 0x05.0
+   69: 8075       	JMP 0x0075
+L29:
+                  	                  				{
+                  	                  					sleepCnt++;
+   6A: 1624       	INCMS 0x24
+   6B: 0000       	NOP
+L32:
+                  	                  					if (sleepCnt > 200)	//200ms
+   6C: 1E24       	MOV A, 0x24
+   6D: 06C8       	CMPRS A, #C8h
+   6E: 7A86       	B0BTS1 0x86.2
+   6F: 8076       	JMP 0x0076
+L33:
+                  	                  					{
+                  	                  						sleepCnt = 0;
+   70: 2B24       	CLR 0x24
+L36:
+                  	                  	
+                  	                  						FADENB = 0;
+   71: 67B1       	B0BCLR 0xB1.7
+L37:
+                  	                  						FCPUM0 = 1;
+   72: 6BCA       	B0BSET 0xCA.3
+L38:
+                  	                  						FCPUM1 = 0;
+   73: 64CA       	B0BCLR 0xCA.4
+L39:
+                  	                  					}
+                  	                  				}
+   74: 8076       	JMP 0x0076
+L9:
+                  	                  				else
+                  	                  				{
+                  	                  					sleepCnt = 0;
+   75: 2B24       	CLR 0x24
+L46:
+                  	                  				}
+                  	                  	
+                  	                  				//正常工作模式下流程控制
+                  	                  				switch(programmStep)//4ms
+   76: 1E17       	MOV A, 0x17
+   77: 1480       	ADD A, #80h
+   78: 0684       	CMPRS A, #84h
+   79: 7286       	B0BTS0 0x86.2
+   7A: 8083       	JMP 0x0083
+   7B: 2480       	SUB A, #80h
+   7C: 7A86       	B0BTS1 0x86.2
+   7D: 8083       	JMP 0x0083
+   7E: 03CE       	B0ADD PCL, A
+   7F: 8084       	JMP 0x0084
+   80: 8088       	JMP 0x0088
+   81: 808C       	JMP 0x008C
+   82: 8090       	JMP 0x0090
+L75:
+   83: 8093       	JMP 0x0093
+L49:
+                  	                  				{
+                  	                  					case 0:
+                  	                  						KeyScan();
+   84: C097       	CALL 0x0097
+L52:
+                  	                  						programmStep++;
+   85: 1617       	INCMS 0x17
+   86: 0000       	NOP
+L53:
+                  	                  						break;
+   87: 8094       	JMP 0x0094
+L16:
+                  	                  					case 1:
+                  	                  						PirChk();
+   88: C0B7       	CALL 0x00B7
+L55:
+                  	                  						programmStep++;
+   89: 1617       	INCMS 0x17
+   8A: 0000       	NOP
+L56:
+                  	                  						break;
+   8B: 8094       	JMP 0x0094
+L17:
+                  	                  					case 2:
+                  	                  						AdScan();
+   8C: C153       	CALL 0x0153
+L58:
+                  	                  						programmStep++;
+   8D: 1617       	INCMS 0x17
+   8E: 0000       	NOP
+L59:
+                  	                  						break;
+   8F: 8094       	JMP 0x0094
+L18:
+                  	                  					case 3:
+                  	                  						SingleOutput();
+   90: C0CB       	CALL 0x00CB
+L61:
+                  	                  						programmStep = 0;
+   91: 2B17       	CLR 0x17
+L62:
+                  	                  						break;
+   92: 8094       	JMP 0x0094
+L13:
+                  	                  					default:
+                  	                  						programmStep = 0;
+   93: 2B17       	CLR 0x17
+L64:
+                  	                  	
+                  	                  		while(1)
+   94: 805F       	JMP 0x005F
+L72:
+                  	                  						break;
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  	
+                  	                  	}
+   95: C019       	CALL 0x0019
+   96: 8095       	JMP 0x0095
+_Function_KeyScan_code:
+                  	                  	/**********************************************
+                  	                  	 * @ FileName: key_scan.c
+                  	                  	 * @ Date: 2015.10.15
+                  	                  	 * @ Author:　ＤＳ．Ｃｈｉｎ
+                  	                  	 * @ Describe: 按键扫描及PIR信号扫描
+                  	                  	**********************************************/
+                  	                  	#include "key_scan.h"
+                  	                  	
+                  	                  	/********************************************
+                  	                  	 * @ FunctionName: KeyScan
+                  	                  	*********************************************/
+                  	                  	void KeyScan(void)
+                  	                  	{
+                  	                  		static uchar 		keyOnCnt;
+                  	                  		static uchar 		keyOffCnt;
+                  	                  		static uchar 		keyOnFlag;			//按键闭合状态标志
+                  	                  		static uchar	 	keyOffFlag;			//按键打开状态标志
+                  	                  	
+                  	                  		if (portKey)
+   97: 7AD0       	B0BTS1 0xD0.2
+   98: 80A8       	JMP 0x00A8
+L19:
+                  	                  		{
+                  	                  			keyOffCnt = 0;
+   99: 2B25       	CLR 0x25
+L22:
+                  	                  	
+                  	                  			if (keyOnFlag == 0)
+   9A: 1E29       	MOV A, 0x29
+   9B: 0600       	CMPRS A, #00h
+   9C: 80B6       	JMP 0x00B6
+L23:
+                  	                  			{
+                  	                  				keyOnCnt++;
+   9D: 1618       	INCMS 0x18
+   9E: 0000       	NOP
+L26:
+                  	                  				if (keyOnCnt > 14)
+   9F: 1E18       	MOV A, 0x18
+   A0: 060E       	CMPRS A, #0Eh
+   A1: 7A86       	B0BTS1 0x86.2
+   A2: 80B6       	JMP 0x00B6
+L27:
+                  	                  				{
+                  	                  					keyOnFlag  = 1;
+   A3: 2D01       	MOV A, #01h
+   A4: 1F29       	MOV 0x29, A
+L30:
+                  	                  					keyOffFlag = 0;
+   A5: 2B2B       	CLR 0x2B
+L31:
+                  	                  					sysKeyStatusFlag = 1;
+   A6: 4C05       	BSET 0x05.4
+L32:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+   A7: 80B6       	JMP 0x00B6
+L6:
+                  	                  		else
+                  	                  		{
+                  	                  			keyOnCnt = 0;
+   A8: 2B18       	CLR 0x18
+L41:
+                  	                  	
+                  	                  			if (keyOffFlag == 0)
+   A9: 1E2B       	MOV A, 0x2B
+   AA: 0600       	CMPRS A, #00h
+   AB: 80B6       	JMP 0x00B6
+L42:
+                  	                  			{
+                  	                  				keyOffCnt++;
+   AC: 1625       	INCMS 0x25
+   AD: 0000       	NOP
+L45:
+                  	                  				if (keyOffCnt > 14)
+   AE: 1E25       	MOV A, 0x25
+   AF: 060E       	CMPRS A, #0Eh
+   B0: 7A86       	B0BTS1 0x86.2
+   B1: 80B6       	JMP 0x00B6
+L46:
+                  	                  				{
+                  	                  					keyOffFlag = 1;
+   B2: 2D01       	MOV A, #01h
+   B3: 1F2B       	MOV 0x2B, A
+L49:
+                  	                  					keyOnFlag  = 0;
+   B4: 2B29       	CLR 0x29
+L50:
+                  	                  					sysKeyStatusFlag = 1;
+   B5: 4C05       	BSET 0x05.4
+L51:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  	}
+   B6: 0E00       	RET
+_Function_PirChk_code:
+                  	                  	
+                  	                  	/*****************************************************
+                  	                  	 * @ FunctionName: PirChk
+                  	                  	 ******************************************************/
+                  	                  	void PirChk(void)
+                  	                  	{
+                  	                  		static uchar 		pirCnt;
+                  	                  		static uchar 	pirOnFlag;	//PIR已经检测到标志
+                  	                  	
+                  	                  		if (!portPir)
+   B7: 74D0       	B0BTS0 0xD0.4
+   B8: 80C8       	JMP 0x00C8
+L71:
+                  	                  		{
+                  	                  			if (pirOnFlag == 0)
+   B9: 1E2E       	MOV A, 0x2E
+   BA: 0600       	CMPRS A, #00h
+   BB: 80CA       	JMP 0x00CA
+L74:
+                  	                  			{
+                  	                  				pirCnt++;
+   BC: 162D       	INCMS 0x2D
+   BD: 0000       	NOP
+L77:
+                  	                  				if (pirCnt > 10)
+   BE: 1E2D       	MOV A, 0x2D
+   BF: 060A       	CMPRS A, #0Ah
+   C0: 7A86       	B0BTS1 0x86.2
+   C1: 80CA       	JMP 0x00CA
+L78:
+                  	                  				{
+                  	                  					pirOnFlag = 1;
+   C2: 2D01       	MOV A, #01h
+   C3: 1F2E       	MOV 0x2E, A
+L81:
+                  	                  					sysPirStatusFlag = 1;
+   C4: 4B05       	BSET 0x05.3
+L82:
+                  	                  					sysTriacFlag = 1;
+   C5: 4905       	BSET 0x05.1
+L83:
+                  	                  					sysTriacInit = 1;
+   C6: 4A05       	BSET 0x05.2
+L84:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+   C7: 80CA       	JMP 0x00CA
+L62:
+                  	                  		else
+                  	                  		{
+                  	                  			pirCnt = 0;
+   C8: 2B2D       	CLR 0x2D
+L93:
+                  	                  			pirOnFlag = 0;
+   C9: 2B2E       	CLR 0x2E
+L94:
+                  	                  		}
+                  	                  	}
+   CA: 0E00       	RET
+_Function_SingleOutput_code:
+                  	                  	/*********************************************************
+                  	                  	 * @ FileName: single_output.c
+                  	                  	 * @ Date: 2015.10.15
+                  	                  	 * @ Author: DS.Chin
+                  	                  	 * @ Describe: 信号输出控制
+                  	                  	*********************************************************/
+                  	                  	#include "single_output.h"
+                  	                  	
+                  	                  	/********************************************************
+                  	                  	 * @ FunctionName: SingleOutput
+                  	                  	*********************************************************/
+                  	                  	void SingleOutput(void)
+                  	                  	{
+                  	                  		static uchar			wakeCnt1;
+                  	                  		static uchar			wakeCnt2;
+                  	                  		static uchar			triacCnt1;
+                  	                  		static uchar			triacCnt2;
+                  	                  		static BitStatus		pirForbidFlag;		//PIR触发后禁止发送唤醒信号标志位
+                  	                  		static BitStatus		wakeDoneFlag;		//唤醒信号结束标志位
+                  	                  		static BitStatus		wakeLastFlag;
+                  	                  		static uchar			forbidTime[2];
+                  	                  	
+                  	                  		if (sysKeyStatusFlag)
+   CB: 5C05       	BTS1 0x05.4
+   CC: 80D7       	JMP 0x00D7
+L50:
+                  	                  		{
+                  	                  			portWake = 0;
+   CD: 60D4       	B0BCLR 0xD4.0
+L53:
+                  	                  			wakeCnt1++;
+   CE: 1619       	INCMS 0x19
+   CF: 0000       	NOP
+L54:
+                  	                  			if (wakeCnt1 > 24)	//100ms low pulse
+   D0: 1E19       	MOV A, 0x19
+   D1: 0618       	CMPRS A, #18h
+   D2: 7A86       	B0BTS1 0x86.2
+   D3: 80D7       	JMP 0x00D7
+L55:
+                  	                  			{
+                  	                  				sysKeyStatusFlag = 0;
+   D4: 4405       	BCLR 0x05.4
+L58:
+                  	                  				wakeCnt1 = 0;
+   D5: 2B19       	CLR 0x19
+L59:
+                  	                  				portWake = 1;
+   D6: 68D4       	B0BSET 0xD4.0
+L60:
+                  	                  			}
+                  	                  		}
+                  	                  	
+                  	                  		if ((sysPirStatusFlag == 1 && pirForbidFlag == 0 && forbidFlag == 0)|| wakeLastFlag == 1)
+   D7: 5B05       	BTS1 0x05.3
+   D8: 80DD       	JMP 0x00DD
+   D9: 502F       	BTS0 0x2F.0
+   DA: 80DD       	JMP 0x00DD
+   DB: 5805       	BTS1 0x05.0
+   DC: 80DF       	JMP 0x00DF
+L18:
+   DD: 5831       	BTS1 0x31.0
+   DE: 80EC       	JMP 0x00EC
+L16:
+                  	                  		{
+                  	                  			portWake = 0;
+   DF: 60D4       	B0BCLR 0xD4.0
+L68:
+                  	                  			wakeCnt2++;
+   E0: 1626       	INCMS 0x26
+   E1: 0000       	NOP
+L69:
+                  	                  			if (wakeCnt2 > 24)
+   E2: 1E26       	MOV A, 0x26
+   E3: 0618       	CMPRS A, #18h
+   E4: 7A86       	B0BTS1 0x86.2
+   E5: 80EE       	JMP 0x00EE
+L70:
+                  	                  			{
+                  	                  				wakeCnt2 = 0;
+   E6: 2B26       	CLR 0x26
+L73:
+                  	                  				wakeLastFlag = 0;
+   E7: 4031       	BCLR 0x31.0
+L74:
+                  	                  				sysPirStatusFlag = 0;
+   E8: 4305       	BCLR 0x05.3
+L75:
+                  	                  				portWake = 1;
+   E9: 68D4       	B0BSET 0xD4.0
+L76:
+                  	                  				wakeDoneFlag = 1;
+   EA: 4830       	BSET 0x30.0
+L77:
+                  	                  			}
+                  	                  		}
+   EB: 80EE       	JMP 0x00EE
+L14:
+                  	                  	
+                  	                  		else
+                  	                  		{
+                  	                  			wakeDoneFlag = 0;
+   EC: 4030       	BCLR 0x30.0
+L84:
+                  	                  			sysPirStatusFlag = 0;
+   ED: 4305       	BCLR 0x05.3
+L85:
+                  	                  		}
+                  	                  	
+                  	                  	//	sysForbidTime = 30;
+                  	                  		if (sysTriacFlag)
+   EE: 5905       	BTS1 0x05.1
+   EF: 811A       	JMP 0x011A
+L88:
+                  	                  		{
+                  	                  			if (forbidFlag == 0)
+   F0: 5005       	BTS0 0x05.0
+   F1: 8119       	JMP 0x0119
+L91:
+                  	                  			{
+                  	                  				if (sysTriacInit)
+   F2: 5A05       	BTS1 0x05.2
+   F3: 80F7       	JMP 0x00F7
+L94:
+                  	                  				{
+                  	                  					sysTriacInit = 0;
+   F4: 4205       	BCLR 0x05.2
+L97:
+                  	                  					triacCnt1    = 0;
+   F5: 2B2A       	CLR 0x2A
+L98:
+                  	                  					triacCnt2    = 0;
+   F6: 2B2C       	CLR 0x2C
+L99:
+                  	                  				}
+                  	                  			
+                  	                  				if (sysForbidTime != 0)
+   F7: 1E28       	MOV A, 0x28
+   F8: 7086       	B0BTS0 0x86.0
+   F9: 8115       	JMP 0x0115
+L102:
+                  	                  				{
+                  	                  					if (wakeDoneFlag)
+   FA: 5830       	BTS1 0x30.0
+   FB: 80FD       	JMP 0x00FD
+L105:
+                  	                  					{
+                  	                  						pirForbidFlag = 1;
+   FC: 482F       	BSET 0x2F.0
+L108:
+                  	                  					}
+                  	                  					portTriac = 1;
+   FD: 6BD5       	B0BSET 0xD5.3
+L111:
+                  	                  	
+                  	                  					triacCnt1++;
+   FE: 162A       	INCMS 0x2A
+   FF: 0000       	NOP
+L112:
+                  	                  			
+                  	                  					if (triacCnt1 > 249)			//1s
+  100: 1E2A       	MOV A, 0x2A
+  101: 06F9       	CMPRS A, #F9h
+  102: 7A86       	B0BTS1 0x86.2
+  103: 811A       	JMP 0x011A
+L113:
+                  	                  					{
+                  	                  						triacCnt1 = 0;
+  104: 2B2A       	CLR 0x2A
+L116:
+                  	                  						triacCnt2++;
+  105: 162C       	INCMS 0x2C
+  106: 0000       	NOP
+L117:
+                  	                  	
+                  	                  						if (triacCnt2 > sysForbidTime - 1)
+  107: 1E28       	MOV A, 0x28
+  108: 2401       	SUB A, #01h
+  109: 2F06       	B0MOV 0x06, A
+  10A: 1E2C       	MOV A, 0x2C
+  10B: 0706       	CMPRS A, 0x06
+  10C: 7A86       	B0BTS1 0x86.2
+  10D: 811A       	JMP 0x011A
+L118:
+                  	                  						{
+                  	                  							sysTriacFlag = 0;
+  10E: 4105       	BCLR 0x05.1
+L121:
+                  	                  							triacCnt2 = 0;
+  10F: 2B2C       	CLR 0x2C
+L122:
+                  	                  							portTriac = 0;
+  110: 63D5       	B0BCLR 0xD5.3
+L123:
+                  	                  							pirForbidFlag = 0;
+  111: 402F       	BCLR 0x2F.0
+L124:
+                  	                  							wakeLastFlag = 1;	//triac信号
+  112: 4831       	BSET 0x31.0
+L125:
+                  	                  							forbidFlag = 1;		//z-wave发送信号时屏蔽PIR
+  113: 4805       	BSET 0x05.0
+L126:
+                  	                  						}
+                  	                  					}
+                  	                  				}
+  114: 811A       	JMP 0x011A
+L27:
+                  	                  				else
+                  	                  				{
+                  	                  					wakeDoneFlag = 0;
+  115: 4030       	BCLR 0x30.0
+L135:
+                  	                  					sysTriacFlag = 0;
+  116: 4105       	BCLR 0x05.1
+L136:
+                  	                  					forbidFlag = 1;
+  117: 4805       	BSET 0x05.0
+L137:
+                  	                  				}
+                  	                  			}
+  118: 811A       	JMP 0x011A
+L23:
+                  	                  			else
+                  	                  			{
+                  	                  				sysTriacFlag = 0;
+  119: 4105       	BCLR 0x05.1
+L144:
+                  	                  			}
+                  	                  		}
+                  	                  	
+                  	                  		if (forbidFlag == 1)
+  11A: 5805       	BTS1 0x05.0
+  11B: 812B       	JMP 0x012B
+L149:
+                  	                  		{
+                  	                  			forbidTime[0]++;
+  11C: 1632       	INCMS 0x32
+  11D: 0000       	NOP
+L152:
+                  	                  			if (forbidTime[0] > 249) //4 * 250 = 1s
+  11E: 1E32       	MOV A, 0x32
+  11F: 06F9       	CMPRS A, #F9h
+  120: 7A86       	B0BTS1 0x86.2
+  121: 812B       	JMP 0x012B
+L153:
+                  	                  			{
+                  	                  				forbidTime[0] = 0;
+  122: 2B32       	CLR 0x32
+L156:
+                  	                  				forbidTime[1]++;
+  123: 1633       	INCMS 0x33
+  124: 0000       	NOP
+L157:
+                  	                  				if (forbidTime[1] > 4)
+  125: 1E33       	MOV A, 0x33
+  126: 0604       	CMPRS A, #04h
+  127: 7A86       	B0BTS1 0x86.2
+  128: 812B       	JMP 0x012B
+L158:
+                  	                  				{
+                  	                  					forbidTime[1] = 0;
+  129: 2B33       	CLR 0x33
+L161:
+                  	                  					forbidFlag = 0;
+  12A: 4005       	BCLR 0x05.0
+L162:
+                  	                  				}
+                  	                  			}
+                  	                  		}
+                  	                  	}
+  12B: 0E00       	RET
+_Function_GpioInit_code:
+                  	                  	/********************************************
+                  	                  	 * @FileName: mcu_config.c
+                  	                  	 * @Date: 2015.10.15
+                  	                  	 * @Author: DS.Chin
+                  	                  	 * @Describe: 单片机外设配置文件
+                  	                  	*********************************************/
+                  	                  	#include "mcu_config.h"
+                  	                  	
+                  	                  	/********************************************
+                  	                  	 * @FunctionName: GpioInit
+                  	                  	*********************************************/
+                  	                  	static void GpioInit(void)
+                  	                  	{
+                  	                  		P0M  = 0xeb;	//P04 P02 input
+  12C: 2DEB       	MOV A, #ebh
+  12D: 2FB8       	B0MOV P0M, A
+L5:
+                  	                  		P0UR = 0X00;
+  12E: 2BE0       	CLR 0xE0
+L6:
+                  	                  		
+                  	                  		P4M   = 0xef;	//P40 output P44 input
+  12F: 2DEF       	MOV A, #efh
+  130: 2FC4       	B0MOV P4M, A
+L7:
+                  	                  		P4UR  = 0x00;
+  131: 2BE4       	CLR 0xE4
+L8:
+                  	                  		P4CON = 0x10;	//P44 selected as AD input only
+  132: 2D10       	MOV A, #10h
+  133: 2FAE       	B0MOV P4CON, A
+L9:
+                  	                  		ADM  |= 0x14;	//open A/D in channel, AIN4 ,ADENB = 1
+  134: 2D14       	MOV A, #14h
+  135: 19B1       	OR 0xB1, A
+L10:
+                  	                  		ADR  |= 0x50;
+  136: 2D50       	MOV A, #50h
+  137: 19B3       	OR 0xB3, A
+L11:
+                  	                  		FP40  = 1;
+  138: 68D4       	B0BSET 0xD4.0
+L12:
+                  	                  		VREFH &= 0x7f;	//vref = VDD;
+  139: 2D7F       	MOV A, #7fh
+  13A: 29AF       	AND 0xAF, A
+L13:
+                  	                  		VREFH |= 0x03;
+  13B: 2D03       	MOV A, #03h
+  13C: 19AF       	OR 0xAF, A
+L14:
+                  	                  	
+                  	                  		P5M  = 0xff;	//P53 output
+  13D: 2DFF       	MOV A, #ffh
+  13E: 2FC5       	B0MOV P5M, A
+L15:
+                  	                  		P5UR = 0x00;
+  13F: 2BE5       	CLR 0xE5
+L16:
+                  	                  		FP53 = 0;
+  140: 63D5       	B0BCLR 0xD5.3
+L17:
+                  	                  	}
+  141: 0E00       	RET
+_Function_TimerInit_code:
+                  	                  	
+                  	                  	/*******************************************
+                  	                  	 * @FunctionName: TimerInit
+                  	                  	********************************************/
+                  	                  	static void TimerInit(void)
+                  	                  	{
+                  	                  		TC0M  = 0x64;	//CPU/4 = 4us
+  142: 2D64       	MOV A, #64h
+  143: 2FDA       	B0MOV TC0M, A
+L23:
+                  	                  		T0M   = 0x00;
+  144: 2BD8       	CLR 0xD8
+L24:
+                  	                  		TC0C  = 6;		//1ms
+  145: 2D06       	MOV A, #06h
+  146: 2FDB       	B0MOV TC0C, A
+L25:
+                  	                  		TC0R  = 6;
+  147: 2FCD       	B0MOV TC0R, A
+L26:
+                  	                  		TC0M |= 0x80;
+  148: 2D80       	MOV A, #80h
+  149: 19DA       	OR 0xDA, A
+L27:
+                  	                  	}
+  14A: 0E00       	RET
+_Function_McuConfig_code:
+                  	                  	
+                  	                  	/******************************************
+                  	                  	* @FunctionName: McuConfig
+                  	                  	*******************************************/
+                  	                  	void McuConfig(void)
+                  	                  	{
+                  	                  		GpioInit();
+  14B: C12C       	CALL 0x012C
+L33:
+                  	                  		TimerInit();
+  14C: C142       	CALL 0x0142
+L34:
+                  	                  	}
+  14D: 0E00       	RET
+Letext:
+  14E: 0000       	NOP
+  14F: 0000       	NOP
+  150: 0000       	NOP
+  151: 0000       	NOP
+  152: 0000       	NOP
+_Function_AdScan_code:
+                  	                  	/*************************************************
+                  	                  	 * @ FileName: ad_scan.c
+                  	                  	 * @ Date: 2015.10.15
+                  	                  	 * @ Author: DS.Chin
+                  	                  	 * @ Describe: AD扫描确定禁卡PIR触发时唤醒信号时间
+                  	                  	**************************************************/
+                  	                  	#include "ad_scan.h"
+                  	                  	
+                  	                  	/**************************************************
+                  	                  	 * @ FunctionName: AdScan
+                  	                  	***************************************************/
+                  	                  	void AdScan(void)
+                  	                  	{
+                  	                  		static uint 	adDataBuf[5] = { 0 };
+                  	                  		uint			adDataAve = 0;;
+  153: 2B34       	CLR 0x34
+  154: 2B35       	CLR 0x35
+L24:
+                  	                  		uchar			iCnt = 0;
+  155: 2B36       	CLR 0x36
+L26:
+                  	                  		uchar 			adTime = 100;
+  156: 2D64       	MOV A, #64h
+  157: 1F37       	MOV 0x37, A
+L27:
+                  	                  		static uchar	adCnt;
+                  	                  	
+                  	                  		FADENB = 1;
+  158: 6FB1       	B0BSET 0xB1.7
+L28:
+                  	                  		FADS = 1;		//start to A/D
+  159: 6EB1       	B0BSET 0xB1.6
+L29:
+                  	                  	
+                  	                  	//	while (adTime && FEOC == 0)
+                  	                  		{
+                  	                  	//		adTime--;
+                  	                  		}
+                  	                  		while (FEOC == 0);
+  15A: 7DB1       	B0BTS1 0xB1.5
+  15B: 815A       	JMP 0x015A
+L35:
+                  	                  		adDataBuf[adCnt] = (uint)ADB * 16 + (uint)(ADR & 0x0F);
+  15C: 1E27       	MOV A, 0x27
+  15D: 2F06       	B0MOV 0x06, A
+  15E: 2B07       	CLR 0x07
+  15F: 6286       	B0BCLR 0x86.2
+  160: 0B06       	RLCM 0x06
+  161: 0B07       	RLCM 0x07
+  162: 2E06       	B0MOV A, 0x06
+  163: 141A       	ADD A, #1Ah
+  164: 2F06       	B0MOV 0x06, A
+  165: 2D00       	MOV A, #00h
+  166: 1007       	ADC A, 0x07
+  167: 2F07       	B0MOV 0x07, A
+  168: 2EB2       	B0MOV A, ADB
+  169: 2F08       	B0MOV 0x08, A
+  16A: 2B09       	CLR 0x09
+  16B: 2D00       	MOV A, #00h
+  16C: 2F00       	B0MOV 0x00, A
+  16D: 2D08       	MOV A, #08h
+  16E: 2F01       	B0MOV 0x01, A
+  16F: 3400       	B0MOV 0x84, #00h
+  170: 3308       	B0MOV 0x83, #08h
+  171: 2D04       	MOV A, #04h
+  172: C1E0       	CALL 0x01E0
+  173: C23D       	CALL 0x023D
+  174: 2EB3       	B0MOV A, ADR
+  175: 2A0F       	AND A, #0Fh
+  176: 2F0A       	B0MOV 0x0A, A
+  177: 2B0B       	CLR 0x0B
+  178: 1F0C       	MOV 0x0C, A
+  179: 2E0B       	B0MOV A, 0x0B
+  17A: 1F0D       	MOV 0x0D, A
+  17B: 2E08       	B0MOV A, 0x08
+  17C: 1F10       	MOV 0x10, A
+  17D: 2E09       	B0MOV A, 0x09
+  17E: 1F11       	MOV 0x11, A
+  17F: 2E07       	B0MOV A, 0x07
+  180: 2F00       	B0MOV 0x00, A
+  181: 2E06       	B0MOV A, 0x06
+  182: 2F01       	B0MOV 0x01, A
+  183: C1D5       	CALL 0x01D5
+L36:
+                  	                  		adCnt++;
+  184: 1627       	INCMS 0x27
+  185: 0000       	NOP
+L37:
+                  	                  		if (adCnt > 4)
+  186: 1E27       	MOV A, 0x27
+  187: 0604       	CMPRS A, #04h
+  188: 7A86       	B0BTS1 0x86.2
+  189: 81D4       	JMP 0x01D4
+L38:
+                  	                  		{
+                  	                  			adCnt = 0;
+  18A: 2B27       	CLR 0x27
+L41:
+                  	                  			adDataAve = 0;
+  18B: 2B34       	CLR 0x34
+  18C: 2B35       	CLR 0x35
+L42:
+                  	                  	
+                  	                  			for (iCnt = 1; iCnt < 4; iCnt++)
+  18D: 2D01       	MOV A, #01h
+  18E: 1F36       	MOV 0x36, A
+  18F: 8199       	JMP 0x0199
+L9:
+                  	                  			{
+                  	                  				adDataAve += adDataBuf[adCnt];
+  190: 1E27       	MOV A, 0x27
+  191: 3400       	B0MOV 0x84, #00h
+  192: 331A       	B0MOV 0x83, #1Ah
+  193: C233       	CALL 0x0233
+  194: 1334       	ADD 0x34, A
+  195: 2E82       	B0MOV A, R
+  196: 1135       	ADC 0x35, A
+L47:
+                  	                  			for (iCnt = 1; iCnt < 4; iCnt++)
+  197: 1636       	INCMS 0x36
+  198: 0000       	NOP
+L12:
+                  	                  			for (iCnt = 1; iCnt < 4; iCnt++)
+  199: 1E36       	MOV A, 0x36
+  19A: 2404       	SUB A, #04h
+  19B: 7A86       	B0BTS1 0x86.2
+  19C: 8190       	JMP 0x0190
+L51:
+                  	                  			}
+                  	                  			adDataAve /= 3;
+  19D: 2D00       	MOV A, #00h
+  19E: 2F00       	B0MOV 0x00, A
+  19F: 2D34       	MOV A, #34h
+  1A0: 2F01       	B0MOV 0x01, A
+  1A1: 3400       	B0MOV 0x84, #00h
+  1A2: 3334       	B0MOV 0x83, #34h
+  1A3: 3200       	B0MOV 0x82, #00h
+  1A4: 2D03       	MOV A, #03h
+  1A5: C223       	CALL 0x0223
+  1A6: C1DD       	CALL 0x01DD
+L54:
+                  	                  	
+                  	                  			if (adDataAve < 367)
+  1A7: 3400       	B0MOV 0x84, #00h
+  1A8: 3334       	B0MOV 0x83, #34h
+  1A9: 2D6F       	MOV A, #6fh
+  1AA: 3201       	B0MOV 0x82, #01h
+  1AB: C223       	CALL 0x0223
+  1AC: C026       	CALL 0x0026
+  1AD: 7286       	B0BTS0 PFLAG.2
+  1AE: 81B1       	JMP 0x01B1
+L55:
+                  	                  			{
+                  	                  				sysForbidTime = 0;
+  1AF: 2B28       	CLR 0x28
+L58:
+                  	                  			}
+  1B0: 81D4       	JMP 0x01D4
+L13:
+                  	                  			else if (adDataAve < 733)
+  1B1: 3400       	B0MOV 0x84, #00h
+  1B2: 3334       	B0MOV 0x83, #34h
+  1B3: 2DDD       	MOV A, #ddh
+  1B4: 3202       	B0MOV 0x82, #02h
+  1B5: C223       	CALL 0x0223
+  1B6: C026       	CALL 0x0026
+  1B7: 7286       	B0BTS0 0x86.2
+  1B8: 81BC       	JMP 0x01BC
+L61:
+                  	                  			{
+                  	                  				sysForbidTime = 30;
+  1B9: 2D1E       	MOV A, #1eh
+  1BA: 1F28       	MOV 0x28, A
+L64:
+                  	                  			}
+  1BB: 81D4       	JMP 0x01D4
+L15:
+                  	                  			else if (adDataAve < 1100)
+  1BC: 3400       	B0MOV 0x84, #00h
+  1BD: 3334       	B0MOV 0x83, #34h
+  1BE: 2D4C       	MOV A, #4ch
+  1BF: 3204       	B0MOV 0x82, #04h
+  1C0: C223       	CALL 0x0223
+  1C1: C026       	CALL 0x0026
+  1C2: 7286       	B0BTS0 0x86.2
+  1C3: 81C7       	JMP 0x01C7
+L67:
+                  	                  			{
+                  	                  				sysForbidTime = 60;
+  1C4: 2D3C       	MOV A, #3ch
+  1C5: 1F28       	MOV 0x28, A
+L70:
+                  	                  			}
+  1C6: 81D4       	JMP 0x01D4
+L17:
+                  	                  			else if (adDataAve < 1466)
+  1C7: 3400       	B0MOV 0x84, #00h
+  1C8: 3334       	B0MOV 0x83, #34h
+  1C9: 2DBA       	MOV A, #bah
+  1CA: 3205       	B0MOV 0x82, #05h
+  1CB: C223       	CALL 0x0223
+  1CC: C026       	CALL 0x0026
+  1CD: 7286       	B0BTS0 0x86.2
+  1CE: 81D2       	JMP 0x01D2
+L73:
+                  	                  			{
+                  	                  				sysForbidTime = 90;
+  1CF: 2D5A       	MOV A, #5ah
+  1D0: 1F28       	MOV 0x28, A
+L76:
+                  	                  			}
+  1D1: 81D4       	JMP 0x01D4
+L19:
+                  	                  			else
+                  	                  			{
+                  	                  				sysForbidTime = 120;
+  1D2: 2D78       	MOV A, #78h
+  1D3: 1F28       	MOV 0x28, A
+L81:
+                  	                  			}
+                  	                  		}
+                  	                  	
+                  	                  	}
+  1D4: 0E00       	RET
+__AddLong@RTL:
+  1D5: 2E10       	B0MOV A, 0x10
+  1D6: 130C       	ADD 0x0C, A
+  1D7: 2E11       	B0MOV A, 0x11
+  1D8: 110D       	ADC 0x0D, A
+  1D9: C228       	CALL 0x0228
+  1DA: 0E00       	RET
+__DivULong@RTL:
+  1DB: 6816       	B0BSET 0x16.0
+  1DC: 81DE       	JMP 0x01DE
+__DivULong2Ram:
+  1DD: 6016       	B0BCLR 0x16.0
+@ModDivLongParaArgArg:
+  1DE: C246       	CALL 0x0246
+  1DF: 0E00       	RET
+__Get2ByteParaToDest@RTL:
+  1E0: 2F02       	B0MOV 0x02, A
+  1E1: 2EE7       	B0MOV A, @YZ
+  1E2: 2F0C       	B0MOV 0x0C, A
+  1E3: 1683       	INCMS 0x83
+  1E4: 0000       	NOP
+  1E5: 2EE7       	B0MOV A, @YZ
+  1E6: 2F0D       	B0MOV 0x0D, A
+  1E7: 2E02       	B0MOV A, 0x02
+  1E8: 0E00       	RET
+__Get2ByteRomToLArg:
+  1E9: 2F14       	B0MOV 0x14, A
+  1EA: 2E82       	B0MOV A, R
+  1EB: 2F15       	B0MOV 0x15, A
+  1EC: 2B02       	CLR 0x02
+  1ED: 0D00       	MOVC
+  1EE: 2F0C       	B0MOV 0x0C, A
+  1EF: 2E82       	B0MOV A, R
+  1F0: 2F0D       	B0MOV 0x0D, A
+  1F1: 2E15       	B0MOV A, 0x15
+  1F2: 2F82       	B0MOV R, A
+  1F3: 2E14       	B0MOV A, 0x14
+  1F4: 0E00       	RET
+__Get2ByteRamToRArg:
+  1F5: 2F83       	B0MOV Z, A
+  1F6: 2E82       	B0MOV A, R
+  1F7: 2F84       	B0MOV Y, A
+  1F8: C29A       	CALL 0x029A
+  1F9: 0E00       	RET
+__Get2ByteRomToRArg:
+  1FA: 2F83       	B0MOV Z, A
+  1FB: 2E82       	B0MOV A, R
+  1FC: 2F84       	B0MOV Y, A
+  1FD: 2B02       	CLR 0x02
+  1FE: 0D00       	MOVC
+@@Mov2ByteToRArg:
+  1FF: 2F10       	B0MOV 0x10, A
+  200: 2E82       	B0MOV A, R
+  201: 2F11       	B0MOV 0x11, A
+  202: 0E00       	RET
+__Get2BytePara@RTL:
+  203: C1E0       	CALL 0x01E0
+  204: 2F83       	B0MOV Z, A
+  205: 2E82       	B0MOV A, R
+  206: 2F84       	B0MOV Y, A
+  207: C29A       	CALL 0x029A
+  208: 0E00       	RET
+__Get2ByteRamRom:
+  209: C1E0       	CALL 0x01E0
+  20A: 2F83       	B0MOV Z, A
+  20B: 2E82       	B0MOV A, R
+  20C: 2F84       	B0MOV Y, A
+  20D: 2B02       	CLR 0x02
+  20E: 0D00       	MOVC
+  20F: 2F10       	B0MOV 0x10, A
+  210: 2E82       	B0MOV A, R
+  211: 2F11       	B0MOV 0x11, A
+  212: 0E00       	RET
+__Get2ByteRomRam:
+  213: C1E9       	CALL 0x01E9
+  214: 2F83       	B0MOV Z, A
+  215: 2E82       	B0MOV A, R
+  216: 2F84       	B0MOV Y, A
+  217: C29A       	CALL 0x029A
+  218: 0E00       	RET
+__Get2ByteRomRom:
+  219: C1E9       	CALL 0x01E9
+  21A: 2F83       	B0MOV Z, A
+  21B: 2E82       	B0MOV A, R
+  21C: 2F84       	B0MOV Y, A
+  21D: 2B02       	CLR 0x02
+  21E: 0D00       	MOVC
+  21F: 2F10       	B0MOV 0x10, A
+  220: 2E82       	B0MOV A, R
+  221: 2F11       	B0MOV 0x11, A
+  222: 0E00       	RET
+__Get2ByteRamCst:
+  223: C1E0       	CALL 0x01E0
+  224: 2F10       	B0MOV 0x10, A
+  225: 2E82       	B0MOV A, R
+  226: 2F11       	B0MOV 0x11, A
+  227: 0E00       	RET
+__Store2ByteLArg2HL:
+  228: 2E01       	B0MOV A, 0x01
+  229: 2F83       	B0MOV Z, A
+  22A: 2E00       	B0MOV A, 0x00
+  22B: 2F84       	B0MOV Y, A
+  22C: 2E0C       	B0MOV A, 0x0C
+  22D: 2FE7       	B0MOV @YZ, A
+  22E: 1683       	INCMS 0x83
+  22F: 0000       	NOP
+  230: 2E0D       	B0MOV A, 0x0D
+  231: 2FE7       	B0MOV @YZ, A
+  232: 0E00       	RET
+__GetRamToReg@RTL:
+  233: 0383       	B0ADD Z, A
+  234: 0383       	B0ADD Z, A
+  235: 2D01       	MOV A, #01h
+  236: 0383       	B0ADD Z, A
+  237: 2EE7       	B0MOV A, @YZ
+  238: 2F82       	B0MOV R, A
+  239: 2DFF       	MOV A, #ffh
+__Get1ByteRamToReg:
+  23A: 0383       	B0ADD Z, A
+  23B: 2EE7       	B0MOV A, @YZ
+  23C: 0E00       	RET
+__SLLong@RTL:
+  23D: 2401       	SUB A, #01h
+  23E: 7A86       	B0BTS1 PFLAG.2
+  23F: 8244       	JMP 0x0244
+  240: 6286       	B0BCLR PFLAG.2
+  241: 0B0C       	RLCM 0x0C
+  242: 0B0D       	RLCM 0x0D
+  243: 823D       	JMP 0x023D
+@@RET:
+  244: C228       	CALL 0x0228
+  245: 0E00       	RET
+__DivULongKernel@RTL:
+  246: 2E00       	B0MOV A, 0x00
+  247: 2F84       	B0MOV Y, A
+  248: 2E01       	B0MOV A, 0x01
+  249: 2F83       	B0MOV Z, A
+  24A: 2E10       	B0MOV A, 0x10
+  24B: 1811       	OR A, 0x11
+  24C: 0600       	CMPRS A, #00h
+  24D: 8252       	JMP 0x0252
+  24E: 2DFF       	MOV A, #ffh
+  24F: 2F00       	B0MOV 0x00, A
+  250: 2F01       	B0MOV 0x01, A
+  251: 8258       	JMP 0x0258
+@@doNextCheck:
+  252: 2E0C       	B0MOV A, 0x0C
+  253: 180D       	OR A, 0x0D
+  254: 0600       	CMPRS A, #00h
+  255: 825B       	JMP 0x025B
+  256: 2B00       	CLR 0x00
+  257: 2B01       	CLR 0x01
+@@checkEnd:
+  258: 2B14       	CLR 0x14
+  259: 2B15       	CLR 0x15
+  25A: 8275       	JMP 0x0275
+@@doDivStart:
+  25B: 2B00       	CLR 0x00
+  25C: 2B01       	CLR 0x01
+  25D: 2B15       	CLR 0x15
+  25E: 2B14       	CLR 0x14
+  25F: 3210       	B0MOV 0x82, #10h
+@doNextBit:
+  260: 6286       	B0BCLR 0x86.2
+  261: 0B01       	RLCM 0x01
+  262: 0B00       	RLCM 0x00
+  263: 6286       	B0BCLR 0x86.2
+  264: 0B0C       	RLCM 0x0C
+  265: 0B0D       	RLCM 0x0D
+  266: 0B14       	RLCM 0x14
+  267: 0B15       	RLCM 0x15
+  268: 2E14       	B0MOV A, 0x14
+  269: 2210       	SUB A, 0x10
+  26A: 2FE7       	B0MOV @YZ, A
+  26B: 2E15       	B0MOV A, 0x15
+  26C: 2011       	SBC A, 0x11
+  26D: 7A86       	B0BTS1 0x86.2
+  26E: 8273       	JMP 0x0273
+  26F: 2F15       	B0MOV 0x15, A
+  270: 2EE7       	B0MOV A, @YZ
+  271: 2F14       	B0MOV 0x14, A
+  272: 6801       	B0BSET 0x01.0
+@@dec_num:
+  273: 2682       	DECMS 0x82
+  274: 8260       	JMP 0x0260
+@@Ret:
+  275: 2E01       	B0MOV A, 0x01
+  276: 2FE7       	B0MOV @YZ, A
+  277: 1683       	INCMS 0x83
+  278: 0000       	NOP
+  279: 2E00       	B0MOV A, 0x00
+  27A: 2FE7       	B0MOV @YZ, A
+  27B: 7816       	B0BTS1 0x16.0
+  27C: 8283       	JMP 0x0283
+  27D: 2E15       	B0MOV A, 0x15
+  27E: 2FE7       	B0MOV @YZ, A
+  27F: 2683       	DECMS 0x83
+  280: 0000       	NOP
+  281: 2E14       	B0MOV A, 0x14
+  282: 2FE7       	B0MOV @YZ, A
+@@RetResult:
+  283: 0E00       	RET
+__Mov2ByteRamToLArg@RTL:
+  284: 2EE7       	B0MOV A, @YZ
+  285: 2F0C       	B0MOV 0x0C, A
+  286: 1683       	INCMS 0x83
+  287: 0000       	NOP
+  288: 2EE7       	B0MOV A, @YZ
+  289: 2F0D       	B0MOV 0x0D, A
+  28A: 0E00       	RET
+__Mov4ByteRamToLArg@RTL:
+  28B: 2EE7       	B0MOV A, @YZ
+  28C: 2F0C       	B0MOV 0x0C, A
+  28D: 1683       	INCMS 0x83
+  28E: 0000       	NOP
+  28F: 2EE7       	B0MOV A, @YZ
+  290: 2F0D       	B0MOV 0x0D, A
+  291: 1683       	INCMS 0x83
+  292: 0000       	NOP
+  293: 2EE7       	B0MOV A, @YZ
+  294: 2F0E       	B0MOV 0x0E, A
+  295: 1683       	INCMS 0x83
+  296: 0000       	NOP
+  297: 2EE7       	B0MOV A, @YZ
+  298: 2F0F       	B0MOV 0x0F, A
+  299: 0E00       	RET
+__Mov2ByteRamToRArg@RTL:
+  29A: 2EE7       	B0MOV A, @YZ
+  29B: 2F10       	B0MOV 0x10, A
+  29C: 1683       	INCMS 0x83
+  29D: 0000       	NOP
+  29E: 2EE7       	B0MOV A, @YZ
+  29F: 2F11       	B0MOV 0x11, A
+  2A0: 0E00       	RET
+__Mov4ByteRamToRArg@RTL:
+  2A1: C29A       	CALL 0x029A
+  2A2: 1683       	INCMS 0x83
+  2A3: 0000       	NOP
+  2A4: 2EE7       	B0MOV A, @YZ
+  2A5: 2F12       	B0MOV 0x12, A
+  2A6: 1683       	INCMS 0x83
+  2A7: 0000       	NOP
+  2A8: 2EE7       	B0MOV A, @YZ
+  2A9: 2F13       	B0MOV 0x13, A
+  2AA: 0E00       	RET

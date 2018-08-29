@@ -1,0 +1,226 @@
+C51 COMPILER V9.52.0.0   LED                                                               03/30/2017 14:18:05 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN led.OBJ
+COMPILER INVOKED BY: C:\Keil51\C51\BIN\C51.EXE led.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*************************
+   2          *作者:chenyk
+   3          *日期:2014.10.30
+   4          *************************/
+   5          #include "mc96f6508a.h"
+   6          #include "led.h"
+   7          uchar send_data_1;
+   8          uchar send_data_2;
+   9          uchar led_duty;
+  10          idata uchar r_duty[17];
+  11          idata uchar g_duty[17];
+  12          idata uchar b_duty[17];
+  13          
+  14          void red_control(void);
+  15          void green_control(void);
+  16          void blue_control(void);
+  17          void send_led_data(void);
+  18          /************************
+  19          *名称:led_control
+  20          *功能:控制led
+  21          *输入:无
+  22          *输出:无
+  23          *修改记录:
+  24          ************************/
+  25          void led_control(void)
+  26          {
+  27   1        led_duty+=1;
+  28   1        if(led_duty>29) led_duty=0;
+  29   1        
+  30   1        red_control();
+  31   1        green_control();
+  32   1        blue_control();
+  33   1        send_led_data();
+  34   1      }
+  35          /*********************
+  36          *名称:red_control
+  37          *功能:控制red
+  38          *输入:无
+  39          *输出:无
+  40          *修改记录:
+  41          ***********************/
+  42          void red_control(void)
+  43          {
+  44   1        if(r_duty[0]>led_duty) red_1=1;
+  45   1        else red_1=0;
+  46   1        if(r_duty[1]>led_duty) red_2=1;
+  47   1        else red_2=0;
+  48   1        if(r_duty[2]>led_duty) red_3=1;
+  49   1        else red_3=0;
+  50   1        if(r_duty[3]>led_duty) red_4=1;
+  51   1        else red_4=0;
+  52   1        if(r_duty[4]>led_duty) red_5=1;
+  53   1        else red_5=0;
+  54   1        if(r_duty[5]>led_duty) red_6=1;
+  55   1        else red_6=0;
+C51 COMPILER V9.52.0.0   LED                                                               03/30/2017 14:18:05 PAGE 2   
+
+  56   1        if(r_duty[6]>led_duty) red_7=1;
+  57   1        else red_7=0;
+  58   1        if(r_duty[7]>led_duty) red_8=1;
+  59   1        else red_8=0;
+  60   1        if(r_duty[8]>led_duty) red_9=1;
+  61   1        else red_9=0;
+  62   1        if(r_duty[9]>led_duty) red_10=1;
+  63   1        else red_10=0;
+  64   1        if(r_duty[10]>led_duty) red_11=1;
+  65   1        else red_11=0;
+  66   1        if(r_duty[11]>led_duty) red_12=1;
+  67   1        else red_12=0;
+  68   1        if(r_duty[12]>led_duty) red_13=1;
+  69   1        else red_13=0;
+  70   1        
+  71   1        if(r_duty[13]>led_duty)send_data_1|=0x01;
+  72   1        else send_data_1&=0xfe;
+  73   1        if(r_duty[14]>led_duty)send_data_1|=0x02;
+  74   1        else send_data_1&=0xfd;
+  75   1        if(r_duty[15]>led_duty)send_data_1|=0x04;
+  76   1        else send_data_1&=0xfb;
+  77   1        if(r_duty[16]>led_duty)send_data_1|=0x08;
+  78   1        else send_data_1&=0xf7;
+  79   1      }
+  80          /***************************
+  81          *名称:green_control
+  82          *功能:控制green led
+  83          *输入:无
+  84          *输出:无
+  85          *修改记录:
+  86          ***************************/
+  87          void green_control(void)
+  88          {
+  89   1        
+  90   1      
+  91   1        if(g_duty[0]>led_duty)green_1=1;
+  92   1        else green_1=0;
+  93   1        if(g_duty[1]>led_duty)green_2=1;
+  94   1        else green_2=0;
+  95   1        if(g_duty[2]>led_duty)green_3=1;
+  96   1        else green_3=0;
+  97   1        if(g_duty[3]>led_duty)green_4=1;
+  98   1        else green_4=0;
+  99   1        if(g_duty[4]>led_duty)green_5=1;
+ 100   1        else green_5=0;
+ 101   1        if(g_duty[5]>led_duty)green_6=1;
+ 102   1        else green_6=0;
+ 103   1        if(g_duty[6]>led_duty)green_7=1;
+ 104   1        else green_7=0;
+ 105   1        if(g_duty[7]>led_duty)green_8=1;
+ 106   1        else green_8=0;
+ 107   1        if(g_duty[8]>led_duty)green_9=1;
+ 108   1        else green_9=0;
+ 109   1        if(g_duty[9]>led_duty)green_10=1;
+ 110   1        else green_10=0;
+ 111   1        if(g_duty[10]>led_duty)green_11=1;
+ 112   1        else green_11=0;
+ 113   1        if(g_duty[11]>led_duty)green_12=1;
+ 114   1        else green_12=0;
+ 115   1        if(g_duty[12]>led_duty)green_13=1;
+ 116   1        else green_13=0;
+ 117   1        if(g_duty[13]>led_duty)green_14=1;
+C51 COMPILER V9.52.0.0   LED                                                               03/30/2017 14:18:05 PAGE 3   
+
+ 118   1        else green_14=0;
+ 119   1        if(g_duty[14]>led_duty)send_data_1|=0x10;
+ 120   1        else send_data_1&=0xef;
+ 121   1        if(g_duty[15]>led_duty)send_data_1|=0x20;
+ 122   1        else send_data_1&=0xdf;
+ 123   1        if(g_duty[16]>led_duty)send_data_1|=0x40;
+ 124   1        else send_data_1&=0xbf;  
+ 125   1      }
+ 126          /***************************
+ 127          *名称:blue_control
+ 128          *功能:控制blue led
+ 129          *输入:无
+ 130          *输出:无
+ 131          *修改记录:
+ 132          ***************************/
+ 133          void blue_control(void)
+ 134          {
+ 135   1        if(b_duty[0]>led_duty)blue_1=1;
+ 136   1        else blue_1=0;
+ 137   1        if(b_duty[1]>led_duty)blue_2=1;
+ 138   1        else blue_2=0;
+ 139   1        if(b_duty[2]>led_duty)blue_3=1;
+ 140   1        else blue_3=0;
+ 141   1        if(b_duty[3]>led_duty)blue_4=1;
+ 142   1        else blue_4=0;
+ 143   1        if(b_duty[4]>led_duty)blue_5=1;
+ 144   1        else blue_5=0;
+ 145   1        if(b_duty[5]>led_duty)blue_6=1;
+ 146   1        else blue_6=0;
+ 147   1        if(b_duty[6]>led_duty)blue_7=1;
+ 148   1        else blue_7=0;
+ 149   1        if(b_duty[7]>led_duty)blue_8=1;
+ 150   1        else blue_8=0;
+ 151   1        if(b_duty[8]>led_duty)blue_9=1;
+ 152   1        else blue_9=0;
+ 153   1        if(b_duty[9]>led_duty)blue_10=1;
+ 154   1        else blue_10=0;
+ 155   1        if(b_duty[10]>led_duty)blue_11=1;
+ 156   1        else blue_11=0;
+ 157   1        if(b_duty[11]>led_duty)blue_12=1;
+ 158   1        else blue_12=0;
+ 159   1        if(b_duty[12]>led_duty)blue_13=1;
+ 160   1        else blue_13=0;
+ 161   1        if(b_duty[13]>led_duty)blue_14=1;
+ 162   1        else blue_14=0;
+ 163   1        if(b_duty[14]>led_duty)send_data_1|=0x80;
+ 164   1        else send_data_1&=0x7f;
+ 165   1        if(b_duty[15]>led_duty)send_data_2|=0x01;
+ 166   1        else send_data_2&=0xfe;
+ 167   1        if(b_duty[16]>led_duty)send_data_2|=0x02;
+ 168   1        else send_data_2&=0xfd;  
+ 169   1      }
+ 170          /**************************
+ 171          *名称:send_led_data
+ 172          *功能:发送led数据 
+ 173          *输入:无
+ 174          *输出:无
+ 175          *修改记录:
+ 176          ***************************/
+ 177          void send_led_data(void)
+ 178          {
+ 179   1        uchar i,j;
+C51 COMPILER V9.52.0.0   LED                                                               03/30/2017 14:18:05 PAGE 4   
+
+ 180   1        //send_data_1=0x50;
+ 181   1        //send_data_2=0x00;
+ 182   1         
+ 183   1        for(i=10;i>0;i--)
+ 184   1        {
+ 185   2          sda=0;
+ 186   2        if((send_data_2&0x02)==0x02)
+ 187   2          sda=1;
+ 188   2        send_data_2<<=1;
+ 189   2        if((send_data_1&0x80)==0x80)
+ 190   2         send_data_2|=0x01;
+ 191   2        send_data_1<<=1;
+ 192   2        sck=0;
+ 193   2        for(j=0;j<10;j++);
+ 194   2        sck=1;
+ 195   2        for(j=0;j<10;j++); 
+ 196   2        }
+ 197   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    808    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =     51    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

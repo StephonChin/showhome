@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <configuration>
+    <name>Debug</name>
+    <toolchain>
+      <name>STM8</name>
+    </toolchain>
+    <debug>1</debug>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <toolchain>
+      <name>STM8</name>
+    </toolchain>
+    <debug>0</debug>
+  </configuration>
+  <group>
+    <name>PrivateIncludes</name>
+    <file>
+      <name>$PROJ_DIR$\PrivateFiles\Includes\Attribute.h</name>
+    </file>
+  </group>
+  <group>
+    <name>PrivateSources</name>
+    <file>
+      <name>$PROJ_DIR$\PrivateFiles\Sources\BT36.c</name>
+    </file>
+  </group>
+  <group>
+    <name>PublicIncludes</name>
+    <file>
+      <name>$PROJ_DIR$\..\PublicFiles\Includes\CSR1010.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\PublicFiles\Includes\Key_Scan.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\PublicFiles\Includes\TypeDefine.h</name>
+    </file>
+  </group>
+  <group>
+    <name>PublicSources</name>
+    <file>
+      <name>$PROJ_DIR$\..\PublicFiles\Sources\CSR1010.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\PublicFiles\Sources\Key_Scan.c</name>
+    </file>
+  </group>
+</project>
+
+
